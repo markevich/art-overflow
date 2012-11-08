@@ -23,6 +23,9 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
+  gem "therubyracer"
+  gem "less-rails"
+  gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -37,7 +40,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
-
+gem 'simple_form'
 gem 'capistrano'
 
 gem 'debugger'
