@@ -4,6 +4,7 @@ gem 'rails', '3.2.8'
 
 
 gem 'mysql2'
+gem 'devise'
 
 group :test, :development do
   gem 'rspec-rails'
@@ -32,8 +33,6 @@ end
 
 gem 'jquery-rails'
 gem "haml-rails"
-# To use ActiveModel has_secure_password
-gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
