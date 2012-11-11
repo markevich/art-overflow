@@ -1,19 +1,16 @@
-= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   %h3{style: "text-align:center;"}
     Sign in
-    .control-group
-      .controls{style: 'margin-left:0;'}
-        .input-prepend
-          %span.add-on
-            %i.icon-envelope
-          = f.email_field :email, required: true, placeholder: 'Email'
-    .control-group
-      .controls{style: 'margin-left:0;'}
-        .input-prepend
-          %span.add-on
-            %i.icon-lock
-          = f.text_field :password, required: true, placeholder: 'Password'
-    .control-group
-      = f.submit 'Sign in', class: 'btn btn-primary'
+  = f.input :email, label: false, :wrapper => :prepend do
+    %span.add-on
+      %i.icon-envelope
+    = f.input_field :email, required: true, placeholder: 'Email'
+
+  = f.input :password, label: false, :wrapper => :prepend do
+    %span.add-on
+      %i.icon-lock
+    = f.input_field :password, required: true, placeholder: 'Password'
+
+  = f.submit 'Sign in', class: 'btn btn-primary'
     
 = render "devise/shared/links"
