@@ -10,17 +10,17 @@
   = f.input :email, :wrapper => :prepend do
     %span.add-on
       %i.icon-envelope
-    = f.input_field :name
+    = f.input_field :email
 
   = f.input :password, :wrapper => :prepend do
     %span.add-on
       %i.icon-lock
-    = f.input_field :name
+    = f.input_field :password
 
   = f.input :password_confirmation, :wrapper => :prepend do
     %span.add-on
       %i.icon-ok
-    = f.input_field :name
+    = f.input_field :password_confirmation
 
   = f.button :submit, 'Sign up'
 = render "devise/shared/links"
