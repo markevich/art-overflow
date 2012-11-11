@@ -33,20 +33,15 @@
               %li= link_to "Link 3", "/path3"
             %ul.nav.pull-right
               %li.divider-vertical
-              %li= link_to "Sign in", new_user_session_path, id: 'sign-in'
+              %li
+                %a{href: new_user_session_path} 
+                  %i.icon-user
+                  Sign in
 
     .container-fluid
-
       .row-fluid
-        .span3
-          .well.sidebar-nav
-            %ul.nav.nav-list
-              %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
-        .span9
-          .well.sidebar-nav
+        .span4.offset4{style: "text-align:center;"}
+          .well
             = yield
     
       %footer

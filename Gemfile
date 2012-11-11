@@ -14,6 +14,7 @@ group :test, :development do
   gem 'guard-rspec'
   gem 'guard-cucumber'
   gem 'guard-livereload'
+  gem 'guard-spork'
   gem 'rack-livereload'
   gem 'yajl-ruby'
   gem 'libnotify'
