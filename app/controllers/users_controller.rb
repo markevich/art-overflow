@@ -3,4 +3,8 @@ class UsersController < ActionController::Base
   
   def new
   end
+
+  def login
+    
+  end
 end

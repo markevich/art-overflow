@@ -2,7 +2,9 @@ Nicedrawing::Application.routes.draw do
 
   devise_for :users
 
-  resources :users
+  resource :users do 
+    get :login, as: :login
+  end
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
