@@ -7,8 +7,8 @@ And(/^path should be "([^"]*)"$/) do |path|
   current_path.should == path
 end
 
-And(/click button "([^"]*)"$/) do |button_id|
-  find(button_id).click
+And(/click button "([^"]*)"$/) do |button|
+  click_button(button)
 end
 
 And(/^choose "([^"]*)"/) do |radio_id|
