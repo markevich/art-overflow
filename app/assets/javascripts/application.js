@@ -10,7 +10,15 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require jquery
-//= require jquery_ujs
+
 //= require twitter/bootstrap
 //= require_tree .
+// $(function() {
+//    $('#flash').delay(500).fadeIn('normal', function() {
+//       $(this).delay(2500).fadeOut();
+//    });
+// });​
+
+$(function(){
+  $('#flash').delay(10).fadeIn('normal');
+});

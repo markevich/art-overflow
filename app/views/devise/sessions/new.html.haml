@@ -1,4 +1,4 @@
-= form_for(resource, class: 'form-horizontal') do |f|
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
   %h3 
     Sign in
     .control-group
@@ -17,44 +17,3 @@
       = f.submit 'Sign in', class: 'btn btn-primary'
     
 = render "devise/shared/links"
-
-/ = simple_form_for(resource, :html => {class: 'form-horizontal'}) do |f|
-/   .h2 Sign in
-/   .control-group
-/     .controls{style: 'margin-left:0;'}
-/       .input-prepend
-/         = f.input :email, :required => false, :autofocus => true
-
-/     = f.input :password, :required => false
-/     = f.input :remember_me, :as => :boolean if devise_mapping.rememberable?
-
-/   .form-actions
-/     = f.button :submit, "Sign in"
-
-/ = render "devise/shared/links"
-
-
-/ <%= simple_form_for @article, :html => { :class => 'form-horizontal' } do |f| %>
-/ <form method="POST" id="login-form" class="form-horizontal">
-/ <h2>Login</h2>      
-/ <input type="hidden" name="login" value="1">
-
-/         <div class="control-group">
-/     <div class="controls" style="margin-left:0;">
-/           <div class="input-prepend">
-/             <span class="add-on"><i class="icon-user"></i></span><input placeholder="Username" type="text" size="25" id="username" name="username" tabindex="1">
-/           </div>
-/           </div>
-/         </div>
-/         <div class="control-group">
-/           <div class="controls" style="margin-left:0;">
-/           <div class="input-prepend">
-/             <span class="add-on"><i class="icon-lock"></i></span><input placeholder="Password" type="password" value="" size="25" name="password" tabindex="2">
-/           </div>
-/           </div>
-/         </div>
-/         <div class="control-group">
-/           <button type="submit" class="btn btn-primary" tabindex="3">Log in</button>
-/         </div>
-
-/     </form>

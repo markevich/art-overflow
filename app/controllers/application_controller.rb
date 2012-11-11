@@ -5,4 +5,11 @@ class ApplicationController < ActionController::Base
   def index
 
   end
+  
+  if Rails.env.test?
+    rescue_from Exception do |e|
+      logger.error e
+      logger.error e.backtrace.join "\n"
+    end
+  end
 end
