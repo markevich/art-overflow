@@ -35,7 +35,6 @@ end
 
 gem 'jquery-rails'
 gem "haml-rails"
-
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

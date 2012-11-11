@@ -1,11 +1,11 @@
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  %h3 
+  %h3{style: "text-align:center;"}
     Sign in
     .control-group
       .controls{style: 'margin-left:0;'}
         .input-prepend
           %span.add-on
-            %i.icon-user
+            %i.icon-envelope
           = f.email_field :email, required: true, placeholder: 'Email'
     .control-group
       .controls{style: 'margin-left:0;'}
