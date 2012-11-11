@@ -8,7 +8,7 @@ describe "application/index.html.haml" do
   context 'when user is not authorized' do
     it 'show sign in link' do
       render :template => "application/index", :layout => "layouts/application"
-      rendered.should include login_users_path
+      rendered.should include new_user_session_path
     end
   end
 end
