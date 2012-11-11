@@ -1,10 +1,9 @@
-class UsersController < ActionController::Base
-  layout 'application'
+class UsersController < ApplicationController
   
   def new
   end
 
   def login
-    
+
   end
 end
