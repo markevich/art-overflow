@@ -1,0 +1,19 @@
+= simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), html: {class: 'form-vertical', :method => :put}) do |f|
+  %h3{style: "text-align:center;"} Change your password
+  = f.error_notification
+  
+  = f.input :reset_password_token, :as => :hidden
+  = f.full_error :reset_password_token
+
+  = f.input :password, :wrapper => :prepend do
+    %span.add-on
+      %i.icon-lock
+    = f.input_field :password, required: true
+
+  = f.input :password_confirmation, :wrapper => :prepend do
+    %span.add-on
+      %i.icon-ok
+    = f.input_field :password_confirmation, required: true
+
+  = f.button :submit, 'Change password'
+= render "devise/shared/links"

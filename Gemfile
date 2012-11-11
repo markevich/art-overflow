@@ -21,7 +21,9 @@ group :test, :development do
   gem 'rb-inotify', '~> 0.8.8'
 end
 
-
+group :test do
+  gem 'email_spec'
+end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'

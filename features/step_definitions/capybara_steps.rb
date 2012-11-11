@@ -1,5 +1,5 @@
 #encoding: utf-8
-When(/^open page "([^"]*)"$/) do |path|
+When(/open page "([^"]*)"$/) do |path|
   visit path
 end
 
