@@ -5,6 +5,8 @@ gem 'rails', '3.2.8'
 
 gem 'mysql2'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test, :development do
   gem 'rspec-rails'
