@@ -1,0 +1,15 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: nicedrawing_dev
+  username: root
+  password: 
+  host: localhost
+
+test:
+  adapter: mysql2
+  encoding: utf8
+  database: nicedrawing_test
+  username: root
+  password:
+  host: localhost
