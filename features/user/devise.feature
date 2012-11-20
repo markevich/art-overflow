@@ -19,3 +19,9 @@ Feature: user devise workflow
     Then page should have content "Your account was successfully confirmed."
     And page should have content "My account"
 
+  Scenario: registration with facebook
+    Given that following omniauth account exist
+    Given I open page "/"
+    Then I click link "Sign in"
+    Then I click link "Sign in with Facebook"
+    Then page should have content "Successfully authenticated from Facebook account."

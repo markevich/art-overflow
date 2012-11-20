@@ -1,9 +1,9 @@
 require 'rubygems'
 require 'spork'
 #uncomment the following line to use spork with the debugger
-require 'spork/ext/ruby-debug'
 
 Spork.prefork do
+  require 'spork/ext/ruby-debug'
   # Loading more in this block will cause your tests to run faster. However,
   # if you change any configuration or code from libraries loaded here, you'll
   # need to restart spork for it take effect.
@@ -75,6 +75,7 @@ Spork.prefork do
 
   require 'email_spec' # add this line if you use spork
   require 'email_spec/cucumber'
+  OmniAuth.config.test_mode = true
 end
 
 Spork.each_run do

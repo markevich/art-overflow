@@ -45,6 +45,18 @@ def sign_in
   click_button "Sign in"
 end
 
+def create_account_in_facebook
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    :provider => :facebook,
+    "uid" => 123455678,
+    "info" => {"email" => "example@example.com"},
+    "extra" => {
+      "raw_info" => {
+        "name" => "Testy"
+        }
+      }
+    })
+end
 ### GIVEN ###
 Given /^I am not logged in$/ do
   delete destroy_user_session_path
@@ -81,4 +93,13 @@ end
 When /^I sign up with valid user data$/ do
   create_visitor
   sign_up
+end
+
+Given /^that following omniauth account exist$/ do
+  create_account_in_facebook
+end
+
+Given /^that account with facebook exist$/ do
+  create_account_in_facebook
+  create_account_with_facebook
 end
