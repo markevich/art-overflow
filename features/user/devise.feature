@@ -20,7 +20,15 @@ Feature: user devise workflow
     And page should have content "My account"
 
   Scenario: registration with facebook
-    Given that following omniauth account exist
+    Given account in facebook
+    Given I open page "/"
+    Then I click link "Sign in"
+    Then I click link "Sign in with Facebook"
+    Then page should have content "Successfully authenticated from Facebook account."
+
+  Scenario: registration with facebook
+    Given account with facebook
+    Given account in facebook
     Given I open page "/"
     Then I click link "Sign in"
     Then I click link "Sign in with Facebook"
