@@ -9,6 +9,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 
 group :test, :development do
+  gem 'rack-livereload'
 end
 
 group :test do
@@ -22,7 +23,6 @@ group :test do
   gem 'guard-cucumber'
   gem 'guard-livereload'
   gem 'guard-spork'
-  gem 'rack-livereload'
   gem 'libnotify'
   gem 'yajl-ruby'
   gem 'rb-inotify', '~> 0.8.8'
@@ -41,6 +41,7 @@ end
 
 gem 'jquery-rails'
 gem "haml-rails"
+gem 'slim'
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
