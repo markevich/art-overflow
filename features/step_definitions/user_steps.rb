@@ -16,10 +16,11 @@ def create_unconfirmed_user
   delete destroy_user_session_path
 end
 
-def create_user
+def create_user additional_params = {}
   create_visitor
   delete_user
-  @user = FactoryGirl.create(:user, email: @visitor[:email])
+  user_params = @visitor.merge additional_params
+  @user = FactoryGirl.create(:user, user_params)
 end
 
 def delete_user
@@ -45,9 +46,28 @@ def sign_in
   click_button "Sign in"
 end
 
+def sign_out
+  delete destroy_user_session_path
+end
+
+def create_account_in_facebook
+  OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+    :provider => :facebook,
+    "uid" => 123455678,
+    "info" => {"email" => "example@example.com"},
+    "extra" => {
+      "raw_info" => {
+        "name" => "Testy"
+        }
+      }
+    })
+end
+def create_account_with_facebook
+  create_user uid: 123455678, provider: :facebook
+end
 ### GIVEN ###
 Given /^I am not logged in$/ do
-  delete destroy_user_session_path
+  sign_out
 end
 
 Given /^I am logged in$/ do
@@ -81,4 +101,13 @@ end
 When /^I sign up with valid user data$/ do
   create_visitor
   sign_up
+end
+
+Given /^account in facebook$/ do
+  create_account_in_facebook
+end
+
+Given /^account with facebook$/ do
+  create_account_in_facebook
+  create_account_with_facebook
 end

@@ -5,10 +5,17 @@ gem 'rails', '3.2.8'
 
 gem 'mysql2'
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 
 group :test, :development do
-  gem 'rspec-rails'
+end
+
+group :test do
+  gem 'email_spec'
+  gem 'factory_girl_rails'
   gem 'cucumber-rails', :require => false
+  gem 'rspec-rails'
   gem 'database_cleaner'
   gem 'capybara'
   gem 'guard-rspec'
@@ -16,13 +23,10 @@ group :test, :development do
   gem 'guard-livereload'
   gem 'guard-spork'
   gem 'rack-livereload'
-  gem 'yajl-ruby'
   gem 'libnotify'
+  gem 'yajl-ruby'
   gem 'rb-inotify', '~> 0.8.8'
-end
-
-group :test do
-  gem 'email_spec'
+  
 end
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
