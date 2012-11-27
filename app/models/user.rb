@@ -5,9 +5,10 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
         :recoverable, :trackable, :validatable, :confirmable, :omniauthable
 
-  # Setup accessible (or protected) attributes for your model
-  attr_accessible :email, :name, :password, :password_confirmation, :remember_me, :provider, :uid
-  # attr_accessible :title, :body
+  attr_accessible :email, :name, :password,
+   :password_confirmation, :remember_me, :provider, :uid, :avatar
+
+  mount_uploader :avatar, AvatarUploader
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = find_by_provider_and_uid auth.provider, auth.uid
