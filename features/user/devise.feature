@@ -26,7 +26,7 @@ Feature: user devise workflow
     Then I click link "Sign in with Facebook"
     Then page should have content "Successfully authenticated from Facebook account."
 
-  Scenario: registration with facebook
+  Scenario: autentication with facebook
     Given account with facebook
     Given account in facebook
     Given I open page "/"
