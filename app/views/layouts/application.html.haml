@@ -27,7 +27,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.brand(href="#") Nicedrawing
+          %a.brand(href="#{root_path}") Nicedrawing
           .container.nav-collapse
             %ul.nav
               %li= link_to "Link 1", "/path1"
@@ -36,6 +36,8 @@
             %ul.nav.pull-right
               %li.divider-vertical
               - if user_signed_in?
+                .avatar 
+                  = image_tag current_user.avatar
                 %li.dropdown
                   %a.dropdown-toggle{'data-toggle' => 'dropdown', href: '#'} My account
                   %ul.dropdown-menu

@@ -26,7 +26,6 @@ class User < ActiveRecord::Base
 
 
 
-
 #какой-то фарш с форума, надо потом глянуть и сделать авторизацию на основе метод миссинга
 
   # def method_missing(provider)

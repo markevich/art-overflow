@@ -14,3 +14,7 @@
 form .clearfix:before, form .clearfix:after {
   display: inline;
 }
+
+.avatar{
+  width:50px;
+}
