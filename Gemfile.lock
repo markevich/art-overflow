@@ -54,6 +54,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
       xpath (~> 0.1.4)
+    carrierwave (0.7.1)
+      activemodel (>= 3.2.0)
+      activesupport (>= 3.2.0)
     childprocess (0.3.6)
       ffi (~> 1.0, >= 1.0.6)
     coderay (1.0.8)
@@ -154,6 +157,8 @@ GEM
     less-rails (2.2.6)
       actionpack (>= 3.1)
       less (~> 2.2.0)
+    letter_opener (1.0.0)
+      launchy (>= 2.0.4)
     libnotify (0.8.0)
       ffi (>= 1.0.11)
     libv8 (3.3.10.4)
@@ -288,6 +293,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   capybara
+  carrierwave
   coffee-rails (~> 3.2.1)
   cucumber-rails
   database_cleaner
@@ -302,6 +308,7 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   less-rails
+  letter_opener
   libnotify
   mysql2
   omniauth

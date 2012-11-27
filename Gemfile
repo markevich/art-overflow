@@ -7,9 +7,10 @@ gem 'mysql2'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-
+gem 'carrierwave'
 group :test, :development do
   gem 'rack-livereload'
+  gem "letter_opener"
 end
 
 group :test do
