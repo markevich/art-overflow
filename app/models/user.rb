@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :drawings
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :rememberable
   # :lockable, :timeoutable and :omniauthable

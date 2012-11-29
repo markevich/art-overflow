@@ -1,0 +1,5 @@
+.row-fluid
+  ul class='thumbnails'
+    - for drawing in drawings
+      li.span3
+        = image_tag drawing.path.thumb, class: 'thumbnail'
