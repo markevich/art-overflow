@@ -12,3 +12,4 @@ stats/
 
 *.rdb
 *.tags*
+public/public*
