@@ -9,7 +9,8 @@ config/*.yml
 vendor*
 .idea
 stats/
-
+bin*
+test*
 *.rdb
 *.tags*
 public/public*
