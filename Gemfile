@@ -53,3 +53,4 @@ gem 'capistrano'
 
 gem 'debugger'
 
+gem 'rmagick'

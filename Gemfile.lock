@@ -232,6 +232,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
+    rmagick (2.13.1)
     rspec (2.11.0)
       rspec-core (~> 2.11.0)
       rspec-expectations (~> 2.11.0)
@@ -316,6 +317,7 @@ DEPENDENCIES
   rack-livereload
   rails (= 3.2.8)
   rb-inotify (~> 0.8.8)
+  rmagick
   rspec-rails
   sass-rails (~> 3.2.3)
   simple_form
