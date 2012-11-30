@@ -36,7 +36,7 @@
                   %span.new-wrapper
                     %i.nav-home
                   %span.text Новости
-              %li= link_to "Я", user_drawings_path(current_user)
+              %li= link_to("Я", user_drawings_path(current_user)) if user_signed_in?
             %ul.nav.pull-right
               %li.divider-vertical
               - if user_signed_in?
