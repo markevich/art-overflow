@@ -6,6 +6,10 @@ Nicedrawing::Application.routes.draw do
   resources :users do
     resources :drawings
   end
+
+  resources :drawing_categories do
+    resources :drawings
+  end
   # resource :users do 
   #   get :login, as: :login
   # end
