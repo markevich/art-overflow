@@ -17,6 +17,7 @@ class DrawingsController < ApplicationController
   def create
     @drawing = Drawing.new.tap do |d|
        d.path = params[:drawing][:path]
+       d.drawing_category_id = params[:drawing][:drawing_category_id]
        d.user = current_user
     end
 
