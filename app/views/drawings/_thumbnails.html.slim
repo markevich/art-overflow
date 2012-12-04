@@ -1,5 +1,6 @@
-.row-fluid
-  ul class='thumbnails'
-    - for drawing in drawings
-      li.span3
-        = image_tag drawing.path.thumb, class: 'thumbnail'
+- drawings.each_slice(4) do |slice|
+	.row-fluid.pagination-centered
+		ul.thumbnails
+			- for drawing in slice
+				li.span3
+					= image_tag drawing.path.thumb, class: 'thumbnail', style: 'display: inline-block'
