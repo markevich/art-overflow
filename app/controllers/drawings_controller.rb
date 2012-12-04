@@ -1,5 +1,5 @@
 class DrawingsController < ApplicationController
-  before_filter :check_owner, only: [:edit]
+  before_filter :check_owner, only: [:edit, :update]
   
   def index
     if params[:user_id]
@@ -10,12 +10,18 @@ class DrawingsController < ApplicationController
     end
   end
 
+  def show
+    @drawing = Drawing.find params[:id]
+  end
+
   def new
     @drawing = Drawing.new
   end
 
   def create
     @drawing = Drawing.new.tap do |d|
+       d.name = params[:drawing][:name]
+       d.description = params[:drawing][:description]
        d.path = params[:drawing][:path]
        d.drawing_category_id = params[:drawing][:drawing_category_id]
        d.user = current_user
@@ -30,6 +36,12 @@ class DrawingsController < ApplicationController
 
   def edit
     @drawing = Drawing.find params[:id]
+  end
+
+  def update
+    @drawing = Drawing.find params[:id]
+    @drawing.update_attributes(params[:drawing])
+    redirect_to drawing_path(@drawing)
   end
 
   private

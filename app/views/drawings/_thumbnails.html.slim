@@ -3,4 +3,5 @@
 		ul.thumbnails
 			- for drawing in slice
 				li.span3
-					= image_tag drawing.path.thumb, class: 'thumbnail', style: 'display: inline-block'
+					a href=drawing_path(drawing.id)
+						= image_tag drawing.path.thumb, class: 'thumbnail', style: 'display: inline-block'
