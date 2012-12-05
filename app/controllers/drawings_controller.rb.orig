@@ -51,5 +51,9 @@ class DrawingsController < ApplicationController
       redirect_to :back
     end
   end
+<<<<<<< HEAD
+end
+=======
 
 end
+>>>>>>> e569069844e8a64f5551fed879a901d1f71c284c

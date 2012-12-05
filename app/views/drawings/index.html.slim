@@ -1,3 +1,3 @@
-= link_to 'Добавить', new_drawing_path
+= link_to 'Добавить', new_drawing_path if current_user
 
 = render partial: 'drawings/thumbnails', locals: {drawings: @drawings}
