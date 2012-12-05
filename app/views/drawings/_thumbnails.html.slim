@@ -5,3 +5,5 @@
 				li.span3
 					a href=drawing_path(drawing.id)
 						= image_tag drawing.path.thumb, class: 'thumbnail', style: 'display: inline-block'
+					div style="font-size: 100%": b #{drawing.name}
+					div style="font-size: 80%" in #{drawing.drawing_category.name}
