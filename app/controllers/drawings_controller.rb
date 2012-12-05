@@ -4,9 +4,11 @@ class DrawingsController < ApplicationController
     @user = User.find(params[:user_id])
     @drawings = @user.drawings
   end
+
   def new
     @drawing = Drawing.new
   end
+
   def create
     @drawing = Drawing.new.tap do |d|
        d.path = params[:drawing][:path]
