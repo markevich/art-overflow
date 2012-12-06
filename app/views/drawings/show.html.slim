@@ -1,3 +1,14 @@
 h2 = @drawing.name
 p = image_tag @drawing.path, class: 'thumbnail'
 p = @drawing.description
+
+= form_for [@drawing, Comment.new], :remote => false do |f|
+	=f.hidden_field :commentable_id, :value=> @drawing.id 
+	=f.label "You can leave your comment here:"
+	=f.text_area :body, :style=>"width:520px;height:80px"
+	br
+	=f.submit "Add comment"
+
+p: b Comments:
+- Comment.find_comments_for_commentable(@drawing.class.base_class.name, @drawing.id).each do |comment|
+	p #{comment.user.name}: #{comment.body}
