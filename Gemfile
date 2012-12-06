@@ -8,6 +8,8 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'carrierwave'
+gem 'acts_as_commentable_with_threading'
+
 group :test, :development do
   gem 'rack-livereload'
   gem "letter_opener"
