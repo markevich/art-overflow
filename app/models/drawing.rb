@@ -7,4 +7,8 @@ class Drawing < ActiveRecord::Base
   belongs_to :drawing_category
 
   mount_uploader :path, DrawingUploader
+
+  def comments
+  	Comment.find_comments_for_commentable(self.class.base_class.name, self.id)
+  end
 end

@@ -10,5 +10,5 @@ p = @drawing.description
 	=f.submit "Add comment"
 
 p: b Comments:
-- Comment.find_comments_for_commentable(@drawing.class.base_class.name, @drawing.id).each do |comment|
+- @drawing.comments.each do |comment|
 	p #{comment.user.name}: #{comment.body}
