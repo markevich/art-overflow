@@ -1,10 +1,15 @@
 class CommentsController < ApplicationController
+  before_filter :set_parent, only: [:create]
   def create
-    @drawing = Drawing.find(params[:comment][:commentable_id])
-    @comment = Comment.build_from(@drawing, current_user.id, params[:comment][:body])
-
+    @comment = Comment.build_from(@parent, current_user.id, params[:comment][:body])
     @comment.save
-    #TODO: никаких редиректо, это должно обрабатываться аяксом
-    redirect_to drawing_path(params[:drawing_id])
+    redirect_to @parent
+  end
+
+  private 
+  def set_parent
+    @parent = if params[:drawing_id]
+      Drawing.find(params[:drawing_id])
+    end
   end
 end

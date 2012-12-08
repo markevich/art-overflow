@@ -1,7 +1,7 @@
 Nicedrawing::Application.routes.draw do
 
   resources :drawings do
-    resources :comments
+    resource :comments
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }

@@ -2,12 +2,14 @@ h2 = @drawing.name
 p = image_tag @drawing.path, class: 'thumbnail'
 p = @drawing.description
 
-= form_for [@drawing, Comment.new], :remote => false do |f|
-	=f.hidden_field :commentable_id, :value=> @drawing.id 
-	=f.label "You can leave your comment here:"
-	=f.text_area :body, :style=>"width:520px;height:80px"
-	br
-	=f.submit "Add comment"
+- if user_signed_in?
+  = simple_form_for([@drawing, Comment.new], remote: false) do |f|
+    = f.input :body, :wrapper => :prepend, label: false do
+      span.add-on
+        i.icon-envelope
+      = f.input_field :body, required: true, rows: 5, class: 'comment-area'
+
+    = f.submit "Добавить комментарий"
 
 p: b Comments:
 - @drawing.comments.each do |comment|
