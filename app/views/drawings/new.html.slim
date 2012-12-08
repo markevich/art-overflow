@@ -3,5 +3,5 @@
   = f.input :name
   = f.input :description
   = f.input :path
-  = f.select :drawing_category_id, DrawingCategory.all.collect {|p| [ p.name, p.id ] }
+  = f.select :drawing_category_id, @drawing_categories
   = f.button :submit, 'Добавить'

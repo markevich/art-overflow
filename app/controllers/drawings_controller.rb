@@ -1,6 +1,6 @@
 class DrawingsController < ApplicationController
   before_filter :check_owner, only: [:edit, :update]
-  
+  before_filter :collect_drawing_categories, only: [:new, :edit]
   def index
     if params[:user_id]
       @user = User.find(params[:user_id])
@@ -31,7 +31,6 @@ class DrawingsController < ApplicationController
 
   def edit
     @drawing = Drawing.find params[:id]
-    @drawing_categories = DrawingCategory.all.collect {|p| [ p.name, p.id ] }
   end
 
   def update
@@ -41,6 +40,10 @@ class DrawingsController < ApplicationController
   end
 
   private
+
+  def collect_drawing_categories
+    @drawing_categories = DrawingCategory.all.collect {|p| [ p.name, p.id ] }
+  end
 
   def check_owner
     unless Drawing.find(params[:id]).user == current_user
