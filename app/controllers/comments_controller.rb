@@ -1,9 +1,15 @@
 class CommentsController < ApplicationController
-  before_filter :set_parent, only: [:create]
+  before_filter :set_parent, only: [:create, :list]
   def create
     @comment = Comment.build_from(@parent, current_user.id, params[:comment][:body])
     @comment.save
-    redirect_to @parent
+
+    list and return if request.xhr?
+    format.html { redirect_to @parent }
+  end
+
+  def list
+    render partial: 'list', locals: {comments: @parent.comments}
   end
 
   private 

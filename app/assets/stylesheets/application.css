@@ -21,3 +21,6 @@ form .clearfix:before, form .clearfix:after {
 .comment-area{
   width: 650px;
 }
+.comment {
+  background-color: whiteSmoke;
+}

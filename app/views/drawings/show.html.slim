@@ -3,14 +3,13 @@ p = image_tag @drawing.path, class: 'thumbnail'
 p = @drawing.description
 
 - if user_signed_in?
-  = simple_form_for([@drawing, Comment.new], remote: false) do |f|
+  = simple_form_for([@drawing, Comment.new], remote: true) do |f|
     = f.input :body, :wrapper => :prepend, label: false do
       span.add-on
         i.icon-envelope
       = f.input_field :body, required: true, rows: 5, class: 'comment-area'
 
-    = f.submit "Добавить комментарий"
+    = f.submit "Добавить комментарий", :disable_with => "Отправляем..."
 
-p: b Comments:
-- @drawing.comments.each do |comment|
-	p #{comment.user.name}: #{comment.body}
+#comments-area
+  = render partial: 'comments/list', locals: {comments: @drawing.comments}
