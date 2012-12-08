@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
     rescue_from Exception do |e|
       logger.error e
       logger.error e.backtrace.join "\n"
+      raise e
     end
   end
 end
