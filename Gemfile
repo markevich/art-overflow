@@ -14,6 +14,11 @@ group :test, :development do
   gem 'rack-livereload'
   gem "letter_opener"
   gem 'quiet_assets'
+  gem 'seed-fu'
+end
+
+group :development do
+  
 end
 
 group :test do
