@@ -31,6 +31,7 @@ class DrawingsController < ApplicationController
 
   def edit
     @drawing = Drawing.find params[:id]
+    @drawing_categories = DrawingCategory.all.collect {|p| [ p.name, p.id ] }
   end
 
   def update
