@@ -6,7 +6,7 @@ Nicedrawing::Application.routes.draw do
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   resources :users do
-    resources :drawings
+    get :drawings, :on => :member
   end
 
   resources :drawing_categories, path: 'category' do

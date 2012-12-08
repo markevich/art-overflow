@@ -49,6 +49,8 @@
                       %a{href: '#'}
                         = image_tag current_user.avatar, width: 32
                         %b Профиль
+                    %li
+                      = link_to 'Мои рисунки', drawings_user_path(current_user)
                     %li.divider
                     %li
                       = link_to 'Настройки', edit_user_registration_path
