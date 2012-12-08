@@ -1,9 +1,10 @@
 - drawings.each_slice(4) do |slice|
-	.row-fluid.pagination-centered
-		ul.thumbnails
-			- for drawing in slice
-				li.span3
-					a href=drawing_path(drawing.id)
-						= image_tag drawing.path.thumb, class: 'thumbnail', style: 'display: inline-block'
-					div style="font-size: 100%": b #{drawing.name}
-					div style="font-size: 80%" in #{drawing.drawing_category.name}
+  .row-fluid.pagination-centered
+    ul.thumbnails
+      - for drawing in slice
+        li.span3
+          a href=drawing_path(drawing.id)
+            = image_tag drawing.path.thumb, class: 'thumbnail', style: 'display: inline-block'
+          div style="font-size: 100%": b #{drawing.name}
+          - if drawing.drawing_category
+            div style="font-size: 80%": in #{name}
