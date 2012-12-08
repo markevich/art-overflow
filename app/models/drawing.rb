@@ -1,5 +1,5 @@
 class Drawing < ActiveRecord::Base
-  attr_protected :path, :user_id
+  attr_protected :user_id
 
   acts_as_commentable
   

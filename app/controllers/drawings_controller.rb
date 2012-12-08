@@ -19,16 +19,11 @@ class DrawingsController < ApplicationController
   end
 
   def create
-    @drawing = Drawing.new.tap do |d|
-       d.name = params[:drawing][:name]
-       d.description = params[:drawing][:description]
-       d.path = params[:drawing][:path]
-       d.drawing_category_id = params[:drawing][:drawing_category_id]
-       d.user = current_user
-    end
+    @drawing = Drawing.new(params[:drawing])
+    @drawing.user = current_user
 
     if @drawing.save
-      redirect_to edit_drawing_path(@drawing)
+      redirect_to drawing_path(@drawing)
     else
       render action: :new
     end
