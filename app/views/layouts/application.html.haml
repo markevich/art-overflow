@@ -69,7 +69,7 @@
               %ul.nav.nav-list
                 %li.nav-header Sidebar
                 - DrawingCategory.all.each do |category|
-                  %li= link_to "#{category.name}", drawing_category_drawings_path(category.id)
+                  %li= link_to "#{category.name}", drawings_drawing_category_path(category)
           .span9
             .well.sidebar-nav
               = yield

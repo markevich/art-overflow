@@ -9,8 +9,8 @@ Nicedrawing::Application.routes.draw do
     resources :drawings
   end
 
-  resources :drawing_categories do
-    resources :drawings
+  resources :drawing_categories, path: 'category' do
+    get :drawings, path: '', on: :member
   end
 
   # resources :comments

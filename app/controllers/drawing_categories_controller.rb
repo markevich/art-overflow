@@ -1,7 +1,6 @@
 class DrawingCategoriesController < ApplicationController
-
-	def show
-		@category = DrawingCategory.find(params[:id]) if params[:id]
-	end
-
+  def drawings
+    @category = DrawingCategory.find(params[:id])
+    @drawings = @category.drawings
+  end
 end
