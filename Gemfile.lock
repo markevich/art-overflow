@@ -116,6 +116,7 @@ GEM
     faraday (0.8.4)
       multipart-post (~> 1.1)
     ffi (1.1.5)
+    friendly_id (4.0.9)
     gherkin (2.11.5)
       json (>= 1.4.6)
     guard (1.5.3)
@@ -314,6 +315,7 @@ DEPENDENCIES
   devise
   email_spec
   factory_girl_rails
+  friendly_id
   guard-cucumber
   guard-livereload
   guard-rspec
