@@ -2,12 +2,7 @@ class DrawingsController < ApplicationController
   before_filter :check_owner, only: [:edit, :update]
   before_filter :collect_drawing_categories, only: [:new, :edit]
   def index
-    if params[:user_id]
-      @user = User.find(params[:user_id])
-      @drawings = @user.drawings
-    elsif params[:drawing_category_id]
-      @drawings = DrawingCategory.find(params[:drawing_category_id]).drawings
-    end
+    @drawings = Drawing.last(20).reverse
   end
 
   def show
