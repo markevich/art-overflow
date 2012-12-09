@@ -5,7 +5,7 @@ $(document).ready ->
   ).live "ajax:success", (event, data)->
     $('#comment_body').val('')
     $('#comments-area').html(data)
-    $('p.comment:first').effect("highlight", {}, 3000);
+    $('.comment:first').effect("highlight", {}, 3000);
 
 
 
