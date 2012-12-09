@@ -7,8 +7,6 @@ a.download_link href=@drawing.path Download this image
 - if user_signed_in?
   = simple_form_for([@drawing, Comment.new], remote: true) do |f|
     = f.input :body, :wrapper => :prepend, label: false do
-      span.add-on
-        i.icon-envelope
       = f.input_field :body, required: true, rows: 5, class: 'comment-area'
 
     = f.submit "Добавить комментарий", :disable_with => "Отправляем..."
