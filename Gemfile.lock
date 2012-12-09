@@ -1,4 +1,13 @@
 GIT
+  remote: git://github.com/ivoreis/acts_as_viewable.git
+  revision: 8af97c7dd4fd59b79f334f95152aa928b5643952
+  specs:
+    acts_as_viewable (0.1.0)
+      activemodel
+      activerecord
+      activesupport
+
+GIT
   remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
   revision: c78625b4b687805abd631142f83e53a4b45f4383
   specs:
@@ -305,6 +314,7 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_commentable_with_threading
+  acts_as_viewable!
   capistrano
   capybara
   carrierwave

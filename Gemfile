@@ -10,6 +10,7 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'acts_as_commentable_with_threading'
 gem "friendly_id"
+gem 'acts_as_viewable', :github => 'ivoreis/acts_as_viewable'
 
 group :test, :development do
   gem 'rack-livereload'
