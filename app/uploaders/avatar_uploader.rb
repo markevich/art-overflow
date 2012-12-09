@@ -19,7 +19,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   # process :resize_to_fit => [100,100]
 
   def store_dir
-    "public/uploads/avatars"
+    "uploads/avatars"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:

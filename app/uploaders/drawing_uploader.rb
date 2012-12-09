@@ -18,7 +18,7 @@ class DrawingUploader < CarrierWave::Uploader::Base
   # This is a sensible default for uploaders that are meant to be mounted:
 
   def store_dir
-    "public/uploads/drawings"
+    "uploads/drawings"
   end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
