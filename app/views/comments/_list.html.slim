@@ -1,3 +1,8 @@
-p: b Comments:
 - for comment in comments
-  p.comment #{comment.user.name}: #{comment.body}
+  .comment
+    .comment_header
+      .comment_avatar = image_tag current_user.avatar, width: 32
+      a href=user_path(comment.user.id)
+        .comment_user = comment.user.name
+      .comment_time = comment.updated_at.strftime("%d.%m.%Y %T")
+    .comment_body #{comment.body}

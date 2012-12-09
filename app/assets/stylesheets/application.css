@@ -18,9 +18,3 @@ form .clearfix:before, form .clearfix:after {
 .avatar{
   width:50px;
 }
-.comment-area{
-  width: 650px;
-}
-.comment {
-  background-color: whiteSmoke;
-}

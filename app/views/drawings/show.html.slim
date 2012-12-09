@@ -1,6 +1,8 @@
 h2 = @drawing.name
-p = image_tag @drawing.path, class: 'thumbnail'
+.pagination-centered = image_tag @drawing.path, class: 'thumbnail big_image'
 p = @drawing.description
+
+a.download_link href=@drawing.path Download this image
 
 - if user_signed_in?
   = simple_form_for([@drawing, Comment.new], remote: true) do |f|
