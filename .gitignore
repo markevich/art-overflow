@@ -13,4 +13,4 @@ bin*
 test*
 *.rdb
 *.tags*
-public/public*
+public/uploads*
