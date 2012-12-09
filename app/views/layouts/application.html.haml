@@ -72,7 +72,8 @@
               %ul.nav.nav-list
                 %li.nav-header Category
                 - DrawingCategory.all.each do |category|
-                  %li= link_to "#{category.name}", drawings_drawing_category_path(category)
+                  %li{class: ("category_active" if controller.controller_name == "drawing_categories" && category.id == params[:id].to_i)} 
+                    = link_to "#{category.name}", drawings_drawing_category_path(category)
           .span9
             .well.sidebar-nav
               = yield
