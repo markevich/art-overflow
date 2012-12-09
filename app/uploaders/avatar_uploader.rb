@@ -22,6 +22,11 @@ class AvatarUploader < CarrierWave::Uploader::Base
     "uploads/avatars"
   end
 
+  #TODO: добавить пол к модельке, и давать дефолтную аватарку в зависимости от пола
+  def default_url
+    random = Random.new(model.id).rand(95)
+    "default_avatars/#{random}.png"
+  end
   # Provide a default URL as a default if there hasn't been a file uploaded:
   # def default_url
   #   # For Rails 3.1+ asset pipeline compatibility:
