@@ -61,7 +61,7 @@
                 %li
                   = link_to "Sign in", new_user_session_path, id: 'sign-in'
     = flash_messages
-    .container-fluid
+    .container-fluid.main_container
       .row-fluid
         
         - if content_for?(:container)
@@ -77,8 +77,8 @@
             .well.sidebar-nav
               = yield
     
-      %footer
-        %p &copy; Company 2012
+      %footer.pagination-centered
+        %p &copy; NiceDrawing.com, 2012
     /
       Javascripts
       \==================================================
