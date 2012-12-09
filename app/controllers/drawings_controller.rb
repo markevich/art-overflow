@@ -7,6 +7,7 @@ class DrawingsController < ApplicationController
 
   def show
     @drawing = Drawing.find params[:id]
+    @drawing.viewed_by(current_user) if current_user
   end
 
   def new

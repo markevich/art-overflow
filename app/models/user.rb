@@ -26,7 +26,7 @@ class User < ActiveRecord::Base
     user
   end
 
-
+  acts_as_viewer
 
 #какой-то фарш с форума, надо потом глянуть и сделать авторизацию на основе метод миссинга
 
