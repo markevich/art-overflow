@@ -1,5 +1,5 @@
 class DrawingsController < ApplicationController
-  before_filter :check_owner, only: [:edit, :update]
+  before_filter :check_user, only: [:new, :edit, :update, :create]
   before_filter :collect_drawing_categories, only: [:new, :edit]
   def index
     @drawings = Drawing.last(20).reverse
@@ -26,25 +26,20 @@ class DrawingsController < ApplicationController
   end
 
   def edit
-    @drawing = Drawing.find params[:id]
+    # raise RecordNotFound exception (404 error) if not found
+    @drawing = current_user.drawings.find params[:id]
   end
 
   def update
-    @drawing = Drawing.find params[:id]
-    @drawing.update_attributes(params[:drawing])
-    redirect_to drawing_path(@drawing)
+    drawing = current_user.drawings.find params[:id]
+    drawing.update_attributes(params[:drawing])
+    redirect_to drawing_path(drawing)
   end
 
   private
 
   def collect_drawing_categories
     @drawing_categories = DrawingCategory.all.collect {|p| [ p.name, p.id ] }
-  end
-
-  def check_owner
-    unless Drawing.find(params[:id]).user == current_user
-      redirect_to :back
-    end
   end
 
 end
