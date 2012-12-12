@@ -9,6 +9,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'acts_as_commentable_with_threading'
+gem 'ancestry'
 gem "friendly_id"
 gem 'acts_as_viewable', :github => 'ivoreis/acts_as_viewable'
 

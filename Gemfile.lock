@@ -51,6 +51,8 @@ GEM
       activesupport (~> 3.0)
       awesome_nested_set (>= 2.0)
     addressable (2.3.2)
+    ancestry (1.3.0)
+      activerecord (>= 2.3.14)
     arel (3.0.2)
     awesome_nested_set (2.1.5)
       activerecord (>= 3.0.0)
@@ -315,6 +317,7 @@ PLATFORMS
 DEPENDENCIES
   acts_as_commentable_with_threading
   acts_as_viewable!
+  ancestry
   capistrano
   capybara
   carrierwave
