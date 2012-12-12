@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 
-# gem "therubyracer" sudo apt-get install nodejs instead
 
 gem 'mysql2'
 gem 'devise'
@@ -37,17 +36,18 @@ group :test do
   gem 'guard-spork'
   gem 'libnotify'
   gem 'yajl-ruby'
-  gem 'rb-inotify', '~> 0.8.8'
+  gem 'rb-inotify'
   
 end
 group :assets do
-  gem 'sass-rails',   '~> 3.2.3'
-  gem 'coffee-rails', '~> 3.2.1'
-
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem "therubyracer"
+  gem 'libv8', '~> 3.11.8'
   gem "less-rails"
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-  gem 'uglifier', '>= 1.0.3'
+  gem 'uglifier'
 end
 
 gem 'jquery-rails'
