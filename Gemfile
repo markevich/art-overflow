@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
+# gem "therubyracer" sudo apt-get install nodejs instead
 
 gem 'mysql2'
 gem 'devise'
@@ -43,7 +44,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
-  gem "therubyracer"
   gem "less-rails"
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
