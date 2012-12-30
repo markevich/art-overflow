@@ -1,6 +1,5 @@
 class User < ActiveRecord::Base
   has_many :drawings
-
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable, :rememberable
   # :lockable, :timeoutable and :omniauthable
@@ -9,6 +8,8 @@ class User < ActiveRecord::Base
 
   attr_accessible :email, :name, :password,
    :password_confirmation, :remember_me, :provider, :uid, :avatar
+
+  validates :name, presence: true
 
   mount_uploader :avatar, AvatarUploader
 
