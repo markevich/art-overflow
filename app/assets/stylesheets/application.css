@@ -18,3 +18,7 @@ form .clearfix:before, form .clearfix:after {
 .avatar{
   width:50px;
 }
+
+#flash{
+  display:none;
+}
