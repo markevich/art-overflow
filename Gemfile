@@ -26,18 +26,14 @@ end
 group :test do
   gem 'email_spec'
   gem 'factory_girl_rails'
-  gem 'cucumber-rails', :require => false
   gem 'rspec-rails'
   gem 'database_cleaner'
-  gem 'capybara'
   gem 'guard-rspec'
-  gem 'guard-cucumber'
   gem 'guard-livereload'
   gem 'guard-spork'
   gem 'libnotify'
   gem 'yajl-ruby'
   gem 'rb-inotify'
-  
 end
 group :assets do
   gem 'sass-rails'
