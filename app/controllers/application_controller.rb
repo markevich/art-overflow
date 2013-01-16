@@ -28,6 +28,6 @@ class ApplicationController < ActionController::Base
   private
 
   def fetch_categories
-    @drawing_categories = DrawingCategory.all
+    @drawing_categories = DrawingCategory.scoped
   end
 end
