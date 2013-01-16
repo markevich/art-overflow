@@ -63,17 +63,13 @@ html(lang="en")
     = flash_messages
     .container-fluid.main_container
       .row-fluid
-        
         - if content_for?(:container)
           = content_for(:container)
         - else
           .span3
             .well.sidebar-nav
               ul.nav.nav-list
-                li.nav-header Category
-                - DrawingCategory.all.each do |category|
-                  li class=("category_active" if category == @category)
-                    = link_to "#{category.name}", drawings_drawing_category_path(category)
+                = render 'drawing_categories/list', categories: @drawing_categories, current_category: @category
           .span9
             .well.sidebar-nav
               = yield

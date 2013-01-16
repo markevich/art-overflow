@@ -1,7 +1,10 @@
 class ApplicationController < ActionController::Base
   layout 'application'
   protect_from_forgery
-  
+  before_filter :fetch_categories
+
+
+
   def index
 
   end
@@ -20,5 +23,11 @@ class ApplicationController < ActionController::Base
       logger.error e.backtrace.join "\n"
       raise e
     end
+  end
+
+  private
+
+  def fetch_categories
+    @drawing_categories = DrawingCategory.all
   end
 end

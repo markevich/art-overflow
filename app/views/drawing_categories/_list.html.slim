@@ -1,0 +1,5 @@
+li.nav-header 
+  | Category
+  - categories.each do |category|
+    li class=("category_active" if category == current_category)
+      = link_to "#{category.name}", drawings_drawing_category_path(category)
