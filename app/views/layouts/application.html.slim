@@ -69,7 +69,7 @@ html(lang="en")
           .span3
             .well.sidebar-nav
               ul.nav.nav-list
-                = render 'drawing_categories/list', categories: @drawing_categories, current_category: @category
+                = render 'drawing_categories/nested_list', categories: @drawing_categories, current_category: @category
           .span9
             .well.sidebar-nav
               = yield
