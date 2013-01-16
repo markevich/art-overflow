@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 
 
 gem 'mysql2'
@@ -11,7 +11,8 @@ gem 'carrierwave'
 gem 'acts_as_commentable_with_threading'
 gem 'ancestry'
 gem "friendly_id"
-gem 'acts_as_viewable', :github => 'ivoreis/acts_as_viewable'
+
+gem 'acts_as_viewable', :github => 'ivoreis/acts_as_viewable' # use https://github.com/charlotte-ruby/impressionist instead
 
 group :test, :development do
   gem 'rack-livereload'
@@ -21,6 +22,7 @@ end
 
 group :development do
   gem "letter_opener"
+  gem "better_errors"
 end
 
 group :test do
@@ -54,4 +56,4 @@ gem 'capistrano'
 
 gem 'debugger'
 
-gem 'rmagick'
+gem 'mini_magick'
