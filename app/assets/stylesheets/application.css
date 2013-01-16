@@ -22,3 +22,7 @@ form .clearfix:before, form .clearfix:after {
 #flash{
   display:none;
 }
+
+.nested_categories{
+  margin-left: 20px;
+}
