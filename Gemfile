@@ -30,6 +30,7 @@ group :test do
   gem 'email_spec'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'capybara', require: false
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'guard-livereload'
@@ -37,7 +38,9 @@ group :test do
   gem 'libnotify'
   gem 'yajl-ruby'
   gem 'rb-inotify'
+  gem 'ffaker'
 end
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
