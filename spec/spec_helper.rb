@@ -24,7 +24,7 @@ Spork.prefork do
     end
  
     config.before(:each) do
-      DatabaseCleaner.clean
+      DatabaseCleaner.clean_with(:truncation)
     end
 
     config.include Devise::TestHelpers
