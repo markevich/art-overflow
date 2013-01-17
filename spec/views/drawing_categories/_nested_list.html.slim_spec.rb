@@ -28,7 +28,7 @@ describe 'drawing_categories/nested_list.html.slim' do
       rendered.should have_xpath "//div", count: 3
     end
 
-    it 'should nest 1 item 2 levels deep' do
+    it 'should nest 1 item 2 level deep' do
       rendered.should have_xpath "//div[@class='nested_categories']/div[@class='nested_categories']", count: 1
     end
   end
