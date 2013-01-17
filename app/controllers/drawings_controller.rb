@@ -39,7 +39,7 @@ class DrawingsController < ApplicationController
   private
 
   def collect_drawing_categories
-    @drawing_categories = DrawingCategory.all.collect {|p| [ p.name, p.id ] }
+    @drawing_categories_select = DrawingCategory.all.collect {|p| [ p.name, p.id ] }
   end
 
 end
