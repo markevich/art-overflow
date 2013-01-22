@@ -26,7 +26,6 @@ class DrawingsController < ApplicationController
   end
 
   def edit
-    # raise RecordNotFound exception (404 error) if not found
     @drawing = current_user.drawings.find params[:id]
   end
 

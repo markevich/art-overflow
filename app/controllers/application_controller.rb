@@ -3,8 +3,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :fetch_categories
 
-
-
   def index
 
   end
