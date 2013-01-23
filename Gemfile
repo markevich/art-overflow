@@ -31,9 +31,11 @@ group :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'cucumber-rails', require: false
-  gem 'capybara', require: false
+  gem 'capybara', '~> 1.1.4', require: false
+  gem 'poltergeist'
   gem 'database_cleaner'
   gem 'guard-rspec'
+  gem 'guard-cucumber'
   gem 'guard-livereload'
   gem 'guard-spork'
   gem 'libnotify'
