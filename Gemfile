@@ -30,6 +30,7 @@ group :test do
   gem 'email_spec'
   gem 'factory_girl_rails'
   gem 'rspec-rails'
+  gem 'cucumber-rails', require: false
   gem 'capybara', require: false
   gem 'database_cleaner'
   gem 'guard-rspec'
