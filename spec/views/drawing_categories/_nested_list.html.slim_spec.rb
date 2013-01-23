@@ -10,7 +10,7 @@ describe 'drawing_categories/nested_list.html.slim' do
 
   it 'should render each category' do
     render_partial categories
-    category_names.each {|name| page.should have_text name}
+    category_names.each {|name| page.should have_content name}
   end
 
   it 'should mark current category' do
