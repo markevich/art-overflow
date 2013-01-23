@@ -7,6 +7,11 @@ Spork.prefork do
   require 'capybara/poltergeist'
   Capybara.default_selector = :css
   Capybara.javascript_driver = :poltergeist
+  
+  full_names = Dir["#{Rails.root}/app/helpers/*.rb"]
+  full_names.collect do |full_name|
+      include Object.const_get(File.basename(full_name,'.rb').camelize)
+  end
 end
  
 Spork.each_run do
