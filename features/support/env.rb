@@ -15,7 +15,7 @@ Spork.prefork do
 end
  
 Spork.each_run do
-
+  World FactoryGirl::Syntax::Methods
   ActionController::Base.allow_rescue = false
   
   begin
