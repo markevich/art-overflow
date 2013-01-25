@@ -1,0 +1,16 @@
+Feature: Загрузка картинки
+  Для того чтобы другие пользователи могли оценить мой рисунок.
+  Как пользователь.
+  Я хочу загрузить рисунок.
+
+  Scenario: Загрузка с локального компьютера 
+    Given I am existing user
+    When I visit "/"
+    When click link "Новый рисунок"
+    When I fill "Мой крутой рисунок" in field "drawing_name"
+    When I select "Рисунки карандашом" in "drawing_category"
+    When I fill "рисунок, карандаши" in field "drawing_tags"
+    When I attach the file "features/resources/drawing.jpg" to "drawing_path"
+    When I click button "Сохранить"
+    Then I should see "Рисунок успешно загружен"
+
