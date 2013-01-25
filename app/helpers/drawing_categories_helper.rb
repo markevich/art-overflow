@@ -1,4 +1,9 @@
 module DrawingCategoriesHelper
+
+  def drawing_categories
+    DrawingCategory.all
+  end
+
   def nested_drawing_categories categories, current_category
     res = categories.map do |category, sub_categories|
       is_current = category == current_category
