@@ -1,7 +1,7 @@
 = simple_form_for @drawing do |f|
   = f.error_notification
-  = f.input :name
+  = f.input :name, :label => 'Имя'
   = f.input :description
   = f.input :path
-  = f.select :drawing_category_id, @drawing_categories_select
+  = f.collection_select(:drawing_category, drawing_categories, :id, :name)
   = f.button :submit, 'Добавить'

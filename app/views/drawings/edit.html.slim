@@ -2,5 +2,5 @@
   = f.error_notification
   = f.input :name
   = f.input :description
-  = f.select :drawing_category_id, @drawing_categories
+  = f.collection_select(:drawing_category, drawing_categories, :id, :name)
   = f.button :submit, 'Обновить'

@@ -1,6 +1,5 @@
 class DrawingsController < ApplicationController
   before_filter :check_user, only: [:new, :edit, :update, :create]
-  before_filter :collect_drawing_categories, only: [:new, :edit]
   def index
     @drawings = Drawing.last(20).reverse
   end
@@ -36,9 +35,5 @@ class DrawingsController < ApplicationController
   end
 
   private
-
-  def collect_drawing_categories
-    @drawing_categories_select = DrawingCategory.all.collect {|p| [ p.name, p.id ] }
-  end
 
 end
