@@ -9,7 +9,7 @@ Feature: Загрузка картинки
   Scenario: Загрузка с локального компьютера 
     Given I am logged in
     When I visit "/"
-    When click link "Добавить рисунок"
+    When I click link "Добавить рисунок"
     When I fill "Мой крутой рисунок" in field "drawing_name"
     When I select "Рисунки карандашом" in "drawing_drawing_category"
     When I fill "рисунок, карандаши" in field "drawing_tag_list"

@@ -14,11 +14,11 @@ When /^I visit "(.*?)"$/ do |path|
   visit path
 end
 
-When /^click link "(.*?)"$/ do |link_name|
+When /^I click link "(.*?)"$/ do |link_name|
   click_link link_name
 end
 
-When /^click button "(.*?)"$/ do |button_name|
+When /^I click button "(.*?)"$/ do |button_name|
   click_button button_name
 end
 
