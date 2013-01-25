@@ -34,3 +34,6 @@ Then /^page should have content "(.*?)"$/ do |expected_content|
   page.should have_content expected_content
 end
 
+When /^I select "(.*?)" in "(.*?)"$/ do |item, select|
+  select item, from: select
+end
