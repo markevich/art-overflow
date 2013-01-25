@@ -10,7 +10,7 @@ Spork.prefork do
   
   full_names = Dir["#{Rails.root}/app/helpers/*.rb"]
   full_names.collect do |full_name|
-      include Object.const_get(File.basename(full_name,'.rb').camelize)
+    include Object.const_get(File.basename(full_name,'.rb').camelize)
   end
 end
  
