@@ -37,3 +37,7 @@ end
 When /^I select "(.*?)" in "(.*?)"$/ do |item, select|
   select item, from: select
 end
+
+When /^I attach the file "(.*?)" to "(.*?)"$/ do |file_path, input|
+  attach_file(input, File.expand_path(file_path))
+end
