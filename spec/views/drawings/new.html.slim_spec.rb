@@ -5,8 +5,12 @@ describe 'drawings/new.html.slim' do
   let(:page) { Capybara::Node::Simple.new(rendered) }
   before { assign(:drawing, Drawing.new) }
   context 'presence' do
-    before { render }
+    before do
+      render
+      create(:drawing_category)
+    end
     it { page.should have_field 'Имя' }
+    it { page.should have_select('drawing_drawing_category', with_options: [DrawingCategory.first.name]) }
   end
   
 end
