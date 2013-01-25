@@ -21,45 +21,8 @@ html(lang="en")
 
 
   body
-    .navbar.navbar-fluid-top
-      .navbar-inner
-        .container-fluid
-          a.btn.btn-navbar data-target=".nav-collapse" data-toggle="collapse"
-            span.icon-bar
-            span.icon-bar
-            span.icon-bar
-          /! %a.brand(href="#{root_path}") Nicedrawing
-          .container.nav-collapse
-            ul.nav
-              li.nav-home= link_to "Главная", root_path
-              li
-                a title="Новости" href="/path2"
-                  span.new-wrapper
-                    i.nav-home
-                  span.text Новости
-              li= link_to("Добавить рисунок", new_drawing_path) if user_signed_in?
-            ul.nav.pull-right
-              li.divider-vertical
-              - if user_signed_in?
-                li.dropdown
-                  a.dropdown-toggle data-toggle='dropdown' href='#'
-                    = image_tag 'gear.png'
-                    span.caret
-                  ul.dropdown-menu
-                    li
-                      a href='#'
-                        = image_tag current_user.avatar, width: 32
-                        b Профиль
-                    li
-                      = link_to 'Мои рисунки', drawings_user_path(current_user)
-                    li.divider
-                    li
-                      = link_to 'Настройки', edit_user_registration_path
-                    li
-                      = link_to 'Выйти', destroy_user_session_path, :method => :delete
-              - else
-                li
-                  = link_to "Sign in", new_user_session_path, id: 'sign-in'
+    = render 'layouts/header', current_user: current_user
+  
     = flash_messages
     .container-fluid.main_container
       .row-fluid
