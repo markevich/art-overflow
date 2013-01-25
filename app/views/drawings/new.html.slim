@@ -2,6 +2,6 @@
   = f.error_notification
   = f.input :name, :label => 'Имя'
   = f.input :tag_list, :label => 'Тэги'
-  = f.collection_select(:drawing_category, drawing_categories, :id, :name)
+  = f.collection_select(:drawing_category_id, drawing_categories, :id, :name)
   = f.input :path
-  = f.button :submit, 'Добавить'
+  = f.button :submit, 'Сохранить'

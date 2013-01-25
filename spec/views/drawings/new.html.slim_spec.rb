@@ -12,6 +12,7 @@ describe 'drawings/new.html.slim' do
     it { page.should have_field 'Имя' }
     it { page.should have_select('drawing_drawing_category', with_options: [DrawingCategory.first.name]) }
     it { page.should have_field 'Тэги' }
+    it { page.should have_button 'Сохранить' }
   end
   
 end
