@@ -11,4 +11,4 @@ Feature: Авторизация
     And I fill "please" in field "user_password"
     And click button "Sign in"
     Then page should be "/"
-    And page should have content "Signed in successfully"
+    And I should see "Signed in successfully"

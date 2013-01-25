@@ -30,7 +30,7 @@ Then /^page should be "(.*?)"$/ do |path|
   current_path.should == path
 end
 
-Then /^page should have content "(.*?)"$/ do |expected_content|
+Then /^I should see "(.*?)"$/ do |expected_content|
   page.should have_content expected_content
 end
 
