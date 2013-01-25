@@ -1,3 +1,4 @@
+#encoding: utf-8
 class DrawingsController < ApplicationController
   before_filter :check_user, only: [:new, :edit, :update, :create]
   def index
@@ -18,7 +19,7 @@ class DrawingsController < ApplicationController
     @drawing.user = current_user
 
     if @drawing.save
-      redirect_to drawing_path(@drawing)
+      redirect_to drawing_path(@drawing), notice: 'Рисунок успешно загружен'
     else
       render action: :new
     end
