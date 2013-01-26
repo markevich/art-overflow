@@ -1,6 +1,7 @@
 module DrawingCategoriesHelper
 
   def drawing_categories
+    #TODO caching
     DrawingCategory.all
   end
 
