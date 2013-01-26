@@ -3,7 +3,8 @@ require 'spork'
  
 Spork.prefork do
   require 'cucumber/rails'
-  require 'cucumber/formatter/unicode' 
+  require 'cucumber/formatter/unicode'
+  require 'cucumber/rspec/doubles'
   require 'capybara/poltergeist'
   Capybara.default_selector = :css
   Capybara.javascript_driver = :poltergeist
