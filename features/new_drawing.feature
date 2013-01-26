@@ -17,3 +17,15 @@ Feature: Загрузка картинки
     When I click button "Сохранить"
     Then I should see "Рисунок успешно загружен"
 
+  Scenario: Загрузка с ссылки в интернете
+    Given I am logged in
+    Given picture "http://example.com/test.jpg" exist
+    When I visit "/"
+    When I click link "Добавить рисунок"
+    When I fill "Мой крутой рисунок" in field "drawing_name"
+    When I select "Рисунки карандашом" in "drawing_drawing_category_id"
+    When I fill "рисунок, карандаши" in field "drawing_tag_list"
+    When I fill "http://example.com/test.jpg" in field "remote_drawing_path"
+    When I click button "Сохранить"
+    Then I should see "Рисунок успешно загружен"
+
