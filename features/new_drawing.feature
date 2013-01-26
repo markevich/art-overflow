@@ -10,10 +10,10 @@ Feature: Загрузка картинки
     Given I am logged in
     When I visit "/"
     When I click link "Добавить рисунок"
-    When I fill "Мой крутой рисунок" in field "drawing_name"
-    When I select "Рисунки карандашом" in "drawing_drawing_category_id"
-    When I fill "рисунок, карандаши" in field "drawing_tag_list"
-    When I attach the file "features/resources/drawing.jpg" to "drawing_path"
+    When I fill "Мой крутой рисунок" in field "Имя"
+    When I select "Рисунки карандашом" in "Категория"
+    When I fill "рисунок, карандаши" in field "Тэги"
+    When I attach the file "features/resources/drawing.jpg" to "Изображение с компьютера"
     When I click button "Сохранить"
     Then I should see "Рисунок успешно загружен"
 
@@ -22,9 +22,9 @@ Feature: Загрузка картинки
     Given picture "http://example.com/test.jpg" exist
     When I visit "/"
     When I click link "Добавить рисунок"
-    When I fill "Мой крутой рисунок" in field "drawing_name"
-    When I select "Рисунки карандашом" in "drawing_drawing_category_id"
-    When I fill "рисунок, карандаши" in field "drawing_tag_list"
+    When I fill "Мой крутой рисунок" in field "Имя"
+    When I select "Рисунки карандашом" in "Категория"
+    When I fill "рисунок, карандаши" in field "Тэги"
     When I fill "http://example.com/test.jpg" in field "Изображение с интернета"
     When I click button "Сохранить"
     Then I should see "Рисунок успешно загружен"

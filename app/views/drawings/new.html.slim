@@ -2,7 +2,7 @@
   = f.error_notification
   = f.input :name, label: 'Имя'
   = f.input :tag_list, label: 'Тэги'
-  = f.collection_select(:drawing_category_id, drawing_categories, :id, :name)
+  = f.input :drawing_category_id, collection: drawing_categories, label: 'Категория', include_blank: false
   = f.input :path, label: 'Изображение с компьютера'
   = f.input :remote_path_url, label: 'Изображение с интернета'
   = f.button :submit, 'Сохранить'
