@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem 'acts_as_commentable_with_threading'
 gem 'ancestry'
 gem "friendly_id"
+gem "jquery-fileupload-rails"
 
 gem 'acts-as-taggable-on'
 gem 'acts_as_viewable', :github => 'ivoreis/acts_as_viewable' # maybe https://github.com/charlotte-ruby/impressionist instead
