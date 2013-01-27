@@ -6,7 +6,7 @@
       i.icon-envelope
     = f.input_field :email, required: true
 
-  = f.input :password, :wrapper => :prepend do
+  = f.input :password, :wrapper => :prepend, label: 'Пароль' do
     span.add-on
       i.icon-lock
     = f.input_field :password, required: true

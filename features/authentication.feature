@@ -7,8 +7,8 @@ Feature: Авторизация
     Given I am existing user
     When I visit "/"
     And I click link "Sign in"
-    And I fill "example@example.com" in field "user_email"
-    And I fill "please" in field "user_password"
+    And I fill "example@example.com" in field "Email"
+    And I fill "please" in field "Пароль"
     And I click button "Sign in"
     Then page should be "/"
     And I should see "Signed in successfully"
