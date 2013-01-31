@@ -50,7 +50,7 @@ group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
+  gem 'turbo-sprockets-rails3'
   gem 'uglifier'
 end
 
