@@ -49,11 +49,8 @@ end
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
-  gem "therubyracer"
-  gem 'libv8', '~> 3.11.8'
-  gem "less-rails"
   gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
+  gem 'turbo-sprockets-rails3'
   gem 'uglifier'
 end
 
