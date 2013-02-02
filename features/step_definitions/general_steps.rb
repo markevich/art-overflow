@@ -41,3 +41,7 @@ end
 When /^I attach the file "(.*?)" to "(.*?)"$/ do |file_path, input|
   attach_file(input, File.expand_path(file_path))
 end
+
+Then /^I should be on my picture page$/ do
+  current_path.should match /drawings\/\d+/
+end
