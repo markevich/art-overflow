@@ -19,7 +19,7 @@ class DrawingsController < ApplicationController
     @drawing.user = current_user
 
     if @drawing.save
-      redirect_to drawing_path(@drawing), notice: 'Рисунок успешно загружен'
+      redirect_to edit_drawing_path(@drawing)
     else
       render action: :new
     end
