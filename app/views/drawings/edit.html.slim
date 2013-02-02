@@ -1,6 +1,7 @@
 = simple_form_for @drawing do |f|
   = f.error_notification
-  = f.input :name
-  = f.input :description
-  = f.collection_select(:drawing_category, drawing_categories, :id, :name)
-  = f.button :submit, 'Обновить'
+  = image_tag @drawing.path
+  = f.input :name, label: 'Имя'
+  = f.input :tag_list, label: 'Тэги'
+  = f.input :drawing_category_id, collection: drawing_categories, label: 'Категория', include_blank: false
+  = f.button :submit, 'Сохранить'
