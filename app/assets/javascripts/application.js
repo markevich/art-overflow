@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
-//= require twitter/bootstrap
+//= require bootstrap
 //= require jquery-fileupload
 //= require_tree .
 
