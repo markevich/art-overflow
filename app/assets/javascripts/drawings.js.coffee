@@ -1,4 +1,5 @@
 jQuery ->
-  $('#new_drawing input').live 'change', ->
-    $('#new_drawing').submit()
-  
+ $('#new_drawing').fileupload
+    dataType: 'script'
+    # add: (e, data) ->
+    #   

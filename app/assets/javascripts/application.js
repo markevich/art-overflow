@@ -11,8 +11,11 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 
+//= require 'jquery'
+//= require 'jquery-ui'
+//= require 'jquery_ujs'
+//= require jquery-fileupload/basic
 //= require bootstrap
-//= require jquery-fileupload
 //= require_tree .
 
 // $(function() {
