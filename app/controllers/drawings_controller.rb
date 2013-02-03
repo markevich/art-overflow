@@ -17,12 +17,7 @@ class DrawingsController < ApplicationController
   def create
     @drawing = Drawing.new(params[:drawing])
     @drawing.user = current_user
-
-    if @drawing.save
-      redirect_to edit_drawing_path(@drawing)
-    else
-      render action: :new
-    end
+    @drawing.save
   end
 
   def edit
