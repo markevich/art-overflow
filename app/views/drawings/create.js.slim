@@ -1,0 +1,6 @@
+- if @drawing.new_record?
+  | alert("Не удалось загрузить изображение: #{@drawing.errors.full_messages.join(', ').html_safe}")
+- else
+  |
+    $('#new_drawing').hide();
+    $('#edit_container').append("#{j render(template: 'drawings/edit')}");
