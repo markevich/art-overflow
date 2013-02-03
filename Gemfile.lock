@@ -7,15 +7,6 @@ GIT
       activerecord
       activesupport
 
-GIT
-  remote: git://github.com/seyhunak/twitter-bootstrap-rails.git
-  revision: dcbdf57bf6d5d5ea3b52820ded1e590794838ad7
-  specs:
-    twitter-bootstrap-rails (2.2.0)
-      actionpack (>= 3.1)
-      execjs
-      railties (>= 3.1)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -63,6 +54,8 @@ GEM
       coderay (>= 1.0.0)
       erubis (>= 2.7.0)
     binding_of_caller (0.6.8)
+    bootstrap-sass (2.2.2.0)
+      sass (~> 3.2)
     builder (3.0.4)
     capistrano (2.14.1)
       highline
@@ -330,6 +323,7 @@ DEPENDENCIES
   ancestry
   better_errors
   binding_of_caller
+  bootstrap-sass
   capistrano
   capybara (~> 1.1.4)
   carrierwave
@@ -365,6 +359,5 @@ DEPENDENCIES
   simple_form
   slim
   turbo-sprockets-rails3
-  twitter-bootstrap-rails!
   uglifier
   yajl-ruby
