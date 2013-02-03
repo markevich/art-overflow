@@ -18,7 +18,7 @@ Feature: Загрузка картинки
     When I click button "Сохранить"
     Then I should be on my picture page
 
-  @javascript
+  @wip @javascript
   Scenario: Загрузка с ссылки в интернете
     Given I am logged in
     Given picture "http://example.com/test.jpg" exist
