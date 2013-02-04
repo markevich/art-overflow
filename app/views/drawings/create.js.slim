@@ -1,5 +1,5 @@
 - if @drawing.new_record?
-  | alert("Не удалось загрузить изображение: #{@drawing.errors.full_messages.join(', ').html_safe}")
+  | alert("Не удалось загрузить изображение: #{j @drawing.errors.full_messages.join(', ').html_safe}")
 - else
   |
     $('#new_drawing').hide();
