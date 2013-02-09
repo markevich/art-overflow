@@ -15,7 +15,7 @@ class DrawingsController < ApplicationController
   end
 
   def create
-    @drawing = Drawing.new(params[:drawing])
+    @drawing = Drawing.new(drawing_params)
     @drawing.user = current_user
     @drawing.save
   end
@@ -26,10 +26,13 @@ class DrawingsController < ApplicationController
 
   def update
     drawing = current_user.drawings.find params[:id]
-    drawing.update_attributes(params[:drawing])
+    drawing.update_attributes(drawing_params)
     redirect_to drawing_path(drawing)
   end
 
   private
 
+  def drawing_params
+    params.require(:drawing).permit(:path, :tag_list, :drawing_category_id)
+  end
 end
