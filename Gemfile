@@ -13,6 +13,8 @@ gem 'ancestry'
 gem "friendly_id"
 gem "jquery-fileupload-rails"
 
+gem 'strong_parameters'
+
 gem 'acts-as-taggable-on'
 gem 'acts_as_viewable', :github => 'ivoreis/acts_as_viewable' # maybe https://github.com/charlotte-ruby/impressionist instead
 
