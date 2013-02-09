@@ -1,4 +1,7 @@
 class Drawing < ActiveRecord::Base
+  validates :name, :drawing_category_id, presence: true, on: :update
+  validates :path, presence: true, on: :create
+
   acts_as_commentable
   acts_as_viewable
   acts_as_taggable
