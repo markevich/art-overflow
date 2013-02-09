@@ -1,10 +1,8 @@
 class Drawing < ActiveRecord::Base
-  attr_protected :user_id
-
   acts_as_commentable
   acts_as_viewable
   acts_as_taggable
-  
+
   belongs_to :user
   belongs_to :drawing_category
 
