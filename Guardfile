@@ -46,7 +46,7 @@ guard 'rspec', :cli => "--drb" do
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 end
 
-guard 'cucumber', :cli => '--drb' do
+guard 'cucumber', :cli => '--drb --format pretty --tags ~@wip' do
   watch(%r{^features/.+\.feature$})
   watch(%r{^features/support/.+$})          { 'features' }
   watch(%r{^features/step_definitions/(.+)_steps\.rb$}) { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'features' }
