@@ -26,11 +26,11 @@ html(lang="en")
         - if content_for?(:container)
           = content_for(:container)
         - else
-          .span3
+          .span2
             .well.sidebar-nav
               ul.nav.nav-list
                 = render 'drawing_categories/nested_list', categories: @drawing_categories, current_category: @category
-          .span9
+          .span10
             .well.sidebar-nav
               = yield
     
