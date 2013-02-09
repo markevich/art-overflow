@@ -16,6 +16,8 @@
 //= require 'jquery_ujs'
 //= require jquery-fileupload/basic
 //= require bootstrap
+//= require rails.validations
+//= require rails.validations.simple_form
 //= require_tree .
 
 // $(function() {
