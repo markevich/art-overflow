@@ -3,7 +3,7 @@
     .picture style="width: #{drawing.meta_info[:thumb][:width]}px"
       .image
         a href=""
-          img src=drawing.path.thumb
+          img style=" height:#{drawing.meta_info[:thumb][:height]}px" src=drawing.path.thumb
       .info 
         span 
           = image_tag('like.png')

@@ -1,5 +1,11 @@
 jQuery ->
- $('#new_drawing').fileupload
+  # $('#pictures').imagesLoaded ->
+  $('#pictures').isotope({
+    itemSelector : '.picture',
+    layoutMode : 'masonry',
+  });
+
+  $('#new_drawing').fileupload
     dataType: 'script'
     add: (e, data) ->
       types = /(\.|\/)(gif|jpe?g|png)$/i
