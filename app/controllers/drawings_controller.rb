@@ -25,14 +25,17 @@ class DrawingsController < ApplicationController
   end
 
   def update
-    drawing = current_user.drawings.find params[:id]
-    drawing.update_attributes(drawing_params)
-    redirect_to drawing_path(drawing)
+    @drawing = current_user.drawings.find params[:id]
+    if @drawing.update_attributes(drawing_params)
+      redirect_to drawing_path(@drawing)
+    else
+      render(action: :edit)
+    end
   end
 
   private
 
   def drawing_params
-    params.require(:drawing).permit(:path, :tag_list, :drawing_category_id)
+    params.require(:drawing).permit(:path, :name, :tag_list, :drawing_category_id)
   end
 end
