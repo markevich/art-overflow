@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130125214815) do
+ActiveRecord::Schema.define(:version => 20130209202734) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20130125214815) do
     t.integer  "drawing_category_id"
     t.string   "name"
     t.string   "description"
+    t.string   "meta_info"
   end
 
   create_table "sessions", :force => true do |t|
