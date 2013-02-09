@@ -20,7 +20,7 @@ class Drawing < ActiveRecord::Base
 
   private
   def save_meta_info
-    self.meta = get_meta_from(path).merge({
+    self.meta_info = get_meta_from(path).merge({
       thumb: get_meta_from(path.thumb)
     })
   end
