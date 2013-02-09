@@ -1,0 +1,59 @@
+.pictures{
+
+  .picture{
+    border-radius: 3px; /* закругление углов*/
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); 
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3); /*Добавляет тень к элементу*/
+    position: relative;
+    margin: 0 22px 22px 0;
+    background: #fff;
+    height: auto;
+    line-height: 0;
+    
+    .info{
+      -webkit-box-shadow: 0 1px 0px 0px white inset;
+      -moz-box-shadow: 0 1px 0px 0px white inset;
+      box-shadow: 0 1px 0px 0px white inset;
+      border-radius: 0 0 3px 3px;
+      padding: 7px 8px 8px;
+      border-top: 1px solid #e7e7e7;
+      background-color: #f6f6f6;
+      position: relative;
+      margin-top:-5px;
+      font-size: 8pt;
+      font-family: Arial;
+      font-weight:italic;
+
+      span {
+        padding-right: 5px;
+
+        span{
+
+          vertical-align: -2px;
+        }
+        img{
+          padding-right: 3px;
+        }
+      }
+
+
+      .starRight{
+        border-left: 1px solid #dddddd;
+        cursor: pointer;
+        padding: 0px 0px 5px 5px;
+        float: right;
+        height: 15px;
+        
+      }
+    }
+  
+  }
+  .image img:hover{
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=40);
+    -moz-opacity: 0.4;    /* Mozilla 1.6 &#232; &#237;&#232;&#230;&#229; */
+    -khtml-opacity: 0.4;  /* Konqueror 3.1, Safari 1.1 */
+    opacity: 0.4;         /* CSS3 - Mozilla 1.7b +, Firefox 0.9 +, Safari 1.2+, Opera 9 */
+    filter: alpha(opacity=40); /* IE 5.5+*/
+  }
+}

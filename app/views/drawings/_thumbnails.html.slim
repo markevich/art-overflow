@@ -1,10 +1,30 @@
-- drawings.each_slice(4) do |slice|
-  .row-fluid.pagination-centered
-    ul.thumbnails
-      - for drawing in slice
-        li.span3
-          a href=drawing_path(drawing.id)
-            = image_tag drawing.path.thumb, class: 'thumbnail', style: 'display: inline-block'
-          div style="font-size: 100%": b #{drawing.name}
-          - if drawing.drawing_category
-            div style="font-size: 80%": in #{drawing.drawing_category.name}, #{drawing.comments.count} comments, #{drawing.count_views} views
+.pictures
+  - for drawing in drawings
+    .picture style="width: #{drawing.meta_info[:thumb][:width]}px"
+      .image
+        a href=""
+          img src=drawing.path.thumb
+      .info 
+        span 
+          = image_tag('like.png')
+          span 12312312
+        span
+          = image_tag('eye.png')
+          span 234
+        span.starRight
+          = image_tag('star1.png')
+
+
+
+
+
+/ - drawings.each_slice(4) do |slice|
+/   .row-fluid.pagination-centered
+/     ul.thumbnails
+/       - for drawing in slice
+/         li.span3
+/           a href=drawing_path(drawing.id)
+/             = image_tag drawing.path.thumb, class: 'thumbnail', style: 'display: inline-block'
+/           div style="font-size: 100%": b #{drawing.name}
+/           - if drawing.drawing_category
+/             div style="font-size: 80%": in #{drawing.drawing_category.name}, #{drawing.comments.count} comments, #{drawing.count_views} views
