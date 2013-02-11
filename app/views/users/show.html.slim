@@ -1,2 +1,3 @@
 = @user.name
-= button_to("Follow", follow_user_path(@user)) unless current_user == @user
+- unless current_user == @user
+  = follow_user_button(@user)
