@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130209202734) do
+ActiveRecord::Schema.define(:version => 20130211164824) do
 
   create_table "comments", :force => true do |t|
     t.integer  "commentable_id",   :default => 0
@@ -51,6 +51,19 @@ ActiveRecord::Schema.define(:version => 20130209202734) do
     t.string   "description"
     t.string   "meta_info"
   end
+
+  create_table "follows", :force => true do |t|
+    t.integer  "followable_id",                      :null => false
+    t.string   "followable_type",                    :null => false
+    t.integer  "follower_id",                        :null => false
+    t.string   "follower_type",                      :null => false
+    t.boolean  "blocked",         :default => false, :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
+  end
+
+  add_index "follows", ["followable_id", "followable_type"], :name => "fk_followables"
+  add_index "follows", ["follower_id", "follower_type"], :name => "fk_follows"
 
   create_table "sessions", :force => true do |t|
     t.string   "session_id", :null => false
@@ -114,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20130209202734) do
     t.integer  "viewable_id",                                         :null => false
     t.string   "viewable_type",                                       :null => false
     t.integer  "times_viewed",     :default => 1
-    t.datetime "past_time_viewed", :default => '2013-01-21 20:15:50'
+    t.datetime "past_time_viewed", :default => '2013-02-11 16:22:36'
     t.datetime "created_at",                                          :null => false
     t.datetime "updated_at",                                          :null => false
   end

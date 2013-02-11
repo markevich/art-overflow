@@ -13,6 +13,7 @@ gem 'ancestry'
 gem "friendly_id"
 gem "jquery-fileupload-rails"
 
+gem 'acts_as_follower'
 gem 'strong_parameters'
 
 gem 'acts-as-taggable-on'
