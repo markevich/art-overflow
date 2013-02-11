@@ -13,7 +13,7 @@ describe UsersController do
     end
   end
 
-  describe 'POST follow' do
+  context 'following' do
     let(:current_user) { create(:user) }
     let(:valid_params) { {id: another_user.id} }
     before do
@@ -27,10 +27,20 @@ describe UsersController do
       response.status.should == 401
     end
 
-    it 'makes current_user to follow another user' do
-      current_user.should_receive(:follow).with(another_user)
-      post :follow, valid_params
-      response.should be_success
+    describe 'POST follow' do
+      it 'makes current_user to follow another user' do
+        current_user.should_receive(:follow).with(another_user)
+        post :follow, valid_params
+        response.should be_success
+      end
+    end
+
+    describe 'POST unfollow' do
+      it 'makes current_user to unfollow another user' do
+        current_user.should_receive(:unfollow).with(another_user)
+        post :unfollow, valid_params
+        response.should be_success
+      end
     end
   end
 end
