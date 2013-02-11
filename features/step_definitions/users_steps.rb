@@ -5,5 +5,5 @@ end
 
 
 Given /^Another user exist$/ do
-  create(:another_user)
+  create(:user, :another)
 end

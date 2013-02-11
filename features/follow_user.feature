@@ -4,16 +4,13 @@ Feature: Фоловинг пользователей
 Я хочу иметь возможность зафоловить другого пользователя.
 
   Scenario: Фоловинг другого пользователя
-    pending
     Given I am logged in
     When I visit another user's page
-    When I click button "Подписаться"
+    When I click button "Follow"
     Then I should see "Вы успешно подписались на обновления пользователя Василий"
 
   Scenario: Анфоловинг другого пользователя
-    pending
     Given I am logged in
-
     When I visit another user's page
-    When I click button "Отписаться"
+    When I click button "Unfollow"
     Then I should see "Вы успешно отписались от обновлений пользователя Василий"
