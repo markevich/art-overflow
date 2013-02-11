@@ -36,8 +36,8 @@ describe UsersController do
     end
 
     describe 'POST unfollow' do
-      it 'makes current_user to unfollow another user' do
-        current_user.should_receive(:unfollow).with(another_user)
+      it 'makes current_user to stop following another user' do
+        current_user.should_receive(:stop_following).with(another_user)
         post :unfollow, valid_params
         response.should be_success
       end

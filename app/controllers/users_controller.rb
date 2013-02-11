@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def unfollow
-    current_user.unfollow(@user)
+    current_user.stop_following(@user)
     render nothing: true
   end
 
