@@ -7,6 +7,9 @@ class User < ActiveRecord::Base
         :recoverable, :trackable, :validatable, :confirmable, :omniauthable
 
   validates :name, presence: true
+  acts_as_viewer
+  acts_as_followable
+  acts_as_follower
 
   mount_uploader :avatar, AvatarUploader
 
@@ -24,7 +27,6 @@ class User < ActiveRecord::Base
     user
   end
 
-  acts_as_viewer
 
 #какой-то фарш с форума, надо потом глянуть и сделать авторизацию на основе метод миссинга
 
