@@ -6,7 +6,7 @@ FactoryGirl.define do
     password_confirmation "please"
     confirmed_at          Time.now
 
-    factory :another_user do
+    trait :another do
       id                    200
       name                  "Another user"
       email                 "another@example.com"
