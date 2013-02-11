@@ -1,14 +1,4 @@
-Given /^I am existing user$/ do
-  create(:user)
-end
 
-Given /^I am logged in$/ do
-  create(:user)
-  visit '/users/sign_in'
-  fill_in "user_email", :with => 'example@example.com'
-  fill_in "user_password", :with => 'please'
-  click_button "Sign in"
-end
 
 When /^I visit "(.*?)"$/ do |path|
   visit path
