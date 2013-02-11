@@ -9,6 +9,7 @@ Nicedrawing::Application.routes.draw do
     member do
       get :drawings
       post :follow
+      post :unfollow
     end
   end
 

@@ -11,10 +11,15 @@ class UsersController < ApplicationController
   end
 
   def follow
+    #TODO: redirect_to authorize_path unless current_user
   end
-end
+
+  def unfollow
+    #TODO: redirect_to authorize_path unless current_user
+  end
 
   private
   def set_model
     @user = User.find(params[:id])
   end
+end
