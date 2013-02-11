@@ -5,4 +5,8 @@ class UsersController < ApplicationController
     @drawings = @user.drawings
     render layout: 'application'
   end
+
+  def show
+    @user = User.find(params[:id])
+  end
 end
