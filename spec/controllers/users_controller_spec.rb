@@ -17,17 +17,20 @@ describe UsersController do
     let(:current_user) { create(:user) }
     let(:valid_params) { {id: another_user.id} }
     before do
-      UsersController.stub(:current_user).and_return current_user
+      controller.stub(:current_user).and_return current_user
+      controller.stub(:user_signed_in?).and_return true
     end
 
     it 'show 401 if user not authorized' do
-      UsersController.stub(:current_user).and_return nil
+      controller.stub(:user_signed_in?).and_return false
       post :follow, valid_params
       response.status.should == 401
     end
 
     it 'makes current_user to follow another user' do
-
+      current_user.should_receive(:follow).with(another_user)
+      post :follow, valid_params
+      response.should be_success
     end
   end
 end
