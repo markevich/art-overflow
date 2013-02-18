@@ -5,15 +5,11 @@ Feature: Фоловинг пользователей
 
   Scenario: Фоловинг другого пользователя
     Given I am logged in
-    Given Another user
-    When I visit another user's page
-    When I click button "Follow"
-    Then I should see "Вы успешно подписались на обновления пользователя Василий"
+    When I start following another user
+    Then I should see "Вы успешно подписались на обновления пользователя"
 
   Scenario: Анфоловинг другого пользователя
     Given I am logged in
-    Given Another user
     Given I follow another user
-    When I visit another user's page
-    When I click button "Unfollow"
-    Then I should see "Вы успешно отписались от обновлений пользователя Василий"
+    When I stop following another user
+    Then I should see "Вы успешно отписались от обновлений п"

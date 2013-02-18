@@ -17,6 +17,8 @@ end
  
 Spork.each_run do
   World FactoryGirl::Syntax::Methods
+  # World KnowsAboutAuthentication
+  
   ActionController::Base.allow_rescue = false
   
   begin

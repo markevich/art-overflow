@@ -17,17 +17,3 @@ Feature: Загрузка картинки
     When I fill "рисунок, карандаши" in field "Тэги"
     When I click button "Сохранить"
     Then I should be on my picture page
-
-  @wip @javascript
-  Scenario: Загрузка с ссылки в интернете
-    Given I am logged in
-    Given picture "http://example.com/test.jpg" exist
-    When I visit "/"
-    When I click link "Добавить рисунок"
-    When I fill "http://example.com/test.jpg" in field "Изображение с интернета"
-    When I fill "Мой крутой рисунок" in field "Имя"
-    When I select "Рисунки карандашом" in "Категория"
-    When I fill "рисунок, карандаши" in field "Тэги"
-    When I click button "Сохранить"
-    Then I should be on my picture page
-
