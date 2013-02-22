@@ -43,10 +43,11 @@ group :test do
   gem 'guard-cucumber'
   gem 'guard-livereload'
   gem 'guard-spork'
-  gem 'libnotify'
   gem 'yajl-ruby'
-  gem 'rb-inotify'
+  gem 'rb-inotify' if /linux/ =~ RUBY_PLATFORM
   gem 'ffaker'
+  gem 'libnotify' if /linux/ =~ RUBY_PLATFORM
+  gem 'growl' if /darwin/ =~ RUBY_PLATFORM
 end
 
 group :assets do

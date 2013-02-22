@@ -127,7 +127,7 @@ ActiveRecord::Schema.define(:version => 20130211164824) do
     t.integer  "viewable_id",                                         :null => false
     t.string   "viewable_type",                                       :null => false
     t.integer  "times_viewed",     :default => 1
-    t.datetime "past_time_viewed", :default => '2013-01-21 20:15:50'
+    t.datetime "past_time_viewed", :default => '2013-02-22 14:29:27'
     t.datetime "created_at",                                          :null => false
     t.datetime "updated_at",                                          :null => false
   end
