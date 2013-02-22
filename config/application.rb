@@ -69,6 +69,10 @@ module Nicedrawing
         Devise::UnlocksController.layout "user"           
         Devise::PasswordsController.layout "user"
     end
+
+    config.generators do |g|
+      g.test_framework :rspec
+    end
   end
 end
 

@@ -6,10 +6,10 @@ Feature: Фоловинг пользователей
   Scenario: Фоловинг другого пользователя
     Given I am logged in
     When I start following another user
-    Then I should see "Вы успешно подписались на обновления пользователя"
+    Then I should follow this user
 
   Scenario: Анфоловинг другого пользователя
     Given I am logged in
     Given I follow another user
     When I stop following another user
-    Then I should see "Вы успешно отписались от обновлений п"
+    Then I should not follow this user
