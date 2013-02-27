@@ -5,10 +5,6 @@ Feature: Авторизация
 
   Scenario: Авторизация существующего пользователя.
     Given I am existing user
-    When I visit "/"
-    And I click link "Sign in"
-    And I fill "example@example.com" in field "Email"
-    And I fill "please" in field "Пароль"
-    And I click button "Sign in"
-    Then page should be "/"
-    And I should see "Signed in successfully"
+    When I visit authentication page
+    And fill my login credentials
+    Then I should be authorized

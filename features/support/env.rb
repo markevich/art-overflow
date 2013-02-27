@@ -28,5 +28,8 @@ Spork.each_run do
   end
 
   Cucumber::Rails::Database.javascript_strategy = :truncation
+  Before do
+    DatabaseCleaner.clean
+  end
 
 end

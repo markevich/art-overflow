@@ -3,10 +3,6 @@ module KnowsAboutUsers
     @current_user ||= create(:user)
   end
 
-  def current_user= user
-    @current_user = user
-  end
-  
   def another_user
     @another_user ||= create(:user, :another)
   end
