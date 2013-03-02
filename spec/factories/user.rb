@@ -9,7 +9,7 @@ FactoryGirl.define do
     trait :another do
       id                    200
       name                  "Another user"
-      email                 "another@example.com"
+      sequence(:email) {|n| "person#{n}@example.com" }
     end
 
   end
