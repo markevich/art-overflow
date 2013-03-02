@@ -17,6 +17,11 @@ module KnowsAboutUsers
   end
 end
 
+module KnowsAboutDrawings
+  def drawing
+    @drawing ||= create(:drawing)
+  end
+end
 
 World KnowsAboutUsers
-World KnowsAboutAuthentication
+World KnowsAboutDrawings
