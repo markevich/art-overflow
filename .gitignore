@@ -12,3 +12,4 @@ test*
 *.rdb
 *.tags*
 public/uploads*
+rerun.txt
