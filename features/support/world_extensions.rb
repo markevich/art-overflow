@@ -1,4 +1,6 @@
 module KnowsAboutUsers
+  include Warden::Test::Helpers
+
   def current_user
     @current_user ||= create(:user)
   end
@@ -6,12 +8,6 @@ module KnowsAboutUsers
   def another_user
     @another_user ||= create(:user, :another)
   end
-end
-
-
-module KnowsAboutAuthentication
-  include Warden::Test::Helpers
-  
   def i_am_logged_in
     login current_user
   end
