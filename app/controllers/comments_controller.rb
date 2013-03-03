@@ -5,14 +5,14 @@ class CommentsController < ApplicationController
     @comment.save
 
     list and return if request.xhr?
-    format.html { redirect_to @parent }
+    redirect_to @parent
   end
 
   def list
     render partial: 'list', locals: {comments: @parent.comments}
   end
 
-  private 
+  private
   def set_parent
     @parent = if params[:drawing_id]
       Drawing.find(params[:drawing_id])
