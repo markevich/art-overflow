@@ -3,8 +3,9 @@ Feature: 'Комментарии'
   Как пользователь.
   Я хочу оставить комментарий.
 
+  @javascript
   Scenario: 'Комментарий к рисунку.'
     Given I am logged in
     Given I am on some drawing page
     When I write comment for drawing and submit it
-    Then I should see my comment
+    Then I should see my new comment
