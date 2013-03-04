@@ -65,13 +65,13 @@ GEM
       net-sftp (>= 2.0.0)
       net-ssh (>= 2.0.14)
       net-ssh-gateway (>= 1.1.0)
-    capybara (1.1.4)
+    capybara (2.0.2)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (~> 2.0)
-      xpath (~> 0.1.4)
+      xpath (~> 1.0.0)
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
@@ -208,12 +208,10 @@ GEM
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     orm_adapter (0.4.0)
-    poltergeist (1.0.2)
-      capybara (~> 1.1)
-      childprocess (~> 0.3)
+    poltergeist (1.1.0)
+      capybara (~> 2.0, >= 2.0.1)
       faye-websocket (~> 0.4, >= 0.4.4)
       http_parser.rb (~> 0.5.3)
-      multi_json (~> 1.0)
     polyglot (0.3.3)
     pry (0.9.12)
       coderay (~> 1.0.5)
@@ -312,7 +310,7 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     websocket (1.0.7)
-    xpath (0.1.4)
+    xpath (1.0.0)
       nokogiri (~> 1.3)
     yajl-ruby (1.1.0)
 
@@ -329,7 +327,7 @@ DEPENDENCIES
   binding_of_caller
   bootstrap-sass
   capistrano
-  capybara (~> 1.1.4)
+  capybara
   carrierwave
   client_side_validations
   client_side_validations-simple_form
