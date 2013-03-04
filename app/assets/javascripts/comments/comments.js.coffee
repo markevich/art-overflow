@@ -1,8 +1,8 @@
 $(document).ready ->
   $('form[id=new_comment]')
-  .live("ajax:failure", (xhr, status, error) ->
+  .on("ajax:failure", (xhr, status, error) ->
     alert "failure!"
-  ).live "ajax:success", (event, data)->
+  ).on "ajax:success", (event, data)->
     $('#comment_body').val('')
     $('#comments-area').html(data)
     $('.comment:first').effect("highlight", {}, 3000);

@@ -67,6 +67,6 @@ gem 'client_side_validations-simple_form'
 
 gem 'capistrano'
 
-gem 'debugger'
+gem 'debase'
 
 gem 'mini_magick'
