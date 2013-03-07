@@ -18,6 +18,7 @@ gem 'strong_parameters'
 
 gem 'acts-as-taggable-on'
 gem 'acts_as_viewable', :github => 'ivoreis/acts_as_viewable' # maybe https://github.com/charlotte-ruby/impressionist instead
+gem 'thumbs_up'
 
 group :test, :development do
   gem 'rack-livereload'
@@ -67,6 +68,7 @@ gem 'client_side_validations-simple_form'
 
 gem 'capistrano'
 
-gem 'debase'
+                                                              #gem 'debase'
 
 gem 'mini_magick'
+
