@@ -9,6 +9,7 @@ div id="img_description"
   .image_description = @drawing.description
 
 a.download_link href=@drawing.path Download this image
+= like_drawing_button @drawing
 
 - if user_signed_in?
   = simple_form_for([@drawing, Comment.new], remote: true) do |f|
