@@ -2,15 +2,15 @@
   - for drawing in drawings
     .picture style="width: #{drawing.meta_info[:thumb][:width]}px"
       .image
-        a href=""
+        a href=drawing_path(drawing.id)
           img style=" height:#{drawing.meta_info[:thumb][:height]}px" src=drawing.path.thumb
       .info 
         span 
           = image_tag('like.png')
-          span 12312312
+          span 0
         span
           = image_tag('eye.png')
-          span 234
+          span #{drawing.count_views}
         span.starRight
           = image_tag('star1.png')
 
