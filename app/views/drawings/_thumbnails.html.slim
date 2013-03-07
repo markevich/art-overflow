@@ -7,7 +7,7 @@
       .info 
         span 
           = image_tag('like.png')
-          span 0
+          span = drawing.votes_for
         span
           = image_tag('eye.png')
           span #{drawing.count_views}
