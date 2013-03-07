@@ -6,6 +6,7 @@ class Drawing < ActiveRecord::Base
   acts_as_commentable
   acts_as_viewable
   acts_as_taggable
+  acts_as_voteable
 
   belongs_to :user
   belongs_to :drawing_category
