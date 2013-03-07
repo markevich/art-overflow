@@ -33,6 +33,18 @@ class DrawingsController < ApplicationController
     end
   end
 
+  def like
+    @drawing = Drawing.find params[:drawing_id]
+    current_user.vote_for @drawing
+    render nothing: true
+  end
+
+  def unlike
+    @drawing = Drawing.find params[:drawing_id]
+    current_user.unvote_for @drawing
+    render nothing: true
+  end
+
   private
 
   def drawing_params
