@@ -2,6 +2,9 @@ Nicedrawing::Application.routes.draw do
 
   resources :drawings do
     resource :comments
+
+    post :like
+    post :unlike
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", :registrations => "users/registrations", :passwords => "users/passwords" }
