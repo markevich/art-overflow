@@ -3,10 +3,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   before_filter :fetch_categories
 
-  def index
-
-  end
-  
   def render_404
     render file: "#{Rails.root}/public/404.html", status: :not_found , layout: false
   end
