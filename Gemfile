@@ -4,6 +4,7 @@ gem 'rails', '4.0.0.beta1'
 
 gem 'mysql2'
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
+gem 'simple_form'
 
 
 group :assets do

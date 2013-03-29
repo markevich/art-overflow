@@ -106,6 +106,7 @@ GEM
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0.rc0)
       tilt (~> 1.3)
+    simple_form (1.4.1)
     sprockets (2.9.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -146,5 +147,6 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.0.0.beta1)
   sass-rails (~> 4.0.0.beta1)
+  simple_form
   turbolinks
   uglifier (>= 1.0.3)
