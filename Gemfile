@@ -18,21 +18,23 @@ group :assets do
 end
 
 group :development do
+  #gem 'capistrano'
   gem 'quiet_assets'
   gem 'letter_opener'
+end
+
+group :development, :test do
+  gem 'debugger'
 end
 
 gem 'jquery-rails'
 
 gem 'turbolinks'
 
-gem 'jbuilder', '~> 1.0.1'
+#gem 'jbuilder', '~> 1.0.1'
 
 # Use unicorn as the app server
 # gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano', group: :development
-
-# To use debugger
-gem 'debugger'
+# , group: :development
