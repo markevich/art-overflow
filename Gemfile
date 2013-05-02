@@ -9,9 +9,12 @@ gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 
+gem 'jquery-rails'
+gem 'turbolinks'
+
 group :assets do
-  gem 'sass-rails',   '~> 4.0.0.beta1'
-  gem 'coffee-rails', '~> 4.0.0.beta1'
+  gem 'sass-rails'
+  gem 'coffee-rails'
   gem 'bootstrap-sass'
   gem 'flat-ui-rails'
   gem 'uglifier', '>= 1.0.3'
@@ -27,14 +30,7 @@ group :development, :test do
   gem 'debugger'
 end
 
-gem 'jquery-rails'
-
-gem 'turbolinks'
-
+group :production do
+  gem 'unicorn'
+end
 #gem 'jbuilder', '~> 1.0.1'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# , group: :development
