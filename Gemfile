@@ -10,7 +10,12 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+
+#sidekiq
 gem 'sidekiq'
+gem 'slim'
+gem 'sinatra', :require => nil
+#
 
 gem 'jquery-rails'
 gem 'turbolinks'
