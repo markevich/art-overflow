@@ -24,7 +24,7 @@ module RailsAdmin
              object.update_attribute(:accepted_at, DateTime.now)
            end
 
-           flash[:notice] = "Вы успешно пригласили #{objects.to_a.count} новых пользователей!"
+           flash[:notice] = "Вы успешно запланировали приглашение #{objects.to_a.count} новых пользователей!"
            redirect_to back_or_index
           end
 

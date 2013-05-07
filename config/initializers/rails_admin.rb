@@ -19,7 +19,7 @@ RailsAdmin.config do |config|
 
     approve_invite do
       visible do
-        true
+        bindings[:abstract_model].model.to_s == 'Invite'
       end
     end
   end
