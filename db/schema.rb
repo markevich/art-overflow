@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130507135105) do
+ActiveRecord::Schema.define(version: 20130507140657) do
 
   create_table "beta", force: true do |t|
     t.string "email"
@@ -23,7 +23,8 @@ ActiveRecord::Schema.define(version: 20130507135105) do
   end
 
   create_table "invites", force: true do |t|
-    t.string "email"
+    t.string   "email"
+    t.datetime "accepted_at"
   end
 
   create_table "rails_admin_histories", force: true do |t|

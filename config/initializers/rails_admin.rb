@@ -1,9 +1,28 @@
-# RailsAdmin config file. Generated on May 07, 2013 16:51
-# See github.com/sferik/rails_admin for more informations
-
+require Rails.root.join('lib', 'rails_admin_approve_invite')
 RailsAdmin.config do |config|
 
+  config.actions do
+    # root actions
+    dashboard
+    # collection actions
+    index
+    new
+    export
+    history_index
+    bulk_delete
+    # member actions
+    show
+    edit
+    delete
+    history_show
+    show_in_app
 
+    approve_invite do
+      visible do
+        true
+      end
+    end
+  end
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
