@@ -11,11 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130507123620) do
+ActiveRecord::Schema.define(version: 20130507133707) do
+
+  create_table "beta", force: true do |t|
+    t.string "email"
+  end
 
   create_table "drawings", force: true do |t|
     t.string "name"
     t.string "path"
+  end
+
+  create_table "invites", force: true do |t|
+    t.string "email"
   end
 
   create_table "users", force: true do |t|
