@@ -10,6 +10,7 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'sidekiq'
 
 gem 'jquery-rails'
 gem 'turbolinks'
