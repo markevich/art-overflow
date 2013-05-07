@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.0.0.beta1'
+gem 'rails', '4.0.0.rc1'
 
 gem 'mysql2'
 gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
@@ -13,7 +13,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 
 group :assets do
-  gem 'sass-rails'
+  gem 'sass-rails', '4.0.0.rc1'
   gem 'coffee-rails'
   gem 'bootstrap-sass'
   gem 'flat-ui-rails'
