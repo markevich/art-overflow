@@ -9,6 +9,15 @@ GIT
       railties (>= 3.2.6, < 5)
       warden (~> 1.2.1)
 
+GIT
+  remote: git://github.com/scambra/devise_invitable.git
+  revision: fa9c4270323cb1f869d40eda1fa10bf344ee150a
+  branch: rails4
+  specs:
+    devise_invitable (1.1.7)
+      actionmailer (~> 4.0.0.beta)
+      railties (~> 4.0.0.beta)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -159,6 +168,7 @@ DEPENDENCIES
   coffee-rails
   debugger
   devise!
+  devise_invitable!
   flat-ui-rails
   haml-rails
   jquery-rails
