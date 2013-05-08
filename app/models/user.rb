@@ -4,4 +4,6 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :confirmable
+
+  ROLES = %w[admin]
 end
