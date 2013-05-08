@@ -7,12 +7,13 @@ class DrawingsController < ApplicationController
     @drawing = Drawing.new
   end
 
-  def create
-    Drawing.create drawing_params
+  def show
+     @drawing = Drawing.find(params[:id])
   end
 
-  private
-  def drawing_params
-    params.require(:drawing).permit(:name, :path)
+  def create
+    drawing = Drawing.create permitted_params.drawing
+    redirect_to drawing
   end
+
 end
