@@ -4,12 +4,7 @@ class InvitesController < ApplicationController
     @invite = Invite.new
   end
   def create
-    Invite.create(invite_params)
+    Invite.create(permitted_params.invite)
     redirect_to action: :index
-  end
-  
-  private
-  def invite_params
-    params.require(:invite).permit(:email)
   end
 end
