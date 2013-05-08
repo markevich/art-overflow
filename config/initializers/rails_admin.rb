@@ -1,6 +1,8 @@
 require Rails.root.join('lib', 'rails_admin_approve_invite')
 RailsAdmin.config do |config|
 
+  config.authorize_with :cancan
+
   config.actions do
     # root actions
     dashboard

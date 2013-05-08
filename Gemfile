@@ -17,6 +17,8 @@ gem 'slim', '1.3.8'
 gem 'sinatra', :require => nil
 #
 
+gem 'cancan'
+
 gem 'jquery-rails'
 gem 'turbolinks'
 
