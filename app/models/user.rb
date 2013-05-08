@@ -5,5 +5,9 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :confirmable
 
-  ROLES = %w[admin]
+  ROLES = %w[admin moderator]
+
+  def admin?
+    role == "admin"
+  end
 end
