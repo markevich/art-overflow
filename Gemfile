@@ -13,7 +13,7 @@ gem 'mini_magick'
 
 #sidekiq
 gem 'sidekiq'
-gem 'slim'
+gem 'slim', '1.3.8'
 gem 'sinatra', :require => nil
 #
 

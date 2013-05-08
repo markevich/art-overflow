@@ -22,6 +22,7 @@ module RailsAdmin
            objects.delete_if {|o| !o.accepted_at.nil? }
            objects.each do |object|
              object.update_attribute(:accepted_at, DateTime.now)
+             BetaInvite.perform_async(object.id, current_user.id)
            end
 
            flash[:success] = t('admin.flash.invites_planned', count: objects.to_a.count)
