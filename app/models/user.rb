@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :confirmable
 
-  validates :name, presence: true, uniqueness: true
+  #validates :name, presence: true, uniqueness: true
 
   ROLES = %w[admin moderator]
 
