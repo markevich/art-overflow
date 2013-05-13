@@ -4,11 +4,11 @@ class PicturesController < ApplicationController
   end
 
   def new
-    @pictures = Picture.new
+    @picture = Picture.new
   end
 
   def show
-     @pictures = Picture.find(params[:id])
+     @picture = Picture.find(params[:id])
   end
 
   def create

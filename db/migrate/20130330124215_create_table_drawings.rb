@@ -1,6 +1,6 @@
 class CreateTableDrawings < ActiveRecord::Migration
   def change
-    create_table :pictures do |t|
+    create_table :picture do |t|
       t.string :name
       t.string :path
     end

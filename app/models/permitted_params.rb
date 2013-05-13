@@ -4,6 +4,6 @@ class PermittedParams < Struct.new(:params, :user)
   end
 
   def picture
-    params.require(:pictures).permit(:name, :path)
+    params.require(:picture).permit(:name, :path)
   end
 end
