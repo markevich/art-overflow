@@ -1,4 +1,5 @@
 - @drawings.each do |drawing|
   .image-block
     = drawing.name
-    = image_tag drawing.path.thumb
+    %a{href: drawing_path(drawing)}
+      = image_tag drawing.path.thumb
