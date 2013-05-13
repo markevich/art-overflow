@@ -3,7 +3,7 @@ class PermittedParams < Struct.new(:params, :user)
     params.require(:invite).permit(:email)
   end
 
-  def drawing
-    params.require(:drawing).permit(:name, :path)
+  def picture
+    params.require(:pictures).permit(:name, :path)
   end
 end

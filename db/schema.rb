@@ -11,20 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130510214250) do
+ActiveRecord::Schema.define(version: 20130513122008) do
 
   create_table "beta", force: true do |t|
     t.string "email"
   end
 
-  create_table "drawings", force: true do |t|
-    t.string "name"
-    t.string "path"
-  end
-
   create_table "invites", force: true do |t|
     t.string   "email"
     t.datetime "accepted_at"
+  end
+
+  create_table "pictures", force: true do |t|
+    t.string "name"
+    t.string "path"
   end
 
   create_table "rails_admin_histories", force: true do |t|

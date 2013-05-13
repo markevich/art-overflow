@@ -1,16 +1,16 @@
 .span8
-  = image_tag @drawing.path, class: 'thumbnail big_image'
+  = image_tag @pictures.path, class: 'thumbnail big_image'
   %h3
-    = @drawing.name
+    = @pictures.name
 .span4
   .info-area{style: ''}
     %img{style: 'width:50px; height:50px; float:left; margin-right:10px;'}
     .title{style: 'padding-left:5px;'}
-      = @drawing.name
+      = @pictures.name
     .author
-      = @drawing.name
+      = @pictures.name
   .description{style: 'clear:both; margin-top:25px;'}
-    = @drawing.name
+    = @pictures.name
   .comments-area
 
 
