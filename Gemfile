@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '4.0.0.rc1'
 
 gem 'mysql2'
-gem 'devise', git: 'git://github.com/plataformatec/devise.git', branch: 'rails4'
+gem 'devise', '3.0.0.rc'
 gem 'devise_invitable', git: 'git://github.com/scambra/devise_invitable.git', branch: 'rails4'
 gem 'rails_admin', git: 'git://github.com/sferik/rails_admin.git', branch: 'rails-4'
 gem 'simple_form'
