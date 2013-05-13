@@ -16,5 +16,12 @@
             %a.dropdown-toggle{'data-toggle' => 'dropdown'}
               Profile
               %b.caret
+            %ul.dropdown-menu
+              - if user_signed_in?
+                %li
+                  = link_to 'Выйти', destroy_user_session_path, :method => :delete
+              - else
+                %li
+                  = link_to 'Войти', new_user_session_path
         %form.navbar-search
           %input.search-query.span2{type: 'text', placeholder: 'search'}
