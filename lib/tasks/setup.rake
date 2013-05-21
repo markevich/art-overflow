@@ -24,20 +24,18 @@ namespace :setup do
     Rake::Task['db:test:prepare'].invoke
   end
 
-  task :create_user do
-    puts "*** Create example@example.com/password user ***"
-    User.create(email: 'example@example.com',
-                password: 'password',
-                password_confirmation: 'password',
-                confirmed_at: DateTime.now
-    )
+  task :set_admin_user do
+    puts "*** Add admin role to first user ***"
+    User.first.become_admin!
   end
 end
 
+desc 'Configure the application for development.'
 task :setup => :environment do
   Rake::Task['setup:drop_database'].invoke
   Rake::Task['setup:create_database'].invoke
   Rake::Task['setup:migrate_database'].invoke
   Rake::Task['setup:seed_database'].invoke
+  Rake::Task['setup:set_admin_user'].invoke
   Rake::Task['setup:create_test_database'].invoke
 end
