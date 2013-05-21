@@ -9,7 +9,11 @@ class User < ActiveRecord::Base
 
   ROLES = %w[admin moderator]
 
+  def become_admin!
+    update_attribute(:role, :admin)
+  end
+
   def admin?
-    role == "admin"
+    role == :admin
   end
 end
