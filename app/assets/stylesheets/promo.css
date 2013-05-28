@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html {height: 100%;}
+* html body {height: 100%;}
+body {
+  min-height: 100%;
+  position: relative;
+  background-color: #9b59b6;
+}
+.content {
+  padding-bottom: 100px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  height: 315px;
+}
+.content, #footer{
+	width: 865px;
+	margin: 0 auto;
+}
+.content img.logo {
+	margin-left: 182.5px;
+	width: 500px;
+}
+.content .text{
+	margin:30px  50px;
+	font-family: Arial;
+	font-size: 18px;
+	color: white;
+	text-align: center;
+	line-height: 35px;
+}
+.button{
+	text-align: center;
+	padding-bottom: 10px;
+}
+.button:after {
+overflow: hidden;
+}
+.button img:nth-child(2){
+	padding-left: 15px;
+}
+.button img{
+	cursor: pointer;
+	
+}
+#footer{
+	height: 274px;
+	padding-left: 157.5px;
+	font-size: 28px;
+	font-family: arial;
+	color: #9b59b6;
+}
+#footer img, #footer p, #footer input, #footer button{
+	position: absolute;
+}
+#footer p{
+	top: 54%;
+	left: 34%;
+	font-size: 28px;
+}
+#footer input{
+	top: 74%;
+	left: 21%;
+	border-radius: 10px;
+	width: 255px;
+	height: 45px;
+	padding-left: 15px;
+	padding-right: 15px;
+	font-size: 22px;
+	font-family: arial;
+	color: #9b59b6;
+	border: 1px solid #9b59b6;
+}
+#footer button{
+	width: 125px;
+	height: 45px;
+	top: 74%;
+	left: 51%;
+	background-color: #9b59b6;
+	color: white;
+	font-size: 20px;
+	font-family: arial;
+	border-radius: 8px;
+	-webkit-border-radius: 6px;
+	-moz-border-radius: 5px;
+	-khtml-border-radius: 10px;
+	border-color: #9b59b6;
+}
+#footer  img{
+	width: 550px;
+}
