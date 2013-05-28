@@ -10,6 +10,8 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'guard'
+gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git', branch: 'rails4'
 
 #sidekiq
 gem 'sidekiq'
@@ -42,5 +44,11 @@ end
 
 group :production do
   gem 'unicorn'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
 end
 #gem 'jbuilder', '~> 1.0.1'
