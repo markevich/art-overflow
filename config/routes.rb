@@ -5,5 +5,5 @@ ArtOverflow::Application.routes.draw do
   devise_for :users
   resources :pictures
   resources :invites, only: [:index, :create]
-  root to: 'pictures#index'
+  root to: 'invites#index'
 end
