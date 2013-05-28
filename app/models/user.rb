@@ -14,6 +14,6 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    role == :admin
+    role.to_sym == :admin
   end
 end
