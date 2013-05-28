@@ -30,7 +30,7 @@ group :assets do
 end
 
 group :development do
-  #gem 'capistrano'
+  gem 'capistrano'
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'meta_request'
