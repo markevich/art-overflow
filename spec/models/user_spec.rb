@@ -9,6 +9,6 @@ describe User do
   end
 
   describe "#admin?" do
-    it { expect(user.admin?).to eq(false)}
+    it { expect(user.admin?).to be_false}
   end
 end
