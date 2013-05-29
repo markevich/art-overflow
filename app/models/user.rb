@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   ROLES = %w[admin moderator]
 
   include PublicActivity::Model
-  tracked# owner: Proc.new{ |controller, model| controller.current_user }
+  tracked owner: ->(controller, model) { controller && controller.current_user }
 
   def become_admin!
     update_attribute(:role, :admin)
