@@ -12,7 +12,8 @@ class PicturesController < ApplicationController
   end
 
   def create
-    picture = Picture.create permitted_params.picture
+    params = {user: current_user}.merge permitted_params.picture
+    picture = Picture.create params
     redirect_to picture
   end
 
