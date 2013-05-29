@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
   has_many :pictures
   ROLES = %w[admin moderator]
 
-  # include PublicActivity::Model
-  # tracked# owner: Proc.new{ |controller, model| controller.current_user }
+  include PublicActivity::Model
+  tracked# owner: Proc.new{ |controller, model| controller.current_user }
 
   def become_admin!
     update_attribute(:role, :admin)
