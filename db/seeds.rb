@@ -5,6 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = User.new(email: 'example@example.com', password: 'password', password_confirmation: 'password')
+user = User.new(email: 'example@example.com', role: :user, name: 'example', password: 'password', password_confirmation: 'password')
 user.skip_confirmation!
-user.save
+user.save!
