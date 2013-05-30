@@ -6,5 +6,8 @@ FactoryGirl.define do
     password_confirmation "1234567"
     confirmed_at Time.now
     role :user
+    trait :admin do
+      role :admin
+    end
   end
 end
