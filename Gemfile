@@ -35,6 +35,9 @@ group :development do
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'meta_request'
+  gem 'bullet'
+  gem 'uniform_notifier'
+  gem 'ruby_gntp'
 end
 
 group :development, :test do
