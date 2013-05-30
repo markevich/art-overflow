@@ -10,6 +10,7 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'carrierwave'
 gem 'mini_magick'
+gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git', branch: 'rails4'
 
 #sidekiq
 gem 'sidekiq'
@@ -34,6 +35,9 @@ group :development do
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'meta_request'
+  gem 'bullet'
+  gem 'uniform_notifier'
+  gem 'ruby_gntp'
 end
 
 group :development, :test do
@@ -42,5 +46,15 @@ end
 
 group :production do
   gem 'unicorn'
+end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+  gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  gem 'guard-spork'
+  gem 'guard-rspec'
+  gem 'guard-cucumber'
+  gem 'spork-rails', github: 'railstutorial/spork-rails'
 end
 #gem 'jbuilder', '~> 1.0.1'
