@@ -5,9 +5,12 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :confirmable
 
-  #validates :name, presence: true, uniqueness: true
-
+  validates :name, :email, :role, presence: true
+  has_many :pictures
   ROLES = %w[admin moderator]
+
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
 
   def become_admin!
     update_attribute(:role, :admin)
