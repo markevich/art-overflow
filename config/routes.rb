@@ -6,6 +6,6 @@ ArtOverflow::Application.routes.draw do
   resources :users
   resources :activities
   resources :pictures
-  resources :invites, only: [:index, :create]
-  root to: 'invites#index'
+  resources :promotions, only: [:index, :create]
+  root to: 'promotions#index'
 end

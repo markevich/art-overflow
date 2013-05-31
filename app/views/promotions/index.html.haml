@@ -17,6 +17,6 @@
       #footer
         = image_tag('tablet.png')
         %p Подписаться
-        = simple_form_for @invite do |f|
+        = simple_form_for @promotion do |f|
           = f.input :email, placeholder: 'test@test.com'#, required: :required
           %button Отправить

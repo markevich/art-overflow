@@ -9,14 +9,7 @@ require 'spork'
  
 Spork.prefork do
   require 'cucumber/rails'
-
-
-  # Capybara defaults to XPath selectors rather than Webrat's default of CSS3. In
-  # order to ease the transition to Capybara we set the default here. If you'd
-  # prefer to use XPath just remove this line and adjust any selectors in your
-  # steps to use the XPath syntax.
   Capybara.default_selector = :css
-
 end
  
 Spork.each_run do
@@ -48,12 +41,12 @@ Spork.each_run do
   # You may also want to configure DatabaseCleaner to use different strategies for certain features and scenarios.
   # See the DatabaseCleaner documentation for details. Example:
   #
-  #   Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do
+    Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do
   #     # { :except => [:widgets] } may not do what you expect here
   #     # as tCucumber::Rails::Database.javascript_strategy overrides
   #     # this setting.
-  #     DatabaseCleaner.strategy = :truncation
-  #   end
+      DatabaseCleaner.strategy = :truncation
+    end
   #
   #   Before('~@no-txn', '~@selenium', '~@culerity', '~@celerity', '~@javascript') do
   #     DatabaseCleaner.strategy = :transaction

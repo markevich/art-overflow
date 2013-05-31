@@ -1,20 +1,19 @@
 require 'rails_admin/config/actions'
 require 'rails_admin/config/actions/base'
 
-module RailsAdminApproveInvite
+module RailsAdminApprovePromotion
 
 end
 
 module RailsAdmin
   module Config
     module Actions
-      class ApproveInvite < RailsAdmin::Config::Actions::Base
+      class ApprovePromotion < RailsAdmin::Config::Actions::Base
         RailsAdmin::Config::Actions.register(self)
 
-        register_instance_option :collection do 
+        register_instance_option :collection do
           true
         end
-
 
         register_instance_option :controller do
           Proc.new do
@@ -22,7 +21,7 @@ module RailsAdmin
            objects.delete_if {|o| !o.accepted_at.nil? }
            objects.each do |object|
              object.update_attribute(:accepted_at, DateTime.now)
-             BetaInvite.perform_async(object.id, current_user.id)
+             PromotionInviteSender.perform_async(object.id, current_user.id)
            end
 
            flash[:success] = t('admin.flash.invites_planned', count: objects.to_a.count)

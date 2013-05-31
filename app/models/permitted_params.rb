@@ -1,6 +1,6 @@
 class PermittedParams < Struct.new(:params, :user)
   def invite
-    params.require(:invite).permit(:email)
+    params.require(:promotion).permit(:email)
   end
 
   def picture

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130529214934) do
+ActiveRecord::Schema.define(version: 20130531093318) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(version: 20130529214934) do
     t.datetime "updated_at"
   end
 
-  create_table "invites", force: true do |t|
-    t.string   "email"
-    t.datetime "accepted_at"
-  end
-
   create_table "pictures", force: true do |t|
     t.string  "name"
     t.string  "path"
     t.integer "user_id"
+  end
+
+  create_table "promotions", force: true do |t|
+    t.string   "email"
+    t.datetime "accepted_at"
   end
 
   create_table "rails_admin_histories", force: true do |t|
