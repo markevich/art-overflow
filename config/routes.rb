@@ -10,7 +10,12 @@ ArtOverflow::Application.routes.draw do
   	end
   end
   resources :activities
-  resources :pictures
+  resources :pictures do
+    member do
+      post :like
+      post :unlike
+    end
+  end
   resources :subscribers, only: [:index, :create]
   root to: 'subscribers#index'
 end
