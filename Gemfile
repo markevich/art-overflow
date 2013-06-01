@@ -22,6 +22,8 @@ gem 'cancan'
 
 gem 'jquery-rails'
 gem 'turbolinks'
+gem "acts_as_follower"
+gem 'thumbs_up'
 
 group :assets do
   gem 'sass-rails', '4.0.0.rc1'

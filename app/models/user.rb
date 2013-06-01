@@ -7,7 +7,12 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :role, presence: true
   has_many :pictures
+
   ROLES = %w[admin moderator]
+
+  acts_as_follower
+  acts_as_followable
+  acts_as_voter
 
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
@@ -17,6 +22,7 @@ class User < ActiveRecord::Base
   end
 
   def admin?
-    role.to_sym == :admin
+    role && role.to_sym == :admin
   end
+
 end

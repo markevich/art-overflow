@@ -33,7 +33,7 @@ ArtOverflow::Application.configure do
     Bullet.enable = true
     Bullet.alert = true
     Bullet.console = true
-    Bullet.growl = true
+    Bullet.growl = false
   end
 
 end
