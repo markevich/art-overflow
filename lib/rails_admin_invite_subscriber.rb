@@ -1,14 +1,14 @@
 require 'rails_admin/config/actions'
 require 'rails_admin/config/actions/base'
 
-module RailsAdminApprovePromotion
+module RailsAdminInviteSubscriber
 
 end
 
 module RailsAdmin
   module Config
     module Actions
-      class ApprovePromotion < RailsAdmin::Config::Actions::Base
+      class InviteSubscriber < RailsAdmin::Config::Actions::Base
         RailsAdmin::Config::Actions.register(self)
 
         register_instance_option :collection do
@@ -20,8 +20,8 @@ module RailsAdmin
            objects = list_entries(@model_config, :destroy)
            objects.delete_if {|o| !o.accepted_at.nil? }
            objects.each do |object|
-             object.update_attribute(:accepted_at, DateTime.now)
-             PromotionInviteSender.perform_async(object.id, current_user.id)
+             object.update_attribute(:invited_at, DateTime.now)
+             SubscriberInviteSender.perform_async(object.id, current_user.id)
            end
 
            flash[:success] = t('admin.flash.invites_planned', count: objects.to_a.count)

@@ -1,4 +1,4 @@
-require Rails.root.join('lib', 'rails_admin_approve_promotion')
+require Rails.root.join('lib', 'rails_admin_invite_subscriber')
 RailsAdmin.config do |config|
 
   config.authorize_with :cancan
@@ -19,7 +19,7 @@ RailsAdmin.config do |config|
     history_show
     show_in_app
 
-    approve_promotion do
+    invite_subscriber do
       visible do
         bindings[:abstract_model].model.to_s == 'Promotion'
       end
