@@ -1,17 +1,19 @@
+#encoding: utf-8
 Given(/^I am new user$/) do
-  pending # express the regexp above with the code you wish you had
+  check_unregistered_user
 end
 
 When(/^I visit promotion page$/) do
-  pending # express the regexp above with the code you wish you had
+  visit promotions_path
 end
 
 When(/^I submit promotion form$/) do
-  pending # express the regexp above with the code you wish you had
+  fill_in('promotion_email', with: 'promouser@example.com')
+  click_button('Отправить')
 end
 
 Then(/^I should be subscribed to promo news$/) do
-  pending # express the regexp above with the code you wish you had
+
 end
 
 Given(/^I am existing promo subscriber$/) do
