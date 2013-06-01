@@ -1,3 +1,3 @@
-- if current_user
+- if current_user && @user != current_user
   = button_to 'Follow', action: 'follow' unless current_user.following?(@user)
   = button_to 'Unfollow', action: 'stop_following' if current_user.following?(@user)
