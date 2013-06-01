@@ -9,7 +9,6 @@ describe User do
     it { expect { user.become_admin! }.to change(user, :role).to(:admin) }
   end
 
-
   describe "#admin?" do
     it { expect(user).to_not be_admin}
     it { expect(admin_user).to be_admin}
