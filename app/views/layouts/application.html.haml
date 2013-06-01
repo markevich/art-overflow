@@ -18,6 +18,10 @@
 
 
   %body
+    :javascript
+      //TODO: rewrite to cookies
+      window.current_user = {id: #{current_user.try(:id)}}
+
     = render :partial => 'layouts/header'
 
     .container-fluid
