@@ -21,12 +21,12 @@ class PicturesController < ApplicationController
 
   def like
     current_user.vote_for @picture
-    render nothing: true
+    redirect_to action: :show
   end
 
   def unlike
     current_user.unvote_for @picture
-    render nothing: true
+    redirect_to action: :show
   end
 
   private
