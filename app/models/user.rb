@@ -7,11 +7,6 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :role, presence: true
   has_many :pictures
-  
-  has_and_belongs_to_many :followers,
-    :class_name => "User",
-    :association_foreign_key => "id",
-    :join_table => "followers_users"
 
   ROLES = %w[admin moderator]
 
