@@ -16,7 +16,11 @@
         = image_tag('vk.png')
       #footer
         = image_tag('tablet.png')
+        - if flash[:alert]
+          = flash[:alert]
+        - if flash[:success]
+          = flash[:success]
         %p Подписаться
         = simple_form_for @subscriber do |f|
-          = f.input :email, placeholder: 'test@test.com'#, required: :required
+          = f.input :email, placeholder: 'example@example.com'
           %button Отправить

@@ -20,7 +20,7 @@ module RailsAdmin
            objects = list_entries(@model_config, :destroy)
            objects.delete_if {|o| !o.accepted_at.nil? }
            objects.each do |object|
-             object.update_attribute(:accepted_at, DateTime.now)
+             object.update_attribute(:invited_at, DateTime.now)
              SubscriberInviteSender.perform_async(object.id, current_user.id)
            end
 

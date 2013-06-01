@@ -1,3 +1,3 @@
 class Subscriber < ActiveRecord::Base
-  validate :email, presence: true, uniquiness: true
+  validates :email, presence: true, uniqueness: true
 end
