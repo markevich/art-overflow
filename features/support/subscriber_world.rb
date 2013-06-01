@@ -15,6 +15,10 @@ module SubscriberWorld
     visit subscribers_path
   end
 
+  def fill_subscriber_form
+    fill_in('subscriber_email', with: subscriber_email)
+  end
+
   def subscriber_email
     @subscriber_email ||= 'example@example.com'
   end
