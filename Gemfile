@@ -18,6 +18,7 @@ gem 'slim', '1.3.8'
 gem 'sinatra', :require => nil
 #
 
+gem 'russian'
 gem 'cancan'
 
 gem 'jquery-rails'
