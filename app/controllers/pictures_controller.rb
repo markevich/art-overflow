@@ -21,11 +21,13 @@ class PicturesController < ApplicationController
 
   def like
     current_user.vote_for @picture
+    @picture.create_activity :like
     redirect_to action: :show
   end
 
   def unlike
     current_user.unvote_for @picture
+    @picture.activities.where(key: 'picture.like', owner: current_user).first.destroy
     redirect_to action: :show
   end
 
