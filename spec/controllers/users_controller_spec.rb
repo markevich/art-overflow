@@ -1,5 +1,6 @@
 require 'spec_helper'
-
+#perfect example for injection of rspec shared examples
+#TODO: add shared examples, ie should_behave_like :followable
 describe UsersController do
   it { should respond_to(:follow) }
   it { should respond_to(:stop_following) }
@@ -7,14 +8,14 @@ describe UsersController do
   let(:user) { create(:user) }
   let(:another_user) { create(:user) }
   before { sign_in user }
-  
+
   def follow_user
     post :follow, id: another_user.id
-  end    
+  end
 
   def follow_self
     post :follow, id: user.id
-  end  
+  end
 
   describe "#follow" do
     it { expect{ follow_user }.to change(user, :follow_count).by(1) }
@@ -24,13 +25,18 @@ describe UsersController do
 
     it { expect { follow_self }.to_not change(user, :follow_count).by(1) }
     it { expect(follow_self).to redirect_to(action: :show) }
+
+    context 'unauthorized' do
+      before { sign_out :user}
+      it { expect { follow_user }.to change(response, :redirect_url).to(new_user_session_url) }
+    end
   end
 
   describe "#stop_following" do
     before { follow_user }
     def stop_following_user
       post :stop_following, id: another_user.id
-    end    
+    end
 
     def stop_following_self
       post :stop_following, id: user.id
@@ -43,5 +49,10 @@ describe UsersController do
 
     it { expect { stop_following_self }.to_not change(user, :follow_count).by(-1) }
     it { expect(stop_following_self).to redirect_to(action: :show) }
+
+    context 'unauthorized' do
+      before { sign_out :user}
+      it { expect { stop_following_user }.to change(response, :redirect_url).to(new_user_session_url) }
+    end
   end
 end

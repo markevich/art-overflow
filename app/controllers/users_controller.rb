@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_filter :set_model
-  before_filter :check_if_signed_in, :check_self_request, only: [:follow, :stop_following]
+  before_filter :authenticate_user!, :check_self_request, only: [:follow, :stop_following]
 
   def follow
     current_user.follow(@user)
@@ -15,10 +15,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def check_if_signed_in
-  	render(status: 401, text: 'not authorized') unless user_signed_in?  		
-  end
 
   def set_model
     @user = User.find(params[:id])

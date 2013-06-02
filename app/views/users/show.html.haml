@@ -1,3 +1,4 @@
 %div{'data-check-user' => true, 'data-user-id' => @user.id}
-  = button_to 'Follow', action: 'follow' unless current_user.following?(@user)
-  = button_to 'Unfollow', action: 'stop_following' if current_user.following?(@user)
+  -#hacks for now. No need of checking following in the view layer. Move it to controller.
+  = button_to 'Follow', action: 'follow' unless current_user.try(:following?, @user)
+  = button_to 'Unfollow', action: 'stop_following' if current_user.try(:following?, @user)
