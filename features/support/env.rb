@@ -3,6 +3,8 @@ require 'spork'
 
 Spork.prefork do
   require 'cucumber/rails'
+  require 'capybara/poltergeist'
+  Capybara.javascript_driver = :poltergeist
   Capybara.default_selector = :css
 
   include FactoryGirl::Syntax::Methods
