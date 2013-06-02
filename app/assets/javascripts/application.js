@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+//= require the_comments
+//= require the_comments_manage
