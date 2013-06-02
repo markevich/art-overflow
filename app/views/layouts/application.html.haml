@@ -21,7 +21,7 @@
   %body
     :javascript
       //TODO: rewrite to cookies
-      window.current_user = {id: #{current_user.try(:id)}}
+      window.current_user = $.cookies.get('current_user')
 
     = render :partial => 'layouts/header'
 
