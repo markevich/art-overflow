@@ -1,0 +1,16 @@
+ru:
+  devise:
+    invitations:
+      send_instructions: 'Приглашение было отправлено %{email}.'
+      invitation_token_invalid: 'Некорретный ключ приглашения!'
+      updated: 'Ваш пароль изменён. Теперь вы вошли в систему.'
+      no_invitations_remaining: "Больше нет приглашений"
+      new:
+        header: "Отправка приглашения"
+        submit_button: "Отправить приглашение"
+      edit:
+        header: "Установка пароля"
+        submit_button: "Установить мой пароль"
+    mailer:
+      invitation_instructions:
+        subject: 'Инструкции по приглашению'
