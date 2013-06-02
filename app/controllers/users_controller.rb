@@ -2,6 +2,10 @@ class UsersController < ApplicationController
   before_filter :set_model
   before_filter :authenticate_user!, :check_self_request, only: [:follow, :stop_following]
 
+  def show
+    @following = current_user.try(:following?, @user)
+  end
+
   def follow
     current_user.follow(@user)
     @user.create_activity :follow

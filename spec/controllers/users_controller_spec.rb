@@ -55,4 +55,33 @@ describe UsersController do
       it { expect { stop_following_user }.to change(response, :redirect_url).to(new_user_session_url) }
     end
   end
+  describe "#show" do
+
+    context 'authorized' do
+
+      before { sign_in user }
+
+      def open_following_user
+        user.follow(another_user)
+        get :show, id: another_user.id
+      end
+
+      def open_unfollowing_user
+        user.stop_following(another_user)
+        get :show, id: another_user.id
+      end
+
+      it { expect{ open_following_user }.to change{ assigns[:following] }.to(true) }
+      it { expect{ open_unfollowing_user }.to change{ assigns(:following) }.to(false) }
+    end
+
+    context 'unauthorized' do
+      before do
+        sign_out :user
+        get :show, id: another_user.id
+      end
+
+      it { expect(assigns[:following]).to be_false }
+    end
+  end
 end
