@@ -18,3 +18,4 @@ config/*.yml
 .idea
 public/uploads
 rerun.txt
+*.js.js
