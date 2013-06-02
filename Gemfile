@@ -18,11 +18,16 @@ gem 'slim', '1.3.8'
 gem 'sinatra', :require => nil
 #
 
+# translating gems
+gem 'russian'
+gem 'devise-i18n'
+
 gem 'cancan'
 
 gem 'jquery-rails'
 gem 'turbolinks'
 gem "acts_as_follower"
+gem 'thumbs_up'
 
 group :assets do
   gem 'sass-rails', '4.0.0.rc1'

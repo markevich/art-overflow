@@ -1,0 +1,14 @@
+ru:
+  activerecord:
+    models:
+      subscriber: 'Подписчик'
+      user: 'Пользователь'
+    attributes:
+      subscriber:
+        email: 'E-mail'
+      user:
+        email: 'E-mail'
+        password: 'Пароль'
+        password_confirmation: 'Подтверждение пароля'
+        name: 'Имя'
+        role: 'Роль'

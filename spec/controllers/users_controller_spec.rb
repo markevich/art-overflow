@@ -20,6 +20,7 @@ describe UsersController do
     it { expect{ follow_user }.to change(user, :follow_count).by(1) }
     it { expect{ follow_user }.to change(another_user, :followers_count).by(1) }
     it { expect(follow_user).to redirect_to(action: :show) }
+    it { expect{ follow_user }.to change(another_user.activities, :count).by(1) }
 
     it { expect { follow_self }.to_not change(user, :follow_count).by(1) }
     it { expect(follow_self).to redirect_to(action: :show) }
@@ -38,6 +39,7 @@ describe UsersController do
     it { expect{ stop_following_user }.to change(user, :follow_count).by(-1) }
     it { expect{ stop_following_user }.to change(another_user, :followers_count).by(-1) }
     it { expect(stop_following_user).to redirect_to(action: :show) }
+    it { expect{ stop_following_user }.to change(another_user.activities, :count).by(-1) }
 
     it { expect { stop_following_self }.to_not change(user, :follow_count).by(-1) }
     it { expect(stop_following_self).to redirect_to(action: :show) }

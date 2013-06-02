@@ -4,11 +4,13 @@ class UsersController < ApplicationController
 
   def follow
     current_user.follow(@user)
+    @user.create_activity :follow
     redirect_to action: :show
   end
 
   def stop_following
     current_user.stop_following(@user)
+    @user.activities.where(key: 'user.follow', owner: current_user).first.destroy
     redirect_to action: :show
   end
 

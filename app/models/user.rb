@@ -7,16 +7,12 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :role, presence: true
   has_many :pictures
-  
-  has_and_belongs_to_many :followers,
-    :class_name => "User",
-    :association_foreign_key => "id",
-    :join_table => "followers_users"
 
   ROLES = %w[admin moderator]
 
   acts_as_follower
   acts_as_followable
+  acts_as_voter
 
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }

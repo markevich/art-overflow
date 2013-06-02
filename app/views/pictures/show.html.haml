@@ -13,4 +13,7 @@
     = @picture.name
   .comments-area
 
+- if current_user && @picture.user != current_user
+  = button_to 'Like', action: 'like' unless current_user.voted_on?(@picture)
+  = button_to 'Unlike', action: 'unlike' if current_user.voted_on?(@picture)
 
