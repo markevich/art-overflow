@@ -1,24 +1,26 @@
 class UsersController < ApplicationController
   before_filter :set_model
-  before_filter :check_if_signed_in, :check_self_request, only: [:follow, :stop_following]
+  before_filter :authenticate_user!, :check_self_request, only: [:follow, :stop_following]
+
+  def show
+    @following = current_user.try(:following?, @user)
+  end
 
   def follow
     current_user.follow(@user)
     @user.create_activity :follow
+    flash[:notice] = t('user.start_following', name: @user.name)
     redirect_to action: :show
   end
 
   def stop_following
     current_user.stop_following(@user)
-    @user.activities.where(key: 'user.follow', owner: current_user).first.destroy
+    @user.create_activity :stop_following
+    flash[:notice] = t('user.stop_following', name: @user.name)
     redirect_to action: :show
   end
 
   private
-
-  def check_if_signed_in
-  	render(status: 401, text: 'not authorized') unless user_signed_in?  		
-  end
 
   def set_model
     @user = User.find(params[:id])

@@ -1,3 +1,5 @@
-- if current_user && @user != current_user
-  = button_to 'Follow', action: 'follow' unless current_user.following?(@user)
-  = button_to 'Unfollow', action: 'stop_following' if current_user.following?(@user)
+%div{'data-check-user' => true, 'data-user-id' => @user.id}
+  - if @following
+    = button_to 'Unfollow', action: 'stop_following' 
+  - else
+    = button_to 'Follow', action: 'follow' 
