@@ -12,3 +12,6 @@ ru:
         password_confirmation: 'Подтверждение пароля'
         name: 'Имя'
         role: 'Роль'
+  user:
+    start_following: "Вы успешно подписались на обновления %{name}."
+    stop_following: "Вы успешно отписались от обновлений %{name}."
