@@ -18,13 +18,16 @@ describe UsersController do
   end
 
   describe "#follow" do
-    it { expect{ follow_user }.to change(user, :follow_count).by(1) }
-    it { expect{ follow_user }.to change(another_user, :followers_count).by(1) }
-    it { expect(follow_user).to redirect_to(action: :show) }
-    it { expect{ follow_user }.to change(another_user.activities, :count).by(1) }
+    context 'authorized' do
+      it { expect{ follow_user }.to change(user, :follow_count).by(1) }
+      it { expect{ follow_user }.to change(another_user, :followers_count).by(1) }
+      it { expect(follow_user).to redirect_to(action: :show) }
+      it { expect{ follow_user }.to change(another_user.activities, :count).by(1) }
+      it { expect{ follow_user }.to change { flash[:notice] } }
 
-    it { expect { follow_self }.to_not change(user, :follow_count).by(1) }
-    it { expect(follow_self).to redirect_to(action: :show) }
+      it { expect { follow_self }.to_not change(user, :follow_count).by(1) }
+      it { expect(follow_self).to redirect_to(action: :show) }
+    end
 
     context 'unauthorized' do
       before { sign_out :user}
@@ -33,7 +36,6 @@ describe UsersController do
   end
 
   describe "#stop_following" do
-    before { follow_user }
     def stop_following_user
       post :stop_following, id: another_user.id
     end
@@ -42,23 +44,27 @@ describe UsersController do
       post :stop_following, id: user.id
     end
 
-    it { expect{ stop_following_user }.to change(user, :follow_count).by(-1) }
-    it { expect{ stop_following_user }.to change(another_user, :followers_count).by(-1) }
-    it { expect(stop_following_user).to redirect_to(action: :show) }
-    it { expect{ stop_following_user }.to change(another_user.activities, :count).by(-1) }
+    context 'authorized' do
+      before { follow_user }
 
-    it { expect { stop_following_self }.to_not change(user, :follow_count).by(-1) }
-    it { expect(stop_following_self).to redirect_to(action: :show) }
+      it { expect{ stop_following_user }.to change(user, :follow_count).by(-1) }
+      it { expect{ stop_following_user }.to change(another_user, :followers_count).by(-1) }
+      it { expect(stop_following_user).to redirect_to(action: :show) }
+      it { expect{ stop_following_user }.to change(another_user.activities, :count).by(1) }
+      it { expect{ stop_following_user }.to change { flash[:notice] } }
+
+      it { expect { stop_following_self }.to_not change(user, :follow_count).by(-1) }
+      it { expect(stop_following_self).to redirect_to(action: :show) }
+    end
 
     context 'unauthorized' do
       before { sign_out :user}
       it { expect { stop_following_user }.to change(response, :redirect_url).to(new_user_session_url) }
     end
   end
+
   describe "#show" do
-
     context 'authorized' do
-
       before { sign_in user }
 
       def open_following_user

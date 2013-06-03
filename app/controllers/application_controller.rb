@@ -8,6 +8,14 @@ class ApplicationController < ActionController::Base
 
   before_filter :set_cookie_current_user
 
+  if Rails.env.test?
+    rescue_from Exception do |e|
+      logger.error e
+      logger.error e.backtrace.join "\n"
+      raise e
+    end
+  end
+
   protected
   def render_404
     render file: "#{Rails.root}/public/404.html", status: :not_found , layout: false
