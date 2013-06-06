@@ -9,7 +9,7 @@ class SubscribersController < ApplicationController
       flash[:success] = 'Вы успешно подписаны на обновления.'
       redirect_to action: :index
     else
-      flash[:error] = @subscriber.errors.full_messages.to_sentence
+      flash[:alert] = @subscriber.errors.full_messages.to_sentence
       render action: :index
     end
   end

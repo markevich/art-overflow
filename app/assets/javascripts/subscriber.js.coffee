@@ -17,11 +17,15 @@ $(document).ready ->
     valid = new SubscriberValidator(@).validate()
     unless valid
       inputs = $(@).find('input')
-      if !inputs.hasClass('shake')
-        inputs.addClass('shake')
-      else
-        inputs.css('animation-name', 'none')
-        inputs.css('-moz-animation-name', 'none')
-        inputs.css('-webkit-animation-name', 'none')
-        setTimeout (-> inputs.css('-webkit-animation-name', 'shake')), 0
+      Shaker.shake(inputs)
     return valid
+
+@toggleFlash = (message) ->
+  $('#flash_toggle').bar
+    message: message
+    color: '#f8f6fa',
+    background_color: 'rgba(125, 61, 151, 0.5)'
+  $(document).on 'ready page:load', ->
+    setTimeout ->
+      $('#flash_toggle').trigger('click')
+    , 300
