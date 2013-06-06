@@ -4,24 +4,31 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    = javascript_include_tag :application, "data-turbolinks-track" => true
     %title ArtOverflow
-    = stylesheet_link_tag "promo", :media => "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
   %body
     .content
       = image_tag('logo.png', class: 'logo')
       .text
         Art Overflow – это наш взгляд на сайт для креативных людей, которым есть что показать и сказать. Подписывайтесь, и мы попробуем вас удивить!
-      .button
+      .social-buttons
         = image_tag('twitter.png')
         = image_tag('vk.png')
       #footer
         = image_tag('tablet.png')
-        -# Flash doesnt actual, cause we dont have a working design of it
-        - if flash[:alert]
-          = flash[:alert]
+        %a#flash_toggle{style: 'display:none'}
+
         - if flash[:success]
-          = flash[:success]
+          :javascript
+            toggleFlash("#{flash[:success]}")
+            onReady(function(){ $('#new_subscriber input[type=email]').val('Спасибо за подписку!') })
+        - if flash[:alert]
+          :javascript
+            toggleFlash("#{flash[:alert]}")
+            onReady(function(){Shaker.shake('#new_subscriber input')})
+
         %p Подписаться
-        = simple_form_for @subscriber do |f|
+        = simple_form_for @subscriber, html: {'data-validate-promo' => true, novalidate: true} do |f|
           = f.input :email, placeholder: 'example@example.com'
-          %button Отправить
+          = f.button :submit, 'Отправить'

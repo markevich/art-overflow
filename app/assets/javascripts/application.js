@@ -13,8 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require cookie.min.js
+//= require jbar.js
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
 //= require the_comments
 //= require the_comments_manage
+
+function onReady(callback){
+  $(document).on('ready page:load', callback);
+}

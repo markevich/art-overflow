@@ -20,5 +20,5 @@ Then(/^I should see that i successfully subscribed$/) do
 end
 
 Then(/^I should see that I already subscribed$/) do
-  expect(page).to have_content 'E-mailуже существует'
+  expect(page).to have_content 'E-mail уже существует'
 end
