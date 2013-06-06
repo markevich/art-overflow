@@ -29,6 +29,10 @@ gem 'turbolinks'
 gem "acts_as_follower"
 gem 'thumbs_up'
 
+# comments gems
+gem 'awesome_nested_set'
+gem 'the_comments'
+
 group :assets do
   gem 'sass-rails', '4.0.0.rc1'
   gem 'coffee-rails'
