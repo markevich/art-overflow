@@ -1,3 +1,4 @@
+@javascript
 Feature: Promotions
   Scenario: New promotion registration
     Given I am new subscriber

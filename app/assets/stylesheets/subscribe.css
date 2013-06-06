@@ -33,17 +33,17 @@ body {
 	text-align: center;
 	line-height: 35px;
 }
-.button{
+.social-buttons{
 	text-align: center;
 	padding-bottom: 10px;
 }
-.button:after {
+.social-buttons:after {
 overflow: hidden;
 }
-.button img:nth-child(2){
+.social-buttons img:nth-child(2){
 	padding-left: 15px;
 }
-.button img{
+.social-buttons img{
 	cursor: pointer;
 	
 }
@@ -54,7 +54,7 @@ overflow: hidden;
 	font-family: arial;
 	color: #9b59b6;
 }
-#footer img, #footer p, #footer input, #footer button{
+#footer img, #footer p, #footer input, #footer input[type=submit]{
 	position: absolute;
 }
 #footer p{
@@ -75,7 +75,7 @@ overflow: hidden;
 	color: #9b59b6;
 	border: 1px solid #9b59b6;
 }
-#footer button{
+#footer input[type=submit]{
 	width: 125px;
 	height: 45px;
 	top: 74%;
@@ -92,4 +92,39 @@ overflow: hidden;
 }
 #footer  img{
 	width: 550px;
+}
+
+@keyframes shake{ 
+    0% { transform: translate(10px, 0); }
+    50% { transform: translate(-10px, 0); }
+    100% { transform: translate(0, 0); }
+}
+ 
+@-moz-keyframes shake{ 
+    0% { -moz-transform: translate(10px, 0); }
+    50% { -moz-transform: translate(-10px, 0); }
+    100% { -moz-transform: translate(0, 0); }
+}
+ 
+@-webkit-keyframes shake {
+    0% { -webkit-transform: translate(10px, 0); }
+    50% { -webkit-transform: translate(-10px, 0); }
+    100% { -webkit-transform: translate(0, 0); }
+}
+ 
+.shake {
+    animation-name: shake; 
+    animation-duration: 250ms; 
+    animation-iteration-count: 2; 
+    animation-timing-function: linear;
+ 
+    -moz-animation-name: shake; 
+    -moz-animation-duration: 250ms; 
+    -moz-animation-iteration-count: 2; 
+    -moz-animation-timing-function: linear;
+ 
+    -webkit-animation-name: shake;
+    -webkit-animation-duration: 250ms;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function: ease-in-out;
 }
