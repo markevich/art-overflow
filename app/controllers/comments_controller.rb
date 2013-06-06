@@ -25,7 +25,10 @@ class CommentsController < ApplicationController
   # [:update, :to_published, :to_draft, :to_spam, :to_trash]
 
   def user_required
-    render(status: 401, text: 'not authorized') unless user_signed_in?  
+    unless user_signed_in?  
+      sessoin[:before_redirect] = params
+      render :js => "window.location = '#{new_user_session_path}'"
+    end
   end
 
   def permitted_params
