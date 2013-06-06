@@ -17,7 +17,8 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
-
+//= require the_comments
+//= require the_comments_manage
 
 function onReady(callback){
   $(document).on('ready page:load', callback);
