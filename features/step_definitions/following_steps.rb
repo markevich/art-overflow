@@ -1,11 +1,3 @@
-Given(/^I am logged in$/) do
-  user_logged_in
-end
-
-Given(/^Another user$/) do
-  create_another_user
-end
-
 Given(/^I am not following another user$/) do
   check_that_not_following(another_user)
 end

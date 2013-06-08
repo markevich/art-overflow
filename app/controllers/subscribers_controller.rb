@@ -6,11 +6,9 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(permitted_params.subscriber)
     if @subscriber.save
-      flash[:success] = 'Вы успешно подписаны на обновления.'
-      redirect_to action: :index
+      render json: { success: 'Вы успешно подписаны на обновления.' }
     else
-      flash[:alert] = @subscriber.errors.full_messages.to_sentence
-      render action: :index
+      render json: { error: @subscriber.errors.full_messages.to_sentence }, status: 400
     end
   end
 end
