@@ -19,6 +19,3 @@
 //= require_tree .
 
 
-function onReady(callback){
-  $(document).on('ready page:load', callback);
-}
