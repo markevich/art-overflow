@@ -7,15 +7,17 @@
     = csrf_meta_tags
     = javascript_include_tag :application, "data-turbolinks-track" => true
     %title ArtOverflow
-    = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "subscribe", :media => "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "jbar", :media => "all", "data-turbolinks-track" => true
   %body
     .content
       = image_tag('logo.png', class: 'logo')
+      .fixer
       .text
         Art Overflow – это наш взгляд на сайт для креативных людей, которым есть что показать и сказать. Подписывайтесь, и мы попробуем вас удивить!
-      .social-buttons
-        = image_tag('twitter.png')
-        = image_tag('vk.png')
+        .social-buttons
+          = image_tag('twitter.png')
+          = image_tag('vk.png')
       #footer
         = image_tag('tablet.png')
         %a#flash_toggle{style: 'display:none'}

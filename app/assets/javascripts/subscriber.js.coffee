@@ -13,15 +13,20 @@ class SubscriberValidator
     return re.test email
 
 $(document).on 'ready page:load', ->
+
+
   $('[data-validate-promo]').on 'submit', ->
     valid = new SubscriberValidator(@).validate()
     unless valid
       inputs = $(@).find('input')
       Shaker.shake(inputs)
     return valid
+
+
   $('#new_subscriber').on 'ajax:success', (evt, xhr, settings) ->
     toggleFlash xhr.success
     $('#new_subscriber input[type=email]').val('Спасибо за подписку!')
+    $('#new_subscriber input').attr('disabled', 'disabled')
   .on 'ajax:error', (evt, xhr, settings) ->
     toggleFlash xhr.responseJSON.error
     Shaker.shake('#new_subscriber input')
