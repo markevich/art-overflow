@@ -3,6 +3,7 @@ ArtOverflow::Application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   unless Rails.env.production?
+    devise_for :users
     resources :users do
      member do
         post :follow
@@ -16,7 +17,6 @@ ArtOverflow::Application.routes.draw do
         post :unlike
       end
     end
-    devise_for :users
   else
     devise_for :users, only: :sessions
   end
