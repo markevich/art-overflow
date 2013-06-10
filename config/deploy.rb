@@ -2,6 +2,7 @@ require "bundler/capistrano"
 require 'capistrano-rbenv'
 
 load 'config/recipes/base'
+load 'config/recipes/assets'
 load 'config/recipes/nginx'
 load 'config/recipes/unicorn'
 load 'config/recipes/sidekiq'
