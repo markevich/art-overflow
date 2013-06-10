@@ -13,7 +13,12 @@ namespace :deploy do
 
     run "ln -nfs #{shared_path}/log #{release_path}/log"
     run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
-    run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   after "deploy:create_symlink", "deploy:create_configs_symlink"
+
+  task :link_yml do
+    run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+  end
+
+  before "deploy:assets:symlink", "deploy:link_db"
 end
