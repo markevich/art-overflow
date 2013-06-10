@@ -25,8 +25,8 @@ class CommentsController < ApplicationController
   # [:update, :to_published, :to_draft, :to_spam, :to_trash]
 
   def user_required
-    unless user_signed_in?  
-      sessoin[:before_redirect] = params
+    unless user_signed_in?
+      session[:before_redirect] = params
       render :js => "window.location = '#{new_user_session_path}'"
     end
   end
