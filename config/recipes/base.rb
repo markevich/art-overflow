@@ -20,5 +20,5 @@ namespace :deploy do
     run "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
 
-  before "deploy:assets:symlink", "deploy:link_db"
+  before "deploy:assets:symlink", "deploy:link_yml"
 end
