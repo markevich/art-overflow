@@ -10,7 +10,7 @@ load 'config/recipes/monit'
 set :application, "artoverflow"
 set :deploy_to, "/home/deployer/#{application}"
 set :repository,  "git@github.com:markevich/art-overflow.git"
-set :branch, 'deployment'
+set :branch, 'master'
 
 set :rbenv_ruby_version, "2.0.0-p195"
 
