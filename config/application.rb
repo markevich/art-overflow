@@ -22,7 +22,6 @@ def compile_asset?(path)
   end
 end
 
-config.assets.precompile = [ method(:compile_asset?).to_proc ]
 module ArtOverflow
   class Application < Rails::Application
     config.i18n.default_locale = :ru
