@@ -2,7 +2,6 @@ require "bundler/capistrano"
 require 'capistrano-rbenv'
 
 load 'config/recipes/base'
-load 'config/recipes/assets'
 load 'config/recipes/nginx'
 load 'config/recipes/unicorn'
 load 'config/recipes/sidekiq'
@@ -11,6 +10,7 @@ load 'config/recipes/monit'
 set :application, "artoverflow"
 set :deploy_to, "/home/deployer/#{application}"
 set :repository,  "git@github.com:markevich/art-overflow.git"
+set :branch, 'deployment'
 
 set :rbenv_ruby_version, "2.0.0-p195"
 

@@ -13,6 +13,7 @@ Bundler.require(*Rails.groups(assets: %w(development test)))
 module ArtOverflow
   class Application < Rails::Application
     config.i18n.default_locale = :ru
+    config.assets.initialize_on_precompile = false
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
   end
 end
