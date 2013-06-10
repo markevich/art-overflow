@@ -38,9 +38,9 @@ group :assets do
   gem 'coffee-rails'
   gem 'bootstrap-sass'
   gem 'uglifier', '>= 1.0.3'
+  gem 'font-awesome-sass-rails'
 end
 
-gem 'font-awesome-sass-rails'
 
 group :development do
   gem 'capistrano'
