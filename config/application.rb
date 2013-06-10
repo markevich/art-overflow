@@ -14,5 +14,6 @@ module ArtOverflow
   class Application < Rails::Application
     config.i18n.default_locale = :ru
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.assets.precompile += %w(*jbar.js *jbar.css)
   end
 end

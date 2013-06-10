@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require cookie.min.js
-//= require jbar.js
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
