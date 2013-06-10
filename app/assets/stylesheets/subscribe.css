@@ -4,7 +4,8 @@
 }
 html {height: 100%;}
 * html body {height: 100%;}
-body {
+
+#subscribe {
   min-height: 100%;
   position: relative;
   background-color: #9b59b6;
