@@ -23,5 +23,5 @@
         %a#flash_toggle{style: 'display:none'}
         %p Подписаться
         = simple_form_for @subscriber, remote: true, html: {'data-validate-promo' => true, novalidate: true} do |f|
-          = f.input :email, placeholder: 'example@example.com'
+          = f.input :email, placeholder: 'your@email.com'
           = f.button :submit, 'Отправить'
