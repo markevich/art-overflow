@@ -16,12 +16,13 @@
       .text
         Art Overflow – это наш взгляд на сайт для креативных людей, которым есть что показать и сказать. Подписывайтесь, и мы попробуем вас удивить!
         .social-buttons
+          %a{href: 'http://vk.com/artoverflow'}
+            = image_tag('vk.png')
           = image_tag('twitter.png')
-          = image_tag('vk.png')
       #footer
         = image_tag('tablet.png')
         %a#flash_toggle{style: 'display:none'}
         %p Подписаться
         = simple_form_for @subscriber, remote: true, html: {'data-validate-promo' => true, novalidate: true} do |f|
-          = f.input :email, placeholder: 'example@example.com'
+          = f.input :email, placeholder: 'your@email.com'
           = f.button :submit, 'Отправить'
