@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  include TheCommentsBase
+  include Concerns::TheCommentsBase
 
   # Define comment's avatar url
   # Usually we use Comment#user (owner of comment) to define avatar
