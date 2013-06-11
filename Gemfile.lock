@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/markevich/the_comments.git
+  revision: f10835530acf5b80eba74b57ea75aea3598d1809
+  specs:
+    the_comments (1.1.0)
+      state_machine
+      the_sortable_tree
+
+GIT
   remote: git://github.com/railstutorial/spork-rails.git
   revision: 5db525af2f917047057f546bc1ac2574d1c6b11e
   specs:
@@ -44,13 +52,6 @@ GIT
       actionpack (>= 3.0.0.rc1)
       i18n (>= 0.5.0)
       railties (>= 3.0.0.rc1)
-
-PATH
-  remote: /Users/markevich/Projects/the_comments
-  specs:
-    the_comments (1.1.0)
-      state_machine
-      the_sortable_tree
 
 GEM
   remote: http://rubygems.org/
