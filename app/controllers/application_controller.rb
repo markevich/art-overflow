@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include PublicActivity::StoreController
-  include TheCommentsController::ViewToken
+  include Concerns::TheCommentsController::ViewToken
 
   rescue_from CanCan::AccessDenied do |exception|
     render_404

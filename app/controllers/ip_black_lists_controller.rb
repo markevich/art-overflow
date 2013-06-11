@@ -6,5 +6,5 @@ class IpBlackListsController < ApplicationController
   # 
   # Only Admin should have an access to following methods
   # Methods: [:index, :to_state]
-  include TheCommentsIpController
+  include Concerns::TheCommentsIpController
 end
