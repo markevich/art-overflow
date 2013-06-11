@@ -59,6 +59,7 @@ end
 
 group :production do
   gem 'unicorn'
+  gem 'google-analytics-rails'
 end
 
 group :test do
