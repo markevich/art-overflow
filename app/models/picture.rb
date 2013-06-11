@@ -1,5 +1,5 @@
 class Picture < ActiveRecord::Base
-  include TheCommentsCommentable
+  include Concerns::TheCommentsCommentable
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
   validates :name, :path, :user_id, presence: true
