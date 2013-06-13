@@ -32,7 +32,6 @@ describe PicturesController do
       }
     }
 
-    before { post :create, params }
     it { expect { post :create, params }.to change(Picture, :count).by(1) }
     it { expect { post :create, params }.to change(ActsAsTaggableOn::Tagging, :count).by(3) }
   end
