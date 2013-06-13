@@ -4,31 +4,28 @@
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
     %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    %meta(name="yandex-verification" content = '508d6b3cca6cb610')
+    = csrf_meta_tags
     = javascript_include_tag :application, "data-turbolinks-track" => true
+    = analytics_init if Rails.env.production?
     %title ArtOverflow
-    = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
-  %body
+    = stylesheet_link_tag "subscribe", :media => "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "jbar", :media => "all", "data-turbolinks-track" => true
+  %body#subscribe
     .content
       = image_tag('logo.png', class: 'logo')
+      .fixer
       .text
         Art Overflow – это наш взгляд на сайт для креативных людей, которым есть что показать и сказать. Подписывайтесь, и мы попробуем вас удивить!
-      .social-buttons
-        = image_tag('twitter.png')
-        = image_tag('vk.png')
+        .social-buttons
+          %a.link-button{href: 'http://vk.com/artoverflow'}
+            = image_tag('vk.png')
+          %a.link-button{href: 'http://vk.com/artoverflow'}
+            = image_tag('twitter.png')
       #footer
         = image_tag('tablet.png')
         %a#flash_toggle{style: 'display:none'}
-
-        - if flash[:success]
-          :javascript
-            toggleFlash("#{flash[:success]}")
-            onReady(function(){ $('#new_subscriber input[type=email]').val('Спасибо за подписку!') })
-        - if flash[:alert]
-          :javascript
-            toggleFlash("#{flash[:alert]}")
-            onReady(function(){Shaker.shake('#new_subscriber input')})
-
         %p Подписаться
-        = simple_form_for @subscriber, html: {'data-validate-promo' => true, novalidate: true} do |f|
-          = f.input :email, placeholder: 'example@example.com'
+        = simple_form_for @subscriber, remote: true, html: {'data-validate-promo' => true, novalidate: true} do |f|
+          = f.input :email, placeholder: 'your@email.com', label: false
           = f.button :submit, 'Отправить'

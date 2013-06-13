@@ -12,7 +12,9 @@ class SubscriberValidator
     re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
     return re.test email
 
-$(document).ready ->
+$(document).on 'ready page:load', ->
+
+
   $('[data-validate-promo]').on 'submit', ->
     valid = new SubscriberValidator(@).validate()
     unless valid
@@ -20,12 +22,22 @@ $(document).ready ->
       Shaker.shake(inputs)
     return valid
 
-@toggleFlash = (message) ->
+
+  $('#new_subscriber').on 'ajax:success', (evt, xhr, settings) ->
+    toggleFlash xhr.success
+    $('#new_subscriber input[type=email]').val('Спасибо за подписку!')
+    $('#new_subscriber input').attr('disabled', 'disabled')
+  .on 'ajax:error', (evt, xhr, settings) ->
+    toggleFlash xhr.responseJSON.error
+    Shaker.shake('#new_subscriber input')
+
+
+
+toggleFlash = (message) ->
   $('#flash_toggle').bar
     message: message
     color: '#f8f6fa',
     background_color: 'rgba(125, 61, 151, 0.5)'
-  $(document).on 'ready page:load', ->
-    setTimeout ->
-      $('#flash_toggle').trigger('click')
-    , 300
+  setTimeout ->
+    $('#flash_toggle').trigger('click')
+  , 300

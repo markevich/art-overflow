@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
   # before_action :owner_required,     only: [:my, :incoming, :edit, :trash]
   # before_action :moderator_required, only: [:update, :to_published, :to_draft, :to_spam, :to_trash]
 
-  include TheCommentsController::Base
+  include Concerns::TheCommentsController::Base
 
   # Public methods:
   #
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   # [:update, :to_published, :to_draft, :to_spam, :to_trash]
 
   def user_required
-    unless user_signed_in?  
+    unless user_signed_in?
       session[:before_redirect] = params
       render :js => "window.location = '#{new_user_session_path}'"
     end

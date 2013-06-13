@@ -4,7 +4,8 @@
 }
 html {height: 100%;}
 * html body {height: 100%;}
-body {
+
+#subscribe {
   min-height: 100%;
   position: relative;
   background-color: #9b59b6;
@@ -24,18 +25,30 @@ body {
 .content img.logo {
 	margin-left: 182.5px;
 	width: 500px;
+    position: absolute;
+    top: 3%;
 }
 .content .text{
-	margin:30px  50px;
+	margin: 0  40px;
 	font-family: Arial;
 	font-size: 18px;
 	color: white;
 	text-align: center;
 	line-height: 35px;
+    position: absolute;
+    top: 40%;
+    width: 800px;
 }
 .social-buttons{
 	text-align: center;
 	padding-bottom: 10px;
+  overflow: hidden;
+  min-height: 200px;
+  margin-top: 10px;
+}
+.link-button{
+  margin: 5px;
+  text-decoration: none;
 }
 .social-buttons:after {
 overflow: hidden;
@@ -74,22 +87,28 @@ overflow: hidden;
 	font-family: arial;
 	color: #9b59b6;
 	border: 1px solid #9b59b6;
+    outline: none;
 }
 #footer input[type=submit]{
-	width: 125px;
-	height: 45px;
-	top: 74%;
-	left: 51%;
-	background-color: #9b59b6;
-	color: white;
-	font-size: 20px;
-	font-family: arial;
-	border-radius: 8px;
-	-webkit-border-radius: 6px;
-	-moz-border-radius: 5px;
-	-khtml-border-radius: 10px;
-	border-color: #9b59b6;
+     width: 125px;
+     height: 45px;
+     top: 74%;
+     left: 51%;
+     background-color: #9b59b6;
+     color: white;
+     font-size: 20px;
+     font-family: arial;
+     border-radius: 8px;
+     -webkit-border-radius: 6px;
+     -moz-border-radius: 5px;
+     -khtml-border-radius: 10px;
+     border-color: #9b59b6;
+ }
+
+#footer input[type=submit][disabled=disabled]{
+    background-color: #c3a4d3;
 }
+
 #footer  img{
 	width: 550px;
 }
@@ -127,4 +146,8 @@ overflow: hidden;
     -webkit-animation-duration: 250ms;
     -webkit-animation-iteration-count: 2;
     -webkit-animation-timing-function: ease-in-out;
+}
+.fixer{
+    overflow: hidden;
+    min-height: 565px;
 }

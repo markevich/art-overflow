@@ -6,5 +6,5 @@ class UserAgentBlackListsController < ApplicationController
   # 
   # Only Admin should have an access to following methods
   # Methods: [:index, :to_state]
-  include TheCommentsUserAgentController
+  include Concerns::TheCommentsUserAgentController
 end

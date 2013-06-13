@@ -31,17 +31,20 @@ gem 'thumbs_up'
 
 # comments gems
 gem 'awesome_nested_set'
-gem 'the_comments'
+gem 'the_comments', git: 'git://github.com/markevich/the_comments.git'
 
 group :assets do
   gem 'sass-rails', '4.0.0.rc1'
   gem 'coffee-rails'
   gem 'bootstrap-sass'
   gem 'uglifier', '>= 1.0.3'
+  gem 'font-awesome-sass-rails'
 end
+
 
 group :development do
   gem 'capistrano'
+  gem 'capistrano-rbenv'
   gem 'quiet_assets'
   gem 'letter_opener'
   gem 'meta_request'
@@ -56,6 +59,7 @@ end
 
 group :production do
   gem 'unicorn'
+  gem 'google-analytics-rails'
 end
 
 group :test do
