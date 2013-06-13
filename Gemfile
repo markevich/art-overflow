@@ -28,6 +28,7 @@ gem 'jquery-rails'
 gem 'turbolinks'
 gem "acts_as_follower"
 gem 'thumbs_up'
+gem 'acts-as-taggable-on'
 
 # comments gems
 gem 'awesome_nested_set'

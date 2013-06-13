@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130601215004) do
+ActiveRecord::Schema.define(version: 20130613191009) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -67,6 +67,14 @@ ActiveRecord::Schema.define(version: 20130601215004) do
   add_index "follows", ["followable_id", "followable_type"], name: "fk_followables", using: :btree
   add_index "follows", ["follower_id", "follower_type"], name: "fk_follows", using: :btree
 
+  create_table "galleries", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "ip_black_lists", force: true do |t|
     t.string  "ip"
     t.integer "count", default: 0
@@ -80,6 +88,7 @@ ActiveRecord::Schema.define(version: 20130601215004) do
     t.integer "draft_comments_count",     default: 0
     t.integer "published_comments_count", default: 0
     t.integer "deleted_comments_count",   default: 0
+    t.integer "gallery_id"
   end
 
   create_table "rails_admin_histories", force: true do |t|
@@ -98,6 +107,23 @@ ActiveRecord::Schema.define(version: 20130601215004) do
   create_table "subscribers", force: true do |t|
     t.string   "email"
     t.datetime "invited_at"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string "name"
   end
 
   create_table "user_agent_black_lists", force: true do |t|
