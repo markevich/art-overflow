@@ -17,6 +17,9 @@ class PicturesController < ApplicationController
   def create
     params = {user: current_user}.merge permitted_params.picture
     picture = Picture.create params
+    debugger
+    picture.tag_list = params["tag_list"].split.join(", ")
+    picture.save
     redirect_to picture
   end
 
