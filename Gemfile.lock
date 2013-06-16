@@ -165,9 +165,6 @@ GEM
     ffi (1.8.1)
     font-awesome-rails (3.1.1.3)
       railties (>= 3.2, < 5.0)
-    font-awesome-sass-rails (3.0.2.2)
-      railties (>= 3.1.1)
-      sass-rails (>= 3.1.1)
     formatador (0.2.4)
     gherkin (2.12.0)
       multi_json (~> 1.3)
@@ -381,7 +378,6 @@ PLATFORMS
 DEPENDENCIES
   acts_as_follower
   awesome_nested_set
-  bootstrap-sass
   bullet
   cancan
   capistrano
@@ -395,7 +391,6 @@ DEPENDENCIES
   devise-i18n
   devise_invitable!
   factory_girl_rails
-  font-awesome-sass-rails
   google-analytics-rails
   guard-cucumber
   guard-rspec

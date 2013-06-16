@@ -1,0 +1,31 @@
+:javascript
+  $(document).on('ready', function(){
+      $('#upload-button').on('mouseover', function(){
+          $(this).children().addClass('hovered');
+      })
+      .on('mouseleave', function(){
+          $(this).children().removeClass('hovered');
+      })
+  })
+.header
+  .logo
+    %a{href: '/'}
+      %h1
+        ARTOVERFLOW
+
+    %ul.menu
+      %li
+        = link_to "Обновления", "#"
+      %li
+        = link_to "Популярные", "#"
+      %li
+        = link_to "Новые", "#"
+    #upload-button.btn-group
+      %button.btn-download
+        = image_tag 'cloudlet.png'
+      %button.btn-text Загрузить
+    .search
+      %input{type: "text", placeholder: "Поиск"}
+      = image_tag 'search.png'
+    %span.ava
+      = image_tag 'images.jpg'

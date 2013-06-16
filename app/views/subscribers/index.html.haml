@@ -3,7 +3,6 @@
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %meta(name="yandex-verification" content = '508d6b3cca6cb610')
     = csrf_meta_tags
     = javascript_include_tag :application, "data-turbolinks-track" => true
@@ -13,14 +12,15 @@
     = stylesheet_link_tag "jbar", :media => "all", "data-turbolinks-track" => true
   %body#subscribe
     .content
-      = image_tag('logo.png', class: 'logo')
+      %a{href: ''}
+        = image_tag('logo.png', class: 'logo')
       .fixer
       .text
         Art Overflow – это наш взгляд на сайт для креативных людей, которым есть что показать и сказать. Подписывайтесь, и мы попробуем вас удивить!
         .social-buttons
-          %a.link-button{href: 'http://vk.com/artoverflow'}
+          %a.link-button{href: 'http://vk.com/artoverflow', target: :blank}
             = image_tag('vk.png')
-          %a.link-button{href: 'http://vk.com/artoverflow'}
+          %a.link-button{href: 'http://vk.com/artoverflow', target: :blank}
             = image_tag('twitter.png')
       #footer
         = image_tag('tablet.png')
