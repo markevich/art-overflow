@@ -8,13 +8,13 @@
     .title{style: 'padding-left:5px;'}
       = @picture.name
     .author
-      = @picture.name
+      = @picture.user
   .description{style: 'clear:both; margin-top:25px;'}
-    = @picture.name
+    Tags:
+    = text_field_tag :tags, @picture.tag_list
   .comments-area
+    = render partial: 'the_comments/tree', locals: { commentable: @picture, comments_tree: @comments }
 
 - if current_user && @picture.user != current_user
   = button_to 'Like', action: 'like' unless current_user.voted_on?(@picture)
   = button_to 'Unlike', action: 'unlike' if current_user.voted_on?(@picture)
-
-= render partial: 'the_comments/tree', locals: { commentable: @picture, comments_tree: @comments }

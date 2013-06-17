@@ -1,5 +1,6 @@
 require 'sidekiq/web'
 ArtOverflow::Application.routes.draw do
+
   mount Sidekiq::Web => '/sidekiq'
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
   unless Rails.env.production?
@@ -10,6 +11,7 @@ ArtOverflow::Application.routes.draw do
         post :stop_following
       end
     end
+    resources :galleries
     resources :activities
     resources :pictures do
       member do

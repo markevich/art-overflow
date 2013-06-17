@@ -15,8 +15,11 @@ class PicturesController < ApplicationController
   end
 
   def create
-    params = {user: current_user}.merge permitted_params.picture
+    params = {user: current_user}.merge permitted_params
     picture = Picture.create params
+
+    picture.tag_list = params["tag_list"].split.join(", ")
+    picture.save
     redirect_to picture
   end
 
@@ -36,6 +39,10 @@ class PicturesController < ApplicationController
 
   def set_model
     @picture = Picture.find params[:id]
+  end
+
+  def permitted_params
+    params.require(:picture).permit(:name, :path, :tag_list)
   end
 
 end
