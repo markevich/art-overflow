@@ -7,12 +7,24 @@
           $(this).children().removeClass('hovered');
       })
   })
+  $(document).on('ready', function(){
+      $('#quest').on('click', function(){
+          $(this).animate({width: "20%"},1500)
+          $(this).children().animate({width: "80%"},1500);
+          $(this).children().addClass('inp-click');
+      })
+      $('#quest').children().on('blur', function(){
+          $(this).animate({width: "65px"},1500)
+          $(this).parent().animate({width: "95px"},1500);
+          $(this).removeClass('inp-click');
+      });
+
+  })
 .header
   .logo
     %a{href: '/'}
       %h1
         ARTOVERFLOW
-
     %ul.menu
       %li
         = link_to "Обновления", "#"
@@ -24,8 +36,7 @@
       %button.btn-download
         = image_tag 'cloudlet.png'
       %button.btn-text Загрузить
-    .search
+    #quest.search
       %input{type: "text", placeholder: "Поиск"}
-      = image_tag 'search.png'
     %span.ava
       = image_tag 'images.jpg'
