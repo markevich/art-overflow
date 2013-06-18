@@ -14,9 +14,12 @@
           $(this).children().addClass('inp-click');
       })
       $('#quest').children().on('blur', function(){
-          $(this).animate({width: "65px"},300)
-          $(this).parent().animate({width: "95px"},300);
-          $(this).removeClass('inp-click');
+          if($(this).val().length == 0){
+            $(this).animate({width: "65px"},300)
+            $(this).parent().animate({width: "95px"},300);
+            $(this).removeClass('inp-click');
+          }
+          
       });
 
   })
