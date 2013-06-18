@@ -14,7 +14,7 @@ input:hover::-webkit-input-placeholder {
 input:hover::-webkit-input-placeholder {
     color: #e74c3c;
 }
-input:-moz-placeholder {
+input:hover::-moz-placeholder {
     color: #e74c3c;
 }
 input:hover:-moz-placeholder {
@@ -35,8 +35,6 @@ input.inp-click:-moz-placeholder {
 input.inp-click:hover:-moz-placeholder {
     color: #e74c3c;
 }
-
-
 
 
 .header{
@@ -118,7 +116,7 @@ input.inp-click:hover:-moz-placeholder {
 .search{
   display: inline-block;
   position: relative;
-  margin-left: 35px;
+  margin-left: 15px;
   vertical-align: 4px;
 }
 .search input{
@@ -146,6 +144,7 @@ input.inp-click:hover:-moz-placeholder {
 }
 .ava{
   position: relative;
+  float:right;
 }
 .ava img{
   position: absolute;
@@ -155,8 +154,8 @@ input.inp-click:hover:-moz-placeholder {
   -moz-border-radius: 22px;
   border-radius: 22px;
   border: 1px solid white;
-  top: -16px;
-  left:10px;
+  top: 8px;
+  right: 35px;
   cursor: pointer;
 }
 .ava img:hover{
