@@ -154,6 +154,10 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   top: 8px;
   right: 35px;
   cursor: pointer;
+  -webkit-transition: border-radius 0.2s ease-out;
+  -moz-transition: border-radius 0.2s ease-out;
+  -o-transition: border-radius 0.2s ease-out;
+  transition: border-radius 0.2s ease-out;
 }
 .ava img:hover{
   -webkit-border-radius: 6px;
