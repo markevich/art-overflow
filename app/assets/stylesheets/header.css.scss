@@ -1,38 +1,26 @@
 ::-webkit-input-placeholder {
-  /* WebKit browsers */	font: bold 14px Arial;
-  color: #70b2b8;}
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */	font: bold 14px Arial;
-  color: #70b2b8; }
-::-moz-placeholder { /* Mozilla Firefox 19+ */ 	font: bold 14px Arial;
-  color: #70b2b8; }
-:-ms-input-placeholder { /* Internet Explorer 10+ */ 	font: bold 14px Arial;
-  color: #70b2b8;}
-
-input:hover::-webkit-input-placeholder {
-    color: #e74c3c;
+  color: #70b2b8;
 }
-input:hover::-webkit-input-placeholder {
-    color: #e74c3c;
+::-moz-placeholder {
+  color: #70b2b8;
 }
-input:hover::-moz-placeholder {
-    color: #e74c3c;
+:-moz-placeholder {
+  color: #70b2b8;
 }
-input:hover:-moz-placeholder {
-    color: #e74c3c;
+:-ms-input-placeholder {
+  color: #70b2b8;
 }
 
-
-
-input.inp-click::-webkit-input-placeholder {
+input:hover::-webkit-input-placeholder, input.active::-webkit-input-placeholder {
     color: #e74c3c;
 }
-input.inp-click::-webkit-input-placeholder {
+input:hover:-ms-input-placeholder, input.active:-ms-input-placeholder {
     color: #e74c3c;
 }
-input.inp-click:-moz-placeholder {
+input:hover::-moz-placeholder, input.active::-moz-placeholder {
     color: #e74c3c;
 }
-input.inp-click:hover:-moz-placeholder {
+input:hover:-moz-placeholder, input.active:-moz-placeholder {
     color: #e74c3c;
 }
 
@@ -118,9 +106,13 @@ input.inp-click:hover:-moz-placeholder {
   position: relative;
   margin-left: 15px;
   vertical-align: 4px;
+  width: 180px;
 }
 .search input{
-  width: 65px;
+  width: 63px;
+  position: absolute;
+  right: 0px;
+  top: -20px;
   height: 30px;
   -webkit-border-radius:6px;
   -moz-border-radius:6px;
@@ -133,10 +125,15 @@ input.inp-click:hover:-moz-placeholder {
   cursor:pointer; 
   background-position: 1px;
   padding-left: 30px;
-  background-position-x: 10px;
+  background-position: 10px;
   background-image: url("search.png");
   background-repeat: no-repeat;
+  -webkit-transition: width 0.2s ease-out;
+  -moz-transition: width 0.2s ease-out;
+  -o-transition: width 0.2s ease-out;
+  transition: width 0.2s ease-out;
 }
+
 .search img{
   position: absolute;
   top: 8px;
@@ -188,11 +185,13 @@ input.inp-click:hover:-moz-placeholder {
   border-radius:6px;
   color: #e74c3c; 
 }
-.search input.inp-click{
+.search input.active{
   background-image:url("red.png");
   background-color: #1f2f40;
   -webkit-border-radius:6px;
   -moz-border-radius:6px;
   border-radius:6px;
+  color: #e74c3c;
+  width: 85%;
   color: #e74c3c;
 }

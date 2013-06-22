@@ -9,17 +9,12 @@
   })
   $(document).on('ready', function(){
       $('#quest').on('click', function(){
-          $(this).animate({width: "20%"},300)
-          $(this).children().animate({width: "80%"},300);
-          $(this).children().addClass('inp-click');
+          $(this).children().addClass('active');
       })
       $('#quest').children().on('blur', function(){
           if($(this).val().length == 0){
-            $(this).animate({width: "65px"},300)
-            $(this).parent().animate({width: "95px"},300);
-            $(this).removeClass('inp-click');
+            $(this).removeClass('active');
           }
-          
       });
 
   })
