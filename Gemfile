@@ -18,6 +18,10 @@ gem 'slim', '1.3.8'
 gem 'sinatra', :require => nil
 #
 
+# monitoring
+gem 'newrelic_rpm'
+#
+
 # translating gems
 gem 'russian'
 gem 'devise-i18n'
