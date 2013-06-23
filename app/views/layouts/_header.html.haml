@@ -1,19 +1,20 @@
-.header
-  .logo
+#header
+  #logo
     %a{href: '/'}
       %h1
         ARTOVERFLOW
-    %ul.menu
+    %ul#menu
       %li
         = link_to "Обновления", "#"
       %li
         = link_to "Популярные", "#"
       %li
         = link_to "Новые", "#"
-    #upload-button.btn-group
-      %button.btn-download
-        = image_tag 'cloudlet.png'
-      %button.btn-text Загрузить
+    #btn-group
+      %a#upload-link{href: '/'}
+        #btn-download
+          = image_tag 'cloudlet.png'
+        #btn-text Загрузить
     #search
       %input{type: "text", placeholder: "Поиск"}
     %span.ava

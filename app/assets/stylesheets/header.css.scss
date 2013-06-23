@@ -25,11 +25,11 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
 }
 
 
-.header{
+#header{
   height: 60px;
   background-color: #26394d;
 }
-.logo h1{
+#logo h1{
   display: inline-block;
   margin-right: 70px;
   font-family: Gothic;
@@ -37,7 +37,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   font-size: 25px;
   padding-top: 17px;
 }
-.logo{
+#logo{
   margin: 0 auto;
   width: 980px;
   padding-left: 10px;
@@ -50,29 +50,28 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/
 
 }
-.menu{
+#menu{
   display: inline-block;
   vertical-align: 3px;
   margin-right: 27px;
 }
-.menu li{
+#menu li{
   display: inline-block;
   margin-left: 8px;
   padding: 10px;
   color: #70b2b8;
 }
-.menu a{
+#menu a{
   text-decoration: none;
   color: inherit;
 
 }
-.btn-group{
+#btn-group{
   display: inline-block;
   vertical-align: 3px;
-
 }
 
-.btn-download{
+#btn-download{
   -webkit-border-top-left-radius:6px;
   -webkit-border-bottom-left-radius:6px;
   -moz-border-radius-topleft:6px;
@@ -84,8 +83,18 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   height: 30px;
   width: 40px;
   cursor: pointer;
+  display: inline-block;
+  vertical-align: -10px;
+  height: 28.5px;
+  position: relative;
 }
-.btn-text{
+#btn-download img{
+  position: absolute;
+  top: 7px;
+  left: 10px;
+}
+
+#btn-text{
   -webkit-border-top-right-radius:6px;
   -webkit-border-bottom-right-radius:6px;
   -moz-border-radius-topright:6px;
@@ -95,11 +104,16 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   width: 90px;
   height: 30px;
   background-color: #70b2b8;
-  border: 1px solid #5f979d;
+  border: 1px solid #70b2b8;
   color: white;
   cursor: pointer;
   margin-left: -4px;
   font: bold 14px Arial;
+  display: inline-block;
+  vertical-align: 1px;
+  height: 23.5px;
+  text-align: center;
+  padding-top: 5px;
 }
 #search{
   display: inline-block;
@@ -164,7 +178,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   -moz-border-radius: 6px;
   border-radius: 6px;
 }
-.menu li:hover{
+#menu li:hover{
   background-color: #1f2f40;
   -webkit-border-radius:6px;
   -moz-border-radius:6px;
@@ -172,12 +186,12 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   padding: 10px;
   color: #e74c3c;
 }
-.btn-download.hovered{
+#btn-download.hovered{
   background-color:#c0392b;
   border: 1px solid #c0392b;
 }
 
-.btn-text.hovered{
+#btn-text.hovered{
   background-color:#e74c3c;
   border: 1px solid #e74c3c;
 }

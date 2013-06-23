@@ -1,5 +1,5 @@
 $(document).on 'ready page:load', ->
-  $('#upload-button').on 'mouseover', ->
+  $('#upload-link').on 'mouseover', ->
     $(@).children().addClass 'hovered'
   .on 'mouseleave', ->
     $(@).children().removeClass 'hovered'
