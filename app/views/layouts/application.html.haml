@@ -1,9 +1,8 @@
 !!! 5
-%html(lang="en")
+%html(lang="ru")
   %head
     %meta(charset="utf-8")
     %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %meta(name="yandex-verification" content = '508d6b3cca6cb610')
     %title= content_for?(:title) ? yield(:title) : "ArtOverflow"
     = csrf_meta_tags
@@ -21,9 +20,9 @@
 
 
   %body
+
     :javascript
       window.current_user = $.cookies.get('current_user')
-
     = render :partial => 'layouts/header'
 
     .container-fluid
