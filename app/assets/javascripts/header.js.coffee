@@ -1,7 +1,7 @@
 $(document).on 'ready page:load', ->
   $('#upload-link').on 'mouseover', ->
     $(@).children().addClass 'hovered'
-  .on 'mouseleave', ->
+  .on 'mouseleave click', ->
     $(@).children().removeClass 'hovered'
 
   $('#search').on 'click', ->
