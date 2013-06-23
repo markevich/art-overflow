@@ -4,7 +4,7 @@ $(document).on 'ready page:load', ->
   .on 'mouseleave', ->
     $(@).children().removeClass 'hovered'
 
-  $('#quest').on 'click', ->
+  $('#search').on 'click', ->
     $(@).children().addClass 'active'
   .children().on 'blur', ->
     $(@).removeClass('active') unless !!$(@).val()

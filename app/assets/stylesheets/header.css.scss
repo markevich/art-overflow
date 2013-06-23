@@ -101,14 +101,14 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   margin-left: -4px;
   font: bold 14px Arial;
 }
-.search{
+#search{
   display: inline-block;
   position: relative;
   margin-left: 15px;
   vertical-align: 4px;
   width: 180px;
 }
-.search input{
+#search input{
   width: 63px;
   position: absolute;
   right: 0px;
@@ -134,7 +134,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   transition: width 0.2s ease-out;
 }
 
-.search img{
+#search img{
   position: absolute;
   top: 8px;
   left: 8px;
@@ -181,7 +181,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   background-color:#e74c3c;
   border: 1px solid #e74c3c;
 }
-.search input:hover{
+#search input:hover{
   background-image:url("red.png");
   background-color: #1f2f40;
   -webkit-border-radius:6px;
@@ -189,7 +189,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   border-radius:6px;
   color: #e74c3c; 
 }
-.search input.active{
+#search input.active{
   background-image:url("red.png");
   background-color: #1f2f40;
   -webkit-border-radius:6px;
