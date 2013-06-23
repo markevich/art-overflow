@@ -14,14 +14,12 @@ class SubscriberValidator
 
 $(document).on 'ready page:load', ->
 
-
   $('[data-validate-promo]').on 'submit', ->
     valid = new SubscriberValidator(@).validate()
     unless valid
       inputs = $(@).find('input')
       Shaker.shake(inputs)
     return valid
-
 
   $('#new_subscriber').on 'ajax:success', (evt, xhr, settings) ->
     toggleFlash xhr.success
@@ -30,7 +28,6 @@ $(document).on 'ready page:load', ->
   .on 'ajax:error', (evt, xhr, settings) ->
     toggleFlash xhr.responseJSON.error
     Shaker.shake('#new_subscriber input')
-
 
 
 toggleFlash = (message) ->
