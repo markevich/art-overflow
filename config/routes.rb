@@ -24,5 +24,7 @@ ArtOverflow::Application.routes.draw do
   end
 
   resources :subscribers, only: [:index, :create]
+
+  resources :ping, only: :index
   root to: 'subscribers#index'
 end
