@@ -1,3 +1,4 @@
+#encoding: utf-8
 ArtOverflow::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -80,6 +81,12 @@ ArtOverflow::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  config.middleware.use ExceptionNotification::Rack,
+    :email => {
+      :email_prefix => "[Artoverflow в печали!] ",
+      :sender_address => %{"notifier" <info@artoverflow.com>},
+      :exception_recipients => %w{slava.markevich@gmail.com onemur@gmail.com}
+    }
 
   GA.tracker = "UA-40948610-2"
 end
