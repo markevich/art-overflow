@@ -10,8 +10,8 @@ class PicturesController < ApplicationController
   end
 
   def show
-     @picture = Picture.find(params[:id])
-     @comments = @picture.comments.with_state([:draft, :published]).nested_set
+    @picture = Picture.find(params[:id])
+    @comments = @picture.comments.with_state([:draft, :published]).nested_set
   end
 
   def create
