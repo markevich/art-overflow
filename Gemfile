@@ -22,6 +22,10 @@ gem 'sinatra', :require => nil
 gem 'newrelic_rpm'
 #
 
+#memcached cache strategy
+gem 'dalli'
+#
+
 #notify about exceptions by email
 gem 'exception_notification', '4.0.0.rc1'
 #
