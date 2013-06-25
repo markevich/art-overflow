@@ -3,9 +3,8 @@ class PicturesController < ApplicationController
   before_filter :set_model, only: [:show, :like, :unlike]
 
   def index
-    page = params[:page] || 1
-    limit = page * PAGE_SIZE
-    @pictures = Picture.limit(limit)
+    offset = params[:offset].to_i * PAGE_SIZE
+    @pictures = Picture.limit(PAGE_SIZE).offset(offset)
   end
 
   def new
