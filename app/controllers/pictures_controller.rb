@@ -1,8 +1,10 @@
 class PicturesController < ApplicationController
+  PAGE_SIZE = 15
   before_filter :set_model, only: [:show, :like, :unlike]
 
   def index
-    @pictures = Picture.all
+    offset = params[:offset].to_i * PAGE_SIZE
+    @pictures = Picture.limit(PAGE_SIZE).offset(offset)
   end
 
   def new
@@ -10,8 +12,8 @@ class PicturesController < ApplicationController
   end
 
   def show
-     @picture = Picture.find(params[:id])
-     @comments = @picture.comments.with_state([:draft, :published]).nested_set
+    @picture = Picture.find(params[:id])
+    @comments = @picture.comments.with_state([:draft, :published]).nested_set
   end
 
   def create
