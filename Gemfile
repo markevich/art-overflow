@@ -43,7 +43,7 @@ gem 'awesome_nested_set'
 gem 'the_comments', git: 'git://github.com/markevich/the_comments.git'
 
 group :assets do
-  gem 'sass-rails', '4.0.0.rc1'
+  gem 'sass-rails', '4.0.0.rc2'
   gem 'coffee-rails'
   gem 'uglifier', '>= 1.0.3'
 end
