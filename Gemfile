@@ -22,7 +22,7 @@ gem 'sinatra', :require => nil
 gem 'newrelic_rpm'
 #
 
-#memcached cache strategy
+#caching
 gem 'dalli'
 #
 

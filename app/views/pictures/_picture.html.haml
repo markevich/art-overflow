@@ -1,0 +1,5 @@
+= cache picture do
+  .image-block
+    = picture.name
+    %a{href: picture_path(picture)}
+      = image_tag picture.path.thumb

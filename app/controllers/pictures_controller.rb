@@ -1,8 +1,11 @@
 class PicturesController < ApplicationController
+  PAGE_SIZE = 15
   before_filter :set_model, only: [:show, :like, :unlike]
 
   def index
-    @pictures = Picture.all
+    page = params[:page] || 1
+    limit = page * PAGE_SIZE
+    @pictures = Picture.limit(limit)
   end
 
   def new
