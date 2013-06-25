@@ -25,6 +25,29 @@ module UserWorld
   def check_unregistered_user
     expect(@current_user).to be_nil
   end
+
+  def visit_registration_page
+    visit new_user_registration_path
+  end
+
+  def fill_registration_form
+    fill_in('user_name', with: user_name)
+    fill_in('user_email', with: user_email)
+    fill_in('user_password', with: user_password)
+    fill_in('user_password_confirmation', with: user_password)
+  end
+
+  def user_name
+    @user_name ||= 'Test User'
+  end
+
+  def user_email
+    @user_email ||= 'example@example123123.com'
+  end
+
+  def user_password
+    @user_password ||= 'user_password'
+  end
 end
 
 World(UserWorld)
