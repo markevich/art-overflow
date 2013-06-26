@@ -14,15 +14,6 @@ GIT
       spork (>= 1.0rc0)
 
 GIT
-  remote: git://github.com/scambra/devise_invitable.git
-  revision: 506c4bbc18bfa5461d79f77d4b272a0b47be3a23
-  branch: rails4
-  specs:
-    devise_invitable (1.2.0.rc1)
-      actionmailer (>= 4.0.0.rc1)
-      railties (>= 4.0.0.rc1)
-
-GIT
   remote: git://github.com/sferik/rails_admin.git
   revision: 3ab602d70a3ffb89a400cfb1d8795d89108f5afb
   branch: rails-4
@@ -397,7 +388,6 @@ DEPENDENCIES
   debugger
   devise (= 3.0.0.rc)
   devise-i18n
-  devise_invitable!
   exception_notification (= 4.0.0.rc1)
   factory_girl_rails
   google-analytics-rails

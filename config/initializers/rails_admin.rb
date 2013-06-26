@@ -19,11 +19,11 @@ RailsAdmin.config do |config|
     history_show
     show_in_app
 
-    invite_subscriber do
-      visible do
-        bindings[:abstract_model].model.to_s == 'Promotion'
-      end
-    end
+    # invite_subscriber do
+      # visible do
+        # bindings[:abstract_model].model.to_s == 'Promotion'
+      # end
+    # end
   end
   ################  Global configuration  ################
 
