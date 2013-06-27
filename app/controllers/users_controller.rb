@@ -29,4 +29,5 @@ class UsersController < ApplicationController
   def check_self_request
     redirect_to action: :show if current_user == @user
   end
+
 end
