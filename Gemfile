@@ -25,6 +25,10 @@ gem 'newrelic_rpm'
 gem 'dalli'
 #
 
+#Email delivery method
+gem 'madmimi-rails', '0.0.1.1'
+#
+
 #notify about exceptions by email
 gem 'exception_notification', '4.0.0.rc1'
 #
