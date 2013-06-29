@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130613191009) do
+ActiveRecord::Schema.define(version: 20130629192113) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -156,12 +156,14 @@ ActiveRecord::Schema.define(version: 20130613191009) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.string   "role"
-    t.string   "name"
+    t.string   "first_name"
     t.integer  "my_comments_count",                  default: 0
     t.integer  "draft_comcoms_count",                default: 0
     t.integer  "published_comcoms_count",            default: 0
     t.integer  "deleted_comcoms_count",              default: 0
     t.integer  "spam_comcoms_count",                 default: 0
+    t.string   "last_name"
+    t.string   "nickname"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

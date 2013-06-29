@@ -11,7 +11,7 @@ When(/^I click follow button$/) do
 end
 
 Then(/^I should see that i am following that user$/) do
-  expect(page).to have_content I18n.t('user.start_following', name: another_user.name)
+  expect(page).to have_content I18n.t('user.start_following', name: another_user.nickname)
 end
 
 Given(/^I follow another user$/) do
@@ -23,5 +23,5 @@ When(/^I click unfollow button$/) do
 end
 
 Then(/^I should see that i am stop following that user$/) do
-  expect(page).to have_content I18n.t('user.stop_following', name: another_user.name)
+  expect(page).to have_content I18n.t('user.stop_following', name: another_user.nickname)
 end

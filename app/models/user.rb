@@ -5,8 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :confirmable
 
-  validates :name, :email, presence: true
-  # attr_accessible :name, :email, :password, :password_confirmation
+  validates :first_name, :last_name, :nickname, :email, presence: true
+
   has_many :pictures
 
   ROLES = %w[admin moderator]
