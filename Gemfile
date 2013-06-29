@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.0.0.rc2'
+gem 'rails', '4.0.0'
 
 gem 'mysql2'
 gem 'devise', '3.0.0.rc'
@@ -49,11 +49,9 @@ gem 'acts-as-taggable-on'
 gem 'awesome_nested_set'
 gem 'the_comments', git: 'git://github.com/markevich/the_comments.git'
 
-group :assets do
-  gem 'sass-rails', '4.0.0.rc2'
-  gem 'coffee-rails'
-  gem 'uglifier', '>= 1.0.3'
-end
+gem 'sass-rails', '4.0.0'
+gem 'coffee-rails'
+gem 'uglifier', '>= 1.0.3'
 
 
 group :development do
