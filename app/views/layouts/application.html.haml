@@ -25,12 +25,10 @@
       window.current_user = $.cookies.get('current_user')
     = render :partial => 'layouts/header'
 
-    .container-fluid
-      .row-fluid
-        .span12
-          = bootstrap_flash
-          = yield
-      = render :partial => 'layouts/footer'
+
+    = bootstrap_flash
+    = yield
+    = #render :partial => 'layouts/footer'
     /
       Javascripts
       \==================================================
