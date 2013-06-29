@@ -48,6 +48,14 @@ module UserWorld
   def user_password
     @user_password ||= 'user_password'
   end
+
+  def confirmation_mail
+    ActionMailer::Base.deliveries.last
+  end
+
+  def confirmation_link
+    confirmation_mail.body.encoded.scan(/http:\/\/localhost:3000\/users\/confirmation\?confirmation_token=\w+/).first
+  end
 end
 
 World(UserWorld)
