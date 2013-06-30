@@ -1,0 +1,85 @@
+.pictures{
+  margin: 0 auto;
+  width: 99%;
+  .image-block{
+    float: left;
+    padding: 1%;
+    width: 315px;
+    font-family: Arial;
+    color: #6eb2ba;
+    font-size: 14px;
+    position: relative;
+      .info{
+        position: absolute;
+        display: none;
+        color: black;
+        h1{
+          font-size: 16px;
+          margin-left: 10px;
+          margin-top: 20px;
+          font-weight: bold;
+          margin-bottom: 10px;
+
+        }
+        p{
+          vertical-align: 2;
+          margin: 0 10px;
+          width: 295px;
+          font-size: 14px;
+        }
+      }
+      img.picture{
+        width: 315px;
+        height: 210px;
+        opacity: 1;
+        -webkit-transition: opacity 0.9s ease-out;
+        -moz-transition: opacity 0.2s ease-out;
+        -o-transition: opacity 0.2s ease-out;
+        transition: opacity 0.3s ease-out;
+      }
+      h1{
+        padding-bottom: 5px;
+      }
+    .name{
+      float: left;
+      margin-top: 5px;
+     &:hover{
+       color: #e74c3c;
+     }
+      a{
+        color: inherit;
+        text-decoration: none;
+      }
+
+
+
+    }
+    .picture-actions{
+      float: right;
+      margin-top: 5px;
+      img{
+        width: 13px;
+        cursor: pointer;
+      }
+      div.heart_inactive{
+        background-image: url(heart_inactive.png);
+        display: inline-block;
+        background-repeat: no-repeat;
+        width: 15px;
+        height: 12px;
+        cursor: pointer;
+        &:hover{
+          background-image: url(heart_hover.png);
+        }
+      }
+
+      span{
+        font-weight: normal;
+        color: #bfbfbf;
+      }
+      span.shafe{
+         margin-right: 5px;
+      }
+    }
+  }
+}
