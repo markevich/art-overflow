@@ -1,7 +1,7 @@
 module UserWorld
   include Warden::Test::Helpers
   def current_user
-    @current_user ||= create_user
+    @current_user
   end
 
   def create_user
@@ -10,15 +10,16 @@ module UserWorld
   end
 
   def another_user
-    @another_user ||= create_another_user
+    @another_user
   end
 
   def create_another_user
     expect(@another_user).to be_nil
-    create(:user)
+    @another_user = create(:user)
   end
 
   def user_logged_in
+    @current_user = create_user
     login_as current_user, scope: :user
   end
 

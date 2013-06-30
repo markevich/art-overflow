@@ -7,7 +7,7 @@ Given(/^Another user$/) do
 end
 
 Given(/^I am unregistered user$/) do
-  true
+  expect(current_user).to be_nil
 end
 
 When(/^I visit registration page$/) do
@@ -36,5 +36,5 @@ When(/^I click confirmation link$/) do
 end
 
 Then(/^my account confirmed$/) do
-  current_user.should be_confirmed
+  User.find_by_email(user_email).should be_confirmed
 end
