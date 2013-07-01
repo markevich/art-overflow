@@ -59,6 +59,15 @@ module RenderCommentsTreeHelper
       end
 
       def published_comment
+        btn = if @options[:controller].user_signed_in?
+          debugger
+          if @options[:controller].current_user.voted_on?(@comment)
+            h.button_to 'Unlike', action: 'unlike', controller: 'comments', id: @comment.id
+          else
+            h.button_to 'Like', action: 'like', controller: 'comments', id: @comment.id
+          end
+        end
+
         "<li>
           <div id='comment_#{@comment.anchor}' class='comment #{@comment.state}' data-comment-id='#{@comment.to_param}'>
             <div>
@@ -66,6 +75,7 @@ module RenderCommentsTreeHelper
               #{ userbar }
               <div class='cbody'>#{ @comment.content }</div>
               #{ reply }
+              #{btn}
             </div>
           </div>
 
