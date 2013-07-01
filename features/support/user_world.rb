@@ -24,7 +24,7 @@ module UserWorld
   end
 
   def check_unregistered_user
-    expect(@current_user).to be_nil
+    expect(current_user).to be_nil
   end
 
   def visit_registration_page
@@ -52,8 +52,8 @@ module UserWorld
     ActionMailer::Base.deliveries.last
   end
 
-  def confirmation_link
-    confirmation_mail.body.encoded.scan(/http:\/\/localhost:3000\/users\/confirmation\?confirmation_token=\w+/).first
+  def confirmation_mail_link
+    confirmation_mail.body.encoded.match(/http.+confirmation\?(\w+=\w+&?)*/)[0]
   end
 end
 

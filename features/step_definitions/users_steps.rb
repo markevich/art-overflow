@@ -7,7 +7,7 @@ Given(/^Another user$/) do
 end
 
 Given(/^I am unregistered user$/) do
-  expect(current_user).to be_nil
+  check_unregistered_user
 end
 
 When(/^I visit registration page$/) do
@@ -19,16 +19,17 @@ When(/^I submit registration form$/) do
   click_button('Sign up')
 end
 
-Then(/^I should see confirmation email sended$/) do
-   expect(page).to have_content 'Письмо со ссылкой для подтверждения было отправлено на ваш e-mail.'
+Then(/^I should see that confirmation email sended$/) do
+  expect(page).to have_content I18n.t('devise.registrations.signed_up_but_unconfirmed')
+  expect(confirmation_mail.to).to eq [user_email]
 end
 
 Then(/^I confirm my account through email$/) do
-  confirmation_mail.to.should == [user_email]
-  confirmation_mail.body.encoded.should match("confirmation_token")
-  visit confirmation_link
+  expect(confirmation_mail_link).to_not be_nil
+  visit confirmation_mail_link
 end
 
-Then(/^my account confirmed$/) do
+Then(/^I should see that my account is confirmed$/) do
   User.find_by_email(user_email).should be_confirmed
+  expect(page).to have_content I18n.t('devise.confirmations.confirmed')
 end
