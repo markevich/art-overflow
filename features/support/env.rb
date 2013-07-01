@@ -7,7 +7,7 @@ Spork.prefork do
   Capybara.javascript_driver = :poltergeist
   Capybara.default_selector = :css
 
-  include FactoryGirl::Syntax::Methods
+  World(FactoryGirl::Syntax::Methods)
 end
 
 Spork.each_run do
