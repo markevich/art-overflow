@@ -53,7 +53,9 @@ module UserWorld
   end
 
   def confirmation_mail_link
-    confirmation_mail.body.encoded.match(/http.+confirmation\?(\w+=\w+&?)*/)[0]
+    link = confirmation_mail.body.encoded.match(/http.+confirmation\?(\w+=\w+&?)*/)[0]
+    expect(link.scan('confirmation_token')).to_not be_nil
+    link
   end
 end
 
