@@ -12,6 +12,7 @@
     = stylesheet_link_tag "jbar", :media => "all", "data-turbolinks-track" => true
   %body#subscribe
     .content
+      = bootstrap_flash
       %a{href: ''}
         = image_tag('logo.png', class: 'logo')
       .fixer

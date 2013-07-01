@@ -22,6 +22,11 @@ class ApplicationController < ActionController::Base
     render file: "#{Rails.root}/public/404.html", status: :not_found , layout: false
   end
 
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :nickname, :email, :password, :password_confirmation) }
+  end
+
   def permitted_params
     @permitted_params ||= PermittedParams.new(params, current_user)
   end
