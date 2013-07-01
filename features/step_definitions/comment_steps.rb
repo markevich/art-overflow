@@ -11,3 +11,11 @@ Then(/^I leave important comment$/) do
   click_button 'Create Comment'
 end
 
+Given(/^another user leaves important comment$/) do
+  create_another_user
+  @another_comment = create(:comment, commentable_id: picture.id, commentable_type: 'Picture', user: another_user)
+end
+
+Then(/^I like his comment$/) do
+  click_button 'Like Comment'
+end
