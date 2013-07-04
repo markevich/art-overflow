@@ -22,3 +22,11 @@ end
 Then(/^I should see that I already subscribed$/) do
   expect(page).to have_content 'E-mail уже существует'
 end
+
+When(/^I visit unsubscribe page$/) do
+  visit unsubscribe_path(current_subscriber)
+end
+
+Then(/^I should see that I am unsubscribed$/) do
+  expect(page).to have_content I18n.t('subscriber.unsubscribed')
+end
