@@ -47,3 +47,6 @@ ru:
     stop_following: "Вы успешно отписались от обновлений %{name}."
   subscriber:
     unsubscribe: 'отписаться от новостей'
+    unsubscribed: 'Вы успешно отписались от новостей о Art Overflow'
+  errors:
+    token_mismatch: 'Токены не совпали. Необходим %{expected}, но получили %{got}'
