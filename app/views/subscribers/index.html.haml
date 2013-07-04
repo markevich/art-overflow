@@ -12,7 +12,6 @@
     = stylesheet_link_tag "jbar", :media => "all", "data-turbolinks-track" => true
   %body#subscribe
     .content
-      = bootstrap_flash
       %a{href: ''}
         = image_tag('logo.png', class: 'logo')
       .fixer
@@ -26,6 +25,11 @@
       #footer
         = image_tag('tablet.png')
         %a#flash_toggle{style: 'display:none'}
+          - if flash[:success]
+            :javascript
+              $(document).on('ready page:load', function(){
+                toggleFlash("#{flash[:success]}");
+              })
         %p Подписаться
         = simple_form_for @subscriber, remote: true, html: {'data-validate-promo' => true, novalidate: true} do |f|
           = f.input :email, placeholder: 'your@email.com', label: false

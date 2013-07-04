@@ -30,7 +30,7 @@ $(document).on 'ready page:load', ->
     Shaker.shake('#new_subscriber input')
 
 
-toggleFlash = (message) ->
+@toggleFlash = (message) ->
   $('#flash_toggle').bar
     message: message
     color: '#f8f6fa',
