@@ -8,7 +8,7 @@ class SubscribersController < ApplicationController
   def create
     @subscriber = Subscriber.new(permitted_params.subscriber)
     if @subscriber.save
-      render json: { success: 'Вы успешно подписаны на обновления.' }
+      render json: { success: I18n.t('subscriber.subscribed') }
     else
       render json: { error: @subscriber.errors.full_messages.to_sentence }, status: 400
     end
