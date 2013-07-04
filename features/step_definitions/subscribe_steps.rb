@@ -24,7 +24,8 @@ Then(/^I should see that I already subscribed$/) do
 end
 
 When(/^I visit unsubscribe page$/) do
-  visit unsubscribe_path(current_subscriber)
+  url = unsubscribe_url(current_subscriber)
+  visit absolute_to_relative(url)
 end
 
 Then(/^I should see that I am unsubscribed$/) do
