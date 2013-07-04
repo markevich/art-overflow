@@ -50,6 +50,7 @@ Spork.prefork do
     config.order = "random"
     config.include FactoryGirl::Syntax::Methods
     config.include Devise::TestHelpers, :type => :controller
+    config.include Rails.application.routes.url_helpers
   end
 end
 
