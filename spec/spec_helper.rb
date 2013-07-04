@@ -22,7 +22,7 @@ Spork.prefork do
   ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
   RSpec.configure do |config|
-    Rails.application.routes.default_url_options[:host] = 'test.host'
+    Rails.application.routes.default_url_options[:host] = 'example.com'
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
