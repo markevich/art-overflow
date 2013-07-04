@@ -22,6 +22,6 @@ class SubscribersController < ApplicationController
                                                got: params[:token] || 'nil'))
     end
     subscriber.destroy
-    render action: :index, success: I18n.t('subscruber.unsubscribed')
+    redirect_to subscribers_path, success: I18n.t('subscriber.unsubscribed')
   end
 end
