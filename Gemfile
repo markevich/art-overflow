@@ -79,6 +79,8 @@ group :test do
   gem 'cucumber-rails', require: false
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'selenium-webdriver'
+  gem 'capybara-firebug'
 end
 
 group :development, :test do
