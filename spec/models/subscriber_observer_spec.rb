@@ -1,5 +1,10 @@
 require 'spec_helper'
-
 describe SubscriberObserver do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it 'Send welcome email after creation' do
+    Workers::Mail::WelcomeEmail.should_receive(:perform_async)
+
+    Subscriber.observers.enable SubscriberObserver do
+      create(:subscriber)
+    end
+  end
 end
