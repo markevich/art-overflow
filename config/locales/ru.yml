@@ -1,4 +1,5 @@
 ru:
+  submit: 'Отправить'
   activerecord:
     models:
       subscriber: 'Подписчик'
@@ -45,3 +46,9 @@ ru:
   user:
     start_following: "Вы успешно подписались на обновления %{name}."
     stop_following: "Вы успешно отписались от обновлений %{name}."
+  subscriber:
+    subscribed: 'Вы успешно подписаны на обновления.'
+    unsubscribe: 'отписаться от рассылки'
+    unsubscribed: 'Вы успешно отписались от рассылки.'
+  errors:
+    token_mismatch: 'Токены не совпали. Необходим %{expected}, но получили %{got}'

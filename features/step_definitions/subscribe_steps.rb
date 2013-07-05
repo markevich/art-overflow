@@ -12,13 +12,22 @@ end
 
 When(/^I submit subscribe form$/) do
   fill_subscriber_form
-  click_button('Отправить')
+  click_button(I18n.t(:submit))
 end
 
 Then(/^I should see that i successfully subscribed$/) do
-  expect(page).to have_content 'Вы успешно подписаны на обновления.'
+  expect(page).to have_content I18n.t('subscriber.subscribed')
 end
 
 Then(/^I should see that I already subscribed$/) do
   expect(page).to have_content 'E-mail уже существует'
+end
+
+When(/^I visit unsubscribe page$/) do
+  url = unsubscribe_url(current_subscriber)
+  visit absolute_to_relative(url)
+end
+
+Then(/^I should see that I am unsubscribed$/) do
+  expect(page).to have_content I18n.t('subscriber.unsubscribed')
 end
