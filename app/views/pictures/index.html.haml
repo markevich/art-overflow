@@ -4,5 +4,7 @@
   })
 #pictures
   = render @pictures
-  %a#button_load_more{href: '#'}
-    = I18n.t('pictures.show_more')
+  - if @pictures.count == PicturesController::PAGE_SIZE
+    - #Если число картинок кратно PAGE_SIZE, то кнопка "загрузить позже" ничего не сделает :(
+    %a#button_load_more{href: '#'}
+      = I18n.t('pictures.show_more')
