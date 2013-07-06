@@ -1,9 +1,9 @@
 .pictures{
   margin: 0 auto;
-  width: 99%;
+  width: 1625px;
   .image-block{
     float: left;
-    padding: 1%;
+    padding: 5px;
     width: 315px;
     font-family: Arial;
     color: #6eb2ba;
@@ -83,3 +83,18 @@
     }
   }
 }
+$PICTURE_WIDTH: 325px;
+$MAX_COLUMNS: 10;
+
+$current_column: $MAX_COLUMNS;
+
+@while $current_column > 0{
+  @media screen and (max-width: $PICTURE_WIDTH * $current_column) {
+    .pictures{
+      margin: 0 auto;
+      width: $PICTURE_WIDTH * ($current_column - 1);
+    }
+  }
+  $current_column: $current_column - 1
+}
+
