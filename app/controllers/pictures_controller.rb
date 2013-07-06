@@ -1,7 +1,6 @@
 class PicturesController < ApplicationController
   PAGE_SIZE = 15
   before_filter :set_model, only: [:show, :like, :unlike]
-  before_filter :set_cookies_page_size, only: [:index]
 
   def index
     params[:page] ||= 1
@@ -45,10 +44,6 @@ class PicturesController < ApplicationController
 
   def set_model
     @picture = Picture.find params[:id]
-  end
-
-  def set_cookies_page_size
-    cookies[:page_size] = PAGE_SIZE
   end
 
   def permitted_params
