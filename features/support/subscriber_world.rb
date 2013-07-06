@@ -25,3 +25,4 @@ module SubscriberWorld
 end
 
 World(SubscriberWorld)
+World(SubscriberHelper)

@@ -3,6 +3,8 @@ class ApplicationController < ActionController::Base
   include PublicActivity::StoreController
   include Concerns::TheCommentsController::ViewToken
 
+  add_flash_types :error, :success
+
   rescue_from CanCan::AccessDenied do |exception|
     render_404
   end
