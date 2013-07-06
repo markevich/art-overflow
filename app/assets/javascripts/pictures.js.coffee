@@ -34,15 +34,7 @@ class @PicturesProcessor
   loadingFinished: ->
     $(window).data 'loading', false
 
-
-
-
-# $(window).on 'statechange', ->
-  # load_more_pictures (data) ->
-    # $('#pictures').append data
-
 $(document).on 'ready page:load', ->
-
   $('.picture').on 'mouseover', ->
     img = $(@)
     img.css('opacity', 0.15)
