@@ -43,6 +43,8 @@ ru:
 
       waiting_for_moderation: Waiting for moderation
       item_not_found: Black list Item not found
+      like: Like Comment
+      unlike: Unlike Comment
   user:
     start_following: "Вы успешно подписались на обновления %{name}."
     stop_following: "Вы успешно отписались от обновлений %{name}."

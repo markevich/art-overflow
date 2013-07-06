@@ -17,5 +17,5 @@ Given(/^another user leaves important comment$/) do
 end
 
 Then(/^I like his comment$/) do
-  click_button 'Like Comment'
+  click_button I18n.t('the_comments.like')
 end

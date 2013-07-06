@@ -25,16 +25,16 @@ class CommentsController < ApplicationController
   # [:update, :to_published, :to_draft, :to_spam, :to_trash]
 
   def like
-    @comment = Comment.find params[:id]
-    current_user.vote_for @comment
-    @comment.create_activity :like
+    comment = Comment.find params[:id]
+    current_user.vote_for comment
+    comment.create_activity :like
     redirect_to :back
   end
 
   def unlike
-    @comment = Comment.find params[:id]
-    current_user.unvote_for @comment
-    @comment.activities.where(key: 'comment.like', owner: current_user).first.destroy
+    comment = Comment.find params[:id]
+    current_user.unvote_for comment
+    comment.activities.where(key: 'comment.like', owner: current_user).first.destroy
     redirect_to :back
   end
 
