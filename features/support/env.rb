@@ -2,9 +2,17 @@ require 'rubygems'
 require 'spork'
 
 Spork.prefork do
+  require 'sidekiq'
+  require 'sidekiq/testing/inline'
   require 'cucumber/rails'
   require 'capybara/poltergeist'
-  Capybara.javascript_driver = :poltergeist
+  if false
+    Capybara.javascript_driver = :selenium
+    require 'capybara/firebug'
+  else
+    Capybara.javascript_driver = :poltergeist
+  end
+
   Capybara.default_selector = :css
 
   World(FactoryGirl::Syntax::Methods)
