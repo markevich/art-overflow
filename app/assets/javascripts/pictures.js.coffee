@@ -7,11 +7,12 @@ class @PicturesProcessor
         @enableInfinityScrolling()
 
   loadNewPage: (callback) ->
-    @current_page += 1
-    query_params = "?page=#{@current_page}"
+    next_page = @current_page + 1
+    query_params = "?page=#{next_page}"
     $.ajax("/pictures#{query_params}")
     .done (data) ->
       return if data.length == 1 #it means that is no pictures no more
+      @current_page = next_page
       History.pushState({page: @current_page}, null, query_params)
       $('#pictures').append data
       callback()
