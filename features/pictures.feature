@@ -9,7 +9,7 @@ Feature: Pictures
     When I scroll to bottom of page
     Then new pictures should appear on page
 
-  Scenario: Visibility of "Show more button"
+  Scenario: Show more button should not be visible if there are no more pictures
     Given that few pictures exists
     When I am on pictures page
     Then I should not see show more button
