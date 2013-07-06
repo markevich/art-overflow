@@ -22,6 +22,7 @@ ArtOverflow::Application.configure do
 
   # Disable Rails's static asset server (Apache or nginx will already do this).
   config.serve_static_assets = false
+  config.static_cache_control = "public, max-age=#{1.year.to_i}"
 
   # Compress JavaScripts and CSS.
   config.assets.js_compressor  = :uglifier

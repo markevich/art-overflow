@@ -4,6 +4,13 @@ server {
   root <%= current_path %>/public;
   client_max_body_size 32m;
 
+  location ~ ^/(assets)/  {
+    root <%= current_path %>/public;
+    gzip_static on; # to serve pre-gzipped version
+    expires max;
+    add_header Cache-Control public;
+  }
+
   location / {
     try_files $uri @unicorn;
     break;
