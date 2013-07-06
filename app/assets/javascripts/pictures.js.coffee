@@ -10,9 +10,9 @@ class @PicturesProcessor
     next_page = @current_page + 1
     query_params = "?page=#{next_page}"
     $.ajax("/pictures#{query_params}")
-    .done (data) ->
-      return if data.length == 1 #it means that is no pictures no more
+    .done (data) =>
       @current_page = next_page
+      return if data.length == 1 #it means that is no pictures no more
       History.pushState({page: @current_page}, null, query_params)
       $('#pictures').append data
       callback()
