@@ -12,6 +12,7 @@ Spork.prefork do
   require 'rspec/rails'
   require 'rspec/autorun'
   require "factory_girl"
+  require 'sidekiq/testing'
 
   # Requires supporting ruby files with custom matchers and macros, etc,
   # in spec/support/ and its subdirectories.
@@ -22,13 +23,14 @@ Spork.prefork do
   ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
   RSpec.configure do |config|
-    # ## Mock Framework
-    #
-    # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
-    #
-    # config.mock_with :mocha
-    # config.mock_with :flexmock
-    # config.mock_with :rr
+
+    config.before(:each, devise: true) do
+      Rails.application.routes.default_url_options[:host] = 'test.host'
+    end
+
+    config.before do
+      ActiveRecord::Base.observers.disable :all
+    end
 
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
     config.fixture_path = "#{::Rails.root}/spec/fixtures"
@@ -50,6 +52,7 @@ Spork.prefork do
     config.order = "random"
     config.include FactoryGirl::Syntax::Methods
     config.include Devise::TestHelpers, :type => :controller
+    config.include Rails.application.routes.url_helpers
   end
 end
 

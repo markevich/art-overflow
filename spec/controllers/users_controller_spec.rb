@@ -31,7 +31,9 @@ describe UsersController do
 
     context 'unauthorized' do
       before { sign_out :user}
-      it { expect { follow_user }.to change(response, :redirect_url).to(new_user_session_url) }
+      it 'redirect to sign_in page', devise: true do
+        expect { follow_user }.to change(response, :redirect_url).to(new_user_session_url)
+      end
     end
   end
 
@@ -59,7 +61,9 @@ describe UsersController do
 
     context 'unauthorized' do
       before { sign_out :user}
-      it { expect { stop_following_user }.to change(response, :redirect_url).to(new_user_session_url) }
+      it 'redirect to sign_in page', devise: true do
+        expect { stop_following_user }.to change(response, :redirect_url).to(new_user_session_url)
+      end
     end
   end
 

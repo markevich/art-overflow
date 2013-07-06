@@ -12,6 +12,10 @@ Bundler.require(*Rails.groups(assets: %w(development test)))
 
 module ArtOverflow
   class Application < Rails::Application
+    config.autoload_paths += %W{#{config.root}/app}
+
+    config.active_record.observers = :subscriber_observer
+
     config.i18n.default_locale = :ru
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.precompile += %w(*jbar.js *jbar.css subscribe.css)

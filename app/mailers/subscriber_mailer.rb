@@ -1,6 +1,8 @@
 class SubscriberMailer < ActionMailer::Base
   default from: "Art Overflow <info@artoverflow.com>"
-  def welcome_email
-    mail(to: ['slava.markevich@gmail.com', 'onemur@gmail.com'], subject: 'Hi!')
+  add_template_helper(SubscriberHelper)
+  def welcome_email(subscriber)
+    @subscriber = subscriber
+    mail(to: subscriber.email, subject: 'Добро пожаловать в Art Overflow!')
   end
 end
