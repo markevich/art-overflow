@@ -1,4 +1,8 @@
+:javascript
+  $(document).on('ready page:load', function(){
+    window.picturesProcessor = new PicturesProcessor(#{params[:page].to_i}, #{PicturesController::PAGE_SIZE})
+  })
 #pictures
   = render @pictures
-  #button_load_more
-    Загрузить остальные
+  %a#button_load_more{href: '#'}
+    = I18n.t('pictures.show_more')

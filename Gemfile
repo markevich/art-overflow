@@ -29,6 +29,10 @@ gem 'dalli'
 gem 'madmimi-rails', '0.0.1.1'
 #
 
+# push state with degradation to xhtml 4
+gem 'historyjs-rails'
+#
+
 #notify about exceptions by email
 gem 'exception_notification', '4.0.0.rc1'
 #

@@ -193,6 +193,8 @@ GEM
       railties (>= 3.1, < 4.1)
     highline (1.6.19)
     hike (1.2.3)
+    historyjs-rails (1.0.1)
+      railties (>= 3.0)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
     jquery-rails (3.0.1)
@@ -401,6 +403,7 @@ DEPENDENCIES
   guard-rspec
   guard-spork
   haml-rails
+  historyjs-rails
   jquery-rails
   letter_opener
   madmimi-rails (= 0.0.1.1)

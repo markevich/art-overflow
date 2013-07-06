@@ -1,9 +1,11 @@
 class PicturesController < ApplicationController
   PAGE_SIZE = 15
   before_filter :set_model, only: [:show, :like, :unlike]
+  before_filter :set_cookies_page_size, only: [:index]
 
   def index
-    offset = params[:offset].to_i * PAGE_SIZE
+    params[:page] ||= 1
+    offset = (params[:page].to_i - 1) * PAGE_SIZE
     @pictures = Picture.limit(PAGE_SIZE).offset(offset)
 
     render @pictures if request.xhr?
@@ -43,6 +45,10 @@ class PicturesController < ApplicationController
 
   def set_model
     @picture = Picture.find params[:id]
+  end
+
+  def set_cookies_page_size
+    cookies[:page_size] = PAGE_SIZE
   end
 
   def permitted_params

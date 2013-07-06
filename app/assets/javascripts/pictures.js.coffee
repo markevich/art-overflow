@@ -1,9 +1,47 @@
-$(document).on 'ready page:load', ->
-  $('#button_load_more').on 'click', ->
-    load_more_pictures (data) ->
+class @PicturesProcessor
+  constructor: (@current_page, @page_size) ->
+    $('#button_load_more').on 'click', (e) =>
+      e.preventDefault();
       $('#button_load_more').hide()
+      @loadNewPage =>
+        @enableInfinityScrolling()
+
+  loadNewPage: (callback) ->
+    @current_page += 1
+    query_params = "?page=#{@current_page}"
+    $.ajax("/pictures#{query_params}")
+    .done (data) ->
+      return if data.length == 1 #it means that is no pictures no more
+      History.pushState({page: @current_page}, null, query_params)
       $('#pictures').append data
-      enable_infinity_scrolling()
+      callback()
+
+  enableInfinityScrolling: ->
+    @loadingFinished()
+    $(document).on 'scroll', =>
+      return if @loadingNow()
+      if $(window).scrollTop() >= ($(document).height() - $(window).height())
+        @loadingStarted()
+        @loadNewPage =>
+          @loadingFinished()
+
+  loadingNow: ->
+    $(window).data 'loading'
+
+  loadingStarted: ->
+    $(window).data 'loading', true
+
+  loadingFinished: ->
+    $(window).data 'loading', false
+
+
+
+
+# $(window).on 'statechange', ->
+  # load_more_pictures (data) ->
+    # $('#pictures').append data
+
+$(document).on 'ready page:load', ->
 
   $('.picture').on 'mouseover', ->
     img = $(@)
@@ -13,19 +51,3 @@ $(document).on 'ready page:load', ->
     img = $(@)
     img.css('opacity', 1)
     img.prev().hide();
-
-load_more_pictures = (callback) ->
-  $.get 'pictures', (data) ->
-    callback(data)
-
-enable_infinity_scrolling = ->
-  $(window).data 'scroll_ready', true
-
-  $(document).on 'scroll', ->
-    return unless $(window).data('scroll_ready')
-
-    if $(window).scrollTop() >= ($(document).height() - $(window).height())
-      $(window).data 'scroll_ready', false
-      load_more_pictures (data) ->
-        $('#pictures').append data
-        $(window).data 'scroll_ready', true
