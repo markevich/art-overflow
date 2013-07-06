@@ -1,10 +1,8 @@
 # encoding: utf-8
 
 class PictureUploader < CarrierWave::Uploader::Base
-
-  # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
   include CarrierWave::MiniMagick
+  include CarrierWave::ImageOptimizer
 
   # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
   # include Sprockets::Helpers::RailsHelper
@@ -39,6 +37,8 @@ class PictureUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :resize_to_fit => [280, 280]
   end
+
+  process :optimize
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

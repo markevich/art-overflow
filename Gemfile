@@ -8,7 +8,10 @@ gem 'devise', '3.0.0.rc'
 gem 'rails_admin', git: 'git://github.com/sferik/rails_admin.git', branch: 'rails-4'
 gem 'simple_form'
 gem 'haml-rails'
+
 gem 'carrierwave'
+gem 'carrierwave-imageoptimizer'
+
 gem 'mini_magick'
 gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git', branch: 'rails4'
 
