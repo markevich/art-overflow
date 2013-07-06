@@ -7,3 +7,5 @@ $(document).on 'ready page:load', ->
     img = $(@)
     img.css('opacity', 1)
     img.prev().hide();
+  $('#button_load_more').on 'click', ->
+    

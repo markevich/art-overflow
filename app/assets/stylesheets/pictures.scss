@@ -1,4 +1,4 @@
-.pictures{
+#pictures{
   margin: 0 auto;
   width: 1625px;
   .image-block{
@@ -83,6 +83,24 @@
     }
   }
 }
+#button_load_more{
+  background-color: #b5d6d9;
+  clear: both;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: bold;
+  font-family: Arial;
+  height: 25px;
+  padding-top: 13px;
+}
+#button_load_more:hover{
+  background-color: #70b2b8;
+}
+
 $PICTURE_WIDTH: 325px;
 $MAX_COLUMNS: 10;
 
@@ -90,7 +108,7 @@ $current_column: $MAX_COLUMNS;
 
 @while $current_column > 0{
   @media screen and (max-width: $PICTURE_WIDTH * $current_column) {
-    .pictures{
+    #pictures{
       margin: 0 auto;
       width: $PICTURE_WIDTH * ($current_column - 1);
     }
