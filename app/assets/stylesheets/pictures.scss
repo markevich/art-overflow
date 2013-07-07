@@ -62,7 +62,7 @@
         cursor: pointer;
       }
       div.heart_inactive{
-        background-image: url('heart_inactive.png');
+        background-image: url(image-path('heart_inactive.png'));
         display: inline-block;
         background-repeat: no-repeat;
         width: 15px;
