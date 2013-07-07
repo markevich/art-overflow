@@ -62,14 +62,14 @@
         cursor: pointer;
       }
       div.heart_inactive{
-        background-image: url(heart_inactive.png);
+        background-image: url('heart_inactive.png');
         display: inline-block;
         background-repeat: no-repeat;
         width: 15px;
         height: 12px;
         cursor: pointer;
         &:hover{
-          background-image: url(heart_hover.png);
+          background-image: url(image-path('heart_hover.png'));
         }
       }
 
