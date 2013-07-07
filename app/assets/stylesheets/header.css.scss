@@ -140,7 +140,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   background-position: 1px;
   padding-left: 30px;
   background-position: 10px;
-  background-image: url("search.png");
+  background-image: url(image-path("search.png"));
   background-repeat: no-repeat;
   -webkit-transition: width 0.2s ease-out;
   -moz-transition: width 0.2s ease-out;
