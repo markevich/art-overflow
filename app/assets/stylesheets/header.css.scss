@@ -196,7 +196,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   border: 1px solid #e74c3c;
 }
 #search input:hover{
-  background-image:url("red.png");
+  background-image: url(image-path("red.png"));
   background-color: #1f2f40;
   -webkit-border-radius:6px;
   -moz-border-radius:6px;
@@ -204,7 +204,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   color: #e74c3c; 
 }
 #search input.active{
-  background-image:url("red.png");
+  background-image: url(image-path("red.png"));
   background-color: #1f2f40;
   -webkit-border-radius:6px;
   -moz-border-radius:6px;
