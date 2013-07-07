@@ -38,7 +38,7 @@ gem 'historyjs-rails'
 #
 
 #notify about exceptions by email
-gem 'exception_notification', '4.0.0.rc1'
+gem 'exception_notification', '4.0.0'
 #
 
 # translating gems
