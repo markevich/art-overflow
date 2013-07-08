@@ -21,13 +21,21 @@ end
 
 Then(/^I see his comment$/) do
   expect(page).to have_content(@another_comment.content)
-  expect(page).to have_button(I18n.t('the_comments.like'))
 end
 
 Then(/^I like his comment$/) do
   click_button I18n.t('the_comments.like')
 end
 
+Then(/^I unlike his comment$/) do
+  click_button I18n.t('the_comments.unlike')
+end
+
 Then(/^I see that I liked his comment$/) do
   expect(page).to have_button(I18n.t('the_comments.unlike'))
 end
+
+Then(/^I see I can like his comment$/) do
+  expect(page).to have_button(I18n.t('the_comments.like'))
+end
+

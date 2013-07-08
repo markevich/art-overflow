@@ -7,12 +7,15 @@ Feature: Leave comment
     Then I leave important comment
     Then I see my important comment
 
-  Scenario: I like a comment
+  Scenario: I like and unlike a comment
     Given I am logged in
     Given picture of another user
     Given Another user 
     And Another user leaves important comment
     When visit picture
     Then I see his comment
+    Then I see I can like his comment
     Then I like his comment
     Then I see that I liked his comment
+    Then I unlike his comment
+    Then I see I can like his comment
