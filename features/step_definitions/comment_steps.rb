@@ -7,12 +7,12 @@ When(/^visit picture$/) do
 end
 
 Then(/^I leave important comment$/) do
-  fill_in('comment_raw_content', with: "Not perfect, but still fun.")
+  fill_in('comment_raw_content', with: comment_text)
   click_button I18n.t('the_comments.create_comment')
 end
 
 Then(/^I see my important comment$/) do
-  expect(page).to have_content("Not perfect, but still fun.")
+  expect(page).to have_content(comment_text)
 end
 
 Given(/^Another user leaves important comment$/) do
@@ -39,3 +39,10 @@ Then(/^I see I can like his comment$/) do
   expect(page).to have_button(I18n.t('the_comments.like'))
 end
 
+Then(/^I delete my comment$/) do
+  click_link I18n.t('the_comments.to_deleted')
+end
+
+Then(/^I see my comment deleted$/) do
+  expect(page).to_not have_content(comment_text)
+end

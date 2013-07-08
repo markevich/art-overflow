@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   end
 
   def comment_moderator? comment
-    admin? || id == comment.holder_id
+    admin? || id == comment.holder_id || id == comment.user_id
   end
 
 end
