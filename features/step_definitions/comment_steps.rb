@@ -11,9 +11,17 @@ Then(/^I leave important comment$/) do
   click_button 'Create Comment'
 end
 
+Then(/^I see my important comment$/) do
+  expect(page).to have_content("Not perfect, but still fun.")
+end
+
 Given(/^another user leaves important comment$/) do
   create_another_user
   @another_comment = create(:comment, commentable_id: picture.id, commentable_type: 'Picture', user: another_user)
+end
+
+Then(/^I see his comment$/) do
+  expect(page).to have_content(@another_comment.content)
 end
 
 Then(/^I like his comment$/) do

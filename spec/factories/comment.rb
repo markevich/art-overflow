@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :comment do
     user
-    content "123"
-    raw_content "123"
+    content "Very important comment!"
+    raw_content "Very important comment!"
   end
 end
