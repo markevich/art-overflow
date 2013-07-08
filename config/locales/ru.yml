@@ -43,6 +43,7 @@ ru:
 
       waiting_for_moderation: Waiting for moderation
       item_not_found: Black list Item not found
+      create_comment: Create Comment
       like: Like Comment
       unlike: Unlike Comment
   user:

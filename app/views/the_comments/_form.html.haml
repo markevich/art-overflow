@@ -17,4 +17,4 @@
   = f.hidden_field :commentable_id,   value: commentable.id
   = f.hidden_field :parent_id, class: :parent_id
 
-  %p= f.submit 'Create Comment', class: :btn
+  %p= f.submit I18n.t('the_comments.create_comment'), class: :btn
