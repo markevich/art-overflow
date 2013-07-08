@@ -37,13 +37,10 @@ GIT
 
 GIT
   remote: https://github.com/pokonski/public_activity.git
-  revision: 3fa28064fd00e0896ad2016b6bb9290f27877e5f
-  branch: rails4
+  revision: a0caa7f266572f1bbdef9aa4db8079a7de2eea1d
   specs:
-    public_activity (1.1.0)
-      actionpack (>= 3.0.0.rc1)
+    public_activity (1.4.0)
       i18n (>= 0.5.0)
-      railties (>= 3.0.0.rc1)
 
 GEM
   remote: http://rubygems.org/
@@ -110,6 +107,9 @@ GEM
     carrierwave (0.8.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+    carrierwave-imageoptimizer (1.0.1)
+      carrierwave (~> 0.8)
+      image_optimizer (~> 1.0.0)
     celluloid (0.14.1)
       timers (>= 1.0.0)
     childprocess (0.3.9)
@@ -152,7 +152,7 @@ GEM
     diff-lcs (1.2.4)
     erubis (2.7.0)
     eventmachine (1.0.3)
-    exception_notification (4.0.0.rc1)
+    exception_notification (4.0.0)
       actionmailer (>= 3.0.4)
       activesupport (>= 3.0.4)
     execjs (1.4.0)
@@ -168,6 +168,10 @@ GEM
     font-awesome-rails (3.2.1.1)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
+    fuubar (1.1.1)
+      rspec (~> 2.0)
+      rspec-instafail (~> 0.2.0)
+      ruby-progressbar (~> 1.0)
     gherkin (2.12.0)
       multi_json (~> 1.3)
     google-analytics-rails (0.0.4)
@@ -196,8 +200,11 @@ GEM
       railties (>= 3.1, < 4.1)
     highline (1.6.19)
     hike (1.2.3)
+    historyjs-rails (1.0.1)
+      railties (>= 3.0)
     http_parser.rb (0.5.3)
     i18n (0.6.4)
+    image_optimizer (1.0.0)
     jquery-rails (3.0.1)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
@@ -303,6 +310,7 @@ GEM
     rspec-core (2.13.1)
     rspec-expectations (2.13.0)
       diff-lcs (>= 1.1.3, < 2.0)
+    rspec-instafail (0.2.4)
     rspec-mocks (2.13.1)
     rspec-rails (2.13.2)
       actionpack (>= 3.0)
@@ -311,6 +319,7 @@ GEM
       rspec-core (~> 2.13.0)
       rspec-expectations (~> 2.13.0)
       rspec-mocks (~> 2.13.0)
+    ruby-progressbar (1.1.1)
     ruby_gntp (0.3.4)
     rubyzip (0.9.9)
     russian (0.6.0)
@@ -400,6 +409,7 @@ DEPENDENCIES
   capistrano-rbenv
   capybara-firebug
   carrierwave
+  carrierwave-imageoptimizer
   coffee-rails
   cucumber-rails
   dalli
@@ -407,13 +417,15 @@ DEPENDENCIES
   debugger
   devise (= 3.0.0.rc)
   devise-i18n
-  exception_notification (= 4.0.0.rc1)
+  exception_notification (= 4.0.0)
   factory_girl_rails
+  fuubar
   google-analytics-rails
   guard-cucumber
   guard-rspec
   guard-spork
   haml-rails
+  historyjs-rails
   jquery-rails
   letter_opener
   madmimi-rails (= 0.0.1.1)

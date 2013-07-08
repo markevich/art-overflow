@@ -27,6 +27,8 @@ ArtOverflow::Application.routes.draw do
     end
   else
     devise_for :users, only: :sessions
+    resources :pictures
+    resources :activities
   end
 
   resources :subscribers, only: [:index, :create] do

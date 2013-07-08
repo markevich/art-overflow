@@ -8,9 +8,12 @@ gem 'devise', '3.0.0.rc'
 gem 'rails_admin', git: 'git://github.com/sferik/rails_admin.git', branch: 'rails-4'
 gem 'simple_form'
 gem 'haml-rails'
+
 gem 'carrierwave'
+gem 'carrierwave-imageoptimizer'
+
 gem 'mini_magick'
-gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git', branch: 'rails4'
+gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git'
 
 #sidekiq
 gem 'sidekiq'
@@ -30,8 +33,12 @@ gem 'dalli'
 gem 'madmimi-rails', '0.0.1.1'
 #
 
+# push state with degradation to xhtml 4
+gem 'historyjs-rails'
+#
+
 #notify about exceptions by email
-gem 'exception_notification', '4.0.0.rc1'
+gem 'exception_notification', '4.0.0'
 #
 
 # translating gems
@@ -81,6 +88,7 @@ group :test do
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'capybara-firebug'
+  gem 'fuubar'
 end
 
 group :development, :test do

@@ -13,6 +13,7 @@ namespace :deploy do
 
     run "ln -nfs #{shared_path}/log #{release_path}/log"
     run "ln -nfs #{shared_path}/sockets #{release_path}/tmp/sockets"
+    run "ln -nfs #{shared_path}/uploads #{release_path}/public/uploads"
   end
   after "deploy:create_symlink", "deploy:create_configs_symlink"
 
