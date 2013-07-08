@@ -13,7 +13,7 @@ gem 'carrierwave'
 gem 'carrierwave-imageoptimizer'
 
 gem 'mini_magick'
-gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git', branch: 'rails4'
+gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git'
 
 #sidekiq
 gem 'sidekiq'
@@ -88,6 +88,7 @@ group :test do
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'capybara-firebug'
+  gem 'fuubar'
 end
 
 group :development, :test do
