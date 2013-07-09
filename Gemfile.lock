@@ -1,4 +1,19 @@
 GIT
+  remote: git://github.com/collectiveidea/awesome_nested_set.git
+  revision: dc95e0d64600d32f36568360ccb83951b2a9034f
+  branch: rails4
+  specs:
+    awesome_nested_set (2.1.6)
+      activerecord (~> 4.0.0)
+
+GIT
+  remote: git://github.com/markevich/acts_as_follower.git
+  revision: b7398832e7ecf69a29ac87d836aa9dfe89c12e03
+  branch: rails4
+  specs:
+    acts_as_follower (0.1.1)
+
+GIT
   remote: git://github.com/markevich/the_comments.git
   revision: f10835530acf5b80eba74b57ea75aea3598d1809
   specs:
@@ -15,7 +30,7 @@ GIT
 
 GIT
   remote: git://github.com/sferik/rails_admin.git
-  revision: 3ab602d70a3ffb89a400cfb1d8795d89108f5afb
+  revision: 08f15db83bc568c166afe69410542cdc7ea4cccf
   branch: rails-4
   specs:
     rails_admin (0.4.9)
@@ -29,14 +44,14 @@ GIT
       kaminari (~> 0.14)
       nested_form (~> 0.3)
       rack-pjax (~> 0.6)
-      rails (~> 4.0.0.rc2)
+      rails (~> 4.0.0)
       remotipart (~> 1.0)
       safe_yaml (~> 0.6)
-      sass-rails (~> 4.0.0.rc2)
+      sass-rails (~> 4.0.0)
 
 GIT
   remote: https://github.com/pokonski/public_activity.git
-  revision: a0caa7f266572f1bbdef9aa4db8079a7de2eea1d
+  revision: 1621180936b38383a3318fa2d96aef2287b9735c
   specs:
     public_activity (1.4.0)
       i18n (>= 0.5.0)
@@ -70,13 +85,10 @@ GEM
       tzinfo (~> 0.3.37)
     acts-as-taggable-on (2.4.1)
       rails (>= 3, < 5)
-    acts_as_follower (0.1.1)
     addressable (2.3.5)
     arel (4.0.0)
     atomic (1.1.10)
-    awesome_nested_set (2.1.6)
-      activerecord (>= 3.0.0)
-    bcrypt-ruby (3.0.1)
+    bcrypt-ruby (3.1.0)
     bootstrap-sass (2.3.2.0)
       sass (~> 3.2)
     builder (3.1.4)
@@ -84,7 +96,7 @@ GEM
       uniform_notifier
     callsite (0.0.11)
     cancan (1.6.10)
-    capistrano (2.15.4)
+    capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
       net-sftp (>= 2.0.0)
@@ -103,9 +115,10 @@ GEM
       xpath (~> 2.0)
     capybara-firebug (1.3.0)
       capybara (>= 1.0, < 3.0)
-    carrierwave (0.8.0)
+    carrierwave (0.9.0)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
+      json (>= 1.7)
     carrierwave-imageoptimizer (1.0.1)
       carrierwave (~> 0.8)
       image_optimizer (~> 1.0.0)
@@ -120,26 +133,27 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.2)
+    coffee-script-source (1.6.3)
     columnize (0.3.6)
     connection_pool (1.1.0)
     crack (0.4.0)
       safe_yaml (~> 0.9.0)
-    cucumber (1.3.2)
+    cucumber (1.3.3)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.3)
       gherkin (~> 2.12.0)
-      multi_json (~> 1.3)
+      multi_json (~> 1.7.5)
+      multi_test (~> 0.0.1)
     cucumber-rails (1.3.0)
       capybara (>= 1.1.2)
       cucumber (>= 1.1.8)
       nokogiri (>= 1.5.0)
     dalli (2.6.4)
     database_cleaner (1.0.1)
-    debugger (1.6.0)
+    debugger (1.6.1)
       columnize (>= 0.3.1)
       debugger-linecache (~> 1.2.0)
-      debugger-ruby_core_source (~> 1.2.1)
+      debugger-ruby_core_source (~> 1.2.3)
     debugger-linecache (1.2.0)
     debugger-ruby_core_source (1.2.3)
     devise (3.0.0.rc)
@@ -164,13 +178,9 @@ GEM
     faye-websocket (0.4.7)
       eventmachine (>= 0.12.0)
     ffi (1.9.0)
-    font-awesome-rails (3.2.1.1)
+    font-awesome-rails (3.2.1.2)
       railties (>= 3.2, < 5.0)
     formatador (0.2.4)
-    fuubar (1.1.1)
-      rspec (~> 2.0)
-      rspec-instafail (~> 0.2.0)
-      ruby-progressbar (~> 1.0)
     gherkin (2.12.0)
       multi_json (~> 1.3)
     google-analytics-rails (0.0.4)
@@ -204,7 +214,7 @@ GEM
     http_parser.rb (0.5.3)
     i18n (0.6.4)
     image_optimizer (1.0.0)
-    jquery-rails (3.0.1)
+    jquery-rails (3.0.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
     jquery-ui-rails (4.0.3)
@@ -239,21 +249,24 @@ GEM
     mime-types (1.23)
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
-    mini_portile (0.5.0)
+    mini_portile (0.5.1)
     minitest (4.7.5)
     multi_json (1.7.7)
+    multi_test (0.0.1)
     mysql2 (0.3.11)
     nested_form (0.3.2)
-    net-scp (1.1.1)
+    net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
       net-ssh (>= 2.6.5)
-    net-ssh (2.6.7)
+    net-ssh (2.6.8)
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     newrelic_rpm (3.6.5.130)
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
+    nyan-cat-formatter (0.5.0)
+      rspec (>= 2.13)
     orm_adapter (0.4.0)
     poltergeist (1.3.0)
       capybara (~> 2.1.0)
@@ -301,24 +314,22 @@ GEM
     redis (3.0.4)
     redis-namespace (1.3.0)
       redis (~> 3.0.0)
-    remotipart (1.0.5)
-    rspec (2.13.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
-    rspec-core (2.13.1)
-    rspec-expectations (2.13.0)
+    remotipart (1.2.1)
+    rspec (2.14.0)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
+    rspec-core (2.14.1)
+    rspec-expectations (2.14.0)
       diff-lcs (>= 1.1.3, < 2.0)
-    rspec-instafail (0.2.4)
-    rspec-mocks (2.13.1)
-    rspec-rails (2.13.2)
+    rspec-mocks (2.14.1)
+    rspec-rails (2.14.0)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
       railties (>= 3.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
-    ruby-progressbar (1.1.1)
+      rspec-core (~> 2.14.0)
+      rspec-expectations (~> 2.14.0)
+      rspec-mocks (~> 2.14.0)
     ruby_gntp (0.3.4)
     rubyzip (0.9.9)
     russian (0.6.0)
@@ -329,7 +340,7 @@ GEM
       railties (>= 4.0.0.beta, < 5.0)
       sass (>= 3.1.10)
       sprockets-rails (~> 2.0.0)
-    selenium-webdriver (2.31.0)
+    selenium-webdriver (2.33.0)
       childprocess (>= 0.2.5)
       multi_json (~> 1.0)
       rubyzip
@@ -365,12 +376,12 @@ GEM
     statistics2 (0.54)
     subexec (0.2.3)
     temple (0.6.5)
-    the_sortable_tree (2.3.3)
+    the_sortable_tree (2.4.0)
       rails (>= 3.1)
     thor (0.18.1)
     thread_safe (0.1.0)
       atomic
-    thumbs_up (0.6.4)
+    thumbs_up (0.6.5)
       activerecord
       statistics2
     tilt (1.3.7)
@@ -400,8 +411,8 @@ PLATFORMS
 
 DEPENDENCIES
   acts-as-taggable-on
-  acts_as_follower
-  awesome_nested_set
+  acts_as_follower!
+  awesome_nested_set!
   bullet
   cancan
   capistrano
@@ -418,7 +429,6 @@ DEPENDENCIES
   devise-i18n
   exception_notification (= 4.0.0)
   factory_girl_rails
-  fuubar
   google-analytics-rails
   guard-cucumber
   guard-rspec
@@ -432,6 +442,7 @@ DEPENDENCIES
   mini_magick
   mysql2
   newrelic_rpm
+  nyan-cat-formatter
   poltergeist
   public_activity!
   quiet_assets
