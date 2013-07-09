@@ -34,7 +34,7 @@ class CommentsController < ApplicationController
   def unlike
     comment = Comment.find params[:id]
     current_user.unvote_for comment
-    comment.activities.where(key: 'comment.like', owner: current_user).first.destroy
+    comment.activities.find_by(key: 'comment.like', owner: current_user).destroy
     redirect_to :back
   end
 
