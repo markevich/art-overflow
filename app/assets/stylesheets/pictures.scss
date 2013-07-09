@@ -1,4 +1,5 @@
 #pictures{
+  margin: 0 auto;
   width: 1625px;
   .image-block{
     float: left;
@@ -110,6 +111,7 @@ $current_column: $MAX_COLUMNS;
 @while $current_column > 0{
   @media screen and (max-width: $PICTURE_WIDTH * $current_column) {
     #pictures{
+      margin: 0 auto;
       width: $PICTURE_WIDTH * ($current_column - 1);
     }
   }
