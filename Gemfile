@@ -49,12 +49,12 @@ gem 'cancan'
 
 gem 'jquery-rails'
 gem 'turbolinks'
-gem "acts_as_follower"
+gem "acts_as_follower", github: 'markevich/acts_as_follower', branch: 'rails4'
 gem 'thumbs_up'
 gem 'acts-as-taggable-on'
 
 # comments gems
-gem 'awesome_nested_set'
+gem 'awesome_nested_set', :github => "collectiveidea/awesome_nested_set", :branch => 'rails4'
 gem 'the_comments', git: 'git://github.com/markevich/the_comments.git'
 
 gem 'sass-rails', '4.0.0'
@@ -88,7 +88,7 @@ group :test do
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'capybara-firebug'
-  gem 'fuubar'
+  gem 'nyan-cat-formatter'
 end
 
 group :development, :test do

@@ -30,6 +30,8 @@ Spork.prefork do
 
     config.before do
       ActiveRecord::Base.observers.disable :all
+      #get read of noisy messages vatar.jpg 568x640 24bit N JFIF  [OK] 114403 --> 114341 bytes (0.05%), optimized.
+      ImageOptimizer.stub(:new).and_return double('ImageOptimizer').as_null_object
     end
 
     # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures

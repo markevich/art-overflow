@@ -20,7 +20,7 @@ describe SubscribersController do
     end
 
     it 'doesn\'t fail if params are correct' do
-      expect{ get :unsubscribe, id: id, token: token }.to_not raise_error ActiveRecord::RecordNotFound
+      expect{ get :unsubscribe, id: id, token: token }.to_not raise_error
     end
 
     it 'destroy subscriber' do

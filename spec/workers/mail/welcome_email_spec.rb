@@ -7,7 +7,7 @@ describe Workers::Mail::WelcomeEmail do
     expect { worker.new.perform(666) }.to raise_error ActiveRecord::RecordNotFound
   end
   it 'deliver message' do
-    SubscriberMailer = mock('mailer').as_null_object
+    SubscriberMailer = double('mailer').as_null_object
     SubscriberMailer.should_receive(:welcome_email).with(subscriber)
     SubscriberMailer.should_receive(:deliver!)
     worker.new.perform(subscriber.id)
