@@ -17,7 +17,7 @@ Given(/^I am on pictures page$/) do
 end
 
 Given(/^I remember the number of pictures$/) do
-  @pictures_count = all('.image-block').count
+  @page = 1
 end
 
 When(/^I click show more button$/) do
@@ -29,13 +29,11 @@ Then(/^I should not see show more button$/)do
 end
 
 Then(/^new pictures should appear on page$/) do
-  page.save_screenshot('/Users/markevich/Desktop/img.png')
-  new_pictures_count = all('.image-block').count
-  expect(new_pictures_count).to be > @pictures_count
+  @page += 1
+  expect(page).to have_css('.image-block', count: PicturesController::PAGE_SIZE * @page)
 end
 
 When(/^I scroll to bottom of page$/) do
-  @pictures_count = all('.image-block').count
   page.execute_script "window.scrollBy(0,10000)"
 end
 
