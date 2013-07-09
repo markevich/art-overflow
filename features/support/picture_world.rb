@@ -3,8 +3,8 @@ module PictureWorld
     @picture
   end
 
-  def create_picture
-    @picture ||= create(:picture)
+  def create_picture(user)
+    @picture ||= create(:picture, user: user)
   end
 
   def show_more_link

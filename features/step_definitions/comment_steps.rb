@@ -1,21 +1,21 @@
 Given(/^picture of another user$/) do
-  create_picture
+  create_picture(another_user)
 end
 
-When(/^visit picture$/) do
+When(/^I visit another user picture$/) do
   visit picture_path(picture)
 end
 
-Then(/^I leave important comment$/) do
+Then(/^I write comment$/) do
   fill_in('comment_raw_content', with: comment_text)
   click_button I18n.t('the_comments.create_comment')
 end
 
-Then(/^I see my important comment$/) do
+Then(/^I see my comment appeared/) do
   expect(page).to have_content(comment_text)
 end
 
-Given(/^Another user leaves important comment$/) do
+Given(/^Another user write comment$/) do
   @another_comment = create(:comment, commentable_id: picture.id, commentable_type: 'Picture', user: another_user)
 end
 
