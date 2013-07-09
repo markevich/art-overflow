@@ -88,7 +88,7 @@ group :test do
   gem 'poltergeist'
   gem 'selenium-webdriver'
   gem 'capybara-firebug'
-  gem 'fuubar'
+  gem 'nyan-cat-formatter'
 end
 
 group :development, :test do
