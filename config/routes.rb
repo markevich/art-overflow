@@ -11,6 +11,12 @@ ArtOverflow::Application.routes.draw do
         post :stop_following
       end
     end
+    resources :comments do
+      member do
+        post :like
+        post :unlike
+      end
+    end
     resources :galleries
     resources :activities
     resources :pictures do

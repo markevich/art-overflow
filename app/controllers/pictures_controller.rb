@@ -36,7 +36,7 @@ class PicturesController < ApplicationController
 
   def unlike
     current_user.unvote_for @picture
-    @picture.activities.where(key: 'picture.like', owner: current_user).first.destroy
+    @picture.activities.find_by(key: 'picture.like', owner: current_user).destroy
     redirect_to action: :show
   end
 

@@ -24,6 +24,20 @@ class CommentsController < ApplicationController
   #
   # [:update, :to_published, :to_draft, :to_spam, :to_trash]
 
+  def like
+    comment = Comment.find params[:id]
+    current_user.vote_for comment
+    comment.create_activity :like
+    redirect_to :back
+  end
+
+  def unlike
+    comment = Comment.find params[:id]
+    current_user.unvote_for comment
+    comment.activities.find_by(key: 'comment.like', owner: current_user).destroy
+    redirect_to :back
+  end
+
   def user_required
     unless user_signed_in?
       session[:before_redirect] = params

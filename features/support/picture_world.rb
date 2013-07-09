@@ -1,4 +1,12 @@
 module PictureWorld
+  def picture
+    @picture
+  end
+
+  def create_picture(user)
+    @picture ||= create(:picture, user: user)
+  end
+
   def show_more_link
     first(:link, text: I18n.t('pictures.show_more'))
   end

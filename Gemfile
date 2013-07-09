@@ -98,6 +98,6 @@ group :development, :test do
   gem 'guard-spork'
   gem 'guard-rspec'
   gem 'guard-cucumber'
-  gem 'spork-rails', github: 'railstutorial/spork-rails'
+  gem 'spork-rails', github: 'sporkrb/spork-rails'
 end
 #gem 'jbuilder', '~> 1.0.1'
