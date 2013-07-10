@@ -43,6 +43,6 @@ Then(/^I delete my comment$/) do
   click_link I18n.t('the_comments.to_deleted')
 end
 
-Then(/^I see my comment deleted$/) do
+Then(/^I don't see my comment$/) do
   expect(page).to_not have_content(comment_text)
 end
