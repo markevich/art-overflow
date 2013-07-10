@@ -17,8 +17,8 @@ gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git'
 
 #sidekiq
 gem 'sidekiq'
-gem 'slim', '1.3.8'
-gem 'sinatra', :require => nil
+gem 'slim', '1.3.8', group: [:development, :production]
+gem 'sinatra', :require => nil, group: [:development, :production]
 #
 
 # monitoring
@@ -71,6 +71,10 @@ group :development do
   gem 'bullet'
   gem 'uniform_notifier'
   gem 'ruby_gntp'
+end
+
+group :development, :production do
+
 end
 
 group :development, :test do
