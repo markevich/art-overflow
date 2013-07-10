@@ -1,6 +1,9 @@
 class Comment < ActiveRecord::Base
   include Concerns::TheCommentsBase
 
+  include PublicActivity::Model
+  tracked owner: ->(controller, model) { controller && controller.current_user }
+  acts_as_voteable
   # Define comment's avatar url
   # Usually we use Comment#user (owner of comment) to define avatar
   # @blog.comments.includes(:user) <= use includes(:user) to decrease queries count
