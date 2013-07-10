@@ -83,7 +83,6 @@ group :production do
 end
 
 group :test do
-  gem 'cucumber-rails', require: false
   gem 'cucumber',  '1.2.5'
   gem 'cucumber-rails', '1.3.0', :require => false 
   gem 'database_cleaner'
