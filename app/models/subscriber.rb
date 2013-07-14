@@ -1,4 +1,5 @@
 class Subscriber < ActiveRecord::Base
+  #has subscriber observer
   validates :email, presence: true, uniqueness: true
 
   before_create :generate_token
