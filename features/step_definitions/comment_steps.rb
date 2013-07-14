@@ -2,13 +2,12 @@ Given(/^picture of another user$/) do
   create_picture(another_user)
 end
 
-When(/^I visit another user picture$/) do
+When(/^I visit another user picture page$/) do
   visit picture_path(picture)
 end
 
 Then(/^I write comment$/) do
-  fill_in('comment_raw_content', with: comment_text)
-  click_button I18n.t('the_comments.create_comment')
+  write_comment()
 end
 
 Then(/^I see my comment appeared/) do
@@ -24,11 +23,11 @@ Then(/^I see his comment$/) do
 end
 
 Then(/^I like his comment$/) do
-  click_button I18n.t('the_comments.like')
+  like_comment
 end
 
 Then(/^I unlike his comment$/) do
-  click_button I18n.t('the_comments.unlike')
+  unlike_comment
 end
 
 Then(/^I see that I liked his comment$/) do
