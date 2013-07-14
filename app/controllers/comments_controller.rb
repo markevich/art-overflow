@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
     ActiveRecord::Base.transaction do
       current_user.vote_for comment
       new_votes_count = comment.votes_for
-      comment.update_attribute(:likes_count, new_votes_count)
+      comment.update_attributes(likes_count: new_votes_count)
       comment.create_activity :like
     end
     redirect_to :back
