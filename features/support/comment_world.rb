@@ -2,6 +2,12 @@ module CommentWorld
   def comment_text
     "Not perfect, but still fun."
   end
+
+  def write_comment
+    fill_in('comment_raw_content', with: comment_text)
+    click_button I18n.t('the_comments.create_comment')
+  end
+
   def like_comment
     click_button I18n.t('the_comments.like')
   end
