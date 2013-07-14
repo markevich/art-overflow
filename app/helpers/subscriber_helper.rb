@@ -1,5 +1,5 @@
 module SubscriberHelper
-  def unsubscribe_link(subscriber, options)
+  def unsubscribe_link(subscriber, options = {})
     link_to I18n.t('subscriber.unsubscribe'), unsubscribe_url(subscriber), options
   end
 
