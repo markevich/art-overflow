@@ -53,9 +53,7 @@
         <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="F2F2F2" background="<%= attachments['mailer-bg.gif'].url %>">
           <tr>
             <td align="center" valign="top" style="padding-bottom:5px;font-family:Arial;font-size:11px">
-              <a href="http://katushkin.ru/user/settings/unsubscribe?notify=rides&amp;user_id=51346&amp;code=5ed1d0fa53f0f5f7ae3a1afea36e9615" style="color:#808080;text-decoration:none" target="_blank">
-                Отписаться
-              </a>
+              <%= unsubscribe_link(@subscriber, style: "color:#808080;text-decoration:none", target: '_blank') %>
             </td>
           </tr>
           <tr>
@@ -65,11 +63,11 @@
           </tr>
           <tr>
             <td align="center" valign="top" style="padding-bottom:6px;font-family:Arial;font-size:11px">
-              <a href="http://twitter.com/#!/katushkin_ru" style="color:#0090d9;text-decoration:none" target="_blank">
-                <img alt='vkontakte' border="0" height='26' src='<%= attachments['mailer-vkontakte.png'].url %>' width='26'>
+              <a href="http://twitter.com/#!/ArtOverflow" style="color:#0090d9;text-decoration:none" target="_blank">
+                <img alt='vkontakte' border="0" height='26' src='<%= attachments['mailer-twitter.png'].url %>' width='26'>
               </a>
-              <a href="http://facebook.com/katushkinru" style="color:#0090d9;text-decoration:none" target="_blank">
-                <img alt='twitter' border="0" height='26' src='<%= attachments['mailer-twitter.png'].url %>' width='26'>
+              <a href="http://vk.com/ArtOverflow" style="color:#0090d9;text-decoration:none" target="_blank">
+                <img alt='twitter' border="0" height='26' src='<%= attachments['mailer-vkontakte.png'].url %>' width='26'>
               </a>
             </td>
           </tr>
