@@ -24,11 +24,11 @@ Then(/^I see his comment$/) do
 end
 
 Then(/^I like his comment$/) do
-  click_button I18n.t('the_comments.like')
+  like_comment
 end
 
 Then(/^I unlike his comment$/) do
-  click_button I18n.t('the_comments.unlike')
+  unlike_comment
 end
 
 Then(/^I see that I liked his comment$/) do
