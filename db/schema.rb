@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130704081714) do
+ActiveRecord::Schema.define(version: 20130710094103) do
 
   create_table "activities", force: true do |t|
     t.integer  "trackable_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20130704081714) do
     t.integer  "depth",             default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "likes_count",       default: 0
   end
 
   create_table "follows", force: true do |t|

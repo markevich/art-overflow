@@ -66,6 +66,7 @@ module RenderCommentsTreeHelper
             h.button_to(I18n.t('the_comments.like'), action: 'like', controller: 'comments', id: @comment.id)
           end
         end
+        likes = @comment.likes_count
 
         "<li>
           <div id='comment_#{@comment.anchor}' class='comment #{@comment.state}' data-comment-id='#{@comment.to_param}'>
@@ -74,6 +75,7 @@ module RenderCommentsTreeHelper
               #{ userbar }
               <div class='cbody'>#{ @comment.content }</div>
               #{ reply }
+              <div class='likes_count'>#{ likes }</div>
               #{ like_btn }
             </div>
           </div>

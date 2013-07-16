@@ -4,6 +4,9 @@ module UserWorld
     @current_user
   end
 
+  def create_many_users(count)
+    @users = create_list(:user, count)
+  end
   def create_user
     expect(@current_user).to be_nil
     create(:user)
@@ -18,9 +21,13 @@ module UserWorld
     @another_user = create(:user)
   end
 
+  def login user
+    login_as user, scope: :user
+  end
+
   def user_logged_in
     @current_user = create_user
-    login_as current_user, scope: :user
+    login current_user
   end
 
   def check_unregistered_user
