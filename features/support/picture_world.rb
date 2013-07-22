@@ -19,6 +19,14 @@ module PictureWorld
       end
     end
   end
+
+  def picture_like_button
+    I18n.t('pictures.like')
+  end  
+
+  def picture_unlike_button
+    I18n.t('pictures.unlike')
+  end
 end
 
 World(PictureWorld)

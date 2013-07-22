@@ -37,3 +37,18 @@ When(/^I scroll to bottom of page$/) do
   page.execute_script "window.scrollBy(0,10000)"
 end
 
+When(/^I like his picture$/) do
+  click_button picture_like_button
+end
+
+Then(/^I see that I liked his picture$/) do
+  expect(page).to have_button(picture_unlike_button)
+end
+
+When(/^I unlike his picture$/) do
+  click_button picture_unlike_button
+end
+
+Then(/^I see I can like his picture$/) do
+  expect(page).to have_button(picture_like_button)
+end
