@@ -16,7 +16,11 @@
     = render partial: 'the_comments/tree', locals: { commentable: @picture, comments_tree: @comments }
 
 - if current_user && @picture.user != current_user
+  = render partial: 'unlike_button'
+  = render partial: 'like_button'
   - if current_user.voted_on?(@picture)
-    = render partial: 'unlike_button'
+    :javascript
+      $('#unlike_button').show()
   - else
-    = render partial: 'like_button'
+    :javascript
+      $('#like_button').show()

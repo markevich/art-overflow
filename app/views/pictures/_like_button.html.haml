@@ -1,6 +1,1 @@
-= button_to(I18n.t('pictures.like'), { action: 'like' }, remote: true, form: {id: 'vote'})
-
-:coffeescript
-  jQuery ->
-    $('#vote').on "ajax:success", (evt, xhr, settings) ->
-      $('#vote').replaceWith(xhr)
+= button_to(I18n.t('pictures.like'), { action: 'like' }, remote: true, form: {id: 'like_button', class: 'vote', style: 'display: none'})
