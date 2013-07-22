@@ -17,6 +17,6 @@
 
 - if current_user && @picture.user != current_user
   - if current_user.voted_on?(@picture)
-    = button_to I18n.t('pictures.unlike'), action: 'unlike'
+    = render partial: 'unlike_button'
   - else
-    = button_to I18n.t('pictures.like'), action: 'like'
+    = render partial: 'like_button'
