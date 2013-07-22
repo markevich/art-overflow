@@ -38,17 +38,17 @@ When(/^I scroll to bottom of page$/) do
 end
 
 When(/^I like his picture$/) do
-  click_button I18n.t('pictures.like')
+  click_button picture_like_button
 end
 
 Then(/^I see that I liked his picture$/) do
-  expect(page).to have_button(I18n.t('pictures.unlike'))
+  expect(page).to have_button(picture_unlike_button)
 end
 
 When(/^I unlike his picture$/) do
-  click_button I18n.t('pictures.unlike')
+  click_button picture_unlike_button
 end
 
 Then(/^I see I can like his picture$/) do
-  expect(page).to have_button(I18n.t('pictures.like'))
+  expect(page).to have_button(picture_like_button)
 end

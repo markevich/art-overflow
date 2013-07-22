@@ -16,5 +16,7 @@
     = render partial: 'the_comments/tree', locals: { commentable: @picture, comments_tree: @comments }
 
 - if current_user && @picture.user != current_user
-  = button_to I18n.t('pictures.like'), action: 'like' unless current_user.voted_on?(@picture)
-  = button_to I18n.t('pictures.unlike'), action: 'unlike' if current_user.voted_on?(@picture)
+  - if current_user.voted_on?(@picture)
+    = button_to I18n.t('pictures.unlike'), action: 'unlike'
+  - else
+    = button_to I18n.t('pictures.like'), action: 'like'
