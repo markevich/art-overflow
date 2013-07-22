@@ -13,3 +13,13 @@ Feature: Pictures
     Given that few pictures exists
     When I am on pictures page
     Then I should not see show more button
+  
+  Scenario: I like and unlike a picture
+    Given Another user
+    Given picture of another user
+    Given I am logged in
+    When I visit another user picture page
+    When I like his picture
+    Then I see that I liked his picture
+    When I unlike his picture
+    Then I see I can like his picture
