@@ -85,6 +85,15 @@
       }
     }
   }
+  .preloader{
+    background-image: url(image-path('preloader.gif'));
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 0 auto;
+    clear: both;
+    display: none;
+  }
 }
 #button_load_more{
   background-color: #b5d6d9;

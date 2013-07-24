@@ -216,3 +216,49 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   width: 85%;
   color: #e74c3c;
 }
+#profile-menu{
+  background-color: #26394d;
+  width: 145px;
+  position: absolute;
+  display: inline-block;
+  z-index: 2;
+  right: 9%;
+  top: 19%;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+#profile-menu ul{
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  color: white;
+}
+#profile-menu li{
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  color: white;
+  padding:10px 10px;
+  font-family: Arial;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: normal;
+
+
+}
+#profile-menu li:hover{background-color: #e74c3c;}
+#profile-menu a{
+  color: inherit;
+}
+#profile-menu img{
+  position: absolute;
+  top: -7px;
+  right: 30px;
+}
+#profile-menu li.active{
+   color: #e74c3c;
+ }
+#profile-menu li.active:hover{
+  color: white;
+}
