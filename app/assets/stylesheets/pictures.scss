@@ -1,15 +1,18 @@
 #pictures{
-  margin: 0 auto;
+  margin: 5px auto;
   width: 1625px;
   .image-block{
     float: left;
-    padding: 5px;
+    padding: 10px;
     width: 315px;
     font-family: Arial;
     color: #6eb2ba;
     font-size: 14px;
     position: relative;
       .info{
+        padding: 0 10px;
+        line-height: 20px;
+
         position: absolute;
         display: none;
         color: black;
@@ -42,7 +45,7 @@
       }
     .name{
       float: left;
-      margin-top: 5px;
+      margin-top: 10px;
      &:hover{
        color: #e74c3c;
      }
@@ -56,7 +59,7 @@
     }
     .picture-actions{
       float: right;
-      margin-top: 5px;
+      margin-top: 10px;
       img{
         width: 13px;
         cursor: pointer;
@@ -82,10 +85,19 @@
       }
     }
   }
+  .preloader{
+    background-image: url(image-path('preloader.gif'));
+    background-repeat: no-repeat;
+    height: 30px;
+    width: 30px;
+    margin: 0 auto;
+    clear: both;
+    display: none;
+  }
 }
 #button_load_more{
   background-color: #b5d6d9;
-  display: block;
+  display: inline-block;
   text-decoration: none;
   clear: both;
   -webkit-border-radius: 5px;
@@ -96,14 +108,16 @@
   font-size: 14px;
   font-weight: bold;
   font-family: Arial;
-  height: 25px;
+  height: 27px;
   padding-top: 13px;
+  margin: 20px 0;
+  width: 100%;
 }
 #button_load_more:hover{
   background-color: #70b2b8;
 }
 
-$PICTURE_WIDTH: 325px;
+$PICTURE_WIDTH: 335px;
 $MAX_COLUMNS: 10;
 
 $current_column: $MAX_COLUMNS;
@@ -111,7 +125,6 @@ $current_column: $MAX_COLUMNS;
 @while $current_column > 0{
   @media screen and (max-width: $PICTURE_WIDTH * $current_column) {
     #pictures{
-      margin: 0 auto;
       width: $PICTURE_WIDTH * ($current_column - 1);
     }
   }
