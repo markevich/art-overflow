@@ -77,7 +77,6 @@ class Scroller
   addNewPage: (callback) ->
     @fetchFromServer (data) =>
       @container.append data
-      window.container = @container
       @container.attr('data-current-page', @currentPage)
       callback()
 
