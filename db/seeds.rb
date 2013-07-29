@@ -10,6 +10,8 @@ user = User.new(email: 'example@example.com', role: :user, first_name: 'bruce', 
 user.skip_confirmation!
 user.save!
 
+AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
+
 
 (15 * 5).times do |index|
   Picture.create name: "Test_#{index}", path: File.open(File.join(Rails.root, "/db/images/#{index % 15}.jpg")), user_id: User.first.id

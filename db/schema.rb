@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130729191038) do
+ActiveRecord::Schema.define(version: 20130729200608) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -142,6 +142,8 @@ ActiveRecord::Schema.define(version: 20130729191038) do
     t.string   "email"
     t.datetime "invited_at"
     t.string   "token"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "taggings", force: true do |t|
