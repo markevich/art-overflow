@@ -12,6 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.viewport
+//= require jquery.parsequery.min.js
 //= require cookie.min.js
 //= require jbar.js
 //= require turbolinks
