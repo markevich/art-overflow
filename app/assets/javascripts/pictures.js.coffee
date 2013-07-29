@@ -1,7 +1,7 @@
 $(document).on 'ready page:load', ->
   $('.picture').on 'mouseover', ->
     img = $(@)
-    img.css('opacity', 0.15)
+    img.css('opacity', 0.10)
     img.prev().show();
   .on 'mouseleave', ->
     img = $(@)
