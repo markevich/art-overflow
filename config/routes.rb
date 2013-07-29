@@ -1,8 +1,11 @@
 require 'sidekiq/web'
 ArtOverflow::Application.routes.draw do
 
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   mount Sidekiq::Web => '/sidekiq'
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+
   unless Rails.env.production?
     devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations' }
     resources :users do

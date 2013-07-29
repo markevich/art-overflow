@@ -17,7 +17,6 @@
 //= require cookie.min.js
 //= require jbar.js
 //= require turbolinks
-//= require history_jquery.min
 //= require_tree .
 //= require the_comments
 //= require the_comments_manage
