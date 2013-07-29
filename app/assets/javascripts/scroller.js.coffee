@@ -13,7 +13,7 @@ class InfinityScrollerManager
 
   startNewScroller = (scroller_params) ->
     instance = new Scroller(scroller_params)
-    ScrollerStorage.add(instance.id)
+    ScrollerStorage.add(instance)
 
   scrollables = ->
     $.map $('[data-infinity-scrollable]'), (scrollable) ->
@@ -21,9 +21,10 @@ class InfinityScrollerManager
       id: scrollable.data('id')
       container: scrollable
       fetchPath: scrollable.data('fetch-path')
-      currentPage: parseInt(scrollable.data('current-page'))
+      currentPage: parseInt(scrollable.attr('data-current-page'))
       triggerFunction: getTrigger(scrollable)
       preloader: scrollable.find('[data-scroller-preloader]')
+      pager: new Pager(scrollable.data('id'), scrollable)
 
   getTrigger = (scrollable) ->
     trigger_element = scrollable.find(':visible[data-scroller-trigger]')
@@ -64,6 +65,7 @@ class Scroller
     @container = params.container
     @preloader = params.preloader
     @fetchPath = params.fetchPath
+    @pager = params.pager
 
   activateByTrigger: (trigger) ->
     trigger =>
@@ -72,10 +74,12 @@ class Scroller
         @activate()
 
   activate: ->
+    @pager.start()
     @enableInfinityScrolling()
 
   addNewPage: (callback) ->
     @fetchFromServer (data) =>
+      @pager.addPagerElement(@currentPage)
       @container.append data
       @container.attr('data-current-page', @currentPage)
       callback()
