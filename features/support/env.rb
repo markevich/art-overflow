@@ -16,6 +16,11 @@ Spork.prefork do
 
   Capybara.default_selector = :css
 
+  full_names = Dir["#{Rails.root}/app/helpers/*.rb"]
+  full_names.collect do |full_name|
+    include Object.const_get(File.basename(full_name,'.rb').camelize)
+  end
+
   World(FactoryGirl::Syntax::Methods)
 end
 

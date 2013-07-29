@@ -17,6 +17,8 @@ module ArtOverflow
     config.active_record.observers = :subscriber_observer
 
     config.i18n.default_locale = :ru
+    config.i18n.locale = :ru
+
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.precompile += %w(*jbar.js *jbar.css subscribe.css)
     config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']

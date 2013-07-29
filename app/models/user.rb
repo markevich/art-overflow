@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_voter
 
-  include Concerns::TheCommentsUser
+  include TheCommentsUser
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }
 

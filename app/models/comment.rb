@@ -1,5 +1,5 @@
 class Comment < ActiveRecord::Base
-  include Concerns::TheCommentsBase
+  include TheCommentsBase
 
   include PublicActivity::Model
   tracked owner: ->(controller, model) { controller && controller.current_user }, only: []
