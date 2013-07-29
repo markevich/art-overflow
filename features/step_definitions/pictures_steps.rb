@@ -30,6 +30,7 @@ end
 
 Then(/^new pictures should appear on page$/) do
   @page += 1
+  sleep 0.25
   expect(page).to have_css('.image-block', count: PicturesController::PAGE_SIZE * @page)
 end
 
