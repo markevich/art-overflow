@@ -32,14 +32,12 @@ class PicturesController < ApplicationController
     current_user.vote_for @picture
     @picture.create_activity :like
     render nothing: true
-    # render json: {show: 'unlike_button', hide: 'like_button'}
   end
 
   def unlike
     current_user.unvote_for @picture
     @picture.activities.find_by(key: 'picture.like', owner: current_user).destroy
     render nothing: true
-    # render json: {show: 'like_button', hide: 'unlike_button'}
   end
 
   private
