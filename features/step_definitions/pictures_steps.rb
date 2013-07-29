@@ -30,11 +30,11 @@ end
 
 Then(/^new pictures should appear on page$/) do
   @page += 1
-  sleep 0.25
   expect(page).to have_css('.image-block', count: PicturesController::PAGE_SIZE * @page)
 end
 
 When(/^I scroll to bottom of page$/) do
+  page.execute_script "$(window).data('scrolling', false)"
   page.execute_script "window.scrollBy(0,10000)"
 end
 
