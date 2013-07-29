@@ -33,9 +33,12 @@ Then(/^new pictures should appear on page$/) do
   expect(page).to have_css('.image-block', count: PicturesController::PAGE_SIZE * @page)
 end
 
-When(/^I scroll to bottom of page$/) do
-  page.execute_script "$(window).data('scrolling', false)"
-  page.execute_script "window.scrollBy(0,10000)"
+When(/^I scroll to next page$/) do
+  scroll_to_next_page
+end
+
+When(/^I scroll to bottom of screen$/) do
+  scroll_to_bottom_of_screen
 end
 
 When(/^I like his picture$/) do
@@ -53,3 +56,8 @@ end
 Then(/^I see I can like his picture$/) do
   expect(page).to have_button(picture_like_button)
 end
+
+Then(/^I should see "(.*?)" in current path$/) do |part|
+  expect(page.current_url).to match part
+end
+
