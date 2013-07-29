@@ -7,8 +7,13 @@ $(document).on 'ready page:load', ->
     img = $(@)
     img.css('opacity', 1)
     img.prev().hide();
-
-jQuery ->
+    
   $('.vote').on "ajax:success", (evt, xhr, settings) ->
-    $('#' + xhr.hide).hide()
-    $('#' + xhr.show).show()
+    $('#like_button').toggle()
+    $('#unlike_button').toggle()
+    $('.buttons').attr('data-voted', (idx, oldAttr) -> return !oldAttr )
+
+  if $('.vote').attr('data-voted')
+    $('#unlike_button').show()
+  else
+    $('#like_button').show()

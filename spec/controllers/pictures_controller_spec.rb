@@ -10,7 +10,6 @@ describe PicturesController do
     let(:pic) { create(:picture) }
     it { expect { post :like, id: pic.id }.to change(pic, :votes_for).by(1) }
     it { expect { post :like, id: pic.id }.to change(pic.activities, :count).by(1) }
-    it { expect(post :like, id: pic.id).to redirect_to(action: :show) }
   end  
 
   describe "#unlike" do
@@ -18,7 +17,6 @@ describe PicturesController do
     before { post :like, id: pic.id }
     it { expect { post :unlike, id: pic.id }.to change(pic, :votes_for).by(-1) }
     it { expect { post :unlike, id: pic.id }.to change(pic.activities, :count).by(-1) }
-    it { expect(post :unlike, id: pic.id).to redirect_to(action: :show) }
   end
 
   describe "#create" do
