@@ -21,7 +21,7 @@ class InfinityScrollerManager
       id: scrollable.data('id')
       container: scrollable
       fetchPath: scrollable.data('fetch-path')
-      currentPage: parseInt(scrollable.data('current-page'))
+      currentPage: parseInt(scrollable.attr('data-current-page'))
       triggerFunction: getTrigger(scrollable)
       preloader: scrollable.find('[data-scroller-preloader]')
       pager: new Pager(scrollable.data('id'), scrollable)
