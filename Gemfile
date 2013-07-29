@@ -16,8 +16,7 @@ gem 'haml-rails'
 #
 
 #authentication processing
-gem 'devise', '3.0.0.rc'
-gem 'cancan'
+gem 'devise', '3.0.0'
 #
 
 #database adapter
@@ -25,7 +24,11 @@ gem 'mysql2'
 #
 
 #administration interface
-gem 'rails_admin', git: 'git://github.com/sferik/rails_admin.git', branch: 'rails-4'
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+gem 'responders',          github: 'plataformatec/responders'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'ransack',             github: 'ernie/ransack', branch: 'rails-4'
+gem 'formtastic',          github: 'justinfrench/formtastic'
 #
 
 #image uploading and preprocessing
@@ -43,12 +46,6 @@ gem 'sidekiq'
 gem 'slim', '1.3.8', group: [:development, :production]
 gem 'sinatra', :require => nil, group: [:development, :production]
 #
-
-
-# push state with degradation to xhtml 4
-gem 'historyjs-rails'
-#
-
 
 # translating gems
 gem 'russian'
@@ -69,7 +66,7 @@ gem 'acts-as-taggable-on'
 
 # comments gems
 gem 'awesome_nested_set', :github => "collectiveidea/awesome_nested_set", :branch => 'rails4'
-gem 'the_comments', git: 'git://github.com/markevich/the_comments.git'
+gem 'the_comments'
 #
 
 group :development do
@@ -85,7 +82,7 @@ end
 
 group :development, :production do
   #Email delivery method
-  gem 'madmimi-rails', '0.0.1.1'
+  # gem 'madmimi-rails', '0.0.1.1'
   #
 end
 
@@ -95,7 +92,7 @@ end
 
 group :production do
   #notify about exceptions by email
-  gem 'exception_notification', '4.0.0'
+  gem 'exception_notification', ' ~> 4.0.0'
   #
 
   #caching
@@ -122,11 +119,13 @@ group :test do
   #
 
   gem 'database_cleaner'
-  # fast webkit browser
+
+  # fast webkit browser for integration tests
   gem 'poltergeist'
   #
 
   gem 'selenium-webdriver'
+
   # firebug profile for firefox/selenium
   gem 'capybara-firebug'
   #

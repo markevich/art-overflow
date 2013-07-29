@@ -1,13 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include PublicActivity::StoreController
-  include Concerns::TheCommentsController::ViewToken
+  include TheCommentsController::ViewToken
 
   add_flash_types :error, :success
-
-  rescue_from CanCan::AccessDenied do |exception|
-    render_404
-  end
 
   before_filter :set_cookie_current_user
 
