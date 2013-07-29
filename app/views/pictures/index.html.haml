@@ -5,6 +5,7 @@
     fetch_path: pictures_path }               |
   }                                           |
 
+  .pager{data: {page: @page}}
   = render @pictures
   - if @pictures.count == PicturesController::PAGE_SIZE
     - #Если число картинок кратно PAGE_SIZE, то кнопка "загрузить еще" ничего не сделает :(
