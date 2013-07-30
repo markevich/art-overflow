@@ -2,7 +2,7 @@ class @Pager
   constructor: (@id, @container) ->
 
   start: ->
-    $(document).on "page:scroll.#{@id}", =>
+    $(document).on "scroll.#{@id}", =>
       pageAbove = @container.find('.pager:above-the-top:last').attr('data-page')
       @changePage(pageAbove) if pageAbove && @pageReallyChanged(pageAbove)
 

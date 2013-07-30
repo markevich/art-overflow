@@ -97,9 +97,9 @@ class Scroller
 
   enableInfinityScrolling: ->
     @loadingFinished()
-    $(document).on "page:scroll.#{@id}", =>
+    $(document).on "scroll.#{@id}", =>
       return if @loadingNow()
-      if $(window).scrollTop() >= ($(document).height() - $(window).height())
+      if $(window).scrollTop() >= ($(document).height() - $(window).height()) - 250
         @loadingStarted()
         @addNewPage =>
           @loadingFinished()
