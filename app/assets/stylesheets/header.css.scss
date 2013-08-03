@@ -1,33 +1,32 @@
-::-webkit-input-placeholder {
-  color: #70b2b8;
-}
-::-moz-placeholder {
-  color: #70b2b8;
-}
-:-moz-placeholder {
-  color: #70b2b8;
-}
-:-ms-input-placeholder {
-  color: #70b2b8;
-}
-
-input:hover::-webkit-input-placeholder, input.active::-webkit-input-placeholder {
-    color: #e74c3c;
-}
-input:hover:-ms-input-placeholder, input.active:-ms-input-placeholder {
-    color: #e74c3c;
-}
-input:hover::-moz-placeholder, input.active::-moz-placeholder {
-    color: #e74c3c;
-}
-input:hover:-moz-placeholder, input.active:-moz-placeholder {
-    color: #e74c3c;
-}
-
-
 #header{
   height: 60px;
   background-color: #26394d;
+
+  ::-webkit-input-placeholder {
+    color: #70b2b8;
+  }
+  ::-moz-placeholder {
+    color: #70b2b8;
+  }
+  :-moz-placeholder {
+    color: #70b2b8;
+  }
+  :-ms-input-placeholder {
+    color: #70b2b8;
+  }
+
+  input:hover::-webkit-input-placeholder, input.active::-webkit-input-placeholder {
+    color: #e74c3c;
+  }
+  input:hover:-ms-input-placeholder, input.active:-ms-input-placeholder {
+    color: #e74c3c;
+  }
+  input:hover::-moz-placeholder, input.active::-moz-placeholder {
+    color: #e74c3c;
+  }
+  input:hover:-moz-placeholder, input.active:-moz-placeholder {
+    color: #e74c3c;
+  }
 }
 #logo h1{
   display: inline-block;
@@ -223,7 +222,7 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
   display: inline-block;
   z-index: 2;
   right: 9%;
-  top: 19%;
+  top: 70px;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -253,8 +252,10 @@ input:hover:-moz-placeholder, input.active:-moz-placeholder {
 }
 #profile-menu img{
   position: absolute;
-  top: -7px;
-  right: 30px;
+  top: -9px;
+  right: 44px;
+  width: 25px;
+  height: 10px;
 }
 #profile-menu li.active{
    color: #e74c3c;

@@ -1,0 +1,279 @@
+::-webkit-input-placeholder { /* WebKit browsers */
+  color:    #bfbfbf;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+  color:    #bfbfbf;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+  color:    #bfbfbf;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+  color:    #bfbfbf;
+}
+.user-content,.comment-center{
+  margin: 0 auto;
+  width: 980px;
+}
+.user-photo{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.user-photo img, .massage-comment img{
+  -webkit-border-radius: 35px;
+  -moz-border-radius: 35px;
+  border-radius: 35px;
+  cursor: pointer;
+  width: 45px;
+}
+.user-photo .picture-title{
+  margin-left: 10px;
+  display: inline-block;
+  font-family: arial;
+  font-weight: bold;
+  font-size: 16px;
+  color: #26394d;
+  vertical-align: 5px;
+}
+.details-picture li{
+  font-size: 11px;
+  font-family: arial;
+  color: #a9b1b8;
+}
+.details-picture li.name-user{
+  font-size: 12px;
+  font-family: arial;
+  color: #6eb2ba;
+  font-weight: bold;
+}
+.details-picture{
+   list-style-type: disc;
+ }
+.details-picture li{
+  display: inline-block;
+  margin-right: 10px;
+  position: relative;
+}
+.data-user {
+  margin-top: 5px;
+}
+.details-picture li span{
+  position: absolute;
+  left: -8px;
+  top: 2px;
+}
+.picture-show img{
+  max-height: 420px;
+  width: 100%;
+}
+.picture-show{
+  margin-bottom: 20px;
+}
+.blue-button input{
+  color: white;
+  background-color: #70b2b8;
+  border: 1px solid #70b2b8;
+  cursor: pointer;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 14px;
+  padding: 10px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+}
+.btn-like{
+  position: relative;
+  width: 120px;
+  text-align: left;
+  opacity: 0.8;
+  margin-left: 40px;
+}
+.position-btn-img-and-txt {
+  position: relative;
+  display: inline-block;
+}
+.position-btn-img-and-txt img{
+  position: absolute;
+  right: 23px;
+  top: 12px
+}
+.position-btn-img-and-txt span{
+  position: absolute;
+  font-size: 12px;
+  color: white;
+  top: 13px;
+  right: 8px;
+}
+.btn-like:hover,.btn-share:hover,.btn-green:hover {
+  opacity: 1;
+}
+.btn-follow {
+  width: 185px;
+  text-align: left;
+  opacity: 0.8;
+  margin-left: 10px;
+}
+.btn-follow:hover {
+  opacity: 1;
+}
+.img-follow{
+  right: 10px!important;
+  top: 13px!important;
+}
+.btn-share {
+  width: 125px;
+  text-align: left;
+  margin-left: 10px;
+  opacity: 0.8;
+}
+.btn-green {
+  background-color: #27ae60!important;
+  opacity: 0.8;
+
+}
+.right-green{
+  float: right;
+}
+.blue-button{
+  margin-bottom: 20px;
+}
+.bg-comment{
+  background-color: #fafafa;
+}
+.comment-left{
+ float: left;
+  width: 67%;
+}
+.other-job-right{
+  float: left;
+  width: 25%;
+}
+.left-count-comment{
+   color: #26394d;
+  font-size: 16px;
+  font-family: Arial;
+  font-weight: bold;
+  margin-left: 40px;
+  margin-bottom: 25px;
+}
+.comment-content{
+  background-color: #fafafa;
+}
+p.popular-right, p.last-right{
+  float: right;
+}
+p.popular-right{
+  color: #70b2b8;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 12px;
+  margin-right: 20px;
+}
+p.last-right{
+  color: #26394d;
+  font-size: 12px;
+  font-family: Arial;
+}
+.comment p{
+  display: inline-block;
+}
+.massage-comment{
+   margin-left: 25px;
+
+  position: relative;
+}
+.massage-comment .massage-comment{
+  margin-left: 25px;
+}
+.user-comment{
+  margin-left: 15px;
+}
+ul.details-picture.main{
+  display: inline-block;
+  vertical-align: 5px;
+  margin-left: 60px
+}
+ul.details-picture.main li.name-user{
+  font-size: 14px;
+}
+li.txt-comment{
+  color: #26394d;
+  font-family: Arial;
+  font-size: 14px;
+  display: block;
+  margin-top: 10px;
+  margin-top: 10px;
+  width: 545px;
+
+}
+hr{
+  margin-left: 25px;
+  background-color: #e2e4e4;
+  margin-bottom: 20px;
+  height: 1px;
+  border: 0px solid #e2e4e4;
+}
+.input-comment{
+  display: inline-block;
+}
+.input-comment input{
+  width: 540px;
+  height: 40px;
+  vertical-align: 17px;
+  margin-left: 10px;
+  padding-left: 10px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  border: 1px solid #dbdee0;
+  color: #bfbfbf;
+  font-size: 14px;
+  font-family: Arial;
+  margin-left: 60px
+}
+.massage-comment img{
+  position: absolute;
+}
+.answer a{
+  color: #83bcc2;
+  font-family: Arial;
+  font-size: 12px;
+  cursor: pointer;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+.answer a:hover{
+  text-decoration: none;
+}
+.answer {
+  margin-top: 10px;
+}
+.arrow-answer img{
+  width: 15px;
+  right: -6px;
+  top: -1px;
+}
+ul.details-picture li.name-user:nth-child(2){
+  margin-left: 5px;
+}
+.answer {
+  margin-bottom: 20px;
+}
+.no-answer{
+  margin-bottom: 20px;
+}
+.massage-comment input{
+  margin-bottom: 20px;
+}
+ul.details-picture.main li.like{
+  float: right;
+  position: relative;
+}
+li.like img{
+  width: 12px;
+  top: -1px;
+  right: 9px;
+}
+.show_comment_all{
+  margin-top: 0!important;
+}
