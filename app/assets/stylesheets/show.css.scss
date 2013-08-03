@@ -18,7 +18,7 @@
   margin-top: 20px;
   margin-bottom: 20px;
 }
-.user-photo img, .massage-comment img{
+.user-photo img, .message-comment img{
   -webkit-border-radius: 35px;
   -moz-border-radius: 35px;
   border-radius: 35px;
@@ -177,12 +177,12 @@ p.last-right{
 .comment p{
   display: inline-block;
 }
-.massage-comment{
+.message-comment{
    margin-left: 25px;
 
   position: relative;
 }
-.massage-comment .massage-comment{
+.message-comment .message-comment{
   margin-left: 25px;
 }
 .user-comment{
@@ -231,7 +231,7 @@ hr{
   font-family: Arial;
   margin-left: 60px
 }
-.massage-comment img{
+.message-comment img{
   position: absolute;
 }
 .answer a{
@@ -262,7 +262,7 @@ ul.details-picture li.name-user:nth-child(2){
 .no-answer{
   margin-bottom: 20px;
 }
-.massage-comment input{
+.message-comment input{
   margin-bottom: 20px;
 }
 ul.details-picture.main li.like{

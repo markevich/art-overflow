@@ -34,6 +34,10 @@
         = image_tag 'follow.gif', class:"img-follow"
     .right-green
       %input{type:'submit', class:'btn-green', value: "Купить $"}
+
+= render 'comments/tree', commentable: @picture, comments_tree: @comments
+
+
 .comment-content
   .comment-center
     .comment-left
@@ -46,7 +50,7 @@
           = image_tag 'arrow_bottom.gif'
           Популярные
       .user-comment
-        .massage-comment
+        .message-comment
           = image_tag 'images.jpg'
           %ul.details-picture.main.no-answer
             %li.name-user
@@ -62,12 +66,12 @@
             %li.txt-comment
               Быстрый набросок для тренировки. Управился за 30 минут
         %hr
-        .massage-comment
+        .message-comment
           = image_tag 'images.jpg'
           .input-comment
             %input{type:'text', placeholder:'Отправить сообщение...'}
         %hr
-        .massage-comment
+        .message-comment
           = image_tag 'images.jpg'
           %ul.details-picture.main
             %li.name-user
@@ -86,7 +90,7 @@
               %a
                 Ответить
         %hr
-        .massage-comment
+        .message-comment
           = image_tag 'images.jpg'
           %ul.details-picture.main
             %li.name-user
@@ -105,7 +109,7 @@
               %a
                 Ответить
           %hr
-          .massage-comment
+          .message-comment
             = image_tag 'images.jpg'
             %ul.details-picture.main
               %li.name-user
@@ -134,20 +138,20 @@
 
 
 
-  -#.span4
-  -#  .info-area{style: ''}
-  -#    %img{style: 'width:50px; height:50px; float:left; margin-right:10px;'}
-  -#    .title{style: 'padding-left:5px;'}
-  -#      = @picture.name
-  -#    .author
-  -#      = @picture.user
-  -#  .description{style: 'clear:both; margin-top:25px;'}
-  -#    Tags:
-  -#    = text_field_tag :tags, @picture.tag_list
-  -#  .comments-area
-  -#    = render partial: 'the_comments/tree', locals: { commentable: @picture, comments_tree: @comments }
-  -#
-  -#- if current_user && @picture.user != current_user
-  -#  .buttons{ data: { voted: current_user.voted_on?(@picture)}}
-  -#    = button_to(I18n.t('pictures.unlike'), { action: 'unlike' }, remote: true, form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
-  -#    = button_to(I18n.t('pictures.like'), { action: 'like' }, remote: true, form: {id: 'like_button', class: 'vote', style: 'display: none'})
+.span4
+  .info-area{style: ''}
+    %img{style: 'width:50px; height:50px; float:left; margin-right:10px;'}
+    .title{style: 'padding-left:5px;'}
+      = @picture.name
+    .author
+      = @picture.user
+  .description{style: 'clear:both; margin-top:25px;'}
+    Tags:
+    = text_field_tag :tags, @picture.tag_list
+  .comments-area
+    = render partial: 'the_comments/tree', locals: { commentable: @picture, comments_tree: @comments }
+
+- if current_user && @picture.user != current_user
+  .buttons{ data: { voted: current_user.voted_on?(@picture)}}
+    = button_to(I18n.t('pictures.unlike'), { action: 'unlike' }, remote: true, form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
+    = button_to(I18n.t('pictures.like'), { action: 'like' }, remote: true, form: {id: 'like_button', class: 'vote', style: 'display: none'})

@@ -7,7 +7,7 @@
 # Prepare your data on server side for rendering
 # or use h.html_escape(node.content)
 # for escape potentially dangerous content
-module RenderCommentsTreeHelper
+module CommentsHelper
   module Render 
     class << self
       attr_accessor :h, :options
@@ -44,7 +44,7 @@ module RenderCommentsTreeHelper
           end
         end
         likes = @comment.likes_count
-        
+
         "<li>
           <div id='comment_#{@comment.anchor}' class='comment #{@comment.state}' data-comment-id='#{@comment.to_param}'>
             <div>
