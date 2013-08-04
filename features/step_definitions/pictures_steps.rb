@@ -42,19 +42,19 @@ When(/^I scroll to bottom of screen$/) do
 end
 
 When(/^I like his picture$/) do
-  click_button picture_like_button
+  like_picture
 end
 
 Then(/^I see that I liked his picture$/) do
-  expect(page).to have_button(picture_unlike_button)
+  expect(unlike_picture_button).to_not be_nil
 end
 
 When(/^I unlike his picture$/) do
-  click_button picture_unlike_button
+  unlike_picture
 end
 
 Then(/^I see I can like his picture$/) do
-  expect(page).to have_button(picture_like_button)
+  expect(like_picture_button).to_not be_nil
 end
 
 Then(/^I should see "(.*?)" in current path$/) do |part|

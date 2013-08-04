@@ -20,15 +20,20 @@
               \#мост
   .picture-show
     = image_tag '/assets/1.png', class: ''
-  .blue-button
+  .picture-actions
     .position-btn-img-and-txt
       .buttons{ data: { voted: current_user.voted_on?(@picture)}}
-        = button_to(I18n.t('pictures.unlike'), { action: 'unlike' }, remote: true, form: { id: 'unlike_button', class: 'btn-like vote', style: 'display: none'})
-        = button_to(I18n.t('pictures.like'), { action: 'like' }, remote: true, form: {id: 'like_button', class: 'btn-like vote', style: 'display: none'})
+        = button_to(I18n.t('like'), { action: 'unlike' }, remote: true, data: { disable_with: I18n.t('like') },
+          class: 'btn-like unlike', form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
+        = button_to(I18n.t('like'), { action: 'like' }, remote: true, data: { disable_with: I18n.t('like') },
+          class: 'btn-like', form: {id: 'like_button', class: 'vote', style: 'display: none'})
+
+        = image_tag 'like-img.gif'
         %span
           14
+
       -#%input{type:'submit', class:'btn-like', value:"Нравится"}
-      -#  = image_tag 'like-img.gif'
+
 
     .position-btn-img-and-txt
       %input{type:'submit', class:'btn-follow', value:"Следить за автором"}
@@ -39,7 +44,7 @@
     .right-green
       %input{type:'submit', class:'btn-green', value: "Купить $"}
 
-.comment-content
+.picture-comments
   .comment-center
     = render 'comments/tree', commentable: @picture, comments_tree: @comments
 

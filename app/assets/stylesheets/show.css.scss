@@ -68,7 +68,7 @@
 .picture-show{
   margin-bottom: 20px;
 }
-.blue-button input{
+.picture-actions input{
   color: white;
   background-color: #70b2b8;
   border: 1px solid #70b2b8;
@@ -83,10 +83,15 @@
 }
 .btn-like{
   position: relative;
-  width: 120px;
+  width: 150px;
   text-align: left;
   opacity: 0.8;
   margin-left: 40px;
+
+  &.unlike{
+    background-color: #e74c3c;
+    border: 1px solid #e74c3c;
+  }
 }
 .position-btn-img-and-txt {
   position: relative;
@@ -134,7 +139,7 @@
 .right-green{
   float: right;
 }
-.blue-button{
+.picture-actions {
   margin-bottom: 20px;
 }
 .bg-comment{
@@ -156,7 +161,7 @@
   margin-left: 40px;
   margin-bottom: 25px;
 }
-.comment-content{
+.picture-comments {
   background-color: #fafafa;
   overflow: hidden;
   padding-top: 30px;
@@ -215,10 +220,8 @@ hr{
   height: 1px;
   border: 0px solid #e2e4e4;
 }
-.input-comment{
 
-}
-.message-comment .message-comment .input-comment input{
+.message-comment .input-comment input{
   width: 86%;
 }
 

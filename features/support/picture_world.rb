@@ -20,12 +20,20 @@ module PictureWorld
     end
   end
 
-  def picture_like_button
-    I18n.t('pictures.like')
-  end  
+  def like_picture_button
+    find(:button, I18n.t('like'))
+  end
 
-  def picture_unlike_button
-    I18n.t('pictures.unlike')
+  def unlike_picture_button
+    like_picture_button
+  end
+
+  def like_picture
+    like_picture_button.click
+  end
+
+  def unlike_picture
+    unlike_picture_button.click
   end
 end
 

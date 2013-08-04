@@ -23,9 +23,9 @@
         Ответить
   .like
     - if current_user.voted_on?(comment)
-      = button_to(t('the_comments.unlike'), action: 'unlike', controller: 'comments', id: comment.id)
+      = button_to(t('like'), action: 'unlike', controller: 'comments', id: comment.id)
     - else
-      = button_to(t('the_comments.like'), action: 'like', controller: 'comments', id: comment.id)
+      = button_to(t('like'), action: 'like', controller: 'comments', id: comment.id)
 
     %a.link-like
       Мне нравится
@@ -33,5 +33,5 @@
         = comment.likes_count
       =image_tag 'heart_inactive.png'
   %hr
-  = render 'comments/form', comment: comment
+  = render 'comments/form', commentable: comment.commentable, parent: comment
   = children.html_safe
