@@ -29,8 +29,8 @@
           class: 'btn-like', form: {id: 'like_button', class: 'vote', style: 'display: none'})
 
         = image_tag 'like-img.gif'
-        %span
-          14
+        %span.likes-count
+          = @picture.votes_count
 
       -#%input{type:'submit', class:'btn-like', value:"Нравится"}
 

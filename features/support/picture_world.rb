@@ -20,6 +20,10 @@ module PictureWorld
     end
   end
 
+  def picture_likes_count
+    find('.picture-actions').find('.likes-count').text.to_i
+  end
+
   def like_picture_button
     find(:button, I18n.t('like'))
   end

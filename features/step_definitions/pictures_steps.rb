@@ -61,3 +61,10 @@ Then(/^I should see "(.*?)" in current path$/) do |part|
   expect(page.current_url).to match part
 end
 
+Then(/^I see (\d+) likes? on picture$/) do |count|
+  expect(picture_likes_count).to eq count
+end
+
+When(/^I reload page$/) do
+  visit current_path
+end
