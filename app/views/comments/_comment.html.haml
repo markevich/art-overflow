@@ -1,0 +1,24 @@
+.message-comment
+  = image_tag 'images.jpg'
+  -# t += h.link_to(t('the_comments.edit'), h.edit_comment_url(@comment), class: :edit)
+  -# t += h.link_to(t('the_comments.to_deleted'), h.to_trash_comment_url(@comment), class: :delete, method: :delete, remote: true, confirm: t('the_comments.delete_confirm'))
+  %ul.details-picture.main
+    %li.name-user
+      Коля Хекс
+    -# TODO: handle parent of comment by js
+    -# %li.name-user
+    -#   %span.arrow-answer
+    -#     = image_tag 'arrow_ansmer.gif'
+    -#   = comment.parent.user.email if comment.child?
+    %li
+      %span
+        *
+      1 час назад
+    %li.txt-comment
+      = comment.content
+    %li.answer
+      %a
+        Ответить
+  %hr
+  = render 'comments/form', comment: comment
+  = children.html_safe

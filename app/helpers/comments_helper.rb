@@ -12,13 +12,11 @@ module CommentsHelper
     class << self
       attr_accessor :h, :options
 
+      delegate :t, :render_to_string, to: :controller
+
       # Main Helpers
       def controller
         @options[:controller]
-      end
-
-      def t str
-        controller.t str
       end
 
       def moderator?
@@ -44,59 +42,11 @@ module CommentsHelper
           end
         end
         likes = @comment.likes_count
-
-        "<li>
-          <div id='comment_#{@comment.anchor}' class='comment #{@comment.state}' data-comment-id='#{@comment.to_param}'>
-            <div>
-              #{ avatar }
-              #{ userbar }
-              <div class='cbody'>#{ @comment.content }</div>
-              #{ reply }
-              <div class='likes_count'>#{ likes }</div>
-              #{ like_btn }
-            </div>
-          </div>
-
-          <div class='form_holder'></div>
-          #{ children }
-        </li>"
+        render_to_string partial: 'comments/comment', layout: false, locals: { comment: @comment,
+                                   likes: likes, like_button: like_btn,
+                                   children: @options[:children] }
       end
 
-      def avatar
-        "<div class='userpic'>
-          <img src='#{ @comment.avatar_url }' alt='userpic' />
-          #{ controls }
-        </div>"
-      end
-
-      def userbar
-        anchor = h.link_to('#', '#comment_' + @comment.anchor)
-        # title  = @comment.title.blank? ? t('the_comments.guest_name') : @comment.title
-        "<div class='userbar'>#{ @comment.user.email } #{ anchor }</div>"
-      end
-
-      def moderator_controls        
-        t = ''
-        if moderator?
-          t += h.link_to(t('the_comments.edit'), h.edit_comment_url(@comment), class: :edit)
-          t += h.link_to(t('the_comments.to_deleted'), h.to_trash_comment_url(@comment), class: :delete, method: :delete, remote: true, confirm: t('the_comments.delete_confirm'))
-        end
-        t
-      end
-
-      def reply
-        if @comment.depth < @max_reply_depth
-          "<p class='reply'><a href='#' class='reply_link'>#{ t('the_comments.reply') }</a>"
-        end
-      end
-
-      def controls
-        "<div class='controls'>#{ moderator_controls }</div>"
-      end
-
-      def children
-        "<ol class='nested_set'>#{ options[:children] }</ol>"
-      end
     end
   end
 end

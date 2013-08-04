@@ -1,0 +1,32 @@
+.message-comment
+  = image_tag comment.user.avatar
+  %ul.details-picture.main.no-answer
+    %li.name-user
+      Коля Хекс
+    %li.like
+      %p.count-right
+        0
+        =image_tag 'heart_inactive.png'
+    %li
+      %span
+        *
+      1 час назад
+    %li.txt-comment
+      Быстрый набросок для тренировки. Управился за 30 минут
+%hr
+
+-# <li>
+-#   <div id='comment_#{@comment.anchor}' class='comment #{@comment.state}' data-comment-id='#{@comment.to_param}'>
+-#     <div>
+-#       #{ avatar }
+-#       #{ userbar }
+-#       <div class='cbody'>#{ @comment.content }</div>
+-#       #{ reply }
+-#       <div class='likes_count'>#{ likes }</div>
+-#       #{ like_btn }
+-#     </div>
+-#   </div>
+-# 
+-#   <div class='form_holder'></div>
+-#   #{ children }
+-# </li>"
