@@ -1,10 +1,8 @@
 .user-content
   .user
-    //= image_tag @picture.path, class: 'thumbnail big_image'
     .user-photo
       = image_tag 'images.jpg'
       %h3.picture-title
-        //= @picture.name
         Nice drawing
         .data-user
           %ul.details-picture
@@ -27,13 +25,9 @@
           class: 'btn-like unlike', form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
         = button_to(I18n.t('like'), { action: 'like' }, remote: true, data: { disable_with: I18n.t('like') },
           class: 'btn-like', form: {id: 'like_button', class: 'vote', style: 'display: none'})
-
         = image_tag 'like-img.gif'
         %span.likes-count
           = @picture.votes_count
-
-      -#%input{type:'submit', class:'btn-like', value:"Нравится"}
-
 
     .position-btn-img-and-txt
       %input{type:'submit', class:'btn-follow', value:"Следить за автором"}
@@ -47,97 +41,7 @@
 .picture-comments
   .comment-center
     = render 'comments/tree', commentable: @picture, comments_tree: @comments
-
-
-
-    -#.comment-left
-    -#  .comment
-    -#    %p.left-count-comment
-    -#      Комментарии (4)
-    -#    %p.last-right
-    -#      Последние
-    -#    %p.popular-right
-    -#      = image_tag 'arrow_bottom.gif'
-    -#      Популярные
-    -#  .user-comment
-    -#    .message-comment
-    -#      = image_tag 'images.jpg'
-    -#      %ul.details-picture.main.no-answer
-    -#        %li.name-user
-    -#          Коля Хекс
-    -#        %li.like
-    -#          %p.count-right
-    -#            0
-    -#            =image_tag 'heart_inactive.png'
-    -#        %li
-    -#          %span
-    -#            *
-    -#          1 час назад
-    -#        %li.txt-comment
-    -#          Быстрый набросок для тренировки. Управился за 30 минут
-    -#    %hr
-    -#    .message-comment
-    -#      = image_tag 'images.jpg'
-    -#      .input-comment
-    -#        %input{type:'text', placeholder:'Отправить сообщение...'}
-    -#    %hr
-    -#    .message-comment
-    -#      = image_tag 'images.jpg'
-    -#      %ul.details-picture.main
-    -#        %li.name-user
-    -#          Коля Хекс
-    -#        %li
-    -#          %span
-    -#            *
-    -#          1 час назад
-    -#        %li.like
-    -#          %p.count-right
-    -#            0
-    -#            =image_tag 'heart_inactive.png'
-    -#        %li.txt-comment
-    -#          Быстрый набросок для тренировки. Управился за 30 минут.Быстрый набросок для тренировки. Управился за 30 минут.Быстрый набросок для тренировки. Управился за 30 минут
-    -#        %li.answer
-    -#          %a
-    -#            Ответить
-    -#    %hr
-    -#    .message-comment
-    -#      = image_tag 'images.jpg'
-    -#      %ul.details-picture.main
-    -#        %li.name-user
-    -#          Коля Хекс
-    -#        %li.name-user
-    -#          %span.arrow-answer
-    -#            = image_tag 'arrow_ansmer.gif'
-    -#          Коля Хекс
-    -#        %li
-    -#          %span
-    -#            *
-    -#          1 час назад
-    -#        %li.txt-comment
-    -#          Быстрый набросок для тренировки. Управился за 30 минут.Быстрый набросок для тренировки. Управился за 30 минут.Быстрый набросок для тренировки. Управился за 30 минут
-    -#        %li.answer
-    -#          %a
-    -#            Ответить
-    -#      %hr
-    -#      .message-comment
-    -#        = image_tag 'images.jpg'
-    -#        %ul.details-picture.main
-    -#          %li.name-user
-    -#            Коля Хекс
-    -#          %li.name-user
-    -#            %span.arrow-answer
-    -#              = image_tag 'arrow_ansmer.gif'
-    -#            Коля Хекс
-    -#          %li
-    -#            %span
-    -#              *
-    -#            1 час назад
-    -#          %li.txt-comment
-    -#            Быстрый набросок для тренировки. Управился за 30 минут.Быстрый набросок для тренировки. Управился за 30 минут.Быстрый набросок для тренировки. Управился за 30 минут
-    -#          %li.answer
-    -#            %a
-    -#              Ответить
-    -#        %hr
+      %hr
 
     .other-job-right
       %p.left-count-comment.other-job-title
@@ -166,29 +70,3 @@
             The Night Sky Edition.
     %a#button_load_more.show_comment_all{href: '#', data: { scroller_trigger: true }}
       = I18n.t('pictures.show_more')
-
-
-
-
-
-
-
-
-
--#.span4
--#  .info-area{style: ''}
--#    %img{style: 'width:50px; height:50px; float:left; margin-right:10px;'}
--#    .title{style: 'padding-left:5px;'}
--#      = @picture.name
--#    .author
--#      = @picture.user
--#  .description{style: 'clear:both; margin-top:25px;'}
--#    Tags:
--#    = text_field_tag :tags, @picture.tag_list
--#  .comments-area
--#    = render partial: 'the_comments/tree', locals: { commentable: @picture, comments_tree: @comments }
--#
--#- if current_user && @picture.user != current_user
--#  .buttons{ data: { voted: current_user.voted_on?(@picture)}}
--#    = button_to(I18n.t('pictures.unlike'), { action: 'unlike' }, remote: true, form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
--#    = button_to(I18n.t('pictures.like'), { action: 'like' }, remote: true, form: {id: 'like_button', class: 'vote', style: 'display: none'})
