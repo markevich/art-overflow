@@ -45,14 +45,18 @@ ru:
       item_not_found: Black list Item not found
       create_comment: Create Comment
       like: Like Comment
-      unlike: Unlike Comment
   user:
     start_following: "Вы успешно подписались на обновления %{name}."
     stop_following: "Вы успешно отписались от обновлений %{name}."
+
   pictures:
     show_more: 'Загрузить остальные'
-    like: 'Like'
-    unlike: 'Unlike'
+
+  like: Мне нравится
+
+  comment:
+    create: Создать комментарий
+
   subscriber:
     subscribed: 'Вы успешно подписаны на обновления.'
     unsubscribe: 'Отписаться от рассылки'

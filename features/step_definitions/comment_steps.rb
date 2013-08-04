@@ -31,15 +31,16 @@ Then(/^I unlike his comment$/) do
 end
 
 Then(/^I see that I liked his comment$/) do
-  expect(page).to have_button(I18n.t('the_comments.unlike'))
+  expect(page).to have_button(like_comment_button)
 end
 
 Then(/^I see I can like his comment$/) do
-  expect(page).to have_button(I18n.t('the_comments.like'))
+  expect(page).to have_button(like_comment_button)
 end
 
 Then(/^I delete my comment$/) do
   click_link I18n.t('the_comments.to_deleted')
+  sleep 0.5#=\
 end
 
 Then(/^I don't see my comment$/) do
