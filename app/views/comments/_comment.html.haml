@@ -33,5 +33,6 @@
         = comment.likes_count
       =image_tag 'heart_inactive.png'
   %hr
+  = link_to t('the_comments.to_deleted'),   to_trash_comment_url(comment),     remote: true, class: :to_deleted,   method: :delete, data: { confirm: t('the_comments.delete_confirm') }
   = render 'comments/form', commentable: comment.commentable, parent: comment
   = children.html_safe

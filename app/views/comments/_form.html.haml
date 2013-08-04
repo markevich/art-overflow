@@ -9,4 +9,5 @@
       = f.hidden_field :commentable_type, value: commentable.class
       = f.hidden_field :commentable_id,   value: commentable.id
       = f.hidden_field(:parent_id, class: :parent_id, value: parent.id) unless local_assigns[:parent].nil?
+      = f.submit I18n.t('comment.create')
   %hr

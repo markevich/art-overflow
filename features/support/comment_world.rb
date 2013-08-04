@@ -9,7 +9,8 @@ module CommentWorld
 
   def write_comment
     fill_in('comment[raw_content]', with: comment_text)
-    click_button I18n.t('the_comments.create_comment')
+    click_button I18n.t('comment.create')
+    sleep 0.5#=\
   end
 
   def like_comment

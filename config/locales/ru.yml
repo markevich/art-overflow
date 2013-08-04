@@ -54,6 +54,8 @@ ru:
 
   like: Мне нравится
 
+  comment:
+    create: Создать комментарий
 
   subscriber:
     subscribed: 'Вы успешно подписаны на обновления.'
