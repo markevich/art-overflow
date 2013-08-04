@@ -4,21 +4,29 @@
   -# t += h.link_to(t('the_comments.to_deleted'), h.to_trash_comment_url(@comment), class: :delete, method: :delete, remote: true, confirm: t('the_comments.delete_confirm'))
   %ul.details-picture.main
     %li.name-user
-      Коля Хекс
+      = comment.user.nickname
+    %li
+      %span
+        *
+      1 час назад
+
     -# TODO: handle parent of comment by js
     -# %li.name-user
     -#   %span.arrow-answer
     -#     = image_tag 'arrow_ansmer.gif'
     -#   = comment.parent.user.email if comment.child?
-    %li
-      %span
-        *
-      1 час назад
-    %li.txt-comment
+
+    .txt-comment
       = comment.content
-    %li.answer
+    .answer
       %a
         Ответить
+  .like
+    %a.link-like
+      Мне нравится
+      %p.count-right
+        0
+      =image_tag 'heart_inactive.png'
   %hr
   = render 'comments/form', comment: comment
   = children.html_safe

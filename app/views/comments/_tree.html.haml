@@ -1,13 +1,11 @@
-.comment-content
-  .comment-center
-    .comment-left
-      .comment
-        %p.left-count-comment
-          Комментарии (4)
-        %p.last-right
-          Последние
-        %p.popular-right
-          = image_tag 'arrow_bottom.gif'
-          Популярные
-      .user-comment
-        = render 'comments/comments', tree: comments_tree
+.comment-left
+  .comment
+    %p.left-count-comment
+      Комментарии (4)
+    %p.last-right
+      Последние
+    %p.popular-right
+      = image_tag 'arrow_bottom.gif'
+      Популярные
+  .user-comment
+    = render 'comments/comments', tree: comments_tree

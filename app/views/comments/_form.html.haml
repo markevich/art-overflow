@@ -3,13 +3,12 @@
   .input-comment
     = form_for Comment.new, remote: true, authenticity_token: true do |f|
       .error_notifier{ style: 'display: none' }
-      %p.trap
-        %input{type:'text', name: 'comment[raw_content]', placeholder:'Отправить сообщение...'}
+
+      %input{type:'text', name: 'comment[raw_content]', placeholder:'Отправить сообщение...'}
 
       = hidden_field_tag :tolerance_time, 100, id: nil, class: :tolerance_time
 
       = f.hidden_field :commentable_type, value: comment.commentable.class
       = f.hidden_field :commentable_id,   value: comment.commentable.id
       = f.hidden_field :parent_id, class: :parent_id, value: comment.id
-
   %hr
