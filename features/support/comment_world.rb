@@ -4,7 +4,7 @@ module CommentWorld
   end
 
   def write_comment
-    fill_in('comment_raw_content', with: comment_text)
+    fill_in('comment[raw_content]', with: comment_text)
     click_button I18n.t('the_comments.create_comment')
   end
 

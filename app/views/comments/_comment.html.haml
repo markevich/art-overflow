@@ -22,10 +22,15 @@
       %a
         Ответить
   .like
+    - if current_user.voted_on?(comment)
+      = button_to(t('the_comments.unlike'), action: 'unlike', controller: 'comments', id: comment.id)
+    - else
+      = button_to(t('the_comments.like'), action: 'like', controller: 'comments', id: comment.id)
+
     %a.link-like
       Мне нравится
-      %p.count-right
-        0
+      %p.count-right.likes_count
+        = comment.likes_count
       =image_tag 'heart_inactive.png'
   %hr
   = render 'comments/form', comment: comment

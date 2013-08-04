@@ -22,10 +22,14 @@
     = image_tag '/assets/1.png', class: ''
   .blue-button
     .position-btn-img-and-txt
-      %input{type:'submit', class:'btn-like', value:"Нравится"}
-        = image_tag 'like-img.gif'
-      %span
-        14
+      .buttons{ data: { voted: current_user.voted_on?(@picture)}}
+        = button_to(I18n.t('pictures.unlike'), { action: 'unlike' }, remote: true, form: { id: 'unlike_button', class: 'btn-like vote', style: 'display: none'})
+        = button_to(I18n.t('pictures.like'), { action: 'like' }, remote: true, form: {id: 'like_button', class: 'btn-like vote', style: 'display: none'})
+        %span
+          14
+      -#%input{type:'submit', class:'btn-like', value:"Нравится"}
+      -#  = image_tag 'like-img.gif'
+
     .position-btn-img-and-txt
       %input{type:'submit', class:'btn-follow', value:"Следить за автором"}
         = image_tag 'share.gif', class:"img-follow"

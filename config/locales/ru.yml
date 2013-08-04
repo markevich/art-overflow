@@ -51,8 +51,8 @@ ru:
     stop_following: "Вы успешно отписались от обновлений %{name}."
   pictures:
     show_more: 'Загрузить остальные'
-    like: 'Like'
-    unlike: 'Unlike'
+    like: 'Нравится'
+    unlike: 'Не нравится'
   subscriber:
     subscribed: 'Вы успешно подписаны на обновления.'
     unsubscribe: 'Отписаться от рассылки'
