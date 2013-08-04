@@ -16,6 +16,7 @@
               %span
                 *
               \#мост
+
   .picture-show
     = image_tag '/assets/1.png', class: ''
   .picture-actions
@@ -41,7 +42,6 @@
 .picture-comments
   .comment-center
     = render 'comments/tree', commentable: @picture, comments_tree: @comments
-      %hr
 
     .other-job-right
       %p.left-count-comment.other-job-title
@@ -63,7 +63,7 @@
         %p.left-count-comment.other-job-title
           Ads via The Deck
         %p.news-comment
-          =image_tag 'th.gif'
+          = image_tag 'th.gif'
           %p.txt-news-comment
             New Field Notes Brand limited-release for summer,
           %a.link-news-comment
