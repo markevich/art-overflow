@@ -18,3 +18,6 @@ $(document).on 'ready page:load', ->
     $('#unlike_button').show()
   else
     $('#like_button').show()
+
+  $('.reply-to-comment').on 'click', ->
+    $(this).parents('.message-comment:first').find('.reply-to-comment-container:first').toggle()

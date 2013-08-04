@@ -243,7 +243,7 @@ hr{
 .message-comment img{
   position: absolute;
 }
-.answer a{
+.reply-to-comment a{
   color: #83bcc2;
   font-family: Arial;
   font-size: 12px;
@@ -251,10 +251,10 @@ hr{
   text-decoration: underline;
   margin-top: 10px;
 }
-.answer a:hover{
+.reply-to-comment a:hover{
   text-decoration: none;
 }
-.answer {
+.reply-to-comment {
   margin-top: 10px;
 }
 .arrow-answer img{
@@ -265,7 +265,7 @@ hr{
 ul.details-picture li.name-user:nth-child(2){
   margin-left: 5px;
 }
-.answer {
+.reply-to-comment {
   margin-bottom: 20px;
 }
 .no-answer{
@@ -361,4 +361,7 @@ li.like img{
   font-size: 12px;
   font-family: Arial;
   cursor: pointer;
+}
+.reply-to-comment-container{
+  display:none;
 }
