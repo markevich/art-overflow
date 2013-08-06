@@ -22,7 +22,10 @@ Feature: Pictures
     Given picture of another user
     Given I am logged in
     When I visit another user picture page
+    Then I see 0 likes on picture
     When I like his picture
-    Then I see that I liked his picture
+    And I reload page
+    Then I see 1 like on picture
     When I unlike his picture
-    Then I see I can like his picture
+    And I reload page
+    Then I see 0 likes on picture

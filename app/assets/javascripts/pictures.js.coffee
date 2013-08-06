@@ -13,7 +13,11 @@ $(document).on 'ready page:load', ->
     $('#unlike_button').toggle()
     $('.buttons').attr('data-voted', (idx, oldAttr) -> return !oldAttr )
 
-  if $('.vote').attr('data-voted')
+
+  if $('.buttons').attr('data-voted')?
     $('#unlike_button').show()
   else
     $('#like_button').show()
+
+  $('.reply-to-comment').on 'click', ->
+    $(this).parents('.message-comment:first').find('.reply-to-comment-container:first').toggle()

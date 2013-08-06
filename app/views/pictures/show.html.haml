@@ -1,21 +1,72 @@
-.span8
-  = image_tag @picture.path, class: 'thumbnail big_image'
-  %h3
-    = @picture.name
-.span4
-  .info-area{style: ''}
-    %img{style: 'width:50px; height:50px; float:left; margin-right:10px;'}
-    .title{style: 'padding-left:5px;'}
-      = @picture.name
-    .author
-      = @picture.user
-  .description{style: 'clear:both; margin-top:25px;'}
-    Tags:
-    = text_field_tag :tags, @picture.tag_list
-  .comments-area
-    = render partial: 'the_comments/tree', locals: { commentable: @picture, comments_tree: @comments }
+.user-content
+  .user
+    .user-photo
+      = image_tag 'images.jpg'
+      %h3.picture-title
+        Nice drawing
+        .data-user
+          %ul.details-picture
+            %li.name-user
+              Slava Markevich
+            %li
+              %span
+                *
+              1 час назад
+            %li
+              %span
+                *
+              \#мост
 
-- if current_user && @picture.user != current_user
-  .buttons{ data: { voted: current_user.voted_on?(@picture)}}
-    = render partial: 'unlike_button'
-    = render partial: 'like_button'
+  .picture-show
+    = image_tag '/assets/1.png', class: ''
+  .picture-actions
+    .position-btn-img-and-txt
+      .buttons{ data: { voted: current_user.voted_on?(@picture)}}
+        = button_to(I18n.t('like'), { action: 'unlike' }, remote: true, data: { disable_with: I18n.t('like') },
+          class: 'btn-like unlike', form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
+        = button_to(I18n.t('like'), { action: 'like' }, remote: true, data: { disable_with: I18n.t('like') },
+          class: 'btn-like', form: {id: 'like_button', class: 'vote', style: 'display: none'})
+        = image_tag 'like-img.gif'
+        %span.likes-count
+          = @picture.votes_count
+
+    .position-btn-img-and-txt
+      %input{type:'submit', class:'btn-follow', value:"Следить за автором"}
+        = image_tag 'share.gif', class:"img-follow"
+    .position-btn-img-and-txt
+      %input{type:'submit', class:'btn-share', value:"Поделиться"}
+        = image_tag 'follow.gif', class:"img-follow"
+    .right-green
+      %input{type:'submit', class:'btn-green', value: "Купить $"}
+
+.picture-comments
+  .comment-center
+    = render 'comments/tree', commentable: @picture, comments_tree: @comments
+
+    .other-job-right
+      %p.left-count-comment.other-job-title
+        Другие работы
+      %p.user-name-other-job
+        Коли
+      .img-other-job
+        %a
+          =image_tag 'other-job.gif'
+        %a
+          =image_tag 'other-job.gif'
+        %a
+          =image_tag 'other-job.gif'
+        %a
+          =image_tag 'other-job.gif'
+        %a
+          =image_tag 'other-job.gif'
+      .information
+        %p.left-count-comment.other-job-title
+          Ads via The Deck
+        %p.news-comment
+          = image_tag 'th.gif'
+          %p.txt-news-comment
+            New Field Notes Brand limited-release for summer,
+          %a.link-news-comment
+            The Night Sky Edition.
+    %a#button_load_more.show_comment_all{href: '#', data: { scroller_trigger: true }}
+      = I18n.t('pictures.show_more')

@@ -21,11 +21,6 @@ module RenderCommentsTreeHelper
         controller.t str
       end
 
-      # Render Helpers
-      def visible_draft?
-        controller.try(:comments_view_token) == @comment.view_token
-      end
-
       def moderator?
         controller.try(:current_user).try(:comment_moderator?, @comment)
       end
@@ -37,37 +32,19 @@ module RenderCommentsTreeHelper
 
         @max_reply_depth = options[:max_reply_depth] || TheComments.config.max_reply_depth
 
-        if @comment.draft?
-          draft_comment
-        else @comment.published?
-          published_comment
-        end
-      end
-
-      def draft_comment
-        if visible_draft? || moderator?
-          published_comment
-        else
-          "<li class='draft'>
-            <div class='comment draft' id='comment_#{@comment.anchor}'>
-              #{ t('the_comments.waiting_for_moderation') }
-              #{ h.link_to '#', '#comment_' + @comment.anchor }
-            </div>
-            #{ children }
-          </li>"
-        end
+        published_comment
       end
 
       def published_comment
         like_btn = if @options[:controller].user_signed_in?
           if @options[:controller].current_user.voted_on?(@comment)
-            h.button_to(I18n.t('the_comments.unlike'), action: 'unlike', controller: 'comments', id: @comment.id)
+            h.button_to(t('the_comments.unlike'), action: 'unlike', controller: 'comments', id: @comment.id)
           else
-            h.button_to(I18n.t('the_comments.like'), action: 'like', controller: 'comments', id: @comment.id)
+            h.button_to(t('the_comments.like'), action: 'like', controller: 'comments', id: @comment.id)
           end
         end
         likes = @comment.likes_count
-
+        
         "<li>
           <div id='comment_#{@comment.anchor}' class='comment #{@comment.state}' data-comment-id='#{@comment.to_param}'>
             <div>

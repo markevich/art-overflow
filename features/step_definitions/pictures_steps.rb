@@ -42,22 +42,29 @@ When(/^I scroll to bottom of screen$/) do
 end
 
 When(/^I like his picture$/) do
-  click_button picture_like_button
+  like_picture
 end
 
 Then(/^I see that I liked his picture$/) do
-  expect(page).to have_button(picture_unlike_button)
+  expect(unlike_picture_button).to_not be_nil
 end
 
 When(/^I unlike his picture$/) do
-  click_button picture_unlike_button
+  unlike_picture
 end
 
 Then(/^I see I can like his picture$/) do
-  expect(page).to have_button(picture_like_button)
+  expect(like_picture_button).to_not be_nil
 end
 
 Then(/^I should see "(.*?)" in current path$/) do |part|
   expect(page.current_url).to match part
 end
 
+Then(/^I see (\d+) likes? on picture$/) do |count|
+  expect(picture_likes_count).to eq count
+end
+
+When(/^I reload page$/) do
+  visit current_path
+end

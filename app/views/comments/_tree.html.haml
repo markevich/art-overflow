@@ -1,0 +1,14 @@
+.comment-left
+  .comment
+    %p.left-count-comment
+      Комментарии (#{@picture.published_comments_count})
+    %p.last-right
+      Последние
+    %p.popular-right
+      = image_tag 'arrow_bottom.gif'
+      Популярные
+
+  = render 'comments/form', commentable: @picture
+
+  .user-comment
+    = render 'comments/comments', tree: comments_tree

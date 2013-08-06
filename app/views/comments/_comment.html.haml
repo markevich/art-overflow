@@ -1,0 +1,38 @@
+.message-comment
+  = image_tag 'images.jpg'
+  %ul.details-picture.main
+    %li.name-user
+      = comment.user.nickname
+    %li
+      %span
+        *
+      1 час назад
+
+    -# TODO: handle parent of comment by js
+    -# %li.name-user
+    -#   %span.arrow-answer
+    -#     = image_tag 'arrow_ansmer.gif'
+    -#   = comment.parent.user.email if comment.child?
+
+    .txt-comment
+      = comment.content
+    .reply-to-comment
+      %a
+        Ответить
+  .like
+    - if current_user.voted_on?(comment)
+      = button_to(t('like'), action: 'unlike', controller: 'comments', id: comment.id)
+    - else
+      = button_to(t('like'), action: 'like', controller: 'comments', id: comment.id)
+
+    %a.link-like
+      Мне нравится
+      %p.count-right.likes_count
+        = comment.likes_count
+      =image_tag 'heart_inactive.png'
+
+  = link_to t('the_comments.to_deleted'),   to_trash_comment_url(comment),     remote: true, class: :to_deleted,   method: :delete, data: { confirm: t('the_comments.delete_confirm') }
+  %hr
+  .reply-to-comment-container
+    = render 'comments/form', commentable: comment.commentable, parent: comment
+  = children.html_safe
