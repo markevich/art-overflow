@@ -1,9 +1,9 @@
 class Comment < ActiveRecord::Base
+  include PublicActivity::Model
   acts_as_voteable
-  # Define comment's avatar url
-  # Usually we use Comment#user (owner of comment) to define avatar
-  # @blog.comments.includes(:user) <= use includes(:user) to decrease queries count
-  # comment#user.avatar_url
+
+  belongs_to :user
+  belongs_to :commentable, polymorphic: true
 
   # Define your filters for content
   # Expample for: gem 'RedCloth', gem 'sanitize'

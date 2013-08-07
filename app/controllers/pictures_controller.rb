@@ -29,13 +29,11 @@ class PicturesController < ApplicationController
 
   def like
     current_user.vote_for @picture
-    @picture.create_activity :like
     render nothing: true
   end
 
   def unlike
     current_user.unvote_for @picture
-    @picture.activities.find_by(key: 'picture.like', owner: current_user).destroy
     render nothing: true
   end
 

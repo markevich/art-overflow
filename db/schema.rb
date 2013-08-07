@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130729200608) do
+ActiveRecord::Schema.define(version: 20130807200401) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -58,6 +58,16 @@ ActiveRecord::Schema.define(version: 20130729200608) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "comments", force: true do |t|
+    t.integer  "user_id",                      null: false
+    t.integer  "commentable_id",               null: false
+    t.string   "commentable_type",             null: false
+    t.text     "text",                         null: false
+    t.integer  "likes_count",      default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false

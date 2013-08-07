@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :nickname, :email, presence: true
 
   has_many :pictures
+  has_many :comments
 
   ROLES = %w[admin moderator]
 
