@@ -3,7 +3,9 @@ class Comment < ActiveRecord::Base
   acts_as_voteable
 
   belongs_to :user
-  belongs_to :commentable, polymorphic: true
+  belongs_to :commentable, polymorphic: true, counter_cache: true
+
+  validates :commentable_id, :commentable_type, :user_id, :text, presence: true
 
   # Define your filters for content
   # Expample for: gem 'RedCloth', gem 'sanitize'
