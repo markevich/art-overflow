@@ -59,35 +59,6 @@ ActiveRecord::Schema.define(version: 20130729200608) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "comments", force: true do |t|
-    t.integer  "user_id"
-    t.integer  "holder_id"
-    t.integer  "commentable_id"
-    t.string   "commentable_type"
-    t.string   "commentable_url"
-    t.string   "commentable_title"
-    t.string   "commentable_state"
-    t.string   "anchor"
-    t.string   "title"
-    t.string   "contacts"
-    t.text     "raw_content"
-    t.text     "content"
-    t.string   "view_token"
-    t.string   "state",             default: "draft"
-    t.string   "ip",                default: "undefined"
-    t.string   "referer",           default: "undefined"
-    t.string   "user_agent",        default: "undefined"
-    t.integer  "tolerance_time"
-    t.boolean  "spam",              default: false
-    t.integer  "parent_id"
-    t.integer  "lft"
-    t.integer  "rgt"
-    t.integer  "depth",             default: 0
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "likes_count",       default: 0
-  end
-
   create_table "follows", force: true do |t|
     t.integer  "followable_id",                   null: false
     t.string   "followable_type",                 null: false
@@ -109,19 +80,10 @@ ActiveRecord::Schema.define(version: 20130729200608) do
     t.datetime "updated_at"
   end
 
-  create_table "ip_black_lists", force: true do |t|
-    t.string  "ip"
-    t.integer "count", default: 0
-    t.string  "state", default: "warning"
-  end
-
   create_table "pictures", force: true do |t|
     t.string  "name"
     t.string  "path"
     t.integer "user_id"
-    t.integer "draft_comments_count",     default: 0
-    t.integer "published_comments_count", default: 0
-    t.integer "deleted_comments_count",   default: 0
     t.integer "gallery_id"
   end
 
@@ -163,19 +125,13 @@ ActiveRecord::Schema.define(version: 20130729200608) do
     t.string "name"
   end
 
-  create_table "user_agent_black_lists", force: true do |t|
-    t.string  "user_agent"
-    t.integer "count",      default: 0
-    t.string  "state",      default: "warning"
-  end
-
   create_table "users", force: true do |t|
-    t.string   "email",                   default: "", null: false
-    t.string   "encrypted_password",      default: ""
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: ""
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",           default: 0
+    t.integer  "sign_in_count",          default: 0
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
@@ -188,11 +144,6 @@ ActiveRecord::Schema.define(version: 20130729200608) do
     t.datetime "updated_at"
     t.string   "role"
     t.string   "first_name"
-    t.integer  "my_comments_count",       default: 0
-    t.integer  "draft_comcoms_count",     default: 0
-    t.integer  "published_comcoms_count", default: 0
-    t.integer  "deleted_comcoms_count",   default: 0
-    t.integer  "spam_comcoms_count",      default: 0
     t.string   "last_name"
     t.string   "nickname"
   end

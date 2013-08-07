@@ -1,19 +1,9 @@
 class Comment < ActiveRecord::Base
-  include TheCommentsBase
-
-  include PublicActivity::Model
-  tracked owner: ->(controller, model) { controller && controller.current_user }, only: []
   acts_as_voteable
   # Define comment's avatar url
   # Usually we use Comment#user (owner of comment) to define avatar
   # @blog.comments.includes(:user) <= use includes(:user) to decrease queries count
   # comment#user.avatar_url
-
-  # Simple way to define avatar url
-  def avatar_url
-    hash = Digest::MD5.hexdigest self.id.to_s
-    "http://www.gravatar.com/avatar/#{hash}?s=30&d=identicon"
-  end
 
   # Define your filters for content
   # Expample for: gem 'RedCloth', gem 'sanitize'
