@@ -19,7 +19,7 @@ Given(/^Another user write comment$/) do
 end
 
 Then(/^I see his comment$/) do
-  expect(page).to have_content(@another_comment.content)
+  expect(page).to have_content(@another_comment.text)
 end
 
 Then(/^I like his comment$/) do

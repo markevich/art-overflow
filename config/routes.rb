@@ -28,6 +28,7 @@ ArtOverflow::Application.routes.draw do
         post :unlike
       end
     end
+    resources :comments, only: [:destroy]
   else
     devise_for :users, only: :sessions
     resources :pictures
