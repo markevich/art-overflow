@@ -11,6 +11,18 @@ class CommentsController < ApplicationController
     redirect_to :back
   end
 
+  def like
+    comment = Comment.find(params[:id])
+    current_user.vote_for(comment)
+    redirect_to :back
+  end
+
+  def unlike
+    comment = Comment.find(params[:id])
+    current_user.unvote_for(comment)
+    redirect_to :back
+  end
+
   def permitted_params
     params.require(:comment).permit(:text, :commentable_id, :commentable_type)
   end

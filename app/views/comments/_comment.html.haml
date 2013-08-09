@@ -28,7 +28,7 @@
     %a.link-like
       Мне нравится
       %p.count-right.likes_count
-        = comment.likes_count
+        = comment.votes_for
       =image_tag 'heart_inactive.png'
 
   = link_to 'Delete comment', comment_path(comment), method: :delete, data: { confirm: 'Точно?' }
