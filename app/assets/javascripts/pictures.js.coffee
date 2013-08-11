@@ -12,6 +12,7 @@ $(document).on 'ready page:load', ->
     $('#like_button').toggle()
     $('#unlike_button').toggle()
     $('.buttons').attr('data-voted', (idx, oldAttr) -> return !oldAttr )
+    $('.likes-count').html(xhr)
 
 
   if $('.buttons').attr('data-voted')?

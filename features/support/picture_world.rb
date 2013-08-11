@@ -34,10 +34,12 @@ module PictureWorld
 
   def like_picture
     like_picture_button.click
+    sleep 0.5
   end
 
   def unlike_picture
     unlike_picture_button.click
+    sleep 0.5
   end
 end
 
