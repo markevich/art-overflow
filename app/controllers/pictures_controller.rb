@@ -17,6 +17,8 @@ class PicturesController < ApplicationController
   def show
     @picture = Picture.find(params[:id])
     @comments = @picture.comments.includes([:user, :commentable]).with_state(:published).nested_set
+    @voted = current_user.voted_on?(@picture)
+    @following = current_user.following?(@picture.user)
   end
 
   def create
