@@ -21,7 +21,7 @@ module PictureWorld
   end
 
   def picture_likes_count
-    find('.picture-actions').find('.likes-count').text.to_i
+    find('.picture-actions').find('.picture-likes-count').text.to_i
   end
 
   def like_picture_button
@@ -34,12 +34,10 @@ module PictureWorld
 
   def like_picture
     like_picture_button.click
-    like_picture_button #ensures that ajax request is completed
   end
 
   def unlike_picture
     unlike_picture_button.click
-    unlike_picture_button #ensures that ajax request is completed
   end
 end
 
