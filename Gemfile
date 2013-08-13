@@ -64,11 +64,6 @@ gem 'thumbs_up'
 gem 'acts-as-taggable-on'
 #
 
-# comments gems
-gem 'awesome_nested_set', :github => "collectiveidea/awesome_nested_set", :branch => 'rails4'
-gem 'the_comments'
-#
-
 group :development do
   gem 'capistrano'
   gem 'capistrano-rbenv'

@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :nickname, :email, presence: true
 
   has_many :pictures
+  has_many :comments
 
   ROLES = %w[admin moderator]
 
@@ -15,9 +16,7 @@ class User < ActiveRecord::Base
   acts_as_followable
   acts_as_voter
 
-  include TheCommentsUser
   include PublicActivity::Model
-  tracked owner: ->(controller, model) { controller && controller.current_user }
 
   def become_admin!
     update_attribute(:role, :admin)
@@ -26,9 +25,4 @@ class User < ActiveRecord::Base
   def admin?
     role && role.to_sym == :admin
   end
-
-  def comment_moderator? comment
-    admin? || id == comment.holder_id || id == comment.user_id
-  end
-
 end
