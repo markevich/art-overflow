@@ -31,7 +31,7 @@
         = comment.votes_for
       =image_tag 'heart_inactive.png'
 
-  = link_to 'Delete comment', comment_path(comment), method: :delete, data: { confirm: 'Точно?' }
+  = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }
   %hr
   .reply-to-comment-container
     = render 'comments/form', commentable: commentable

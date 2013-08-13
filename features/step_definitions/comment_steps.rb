@@ -39,8 +39,7 @@ Then(/^I see I can like his comment$/) do
 end
 
 Then(/^I delete my comment$/) do
-  click_link I18n.t('the_comments.to_deleted')
-  sleep 0.5#=\
+  click_link I18n.t('comment.destroy')
 end
 
 Then(/^I don't see my comment$/) do

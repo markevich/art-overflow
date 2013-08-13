@@ -2,7 +2,7 @@
   = image_tag 'images.jpg'
   .input-comment
     = simple_form_for Comment.new do |f|
-      = f.input :text, placeholder: 'Текст комментария', html: { class: 'comment_text' }
+      = f.input :text, placeholder: I18n.t('comment.text'), html: { class: 'comment_text' }
 
       = f.hidden_field :commentable_type, value: commentable.class
       = f.hidden_field :commentable_id,   value: commentable.id
