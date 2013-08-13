@@ -54,12 +54,7 @@ class PicturesController < ApplicationController
     params.require(:picture).permit(
       :name,
       :path,
-      :tag_list,
-      comments_attributes: [
-        :commentable_id,
-        :commentable_type,
-        :text
-      ]
+      :tag_list
     )
   end
 
