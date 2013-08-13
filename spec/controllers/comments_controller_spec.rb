@@ -2,39 +2,31 @@ require 'spec_helper'
 
 describe CommentsController do
   let(:user) { create(:user) }
-  before { sign_in user }
-  let(:pic) { create(:picture) }
-  let(:comment) { create(:comment) }
+  let(:picture) { create(:picture) }
+
   before do
-    @request.env['HTTP_REFERER'] = picture_path(pic.id)
+    sign_in(user)
+    request.env["HTTP_REFERER"] = pictures_path
   end
 
-  describe "#like" do
-    def like_comment
-      post :like, id: comment.id
-      comment.reload
-    end
+  context '.create' do
+    let(:params) {
+      {comment: {text: 'My comment', commentable_id: picture.id, commentable_type: picture.class.to_s}}
+    }
 
-    it { expect { like_comment }.to change(comment, :votes_for).by(1) }
-    it { expect { like_comment }.to change(comment.activities, :count).by(1) }
-    it { expect { like_comment }.to change(comment, :likes_count).by(1) }
-    it { expect(post :like, id: comment.id).to redirect_to(picture_path(pic.id)) }
+    it { expect { post :create, params }.to change(picture.comments, :count).by(1) }
   end
 
-  describe "#unlike" do
-    before do
-      post :like, id: comment.id
-      comment.reload
-    end
+  context '.like' do
+    let!(:comment) { create(:comment, commentable_type: picture.class.to_s, commentable_id: picture.id) }
 
-    def unlike_comment
-      post :unlike, id: comment.id
-      comment.reload
-    end
+    it { expect { post :like, id: comment.id }.to change(comment, :votes_for).by(1) }
+  end
 
-    it { expect { unlike_comment }.to change(comment, :votes_for).by(-1) }
-    it { expect { unlike_comment }.to change(comment.activities, :count).by(-1) }
-    it { expect { unlike_comment }.to change(comment, :likes_count).by(-1) }
-    it { expect(post :unlike, id: comment.id).to redirect_to(picture_path(pic.id)) }
+  context '.like' do
+    let!(:comment) { create(:comment, commentable_type: picture.class.to_s, commentable_id: picture.id) }
+    before { user.vote_for(comment) }
+
+    it { expect { post :unlike, id: comment.id }.to change(comment, :votes_for).by(-1) }
   end
 end

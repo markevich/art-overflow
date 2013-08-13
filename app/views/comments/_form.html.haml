@@ -1,13 +1,10 @@
 .message-comment.new-comment-form
   = image_tag 'images.jpg'
   .input-comment
-    = form_for Comment.new, remote: true, authenticity_token: true do |f|
-      .error_notifier{ style: 'display: none' }
-      %input{type:'text', class: :comment_text, name: 'comment[raw_content]', placeholder:'Отправить сообщение...'}
-      = hidden_field_tag :tolerance_time, 100, id: nil, class: :tolerance_time
+    = simple_form_for Comment.new do |f|
+      = f.input :text, placeholder: I18n.t('comment.text'), html: { class: 'comment_text' }
 
       = f.hidden_field :commentable_type, value: commentable.class
       = f.hidden_field :commentable_id,   value: commentable.id
-      = f.hidden_field(:parent_id, class: :parent_id, value: parent.id) unless local_assigns[:parent].nil?
       = f.submit I18n.t('comment.create')
   %hr

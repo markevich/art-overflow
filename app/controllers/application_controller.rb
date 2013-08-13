@@ -1,8 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include PublicActivity::StoreController
-  include TheCommentsController::ViewToken
-
   add_flash_types :error, :success
 
   before_filter :set_cookie_current_user
