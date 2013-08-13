@@ -21,7 +21,7 @@ module PictureWorld
   end
 
   def picture_likes_count
-    find('.picture-actions').find('.likes-count').text.to_i
+    find('.picture-actions').find('.picture-likes-count').text.to_i
   end
 
   def like_picture_button
