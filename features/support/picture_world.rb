@@ -34,12 +34,12 @@ module PictureWorld
 
   def like_picture
     like_picture_button.click
-    sleep 0.5
+    like_picture_button #ensures that ajax request is completed
   end
 
   def unlike_picture
     unlike_picture_button.click
-    sleep 0.5
+    unlike_picture_button #ensures that ajax request is completed
   end
 end
 
