@@ -20,12 +20,18 @@ class PicturesController < ApplicationController
   end
 
   def create
-    params = {user: current_user}.merge permitted_params
-    picture = Picture.create params
+    picture_params = permitted_params.merge({ user: current_user })
 
-    picture.tag_list = params["tag_list"].split.join(", ")
-    picture.save
-    redirect_to picture
+    picture_params['tag_list'] = picture_params['tag_list'].split.join(", ")
+
+    picture = Picture.new(picture_params)
+
+    if picture.save()
+      redirect_to picture
+    else
+      #TODO add flashes
+      raise
+    end
   end
 
   def like
@@ -45,7 +51,16 @@ class PicturesController < ApplicationController
   end
 
   def permitted_params
-    params.require(:picture).permit(:name, :path, :tag_list)
+    params.require(:picture).permit(
+      :name,
+      :path,
+      :tag_list,
+      comments_attributes: [
+        :commentable_id,
+        :commentable_type,
+        :text
+      ]
+    )
   end
 
 end
