@@ -9,7 +9,6 @@ describe PicturesController do
   describe "#like" do
     let(:pic) { create(:picture) }
     it { expect { post :like, id: pic.id }.to change(pic, :votes_for).by(1) }
-    it { expect { post :like, id: pic.id }.to change(pic.activities, :count).by(1) }
     it { post :like, id: pic.id; response.body.should eq '1' } # doesn't work with 'expect'
   end  
 
@@ -17,7 +16,6 @@ describe PicturesController do
     let(:pic) { create(:picture) }
     before { post :like, id: pic.id }
     it { expect { post :unlike, id: pic.id }.to change(pic, :votes_for).by(-1) }
-    it { expect { post :unlike, id: pic.id }.to change(pic.activities, :count).by(-1) }
     it { post :unlike, id: pic.id; response.body.should eq '0' } # doesn't work with 'expect'
   end
 

@@ -16,7 +16,7 @@ gem 'haml-rails'
 #
 
 #authentication processing
-gem 'devise', '3.0.0'
+gem 'devise'
 #
 
 #database adapter
@@ -25,10 +25,6 @@ gem 'mysql2'
 
 #administration interface
 gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
-gem 'responders',          github: 'plataformatec/responders'
-gem 'inherited_resources', github: 'josevalim/inherited_resources'
-gem 'ransack',             github: 'ernie/ransack', branch: 'rails-4'
-gem 'formtastic',          github: 'justinfrench/formtastic'
 #
 
 #image uploading and preprocessing
@@ -62,11 +58,6 @@ gem 'thumbs_up'
 
 #tags
 gem 'acts-as-taggable-on'
-#
-
-# comments gems
-gem 'awesome_nested_set', :github => "collectiveidea/awesome_nested_set", :branch => 'rails4'
-gem 'the_comments'
 #
 
 group :development do

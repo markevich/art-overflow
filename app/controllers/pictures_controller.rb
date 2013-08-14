@@ -16,29 +16,33 @@ class PicturesController < ApplicationController
 
   def show
     @picture = Picture.find(params[:id])
-    @comments = @picture.comments.includes([:user, :commentable]).with_state(:published).nested_set
+    @comments = @picture.comments.includes(:user)
     @voted = current_user.voted_on?(@picture)
     @following = current_user.following?(@picture.user)
   end
 
   def create
-    params = {user: current_user}.merge permitted_params
-    picture = Picture.create params
+    picture_params = permitted_params.merge({ user: current_user })
 
-    picture.tag_list = params["tag_list"].split.join(", ")
-    picture.save
-    redirect_to picture
+    picture_params['tag_list'] = picture_params['tag_list'].split.join(", ")
+
+    picture = Picture.new(picture_params)
+
+    if picture.save()
+      redirect_to picture
+    else
+      #TODO add flashes
+      raise
+    end
   end
 
   def like
     current_user.vote_for @picture
-    @picture.create_activity :like
     render text: @picture.votes_count
   end
 
   def unlike
     current_user.unvote_for @picture
-    @picture.activities.find_by(key: 'picture.like', owner: current_user).destroy
     render text: @picture.votes_count
   end
 
@@ -49,7 +53,11 @@ class PicturesController < ApplicationController
   end
 
   def permitted_params
-    params.require(:picture).permit(:name, :path, :tag_list)
+    params.require(:picture).permit(
+      :name,
+      :path,
+      :tag_list
+    )
   end
 
 end

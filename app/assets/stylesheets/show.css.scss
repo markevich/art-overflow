@@ -226,11 +226,11 @@ hr{
   border: 0px solid #e2e4e4;
 }
 
-.message-comment .input-comment input[type=text]{
+.message-comment .input-comment textarea{
   width: 86%;
 }
 
-.input-comment input[type=text]{
+.input-comment textarea {
   width: 80%;
   height: 40px;
   vertical-align: 17px;
@@ -276,7 +276,7 @@ ul.details-picture li.name-user:nth-child(2){
 .no-answer{
   margin-bottom: 20px;
 }
-.message-comment input[type=text]{
+.message-comment textarea{
   margin-bottom: 20px;
 }
 ul.details-picture.main li.like{

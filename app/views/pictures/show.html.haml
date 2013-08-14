@@ -40,7 +40,20 @@
 
 .picture-comments
   .comment-center
-    = render 'comments/tree', commentable: @picture, comments_tree: @comments
+    .comment-left
+      .comment
+        %p.left-count-comment
+          Комментарии (#{@picture.comments_count})
+        %p.last-right
+          Последние
+        %p.popular-right
+          = image_tag 'arrow_bottom.gif'
+          Популярные
+
+      = render 'comments/form', commentable: @picture
+
+      .user-comment
+        = render @comments, commentable: @picture
 
     .other-job-right
       %p.left-count-comment.other-job-title

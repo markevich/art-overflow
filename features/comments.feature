@@ -8,10 +8,8 @@ Feature: Leave comment
     Given I am logged in
     When I visit another user picture page
     And I write comment
-    And I reload page
     Then I see my comment appeared
     When I delete my comment
-    And I reload page
     Then I don't see my comment
 
   Scenario: I like and unlike a comment
