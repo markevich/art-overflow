@@ -12,12 +12,17 @@ $(document).on 'ready page:load', ->
     $('#like_button').toggle()
     $('#unlike_button').toggle()
     $('.buttons_like').attr('data-voted', (idx, oldAttr) -> return !oldAttr )
-    $('.likes-count').html(xhr)  
+    $('.picture-likes-count').html(xhr)
+  .on 'ajax:before', ->
+    $('.picture-likes-count').hide()
+  .on 'ajax:complete', ->
+    $('.picture-likes-count').show()
+
 
   if $('.buttons_like').attr('data-voted')?
     $('#unlike_button').show()
   else
-    $('#like_button').show()  
+    $('#like_button').show()
 
   $('.reply-to-comment').on 'click', ->
     $(this).parents('.message-comment:first').find('.reply-to-comment-container:first').toggle()
