@@ -13,6 +13,7 @@ module FollowingWorld
   def click_follow_button
     click_button I18n.t('follow')
   end
+  
   def click_unfollow_button
     click_button I18n.t('unfollow')
   end
