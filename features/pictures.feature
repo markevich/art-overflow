@@ -24,8 +24,6 @@ Feature: Pictures
     When I visit another user picture page
     Then I see 0 likes on picture
     When I like his picture
-    And I reload page
     Then I see 1 like on picture
     When I unlike his picture
-    And I reload page
     Then I see 0 likes on picture

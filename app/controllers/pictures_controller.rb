@@ -36,12 +36,12 @@ class PicturesController < ApplicationController
 
   def like
     current_user.vote_for @picture
-    render nothing: true
+    render text: @picture.votes_count
   end
 
   def unlike
     current_user.unvote_for @picture
-    render nothing: true
+    render text: @picture.votes_count
   end
 
   private
