@@ -16,3 +16,9 @@ AdminUser.create!(:email => 'admin@example.com', :password => 'password', :passw
 (15 * 5).times do |index|
   Picture.create name: "Test_#{index}", path: File.open(File.join(Rails.root, "/db/images/#{index % 15}.jpg")), user_id: User.first.id
 end
+
+Picture.all.find_each do |picture|
+  5.times do |counter|
+    picture.comments.create(user_id: User.first.id, text: "Example comment #{counter}", commentable_id: picture.id, commentable_type: 'Picture')
+  end
+end

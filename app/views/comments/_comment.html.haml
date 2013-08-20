@@ -20,7 +20,7 @@
       %a
         Ответить
   .like
-    - if current_user.voted_on?(comment)
+    - if current_user.try(:voted_on?, comment)
       = button_to(t('like'), action: 'unlike', controller: 'comments', id: comment.id)
     - else
       = button_to(t('like'), action: 'like', controller: 'comments', id: comment.id)
