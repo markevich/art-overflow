@@ -3,21 +3,19 @@ class UsersController < ApplicationController
   before_filter :authenticate_user!, :check_self_request, only: [:follow, :stop_following]
 
   def show
-    @following = current_user.try(:following?, @user)
+    @following = current_user.following?(@user) if user_signed_in?
   end
 
   def follow
     current_user.follow(@user)
     @user.create_activity :follow
-    flash[:notice] = t('user.start_following', name: @user.nickname)
-    redirect_to action: :show
+    render nothing: :true
   end
 
   def stop_following
     current_user.stop_following(@user)
     @user.create_activity :stop_following
-    flash[:notice] = t('user.stop_following', name: @user.nickname)
-    redirect_to action: :show
+    render nothing: :true
   end
 
   private

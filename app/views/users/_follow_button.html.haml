@@ -1,0 +1,7 @@
+.position-btn-img-and-txt
+  .buttons_following{ data: { following: following }}
+    = button_to(I18n.t('follow'), follow_user_path(user), remote: true, data: { disable_with: I18n.t('unfollow') },
+      class: 'btn-follow', form: { id: 'follow_button', class: 'follow', style: 'display: none'})
+    = button_to(I18n.t('unfollow'), stop_following_user_path(user), remote: true, data: { disable_with: I18n.t('follow') },
+      class: 'btn-follow unfollow', form: { id: 'unfollow_button', class: 'follow', style: 'display: none'})
+    = image_tag 'share.gif', class:"img-follow"
