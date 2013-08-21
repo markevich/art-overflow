@@ -4,7 +4,7 @@ checkUserContent = ->
     checkable.hide() if checkable.data('user-id') == window.current_user.id
 
 $(document).on 'ready page:load', ->
-  checkUserContent
+  checkUserContent()
 
   $('.follow').on "ajax:success", (evt, xhr, settings) ->
     $('#follow_button').toggle()
