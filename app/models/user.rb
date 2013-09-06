@@ -27,7 +27,7 @@ class User < ActiveRecord::Base
   end
 
   def unlike(likeable)
-    likes.find_by(likeable: likeable).destroy if liked?
+    likes.find_by(likeable: likeable).destroy if liked?(likeable)
   end
 
   def become_admin!

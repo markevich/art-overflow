@@ -29,7 +29,7 @@ describe CommentsController do
   context '#unlike' do
     let(:comment) { create(:comment, commentable: picture) }
     before do
-      user.likes.create(likeable: comment)
+      user.like(comment)
       comment.reload
     end
 

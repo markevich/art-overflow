@@ -13,13 +13,13 @@ class CommentsController < ApplicationController
 
   def like
     comment = Comment.find(params[:id])
-    current_user.likes.create(likeable: comment)
+    current_user.like(comment)
     redirect_to :back
   end
 
   def unlike
     comment = Comment.find(params[:id])
-    current_user.likes.find_by!(likeable: comment).destroy
+    current_user.unlike(comment)
     redirect_to :back
   end
 
