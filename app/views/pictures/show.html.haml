@@ -21,14 +21,14 @@
     = image_tag '1.png', class: ''
   .picture-actions
     .position-btn-img-and-txt
-      .buttons{ data: { voted: current_user.try(:voted_on?, @picture)}}
+      .buttons{ data: { voted: current_user.try(:liked?, @picture)}}
         = button_to(I18n.t('like'), { action: 'unlike' }, remote: true, data: { disable_with: I18n.t('like') },
           class: 'btn-like unlike', form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
         = button_to(I18n.t('like'), { action: 'like' }, remote: true, data: { disable_with: I18n.t('like') },
           class: 'btn-like', form: {id: 'like_button', class: 'vote', style: 'display: none'})
         = image_tag 'like-img.gif'
         %span.picture-likes-count
-          = @picture.votes_count
+          = @picture.likes_count
 
     .position-btn-img-and-txt
       %input{type:'submit', class:'btn-follow', value:"Следить за автором"}
