@@ -33,9 +33,6 @@
     = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
 
     .position-btn-img-and-txt
-      %input{type:'submit', class:'btn-follow', value:"Следить за автором"}
-        = image_tag 'share.gif', class:"img-follow"
-    .position-btn-img-and-txt
       %input{type:'submit', class:'btn-share', value:"Поделиться"}
         = image_tag 'follow.gif', class:"img-follow"
     .right-green

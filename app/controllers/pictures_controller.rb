@@ -18,7 +18,7 @@ class PicturesController < ApplicationController
     @picture = Picture.find(params[:id])
     @comments = @picture.comments.includes(:user)
     if user_signed_in?
-      @voted = current_user.voted_on?(@picture)
+      @voted = current_user.liked?(@picture)
       @following = current_user.following?(@picture.user)
       @current_user_id = current_user.id
     end
