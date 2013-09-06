@@ -1,6 +1,5 @@
 class Comment < ActiveRecord::Base
   include PublicActivity::Model
-  acts_as_voteable
 
   belongs_to :user
   belongs_to :commentable, polymorphic: true, counter_cache: true
