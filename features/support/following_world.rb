@@ -11,10 +11,11 @@ module FollowingWorld
   end
 
   def click_follow_button
-    click_button 'Follow'
+    click_button I18n.t('follow')
   end
+  
   def click_unfollow_button
-    click_button 'Unfollow'
+    click_button I18n.t('unfollow')
   end
 end
 

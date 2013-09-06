@@ -21,7 +21,7 @@
     = image_tag '1.png', class: ''
   .picture-actions
     .position-btn-img-and-txt
-      .buttons{ data: { voted: current_user.try(:liked?, @picture)}}
+      .buttons_like{ data: { voted: @voted}}
         = button_to(I18n.t('like'), { action: 'unlike' }, remote: true, data: { disable_with: I18n.t('like') },
           class: 'btn-like unlike', form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
         = button_to(I18n.t('like'), { action: 'like' }, remote: true, data: { disable_with: I18n.t('like') },
@@ -29,6 +29,8 @@
         = image_tag 'like-img.gif'
         %span.picture-likes-count
           = @picture.likes_count
+
+    = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
 
     .position-btn-img-and-txt
       %input{type:'submit', class:'btn-follow', value:"Следить за автором"}

@@ -27,3 +27,14 @@ Feature: Pictures
     Then I see 1 like on picture
     When I unlike his picture
     Then I see 0 likes on picture
+
+  Scenario: I follow and unfollow an author
+    Given Another user
+    Given picture of another user
+    Given I am logged in
+    When I visit another user picture page
+    Then I should see that i am not following that user
+    When I click follow button
+    Then I should see that i am following that user
+    When I click unfollow button
+    Then I should see that i am not following that user
