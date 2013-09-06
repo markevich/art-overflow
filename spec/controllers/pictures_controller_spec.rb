@@ -9,19 +9,19 @@ describe PicturesController do
 
   describe "#like" do
     let(:pic) { create(:picture) }
-    it { expect { post :like, id: pic.id }.to change(pic, :votes_for).by(1) }
-    it 'returns likes count' do
+    it 'changes likes count' do
       post :like, id: pic.id
+      expect(pic.reload.likes_count).to eq 1
       response.body.should eq '1'
     end
   end
 
   describe "#unlike" do
     let(:pic) { create(:picture) }
-    before { post :like, id: pic.id }
-    it { expect { post :unlike, id: pic.id }.to change(pic, :votes_for).by(-1) }
     it 'returns likes count' do
+      user.likes.create(likeable: pic)
       post :unlike, id: pic.id
+      expect(pic.reload.likes_count).to eq 0
       response.body.should eq '0'
     end
   end

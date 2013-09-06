@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130906081938) do
+ActiveRecord::Schema.define(version: 20130906084243) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -104,6 +104,7 @@ ActiveRecord::Schema.define(version: 20130906081938) do
     t.integer "user_id"
     t.integer "gallery_id"
     t.integer "comments_count", default: 0
+    t.integer "likes_count",    default: 0
   end
 
   create_table "rails_admin_histories", force: true do |t|
