@@ -30,7 +30,7 @@ describe PicturesController do
     let(:params) {
       {
         :picture => {
-          :name => "test pic",
+          :name => "test pic", 
           :path => Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/files/avatar.jpg')),
           :tag_list => "tag1 tag2 tag3"
         }
