@@ -18,6 +18,18 @@ class User < ActiveRecord::Base
 
   include PublicActivity::Model
 
+  def liked?(likeable)
+    likes.exists?(likeable: likeable)
+  end
+
+  def like(likeable)
+    likes.create(likeable: likeable) unless liked?(likeable)
+  end
+
+  def unlike(likeable)
+    likes.find_by(likeable: likeable).destroy if liked?
+  end
+
   def become_admin!
     update_attribute(:role, :admin)
   end

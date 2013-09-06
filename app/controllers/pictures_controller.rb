@@ -35,12 +35,12 @@ class PicturesController < ApplicationController
   end
 
   def like
-    current_user.likes.create(likeable: @picture)
+    current_user.like(@picture)
     render text: @picture.reload.likes_count
   end
 
   def unlike
-    current_user.likes.find_by!(likeable: @picture).destroy
+    current_user.unlike(@picture)
     render text: @picture.reload.likes_count
   end
 

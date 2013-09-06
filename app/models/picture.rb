@@ -1,12 +1,12 @@
 class Picture < ActiveRecord::Base
   include PublicActivity::Model
   include Commentable
+  include Likeable
 
   acts_as_taggable
 
-  belongs_to :user, dependent: :destroy
-  belongs_to :gallery, dependent: :destroy
-  has_many :likes, as: :likeable
+  belongs_to :user
+  belongs_to :gallery
 
   validates :name, :path, :user_id, presence: true
 

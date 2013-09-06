@@ -19,7 +19,7 @@ describe PicturesController do
   describe "#unlike" do
     let(:pic) { create(:picture) }
     it 'returns likes count' do
-      user.likes.create(likeable: pic)
+      user.like(pic)
       post :unlike, id: pic.id
       expect(pic.reload.likes_count).to eq 0
       response.body.should eq '0'

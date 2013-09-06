@@ -1,11 +1,11 @@
 require 'spec_helper'
 
 describe Picture do
-  it { should belong_to(:user).dependent(:destroy) }
-  it { should belong_to(:gallery).dependent(:destroy) }
-  it { should have_many(:likes) }
+  it { should belong_to(:user) }
+  it { should belong_to(:gallery) }
 
   it_should_behave_like 'commentable'
+  it_should_behave_like 'likeable'
 
   it { should respond_to(:tags) }
 
