@@ -1,9 +1,9 @@
 class Comment < ActiveRecord::Base
   include PublicActivity::Model
+  include Likeable
 
   belongs_to :user
   belongs_to :commentable, polymorphic: true, counter_cache: true
-  has_many :likes, as: :likeable
 
   validates :commentable_id, :commentable_type, :user_id, :text, presence: true
 
