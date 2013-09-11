@@ -52,10 +52,6 @@ gem 'devise-i18n'
 gem "acts_as_follower", github: 'markevich/acts_as_follower', branch: 'rails4'
 #
 
-#likes
-gem 'thumbs_up'
-#
-
 #tags
 gem 'acts-as-taggable-on'
 #
