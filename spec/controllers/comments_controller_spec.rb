@@ -9,7 +9,7 @@ describe CommentsController do
     request.env["HTTP_REFERER"] = pictures_path
   end
 
-  context '.create' do
+  context '#create' do
     let(:params) {
       {comment: {text: 'My comment', commentable_id: picture.id, commentable_type: picture.class.to_s}}
     }
@@ -17,16 +17,25 @@ describe CommentsController do
     it { expect { post :create, params }.to change(picture.comments, :count).by(1) }
   end
 
-  context '.like' do
-    let!(:comment) { create(:comment, commentable_type: picture.class.to_s, commentable_id: picture.id) }
+  context '#like' do
+    let(:comment) { create(:comment, commentable: picture) }
 
-    it { expect { post :like, id: comment.id }.to change(comment, :votes_for).by(1) }
+    it do
+      post :like, id: comment.id
+      expect(comment.reload.likes_count).to eq 1
+    end
   end
 
-  context '.like' do
-    let!(:comment) { create(:comment, commentable_type: picture.class.to_s, commentable_id: picture.id) }
-    before { user.vote_for(comment) }
+  context '#unlike' do
+    let(:comment) { create(:comment, commentable: picture) }
+    before do
+      user.like(comment)
+      comment.reload
+    end
 
-    it { expect { post :unlike, id: comment.id }.to change(comment, :votes_for).by(-1) }
+    it do
+      post :unlike, id: comment.id
+      expect(comment.reload.likes_count).to eq 0
+    end
   end
 end

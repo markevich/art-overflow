@@ -1,8 +1,8 @@
 class Picture < ActiveRecord::Base
   include PublicActivity::Model
   include Commentable
+  include Likeable
 
-  acts_as_voteable
   acts_as_taggable
 
   belongs_to :user

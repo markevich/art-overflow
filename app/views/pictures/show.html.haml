@@ -28,7 +28,7 @@
           class: 'btn-like', form: {id: 'like_button', class: 'vote', style: 'display: none'})
         = image_tag 'like-img.gif'
         %span.picture-likes-count
-          = @picture.votes_count
+          = @picture.likes_count
 
     = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
 

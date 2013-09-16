@@ -6,5 +6,4 @@ module Commentable
     accepts_nested_attributes_for :comments
     validates_associated :comments
   end
-
 end

@@ -20,7 +20,7 @@
       %a
         Ответить
   .like
-    - if current_user.try(:voted_on?, comment)
+    - if current_user.try(:liked?, comment)
       = button_to(t('like'), action: 'unlike', controller: 'comments', id: comment.id)
     - else
       = button_to(t('like'), action: 'like', controller: 'comments', id: comment.id)
@@ -28,7 +28,7 @@
     %a.link-like
       Мне нравится
       %p.count-right.likes_count
-        = comment.votes_for
+        = comment.likes_count
       =image_tag 'heart_inactive.png'
 
   = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }

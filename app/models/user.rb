@@ -7,16 +7,28 @@ class User < ActiveRecord::Base
 
   validates :first_name, :last_name, :nickname, :email, presence: true
 
-  has_many :pictures
-  has_many :comments
+  has_many :pictures, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
 
   ROLES = %w[admin moderator]
 
   acts_as_follower
   acts_as_followable
-  acts_as_voter
 
   include PublicActivity::Model
+
+  def liked?(likeable)
+    likes.exists?(likeable: likeable)
+  end
+
+  def like(likeable)
+    likes.create(likeable: likeable) unless liked?(likeable)
+  end
+
+  def unlike(likeable)
+    likes.find_by(likeable: likeable).destroy if liked?(likeable)
+  end
 
   def become_admin!
     update_attribute(:role, :admin)
