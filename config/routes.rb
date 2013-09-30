@@ -34,5 +34,9 @@ ArtOverflow::Application.routes.draw do
   end
 
   resources :ping, only: :index
+
+  resource :foundations, only: [] do
+    get :elements
+  end
   root to: 'subscribers#index'
 end

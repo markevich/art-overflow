@@ -1,6 +1,7 @@
 class PicturesController < ApplicationController
   PAGE_SIZE = 15
   before_filter :set_model, only: [:show, :like, :unlike]
+  # before_filter :authenticate!, only: [:like, :unlike]
 
   def index
     @page = (params[:page] || 1).to_i

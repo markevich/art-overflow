@@ -12,9 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require jquery.viewport
 //= require jquery.parsequery.min.js
 //= require cookie.min.js
 //= require jbar.js
 //= require turbolinks
 //= require_tree .
+
+$(function(){ $(document).foundation(); });

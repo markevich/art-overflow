@@ -1,39 +1,33 @@
 .move
-  %footer
-    .test
-    .footer-content
-      .text-art
-        %h1
-          ARTOVERFLOW
-        %p
-          ArtOverflow является платформой, позволяющей художнику любого уровня выставлять,
-          продвигать и делиться своими работами среди сообщества, посвященному искусcтву.
-        %a{href:'#' }
-          = image_tag('twitterFooter.png')
-          Читай наш твиттер
-      %ul.link-info
+  .row
+    %footer.large-4.columns.small-4
+      %h1
+        ARTOVERFLOW
+      %p
+        ArtOverflow является платформой, позволяющей художнику любого уровня выставлять,
+        продвигать и делиться своими работами среди сообщества, посвященному искусcтву.
+      %p.bold
+        = image_tag("twitterFooter.png")
+        Читай наш твиттер
+    .large-2.columns.nav-footer.large-offset-1.small-2
+      %ul.large-block-grid-1.small-block-grid-1
         %li.active
-          %a{href:'#' }
-            О проекте
+          = link_to "О проекте", activities_path
         %li
-          %a{href:'#'}
-            Команда
+          = link_to "Комманда", "#"
         %li
-          %a{href:'#'}
-            Цели
+          = link_to "Цели", "#"
         %li
-          %a{href:'#'}
-            Спонсоры
+          = link_to "Спонсоры", "#"
         %li
-          %a{href:'#'}
-            Политика
-      .news
-        %a{href:'#'}
-          = image_tag('news.gif')
-          Ads via The Deck BBEdit 10. A hundred new things. $50. Really.
-    .copyright
-      Copyright © 2009–2013 Artoverflow LLC. All screenshots © their respective owners. Shipped from Salem, Mass. USA.
-
-
-
-
+          = link_to "Политика", "#"
+    .large-4.columns.large-offset-1.ads.small-4
+      %a{href: "#"}
+        = image_tag("news.gif")
+        %p
+          Ads via The Deck
+          BBEdit 10. A hundred new things. $50. Really.
+  .row
+    .large-12.columns.copyright
+      %p
+        Copyright © 2009–2013 Artoverflow LLC. All screenshots © their respective owners. Shipped from Salem, Mass. USA.
