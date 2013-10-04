@@ -97,11 +97,14 @@ ul{
     padding-top: .7em;
     padding-bottom: 0.7em;
     margin-bottom: -.7em;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
     margin-right: 0.6em;
     background-color: $coloDarkBlue;
+    -webkit-border-top-left-radius: 6px;
+    -webkit-border-bottom-left-radius: 6px;
+    -moz-border-radius-topleft: 6px;
+    -moz-border-radius-bottomleft: 6px;
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
     img{
       vertical-align: -1px;
     }
