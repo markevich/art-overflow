@@ -64,24 +64,40 @@
         width: 13px;
         cursor: pointer;
       }
-      div.heart_inactive{
-        background-image: url(image-path('heart_inactive.png'));
+      div.heart_normal{
+        background-image: url(image-path('heart_normal.png'));
         display: inline-block;
         background-repeat: no-repeat;
         width: 15px;
         height: 12px;
         cursor: pointer;
+        &.active{
+          background-image: url(image-path('heart_active.png'));
+        }
         &:hover{
           background-image: url(image-path('heart_hover.png'));
         }
       }
 
+      div.share_normal{
+        background-image: url(image-path('microphone_normal.png'));
+        display: inline-block;
+        background-repeat: no-repeat;
+        width: 8px;
+        height: 13px;
+        cursor: pointer;
+        &.active{
+          background-image: url(image-path('microphone_active.png'));
+        }
+        &:hover{
+          background-image: url(image-path('microphone_hover.png'));
+        }
+      }
+
+
       span{
         font-weight: normal;
-        color: #bfbfbf;
-      }
-      span.shafe{
-         margin-right: 5px;
+        color: #a6a6a6;
       }
     }
   }

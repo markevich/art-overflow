@@ -13,9 +13,15 @@
         %a{href:'#' }
           Slava Markevich
       .picture-actions
-        = image_tag('share_inactive.png')
-        %span.shafe
+        - if rand(2) == 0
+          %div.heart_normal.active
+        - else
+          %div.heart_normal
+        %span
           3
-        %div.heart_inactive
+        - if rand(2) == 0
+          %div.share_normal.active
+        - else
+          %div.share_normal
         %span
           3
