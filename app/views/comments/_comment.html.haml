@@ -20,10 +20,7 @@
       %a
         Ответить
   .like
-    - if current_user.try(:liked?, comment)
-      = button_to(t('like'), action: 'unlike', controller: 'comments', id: comment.id)
-    - else
-      = button_to(t('like'), action: 'like', controller: 'comments', id: comment.id)
+    = render 'comments/like_button', comment: comment
 
     %a.link-like
       Мне нравится

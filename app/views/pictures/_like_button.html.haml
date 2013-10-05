@@ -1,0 +1,12 @@
+- if user_signed_in?
+  = button_to(I18n.t('like'), { action: 'unlike' }, remote: true, data: { disable_with: I18n.t('like') },
+    class: 'btn-like unlike', form: { id: 'unlike_button', class: 'vote', style: 'display: none'})
+  = button_to(I18n.t('like'), { action: 'like' }, remote: true, data: { disable_with: I18n.t('like') },
+    class: 'btn-like', form: {id: 'like_button', class: 'vote', style: 'display: none'})
+- else
+  = button_to(I18n.t('like'), new_user_session_path, class: 'btn-like')
+
+= image_tag 'like-img.gif'
+%span.picture-likes-count
+  = @picture.likes_count
+
