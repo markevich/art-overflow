@@ -13,7 +13,7 @@ module CommentWorld
   end
 
   def like_comment
-    within '.picture-comments' do
+    within '.comments' do
       click_button like_comment_button
     end
   end
@@ -23,7 +23,7 @@ module CommentWorld
   end
 
   def likes_for_comment_count
-    within '.picture-comments' do
+    within '.comments' do
       count = find('.likes_count')
       count.text.to_i
     end

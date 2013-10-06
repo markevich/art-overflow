@@ -1,10 +1,10 @@
 .message-comment.new-comment-form
-  = image_tag 'images.jpg'
+  = image_tag 'images.jpg', class:"border-radius-circle"
   .input-comment
     = simple_form_for Comment.new do |f|
-      = f.input :text, placeholder: I18n.t('comment.text'), html: { class: 'comment_text' }
+      = f.input :text, placeholder: I18n.t('comment.text'), label: false
 
       = f.hidden_field :commentable_type, value: commentable.class
       = f.hidden_field :commentable_id,   value: commentable.id
-      = f.submit I18n.t('comment.create')
+      = f.submit I18n.t('comment.create'), class:"btn-blue"
   %hr

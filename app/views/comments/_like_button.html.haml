@@ -1,0 +1,7 @@
+- if user_signed_in?
+  - if current_user.liked?(comment)
+    = button_to(t('like'), action: 'unlike', controller: 'comments', id: comment.id)
+  - else
+    = button_to(t('like'), action: 'like', controller: 'comments', id: comment.id)
+- else
+  = button_to(t('like'), new_user_session_path)

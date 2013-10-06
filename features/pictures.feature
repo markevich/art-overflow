@@ -28,6 +28,19 @@ Feature: Pictures
     When I unlike his picture
     Then I see 0 likes on picture
 
+  Scenario: I like picture when unauthorized
+    Given Another user
+    Given picture of another user
+    Given I am registered user
+    When I visit another user picture page
+    Then I see 0 likes on picture
+    When I like his picture
+    Then I should be on authorization page
+    When I fill in my login and password
+    Then I should be on another user picture page
+    When I like his picture
+    Then I see 1 like on picture
+
   Scenario: I follow and unfollow an author
     Given Another user
     Given picture of another user

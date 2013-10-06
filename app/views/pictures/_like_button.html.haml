@@ -1,0 +1,21 @@
+- if user_signed_in?
+  .btn-red#unlike_button{style: 'display: none;'}
+    = button_to(I18n.t('like'), { action: 'unlike' }, remote: true, data: { disable_with: I18n.t('like') },
+      class: 'btn-like unlike', form: {class: 'vote'})
+    = image_tag 'like-img.gif'
+    %span.picture-likes-count
+      = @picture.likes_count
+
+  .btn-blue#like_button{style: 'display: none;'}
+    = button_to(I18n.t('like'), { action: 'like' }, remote: true, data: { disable_with: I18n.t('like') },
+      class: 'btn-like', form: {class: 'vote'})
+    = image_tag 'like-img.gif'
+    %span.picture-likes-count
+      = @picture.likes_count
+
+- else
+  .btn-blue
+    = button_to(I18n.t('like'), new_user_session_path, class: 'btn-like')
+    = image_tag 'like-img.gif'
+    %span.picture-likes-count
+      = @picture.likes_count

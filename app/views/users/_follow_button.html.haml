@@ -1,4 +1,4 @@
-.position-btn-img-and-txt
+.btn-blue
   .buttons_following{ data: { following: following }}
     = button_to(I18n.t('follow'), follow_user_path(user), remote: true, data: { disable_with: I18n.t('unfollow') },
       class: 'btn-follow', form: { id: 'follow_button', class: 'follow', style: 'display: none'})

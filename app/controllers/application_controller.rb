@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
   add_flash_types :error, :success
 
   before_filter :set_cookie_current_user
+  before_filter :configure_permitted_parameters, if: :devise_controller?
+  after_filter :store_location
 
   if Rails.env.test?
     rescue_from Exception do |e|
@@ -13,12 +15,23 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def store_location
+    if request.fullpath != "/users/sign_in" && \
+        request.fullpath != "/users/sign_up" && \
+        !request.xhr?
+      session[:previous_url] = request.fullpath
+    end
+  end
+
+  def after_sign_in_path_for(resource)
+    session[:previous_url] || pictures_path
+  end
+
   protected
   def render_404
     render file: "#{Rails.root}/public/404.html", status: :not_found , layout: false
   end
 
-  before_filter :configure_permitted_parameters, if: :devise_controller?
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :nickname, :email, :password, :password_confirmation) }
   end
@@ -26,7 +39,6 @@ class ApplicationController < ActionController::Base
   def permitted_params
     @permitted_params ||= PermittedParams.new(params, current_user)
   end
-  helper_method :permitted_params
 
   private
   def set_cookie_current_user
