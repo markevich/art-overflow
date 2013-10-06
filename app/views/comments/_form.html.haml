@@ -1,5 +1,5 @@
 .message-comment.new-comment-form
-  = image_tag 'images.jpg',class:"border-radius-circle"
+  = image_tag 'images.jpg', class:"border-radius-circle"
   .input-comment
     = simple_form_for Comment.new do |f|
       = f.input :text, placeholder: I18n.t('comment.text'), label: false
