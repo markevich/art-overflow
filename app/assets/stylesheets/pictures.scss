@@ -111,7 +111,7 @@
     display: none;
   }
 }
-#button_load_more{
+#button_load_more {
   background-color: #b5d6d9;
   display: inline-block;
   text-decoration: none;
@@ -127,7 +127,9 @@
   height: 27px;
   padding-top: 13px;
   margin: 20px 0;
-  width: 100%;
+  padding-bottom: 2em;
+  width: 92%;
+  margin-left: 0.6em;
 }
 .pager{
   clear: both;
