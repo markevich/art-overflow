@@ -3,18 +3,14 @@
   src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/
 }
 $font:Gothic;
-$bgGreen:#27ae60;
-$bgBlue: #70b2b8;
+$colorGreen:#27ae60;
 $colorBlue: #70b2b8;
 $colorRed: #e74c3c;
 $colorDarkRed: #bf4032;
 $coloDarkBlue:#5f979d;
 
-.btn-blue{
-
-}
 .btn-green{
-  background-color: $bgGreen;
+  background-color: $colorGreen;
   padding: .5em;
   color: #ffffff;
   -webkit-border-radius: 6px;
@@ -35,7 +31,7 @@ $coloDarkBlue:#5f979d;
 }
 
 .btn-blue{
-  background-color: $bgBlue;
+  background-color: $colorBlue;
   display: inline-block;
   padding: .5em;
   color: #ffffff;
@@ -54,18 +50,44 @@ $coloDarkBlue:#5f979d;
     margin-right: 0.1em;
   }
 }
+
+.btn-red{
+  background-color: $colorRed;
+  display: inline-block;
+  padding: .5em;
+  color: #ffffff;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  opacity: .8;
+  &:hover{
+    background-color: $colorDarkRed;
+    opacity: 1;
+    color: #ffffff;
+  }
+  span{
+    float: right;
+    margin-top: -1.16em;
+    margin-left: 0.5em;
+    margin-right: 0.1em;
+  }
+}
+
 a{
 
   margin-left: 1em;
   margin-right: 1em;
 }
+
 body{
   margin-top: 20%;
   margin-left: 45%;
 }
+
 h1,h2,h3,h4,h5,h6{
   font-family: $font;
 }
+
 ul{
   li{
     a{
@@ -76,15 +98,15 @@ ul{
     }
   }
 }
+
 .btn-blue-double{
-  background-color: #70b2b8;
+  background-color: $colorBlue;
   display: inline-block;
   padding: .7em;
   color: #ffffff;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  opacity: .8;
   padding-left: 0px;
   font-size: 14px;
   font-weight: bold;

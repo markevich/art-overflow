@@ -48,7 +48,10 @@ h1,h2,h3,h4,h5{
   .picture-actions{
     margin-top: 1em;
     margin-bottom: 1em;
-    .btn-blue{
+    .button-toggler{
+      display: inline-block;
+    }
+    .btn-blue, .btn-red{
       margin-right: 0.5em;
       position: relative;
       img{
@@ -64,7 +67,7 @@ h1,h2,h3,h4,h5{
           top: 0.65em;
         }
       }
-      .btn-like,.btn-follow, input[value = "Поделиться"]{
+      .btn-like, .btn-follow, input[value = "Поделиться"]{
         background-color: transparent;
         border: 0;
         font-size: 0.9em;
