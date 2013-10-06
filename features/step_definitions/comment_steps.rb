@@ -6,6 +6,10 @@ When(/^I visit another user picture page$/) do
   visit picture_path(picture)
 end
 
+Then(/^I should be on another user picture page$/) do
+  expect(current_path).to eq picture_path(picture)
+end
+
 Then(/^I write comment$/) do
   write_comment()
 end

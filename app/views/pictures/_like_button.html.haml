@@ -15,7 +15,7 @@
 
 - else
   .btn-blue
-  = button_to(I18n.t('like'), new_user_session_path, class: 'btn-like')
-  = image_tag 'like-img.gif'
-  %span.picture-likes-count
-    = @picture.likes_count
+    = button_to(I18n.t('like'), new_user_session_path, class: 'btn-like')
+    = image_tag 'like-img.gif'
+    %span.picture-likes-count
+      = @picture.likes_count

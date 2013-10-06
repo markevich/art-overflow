@@ -50,3 +50,7 @@ Then(/^I should see that my account is confirmed$/) do
   User.find_by_email(user_email).should be_confirmed
   expect(page).to have_content I18n.t('devise.confirmations.confirmed')
 end
+
+Then(/^I should be on authorization page$/) do
+  expect(current_path).to eq new_user_session_path
+end

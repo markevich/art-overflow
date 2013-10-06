@@ -22,6 +22,18 @@ Feature: Leave comment
     When I unlike his comment
     Then I see I can like his comment
 
+  Scenario: I like comment when unauthorized
+    Given I am registered user
+    Given Another user write comment
+    When I visit another user picture page
+    Then I see his comment
+    When I like his comment
+    Then I should be on authorization page
+    When I fill in my login and password
+    Then I should be on another user picture page
+    When I like his comment
+    Then I see that I liked his comment
+
   Scenario: Likes count
     Given Another user write comment
     Given 2 users like another user comment
