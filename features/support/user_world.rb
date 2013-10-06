@@ -7,9 +7,10 @@ module UserWorld
   def create_many_users(count)
     @users = create_list(:user, count)
   end
+
   def create_user
     expect(@current_user).to be_nil
-    create(:user)
+    create(:user, email: user_email, password: user_password, password_confirmation: user_password)
   end
 
   def another_user
@@ -38,6 +39,10 @@ module UserWorld
     visit new_user_registration_path
   end
 
+  def visit_authentication_page
+    visit new_user_session_path
+  end
+
   def fill_registration_form
     fill_in('user_first_name', with: 'Bruce')
     fill_in('user_last_name', with: 'Wayne')
@@ -45,6 +50,11 @@ module UserWorld
     fill_in('user_email', with: user_email)
     fill_in('user_password', with: user_password)
     fill_in('user_password_confirmation', with: user_password)
+  end
+
+  def fill_authorization_form
+    fill_in('E-mail', with: user_email)
+    fill_in('Пароль', with: user_password)
   end
 
   def user_email

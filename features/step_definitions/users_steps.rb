@@ -6,12 +6,29 @@ Given(/^Another user$/) do
   create_another_user
 end
 
+Given(/^I am registered user$/) do
+  create_user
+end
+
 Given(/^I am unregistered user$/) do
   check_unregistered_user
 end
 
 When(/^I visit registration page$/) do
   visit_registration_page
+end
+
+When(/^I visit authentication page$/) do
+  visit_authentication_page
+end
+
+When(/^I fill in my login and password$/) do
+  fill_authorization_form
+  click_button('Sign in')
+end
+
+Then(/^I should see that I am authorized$/) do
+  expect(page).to have_content(I18n.t('devise.sessions.signed_in'))
 end
 
 When(/^I submit registration form$/) do

@@ -26,7 +26,7 @@
       Мне нравится
       %p.count-right.likes_count
         = comment.likes_count
-      =image_tag 'heart_inactive.png'
+      =image_tag 'heart_normal.png'
 
   = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }
   %hr
