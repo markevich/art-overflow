@@ -1,73 +1,71 @@
-.user-content
-  .user
-    .user-photo
-      = image_tag 'images.jpg'
-      %h3.picture-title
-        Nice drawing
-        .data-user
-          %ul.details-picture
-            %li.name-user
-              Slava Markevich
-            %li
-              %span
-                *
-              1 час назад
-            %li
-              %span
-                *
-              \#мост
-
-  .picture-show
-    = image_tag '1.png', class: ''
-  .picture-actions
-    .position-btn-img-and-txt
-      .buttons_like{ data: { voted: @voted}}
+.row.user-content
+  .large-12.columns.user
+    = image_tag 'images.jpg', class: "border-radius-circle"
+    %h1
+      Nice drawing
+    %p.blue
+      Slava Markevich
+      %span.grey
+        %span.star
+          *
+        1 час назад
+      %span.grey
+        %span.star
+          *
+        \#мост
+  .row.picture-show
+    .large-12.columns
+      = image_tag '1.png', class: ''
+  .picture-actions.row
+    .large-12.columns.small-4
+      .btn-blue{ data: { voted: @voted}}
         = render 'pictures/like_button'
-    = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
-
-    .position-btn-img-and-txt
-      %input{type:'submit', class:'btn-share', value:"Поделиться"}
-        = image_tag 'follow.gif', class:"img-follow"
-    .right-green
-      %input{type:'submit', class:'btn-green', value: "Купить $"}
-
-.picture-comments
-  .comment-center
-    .comment-left
-      .comment
-        %p.left-count-comment
-          Комментарии (#{@picture.comments_count})
-        %p.last-right
-          Последние
-        %p.popular-right
-          = image_tag 'arrow_bottom.gif'
-          Популярные
-
+      = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
+      .btn-blue.share
+        %input{type:'submit', class:'', value:"Поделиться"}
+          = image_tag 'follow.gif', class:"img-follow"
+      .btn-green
+        %input{type:'submit', class:'btn-g-input', value: "Купить $"}
+.bg-comments
+  .row.comments
+    .large-7.columns
+      .row
+        .large-12.columns.title
+          %h1
+            Комментарии (#{@picture.comments_count})
+          %p
+            Последние
+          %p.blue
+            = image_tag 'arrow_bottom.gif'
+            Популярные
       = render 'comments/form', commentable: @picture
-
       .user-comment
         = render @comments, commentable: @picture
-
-    .other-job-right
-      %p.left-count-comment.other-job-title
+    .other-job-right.large-5.columns
+      %h1
         Другие работы
-      %p.user-name-other-job
+      %p.blue
         Коли
-      .img-other-job
-        %a
-          =image_tag 'other-job.gif'
-        %a
-          =image_tag 'other-job.gif'
-        %a
-          =image_tag 'other-job.gif'
-        %a
-          =image_tag 'other-job.gif'
-        %a
-          =image_tag 'other-job.gif'
+      %ul.img-other-job.large-block-grid-3.small-block-grid-1
+        %li
+          %a
+            =image_tag 'other-job.gif'
+        %li
+          %a
+            =image_tag 'other-job.gif'
+        %li
+          %a
+            =image_tag 'other-job.gif'
+        %li
+          %a
+            =image_tag 'other-job.gif'
+        %li
+          %a
+            =image_tag 'other-job.gif'
       .information
-        %p.left-count-comment.other-job-title
+        %h1
           Ads via The Deck
-        %p.news-comment
+        %p
           = image_tag 'th.gif'
           %p.txt-news-comment
             New Field Notes Brand limited-release for summer,

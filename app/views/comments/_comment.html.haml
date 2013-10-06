@@ -1,34 +1,32 @@
-.message-comment
-  = image_tag 'images.jpg'
-  %ul.details-picture.main
-    %li.name-user
-      = comment.user.nickname
-    %li
+.row
+  .message-comment.large-12.columns
+    = image_tag 'images.jpg', class: "border-radius-circle"
+    .row-comment
+      %h1
+        = comment.user.nickname
       %span
-        *
-      1 час назад
+        %span.star
+          *
+        1 час назад
 
-    -# TODO: handle parent of comment by js
-    -# %li.name-user
-    -#   %span.arrow-answer
-    -#     = image_tag 'arrow_ansmer.gif'
-    -#   = comment.parent.user.email if comment.child?
+        -# TODO: handle parent of comment by js
+        -# %li.name-user
+        -#   %span.arrow-answer
+        -#     = image_tag 'arrow_ansmer.gif'
+        -#   = comment.parent.user.email if comment.child?
 
-    .txt-comment
-      = comment.text
-    .reply-to-comment
-      %a
-        Ответить
-  .like
-    = render 'comments/like_button', comment: comment
+        .txt-comment
+          = comment.text
+        .reply-to-comment
+          %a
+            Ответить
+        .like
+          = render 'comments/like_button', comment: comment
+          =image_tag 'heart_normal.png'
+          %p.count-right.likes_count
+            = comment.likes_count
 
-    %a.link-like
-      Мне нравится
-      %p.count-right.likes_count
-        = comment.likes_count
-      =image_tag 'heart_normal.png'
-
-  = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }
-  %hr
-  .reply-to-comment-container
-    = render 'comments/form', commentable: commentable
+        = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }
+      %hr
+      .reply-to-comment-container
+        = render 'comments/form', commentable: commentable
