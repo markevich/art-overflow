@@ -7,8 +7,8 @@ $(document).on 'ready page:load', ->
     img = $(@)
     img.css('opacity', 1)
     img.prev().hide();
-    
-  $('.vote').on "ajax:success", (evt, xhr, settings) ->
+
+  $('.remote-link').on "ajax:success", (evt, xhr, settings) ->
     $('#like_button').toggle()
     $('#unlike_button').toggle()
     $('.js-button-watch').attr('data-voted', (idx, oldAttr) -> return !oldAttr )
