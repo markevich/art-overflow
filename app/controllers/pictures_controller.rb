@@ -41,13 +41,19 @@ class PicturesController < ApplicationController
   end
 
   def like
-    current_user.like(@picture)
-    render text: @picture.reload.likes_count
+    if current_user.like(@picture)
+      render json: { count: @picture.reload.likes_count, state: :active }
+    else
+      render json: { count: @picture.reload.likes_count, message: 'fail', state: :inactive}
+    end
   end
 
   def unlike
-    current_user.unlike(@picture)
-    render text: @picture.reload.likes_count
+    if current_user.unlike(@picture)
+      render json: { count: @picture.reload.likes_count, state: :inactive }
+    else
+      render json: { count: @picture.reload.likes_count, message: 'fail', state: :active}
+    end
   end
 
   private

@@ -23,11 +23,15 @@ class User < ActiveRecord::Base
   end
 
   def like(likeable)
-    likes.create(likeable: likeable) unless liked?(likeable)
+    return false if liked?(likeable)
+
+    likes.create(likeable: likeable)
   end
 
   def unlike(likeable)
-    likes.find_by(likeable: likeable).destroy if liked?(likeable)
+    return false unless liked?(likeable)
+
+    likes.find_by(likeable: likeable).destroy
   end
 
   def become_admin!
