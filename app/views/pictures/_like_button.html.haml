@@ -17,8 +17,8 @@
         = @picture.likes_count
 
   - else
-    .btn.btn-blue
-      = link_to(I18n.t('like'), new_user_session_path, class: 'btn-like')
+    %a.btn.btn-blue{ href: new_user_session_path }
+      = I18n.t('like')
       = image_tag 'like-img.gif'
       %span.active-count
         = @picture.likes_count
