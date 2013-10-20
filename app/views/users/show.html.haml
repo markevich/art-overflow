@@ -26,10 +26,28 @@
           =image_tag("vkGr.png")
     = render 'users/follow_button', following: @following, user: @user
   .large-5.columns
-    .row
-      .large-4.columns
-      .large-4.columns
-      .large-4.columns
+    .user-counters
+      .likes
+        .top
+        .bottom
+        .count
+          100
+        %span.blue
+          Симпатий
+      .followers
+        .top
+        .bottom
+        .count
+          100
+        %span.blue
+          Подписчика
+      .follows
+        .top
+        .bottom
+        .count
+          100
+        %span.blue
+          Подписок
 .profil-menu
   .row
     .large-12
@@ -53,5 +71,7 @@
         %li
           %a
             Тэги
+    
   //.picture-actions
   //  = render partial: 'follow_button', locals: {user: @user, following: @following}
+= render 'pictures/list', page: 0, pictures: @user.pictures.limit(15)

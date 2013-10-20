@@ -1,14 +1,1 @@
-#pictures{ data: {                            |
-    infinity_scrollable: true,                |
-    id: 'main_gallery',                       |
-    current_page: @page,                      |
-    fetch_path: pictures_path }               |
-  }                                           |
-
-  .pager{data: {page: @page}}
-  = render @pictures
-  - if @pictures.count == PicturesController::PAGE_SIZE
-    - #Если число картинок кратно PAGE_SIZE, то кнопка "загрузить еще" ничего не сделает :(
-    %a#button_load_more{href: '#', data: { scroller_trigger: true }}
-      = I18n.t('pictures.show_more')
-    .preloader{data: { scroller_preloader: true }}
+= render 'list', page: @page, pictures: @pictures
