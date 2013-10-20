@@ -26,10 +26,13 @@ $(document).on 'ready page:load', ->
   .on 'ajax:complete', '.remote-link', ->
     $('.active-count').show()
 
-  if $('.js-button-watch').attr('data-voted')?
-    $('.deactivate-button', @).show()
-  else
-    $('.activate-button', @).show()
+  if $('.js-button-watch').length
+    $.each $('.js-button-watch'), (_, element) ->
+      element = $(element)
+      if element.attr('data-voted')?
+        element.find('.deactivate-button').show()
+      else
+        element.find('.activate-button').show()
 
   $('.reply-to-comment').on 'click', ->
     $(this).parents('.message-comment:first').find('.reply-to-comment-container:first').toggle()
