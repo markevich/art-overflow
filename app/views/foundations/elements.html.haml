@@ -2,16 +2,14 @@
 %html(lang="ru")
   %head
     = stylesheet_link_tag "foundation_and_overrides", :media => "all", "data-turbolinks-track" => true
-    .container
-      .btn.btn-blue
-        %a Мне нравится
-        = image_tag('share.gif')
-        %span 5
-    .container
-      .btn.btn-red
-        %a Мне не нравится
-        = image_tag('share.gif')
-        %span 5
+    %a.btn.btn-blue
+      Мне нравится
+      = image_tag('share.gif')
+      %span 5
+    %a.btn.btn-red
+      Мне не нравится
+      = image_tag('share.gif')
+      %span 5
 
     %h1
       slava

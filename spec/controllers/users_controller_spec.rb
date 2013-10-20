@@ -20,12 +20,9 @@ describe UsersController do
   describe "#follow" do
     context 'authorized' do
       it { expect{ follow_user }.to change(user, :follow_count).by(1) }
-      it { expect{ follow_user }.to change(another_user, :followers_count).by(1) }
       it { expect(follow_user).to be_success }
-      it { expect{ follow_user }.to change(another_user.activities, :count).by(1) }
 
       it { expect { follow_self }.to_not change(user, :follow_count).by(1) }
-      it { expect(follow_self).to redirect_to(action: :show) }
     end
 
     context 'unauthorized' do
@@ -51,10 +48,9 @@ describe UsersController do
       it { expect{ stop_following_user }.to change(user, :follow_count).by(-1) }
       it { expect{ stop_following_user }.to change(another_user, :followers_count).by(-1) }
       it { expect(stop_following_user).to be_success }
-      it { expect{ stop_following_user }.to change(another_user.activities, :count).by(1) }
 
       it { expect { stop_following_self }.to_not change(user, :follow_count).by(-1) }
-      it { expect(stop_following_self).to redirect_to(action: :show) }
+      it { expect{stop_following_self}.to change(response, :body).to eq({state: :inactive}.to_json) }
     end
 
     context 'unauthorized' do

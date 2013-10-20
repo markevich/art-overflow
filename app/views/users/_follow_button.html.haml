@@ -1,7 +1,17 @@
-.btn.btn-blue
-  .buttons_following{ data: { following: following }}
-    = button_to(I18n.t('follow'), follow_user_path(user), remote: true, data: { disable_with: I18n.t('unfollow') },
-      class: 'btn-follow', form: { id: 'follow_button', class: 'follow', style: 'display: none'})
-    = button_to(I18n.t('unfollow'), stop_following_user_path(user), remote: true, data: { disable_with: I18n.t('follow') },
-      class: 'btn-follow unfollow', form: { id: 'unfollow_button', class: 'follow', style: 'display: none'})
-    = image_tag 'share.gif', class:"img-follow"
+.js-button-watch.button-toggler.follow-button{ data: { voted: following}}
+  - if user_signed_in?
+    %a.btn.btn-red.remote-link.deactivate-button{ href: stop_following_user_path(user),
+      data: { method: :post, remote: :true, disable_with: I18n.t('follow')},
+      style: 'display: none'}
+      = I18n.t('follow')
+
+    %a.btn.btn-blue.remote-link.activate-button{ href: follow_user_path(user),
+      data: { method: :post, remote: :true, disable_with: I18n.t('follow')},
+      style: 'display: none'}
+      = I18n.t('follow')
+
+  - else
+    %a.btn.btn-blue{ href: new_user_session_path}
+      = I18n.t('follow')
+      %span.active-count
+        = @picture.likes_count

@@ -15,16 +15,11 @@ $(document).on 'ready page:load', ->
     else
       watcher.find('.deactivate-button').show()
       watcher.find('.activate-button').hide()
-    watcher.find('.active-count').html(xhr.count)
+    watcher.find('.active-count').html(xhr.count) if xhr.count
 
   $('.js-button-watch').on "ajax:success", '.remote-link', (evt, xhr, settings) ->
     watcher = $($(@).closest('.js-button-watch'))
     toggle_watched_buttons(xhr, watcher)
-
-  .on 'ajax:before', '.remote-link', ->
-    $('.active-count').hide()
-  .on 'ajax:complete', '.remote-link', ->
-    $('.active-count').show()
 
   if $('.js-button-watch').length
     $.each $('.js-button-watch'), (_, element) ->
