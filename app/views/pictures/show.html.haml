@@ -20,10 +20,10 @@
     .large-12.columns.small-4
       = render 'pictures/like_button', voted: @voted
       = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
-      .btn-blue.share
+      .btn.btn-blue.share
         %input{type:'submit', class:'', value:"Поделиться"}
           = image_tag 'follow.gif', class:"img-follow"
-      .btn-green
+      .btn.btn-green
         %input{type:'submit', class:'btn-g-input', value: "Купить $"}
 .bg-comments
   .row.comments

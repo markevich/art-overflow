@@ -1,13 +1,13 @@
 .js-button-watch.button-toggler.like-button{ data: { voted: voted}}
   - if user_signed_in?
-    .btn-red.deactivate-button{style: 'display: none;'}
+    .btn.btn-red.deactivate-button{style: 'display: none;'}
       = link_to(I18n.t('like'), unlike_picture_path, class: 'remote-link', method: :post, remote: true,
         data: { disable_with: I18n.t('like') })
       = image_tag 'like-img.gif'
       %span.active-count
         = @picture.likes_count
 
-    .btn-blue.activate-button{style: 'display: none;'}
+    .btn.btn-blue.activate-button{style: 'display: none;'}
       = link_to(I18n.t('like'), like_picture_path, method: :post, class: 'remote-link', remote: true,
         data: { disable_with: I18n.t('like') })
       = image_tag 'like-img.gif'
@@ -15,7 +15,7 @@
         = @picture.likes_count
 
   - else
-    .btn-blue
+    .btn.btn-blue
       = link_to(I18n.t('like'), new_user_session_path, class: 'btn-like')
       = image_tag 'like-img.gif'
       %span.active-count

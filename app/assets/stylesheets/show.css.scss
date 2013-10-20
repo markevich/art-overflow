@@ -52,47 +52,6 @@ h1,h2,h3,h4,h5{
     .button-toggler{
       display: inline-block;
     }
-    .btn-blue, .btn-red{
-      margin-right: 0.5em;
-      position: relative;
-      img{
-        position: absolute;
-        right: 1.3em;
-        top: 0.6em;
-      }
-      .buttons_following{
-        margin-right: 1.2em;
-        img{
-          position: absolute;
-          right: 0.6em;
-          top: 0.65em;
-        }
-      }
-      span {
-        float: right;
-        margin-top: -1em;
-        margin-left: 7.7em;
-      }
-    }
-    .share{
-      padding-right: 1.6em;
-      img{
-        position: absolute;
-        right: 0.6em;
-        top: 0.65em;
-      }
-    }
-    .btn-green{
-      float: right;
-      .btn-g-input{
-        background-color: transparent;
-        border: 0;
-        font-size: 0.9em;
-        font-family: Arial;
-        color: white;
-        font-weight: bold;
-      }
-    }
   }
 }
 .bg-comments{
