@@ -18,14 +18,11 @@
       = image_tag '1.png', class: ''
   .picture-actions.row
     .large-12.columns.small-4
-      .js-button-watch.button-toggler{ data: { voted: @voted}}
-        = render 'pictures/like_button'
+      = render 'pictures/like_button', voted: @voted
       = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
-      .btn-blue.share
-        %input{type:'submit', class:'', value:"Поделиться"}
-          = image_tag 'follow.gif', class:"img-follow"
-      .btn-green
-        %input{type:'submit', class:'btn-g-input', value: "Купить $"}
+      %a.btn.btn-blue
+        Поделиться
+        = image_tag 'follow.gif', class:"img-follow"
 .bg-comments
   .row.comments
     .large-7.columns
@@ -71,5 +68,3 @@
             New Field Notes Brand limited-release for summer,
           %a.link-news-comment
             The Night Sky Edition.
-    %a#button_load_more.show_comment_all{href: '#', data: { scroller_trigger: true }}
-      = I18n.t('pictures.show_more')

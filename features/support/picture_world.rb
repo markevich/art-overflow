@@ -21,11 +21,11 @@ module PictureWorld
   end
 
   def picture_likes_count
-    find('.picture-actions').find('.picture-likes-count').text.to_i
+    find('.like-button').find('.active-count').text.to_i
   end
 
   def like_picture_button
-    find(:button, I18n.t('like'))
+    find(:link, I18n.t('like'))
   end
 
   def unlike_picture_button

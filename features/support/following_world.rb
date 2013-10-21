@@ -10,12 +10,12 @@ module FollowingWorld
     expect(current_user).to_not be_following another_user
   end
 
-  def click_follow_button
-    click_button I18n.t('follow')
+  def follow_button(user)
+    find_link I18n.t('follow'), href: follow_user_path(user)
   end
-  
-  def click_unfollow_button
-    click_button I18n.t('unfollow')
+
+  def unfollow_button(user)
+    find_link I18n.t('follow'), href: stop_following_user_path(user)
   end
 end
 

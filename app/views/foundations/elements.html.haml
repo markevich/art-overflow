@@ -2,16 +2,38 @@
 %html(lang="ru")
   %head
     = stylesheet_link_tag "foundation_and_overrides", :media => "all", "data-turbolinks-track" => true
-    %a.btn-blue
-      sdfdsfewr
-      %span
-        = image_tag("share.gif")
-    %a.btn-green
-      sdfdsfewr
-    %a.btn-blue
-      sdfdsfewrsdfsdfsdf
-      %span
-        = image_tag("follow.gif")
+    %a.btn.btn-blue
+      Мне нравится
+      = image_tag('share.gif')
+      %span 5
+    %a.btn.btn-red
+      Мне не нравится
+      = image_tag('share.gif')
+      %span 5
+
+    .user-counters
+      .likes
+        .top
+        .bottom
+        .count
+          100
+        %span.blue
+          Симпатий
+      .followers
+        .top
+        .bottom
+        .count
+          100
+        %span.blue
+          Подписчика
+      .follows
+        .top
+        .bottom
+        .count
+          100
+        %span.blue
+          Подписок
+
     %h1
       slava
     %h2

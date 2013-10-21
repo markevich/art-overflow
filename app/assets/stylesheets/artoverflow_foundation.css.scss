@@ -8,75 +8,40 @@ $colorBlue: #70b2b8;
 $colorRed: #e74c3c;
 $colorDarkRed: #bf4032;
 $coloDarkBlue:#5f979d;
+$colorBgDarkBlue: #26394d;
 
-.btn-green{
-  background-color: $colorGreen;
-  padding: .5em;
+.btn{
+  // background-color: $colorBlue;
   color: #ffffff;
+  display: inline-block;
+  padding: .5em;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
-  display: inline-block;
   border-radius: 6px;
   opacity: .8;
   &:hover{
     opacity: 1;
     color: #ffffff;
   }
-  span{
-    float: right;
-    margin-top: -1.1em;
-    margin-left: 0.5em;
-    margin-right: 0.1em;
+  img{
+    vertical-align: -1px;
+    margin-left: 0.2em;
+  }
+  span {
+    margin-top: -1em;
   }
 }
 
 .btn-blue{
   background-color: $colorBlue;
-  display: inline-block;
-  padding: .5em;
-  color: #ffffff;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  opacity: .8;
-  &:hover{
-    opacity: 1;
-    color: #ffffff;
-  }
-  span{
-    float: right;
-    margin-top: -1.16em;
-    margin-left: 0.5em;
-    margin-right: 0.1em;
-  }
 }
 
 .btn-red{
   background-color: $colorRed;
-  display: inline-block;
-  padding: .5em;
-  color: #ffffff;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
-  opacity: .8;
   &:hover{
     background-color: $colorDarkRed;
     opacity: 1;
-    color: #ffffff;
   }
-  span{
-    float: right;
-    margin-top: -1.16em;
-    margin-left: 0.5em;
-    margin-right: 0.1em;
-  }
-}
-
-a{
-
-  margin-left: 1em;
-  margin-right: 1em;
 }
 
 body{
@@ -137,5 +102,42 @@ ul{
     span{
       background-color: $colorDarkRed;
     }
+  }
+}
+.user-counters{
+  display: inline-block;
+  width: auto;
+  .top, .bottom{
+    background-color: $colorBgDarkBlue;
+    height: 31px;
+    width: 100%;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+  }
+
+  .top{
+    margin-bottom: 2px;
+  }
+  .bottom{
+  }
+
+  .count{
+    position: relative;
+    color: white;
+    font-size: 2.9em;
+    margin-top: -1.2em;
+    text-align: center;
+    padding: 0 0.2em;
+  }
+  .blue{
+    display: block;
+    margin-top: 1em;
+    text-align: center;
+  }
+
+  .likes, .followers, .follows{
+    float: left;
+    margin-left: 1em;
   }
 }

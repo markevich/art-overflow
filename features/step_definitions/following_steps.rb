@@ -7,23 +7,23 @@ When(/^I visit another user page$/) do
 end
 
 When(/^I click follow button$/) do
-  click_follow_button
+  follow_button(another_user).click
 end
 
 Then(/^I should see that i am following that user$/) do
-  page.find(".buttons_following").should have_button(I18n.t('unfollow'))
+  expect(unfollow_button(another_user)).to_not be_nil
 end
 
 Given(/^I follow another user$/) do
-  follow(another_user)
+  follow_button(another_user).click
 end
 
 When(/^I click unfollow button$/) do
-  click_unfollow_button
+  unfollow_button(another_user).click
 end
 
 Then(/^I should see that i am not following that user$/) do
-  page.find(".buttons_following").should have_button(I18n.t('follow'))
+  expect(follow_button(another_user)).to_not be_nil
 end
 
 Given(/^(\d+) users like another user comment/) do |count|

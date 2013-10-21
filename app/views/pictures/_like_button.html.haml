@@ -1,21 +1,24 @@
-- if user_signed_in?
-  .btn-red#unlike_button{style: 'display: none;'}
-    = button_to(I18n.t('like'), { action: 'unlike' }, remote: true, data: { disable_with: I18n.t('like') },
-      class: 'btn-like unlike', form: {class: 'vote'})
-    = image_tag 'like-img.gif'
-    %span.picture-likes-count
-      = @picture.likes_count
+.js-button-watch.button-toggler.like-button{ data: { voted: voted}}
+  - if user_signed_in?
+    %a.btn.btn-red.remote-link.deactivate-button{ href: unlike_picture_path,
+      data: { method: :post, remote: :true, disable_with: I18n.t('like')},
+      style: 'display: none'}
+      = I18n.t('like')
+      = image_tag 'like-img.gif'
+      %span.active-count
+        = @picture.likes_count
 
-  .btn-blue#like_button{style: 'display: none;'}
-    = button_to(I18n.t('like'), { action: 'like' }, remote: true, data: { disable_with: I18n.t('like') },
-      class: 'btn-like', form: {class: 'vote'})
-    = image_tag 'like-img.gif'
-    %span.picture-likes-count
-      = @picture.likes_count
+    %a.btn.btn-blue.remote-link.activate-button{ href: like_picture_path,
+      data: { method: :post, remote: :true, disable_with: I18n.t('like')},
+      style: 'display: none'}
+      = I18n.t('like')
+      = image_tag 'like-img.gif'
+      %span.active-count
+        = @picture.likes_count
 
-- else
-  .btn-blue
-    = button_to(I18n.t('like'), new_user_session_path, class: 'btn-like')
-    = image_tag 'like-img.gif'
-    %span.picture-likes-count
-      = @picture.likes_count
+  - else
+    %a.btn.btn-blue{ href: new_user_session_path }
+      = I18n.t('like')
+      = image_tag 'like-img.gif'
+      %span.active-count
+        = @picture.likes_count

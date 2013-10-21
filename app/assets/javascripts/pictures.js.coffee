@@ -7,22 +7,27 @@ $(document).on 'ready page:load', ->
     img = $(@)
     img.css('opacity', 1)
     img.prev().hide();
-    
-  $('.vote').on "ajax:success", (evt, xhr, settings) ->
-    $('#like_button').toggle()
-    $('#unlike_button').toggle()
-    $('.js-button-watch').attr('data-voted', (idx, oldAttr) -> return !oldAttr )
-    $('.picture-likes-count').html(xhr)
-  .on 'ajax:before', ->
-    $('.picture-likes-count').hide()
-  .on 'ajax:complete', ->
-    $('.picture-likes-count').show()
 
-  #XXX it works only for 1 button. We have 3 on show page.
-  if $('.js-button-watch').attr('data-voted')?
-    $('#unlike_button').show()
-  else
-    $('#like_button').show()
+  toggle_watched_buttons = (xhr, watcher) ->
+    if xhr.state == 'inactive'
+      watcher.find('.activate-button').show()
+      watcher.find('.deactivate-button').hide()
+    else
+      watcher.find('.deactivate-button').show()
+      watcher.find('.activate-button').hide()
+    watcher.find('.active-count').html(xhr.count) if xhr.count
+
+  $('.js-button-watch').on "ajax:success", '.remote-link', (evt, xhr, settings) ->
+    watcher = $($(@).closest('.js-button-watch'))
+    toggle_watched_buttons(xhr, watcher)
+
+  if $('.js-button-watch').length
+    $.each $('.js-button-watch'), (_, element) ->
+      element = $(element)
+      if element.attr('data-voted')?
+        element.find('.deactivate-button').show()
+      else
+        element.find('.activate-button').show()
 
   $('.reply-to-comment').on 'click', ->
     $(this).parents('.message-comment:first').find('.reply-to-comment-container:first').toggle()

@@ -8,14 +8,12 @@ class UsersController < ApplicationController
 
   def follow
     current_user.follow(@user)
-    @user.create_activity :follow
-    render nothing: :true
+    render json: { state: :active }
   end
 
   def stop_following
     current_user.stop_following(@user)
-    @user.create_activity :stop_following
-    render nothing: :true
+    render json: { state: :inactive}
   end
 
   private
@@ -25,7 +23,7 @@ class UsersController < ApplicationController
   end
 
   def check_self_request
-    redirect_to action: :show if current_user == @user
+    render json: { state: :inactive } if current_user == @user
   end
 
 end

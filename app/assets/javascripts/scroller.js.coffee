@@ -99,7 +99,7 @@ class Scroller
     @loadingFinished()
     $(document).on "scroll.#{@id}", =>
       return if @loadingNow()
-      if $(window).scrollTop() >= ($(document).height() - $(window).height()) - 250
+      if $(window).scrollTop() >= ($(document).height() - $(window).height()) - 450
         @loadingStarted()
         @addNewPage =>
           @loadingFinished()
