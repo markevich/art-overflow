@@ -21,5 +21,18 @@
         Загрузить
       #search
         %input{type: "text", placeholder: "Поиск"}
-      %span.ava
-        = image_tag 'images.jpg'
+      - if user_signed_in?
+        %span.ava
+          = image_tag 'images.jpg'
+        .user-menu
+          = image_tag 'triangle.png'
+          %ul.large-block-grid-1
+            %li
+              = link_to t('user.profile'), user_path(current_user)
+            %li
+              = link_to t('user.settings'), edit_user_registration_path
+            %li
+              = link_to t('user.logout'), destroy_user_session_path, method: :delete
+      - else
+        = link_to t('user.sign_in'), new_user_session_path
+      

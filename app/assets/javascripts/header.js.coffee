@@ -9,25 +9,8 @@ $(document).on 'ready page:load', ->
   .children().on 'blur', ->
     $(@).removeClass('active') unless !!$(@).val()
 
-#:javascript
-#  $(document).on('ready', function(){
-#    $('#upload-button').on('mouseover', function(){
-#    $(this).children().addClass('hovered');
-#  })
-#  .on('mouseleave', function(){
-#    $(this).children().removeClass('hovered');
-#    })
-#  })
-#
-#
-#  $(document).on('ready', function(){
-#    $('#quest').on('click', function(){
-#      $(this).children().addClass('active');
-#    })
-#  $('#quest').children().on('blur', function(){
-#    if($(this).val().length == 0){
-#      $(this).removeClass('active');
-#    }
-#    });
-#
-#  })
+  $(document).on 'mouseenter', '.user-menu', ->
+    $('.ava img').addClass('user-menu-hover')
+
+  $(document).on 'mouseleave', '.user-menu ', ->
+    $('.ava img').removeClass('user-menu-hover')
