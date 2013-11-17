@@ -4,12 +4,13 @@
     =image_tag("download.jpeg")
   .large-5.columns
     %h3
-      Евстратенко Константин
+      = @user.name
     %sup
       %span.grey
-        wiNnie
-      %span.red
-        PRO
+        = @user.nickname
+      - if @user.premium?
+        %span.red
+          PRO
     .social
       %a
         %span.blue
@@ -31,21 +32,21 @@
         .top
         .bottom
         .count
-          100
+          = @user.picture_likes.count
         %span.blue
           Симпатий
       .followers
         .top
         .bottom
         .count
-          100
+          = @user.followers_count
         %span.blue
           Подписчика
       .follows
         .top
         .bottom
         .count
-          100
+          = @user.follows.count
         %span.blue
           Подписок
 .profil-menu

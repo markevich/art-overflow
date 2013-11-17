@@ -43,22 +43,11 @@
         Другие работы
       %p.blue
         = link_to(@picture.user.nickname, url_for(@picture.user))
-      %ul.img-other-job.large-block-grid-3.small-block-grid-1
-        %li
-          %a
-            = image_tag 'other-job.gif'
-        %li
-          %a
-            = image_tag 'other-job.gif'
-        %li
-          %a
-            = image_tag 'other-job.gif'
-        %li
-          %a
-            = image_tag 'other-job.gif'
-        %li
-          %a
-            = image_tag 'other-job.gif'
+        %ul.img-other-job.large-block-grid-3.small-block-grid-1
+          - most_popular_pictures(@picture.user).each do |pic|
+            %li
+              %a{href: picture_path(pic)}
+                = image_tag pic.path
       .information
         %h1
           Ads via The Deck

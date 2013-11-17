@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
   has_many :pictures, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
+  has_many :picture_likes, through: :pictures, source: :likes
   delegate :latest, to: :pictures, prefix: true
 
   ROLES = %w[admin moderator]
@@ -40,6 +41,10 @@ class User < ActiveRecord::Base
 
   def admin?
     role && role.to_sym == :admin
+  end
+
+  def premium?
+    true
   end
 
   protected
