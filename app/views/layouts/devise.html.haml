@@ -2,8 +2,6 @@
 %html(lang="en")
   %head
     %meta(charset="utf-8")
-    %meta(http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1")
-    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
     %meta(name="yandex-verification" content = '508d6b3cca6cb610')
     %title= content_for?(:title) ? yield(:title) : "ArtOverflow"
     = analytics_init if Rails.env.production?
@@ -12,29 +10,10 @@
     /[if lt IE 9]
       = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
-    %link(href="images/apple-touch-icon-144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144")
-    %link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114")
-    %link(href="images/apple-touch-icon-72x72.png" rel="apple-touch-icon-precomposed" sizes="72x72")
-    %link(href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed")
-    %link(href="favicon.ico" rel="shortcut icon")
-
-
-  %body
-    .container
-      .row
-        .header
-          %h1 ART OVERFLOW
-          %ul.nav.nav-pills.buttonHeader
-            %li.active
-              %a{href: '#'} Блог
-            %li
-              %a{href: '#'} Войти
-        .content
-          = bootstrap_flash
-          = yield
-      %footer
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster
     = javascript_include_tag "application", "data-turbolinks-track" => true
+  %body.bg-dark-blue
+    .container
+      .content
+        = bootstrap_flash
+        = yield
+      %footer

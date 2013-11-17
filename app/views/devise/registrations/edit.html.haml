@@ -1,0 +1,36 @@
+.row
+  .large-12.columns
+    %h2.edit_profil
+      Настройки профиля
+.profil-menu
+  .row
+    .large-12
+      %ul.small-block-grid-6
+        %li
+          %a
+            Личные данные
+          =image_tag("arrowblue.png")
+        %li
+          %a
+            Пароль
+        %li
+          %a
+            Уведомления
+        %li
+          %a
+            Приватность
+        %li
+          %a
+            Продажа
+        %li
+          %a
+            Тэги
+.row
+  .large-6
+    = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+      = f.input :name
+      = f.input :nickname
+      = f.input :email
+      = f.input :city
+      = f.input :vk
+      = f.submit "Сохранить", class: 'btn btn-green'

@@ -2,9 +2,9 @@
   .large-12.columns.user
     = image_tag 'images.jpg', class: "border-radius-circle"
     %h1
-      Nice drawing
+      = @picture.name
     %p.blue
-      Slava Markevich
+      = link_to @picture.user.nickname, url_for(@picture.user)
       %span.grey
         %span.star
           *
@@ -42,23 +42,23 @@
       %h1
         Другие работы
       %p.blue
-        Коли
+        = link_to(@picture.user.nickname, url_for(@picture.user))
       %ul.img-other-job.large-block-grid-3.small-block-grid-1
         %li
           %a
-            =image_tag 'other-job.gif'
+            = image_tag 'other-job.gif'
         %li
           %a
-            =image_tag 'other-job.gif'
+            = image_tag 'other-job.gif'
         %li
           %a
-            =image_tag 'other-job.gif'
+            = image_tag 'other-job.gif'
         %li
           %a
-            =image_tag 'other-job.gif'
+            = image_tag 'other-job.gif'
         %li
           %a
-            =image_tag 'other-job.gif'
+            = image_tag 'other-job.gif'
       .information
         %h1
           Ads via The Deck

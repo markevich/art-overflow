@@ -44,17 +44,15 @@ module UserWorld
   end
 
   def fill_registration_form
-    fill_in('user_first_name', with: 'Bruce')
-    fill_in('user_last_name', with: 'Wayne')
+    fill_in('user_name', with: 'Bruce Wayne')
     fill_in('user_nickname', with: 'Batman')
     fill_in('user_email', with: user_email)
     fill_in('user_password', with: user_password)
-    fill_in('user_password_confirmation', with: user_password)
   end
 
   def fill_authorization_form
-    fill_in('E-mail', with: user_email)
-    fill_in('Пароль', with: user_password)
+    fill_in('user_email', with: user_email)
+    fill_in('user_password', with: user_password)
   end
 
   def user_email

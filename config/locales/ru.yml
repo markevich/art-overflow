@@ -16,6 +16,9 @@ ru:
   user:
     start_following: "Вы успешно подписались на обновления %{name}."
     stop_following: "Вы успешно отписались от обновлений %{name}."
+    sign_in: 'Войти'
+    forgot_password: 'Забыл пароль'
+    registration: 'Регистрация'
 
   pictures:
     show_more: 'Загрузить остальные'

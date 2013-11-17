@@ -1,0 +1,15 @@
+.registration
+  .row
+    .large-offset-1.large-5.columns.account
+      %h1
+        Создай бесплатно свой Artoverflow профиль
+      %p.grey
+        Заполни поля и приступи к использованию сайта, у которого нет определенной цели.
+    .large-5.columns
+      = simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
+        = f.input :name, label: false, placeholder: 'Имя и фамилия'
+        = f.input :email, label: false, placeholder: 'Email'
+        = f.input :password, label: false, placeholder: 'Пароль'
+        = f.input :nickname, label: false, placeholder: 'Имя пользователя'
+        = f.submit t(:submit), class: 'btn btn-blue'
+    .large-1.columns

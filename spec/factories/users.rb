@@ -8,10 +8,10 @@ FactoryGirl.define do
   end
 
   factory :user do
-    first_name "Bruce"
-    last_name "Wayne"
     nickname "Batman"
+    name "Bruce Wayne"
     email
+    city 'Minsk'
     password "1234567"
     password_confirmation "1234567"
     confirmed_at Time.now

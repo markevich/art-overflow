@@ -24,7 +24,7 @@ end
 
 When(/^I fill in my login and password$/) do
   fill_authorization_form
-  click_button('Sign in')
+  click_button(I18n.t('user.sign_in'))
 end
 
 Then(/^I should see that I am authorized$/) do
@@ -33,7 +33,7 @@ end
 
 When(/^I submit registration form$/) do
   fill_registration_form
-  click_button('Sign up')
+  click_button(I18n.t(:submit))
 end
 
 Then(/^I should see that confirmation email sended$/) do
