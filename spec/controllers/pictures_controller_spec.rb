@@ -48,4 +48,11 @@ describe PicturesController do
     it { assigns(:picture).should_not be_nil }
     it { response.should be_success }
   end
+
+  describe "#latest" do
+    let(:pic) { create(:picture) }
+    before { get :latest, user_id: pic.user.id }
+
+    it { response.should be_success }
+  end
 end

@@ -12,3 +12,9 @@ Feature: User Registration
     When I visit authentication page
     And I fill in my login and password
     Then I should see that I am authorized
+
+  Scenario: See latest pictures of another user
+    Given I am logged in
+    Given Another user
+    When I visit another user page
+    Then I visit latest user pictures page
