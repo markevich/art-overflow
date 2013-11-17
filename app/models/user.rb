@@ -1,11 +1,10 @@
 class User < ActiveRecord::Base
-  # Include default devise modules. Others available are:
-  # :token_authenticatable, :confirmable,
-  # :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :confirmable
 
-  validates :first_name, :last_name, :nickname, :email, presence: true
+  before_create :set_password_confirmation
+
+  validates :name, :nickname, :email, :password, presence: true
 
   has_many :pictures, dependent: :destroy
   has_many :comments, dependent: :destroy
@@ -40,5 +39,10 @@ class User < ActiveRecord::Base
 
   def admin?
     role && role.to_sym == :admin
+  end
+
+  protected
+  def set_password_confirmation
+    self.password_confirmation = self.password
   end
 end

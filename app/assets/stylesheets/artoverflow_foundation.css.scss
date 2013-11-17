@@ -3,11 +3,11 @@
   src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/
 }
 $font:Gothic;
-$colorGreen:#27ae60;
+$colorGreen: #27ae60;
 $colorBlue: #70b2b8;
 $colorRed: #e74c3c;
 $colorDarkRed: #bf4032;
-$coloDarkBlue:#5f979d;
+$colorDarkBlue:#5f979d;
 $colorBgDarkBlue: #26394d;
 
 .btn{
@@ -18,9 +18,7 @@ $colorBgDarkBlue: #26394d;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
-  opacity: .8;
   &:hover{
-    opacity: 1;
     color: #ffffff;
   }
   img{
@@ -34,6 +32,13 @@ $colorBgDarkBlue: #26394d;
 
 .btn-blue{
   background-color: $colorBlue;
+  &:hover{
+    background-color: $colorDarkBlue;
+  }
+}
+
+.btn-green{
+  background-color: $colorGreen;
 }
 
 .btn-red{
@@ -85,7 +90,7 @@ ul{
     padding-bottom: 0.7em;
     margin-bottom: -.7em;
     margin-right: 0.6em;
-    background-color: $coloDarkBlue;
+    background-color: $colorDarkBlue;
     -webkit-border-top-left-radius: 6px;
     -webkit-border-bottom-left-radius: 6px;
     -moz-border-radius-topleft: 6px;

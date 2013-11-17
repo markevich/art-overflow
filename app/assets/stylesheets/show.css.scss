@@ -275,7 +275,7 @@ h1,h2,h3,h4,h5{
 .profil-menu{
   background-color: $bgBlueMenu;
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1em;
   ul{
     margin-left: 0.5em;
     position: relative;
@@ -294,5 +294,102 @@ h1,h2,h3,h4,h5{
         color: #ffffff;
       }
     }
+  }
+}
+
+//edit usser
+.edit_profil{
+  margin-top: 1em;
+}
+
+.bg-dark-blue{
+  background-color: #26394d;
+  .grey{
+    color:#a9b1b8;
+    font-family: Arial;
+    font-size: 12px;
+  }
+  a{
+    text-decoration: underline;
+  }
+  .account{
+    margin-top: 1.5em;
+    h1{
+      margin-bottom: 0.5em;
+      color: white;
+      font-family: Verdana;
+      font-size: 30px;
+      font-weight: normal;
+    }
+  }
+}
+
+.simple_form {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  label{
+    margin-right: 1em;
+    font-family: Arial;
+    color: black;
+    font-size: 16px;
+    margin-bottom: 0.4em;
+    display: inline-block;
+    margin-left: 0.3em;
+  }
+  input{
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    margin-bottom: 0.2em;
+  }
+  .field_with_error input{
+    border: 3px solid $colorDarkRed;
+  }
+  .error{
+    background: none;
+    color: #FF7364;
+    margin-top: 0;
+  }
+  span{
+    color: #a9b1b8;
+    font-size: 12px;
+    margin-top: 5px;
+  }
+}
+.registration, .authorization{
+  .simple_form{
+    .input{
+      margin-bottom: 1em;
+    }
+    input[type=text], input[type=password], input[type=email]{
+      height: 38px;
+    }
+    input[type=submit]{
+      box-shadow: none;
+      border: 0;
+      padding: 8px;
+      cursor: pointer;
+    }
+  }
+}
+.authorization{
+  .account{
+    h1{
+      font-family: Gothic;
+      font-size: 3em;
+      margin-top: 30px;
+      margin-bottom: 0;
+    }
+  }
+  form{
+    margin: 0;
+  }
+  a.forgot-password{
+    float: right;
+    margin-top: 0.5em;
+  }
+  .join-us{
+    margin-left: 3em;
+    margin-top: 4em;
   }
 }
