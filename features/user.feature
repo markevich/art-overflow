@@ -16,5 +16,7 @@ Feature: User Registration
   Scenario: See latest pictures of another user
     Given I am logged in
     Given Another user
+    Given picture of another user
     When I visit another user page
     Then I visit latest user pictures page
+    Then I see pictures on page

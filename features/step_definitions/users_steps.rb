@@ -60,3 +60,7 @@ Then(/^I visit latest user pictures page$/) do
     click_link(I18n.t('pictures.latest'))
   end
 end
+
+Then(/^I see pictures on page$/) do
+  expect(page).to have_content "Slava Markevich"
+end
