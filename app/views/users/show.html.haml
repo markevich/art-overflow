@@ -54,8 +54,8 @@
     .large-12
       %ul.small-block-grid-6
         %li
-          %a
-            Новые
+          %a{href: latest_user_pictures_path(@user)}
+            = I18n.t('pictures.latest')
           =image_tag("arrowblue.png")
         %li
           %a
@@ -75,4 +75,4 @@
     
   //.picture-actions
   //  = render partial: 'follow_button', locals: {user: @user, following: @following}
-= render 'pictures/list', page: 0, pictures: @user.pictures.limit(15)
+= render 'pictures/list', page: 0, pictures: @pictures

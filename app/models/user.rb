@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :picture_likes, through: :pictures, source: :likes
+  delegate :latest, to: :pictures, prefix: true
 
   ROLES = %w[admin moderator]
 
