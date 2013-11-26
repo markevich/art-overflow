@@ -56,6 +56,12 @@ class PicturesController < ApplicationController
     end
   end
 
+  def latest
+    @user = User.find(params[:user_id])
+    @pictures = @user.pictures_latest
+    render 'users/show'
+  end
+
   private
 
   def set_model

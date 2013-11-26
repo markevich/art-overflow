@@ -54,3 +54,13 @@ end
 Then(/^I should be on authorization page$/) do
   expect(current_path).to eq new_user_session_path
 end
+
+Then(/^I visit latest user pictures page$/) do
+  within('.profil-menu') do
+    click_link(I18n.t('pictures.latest'))
+  end
+end
+
+Then(/^I see pictures on page$/) do
+  expect(page).to have_content "Slava Markevich"
+end

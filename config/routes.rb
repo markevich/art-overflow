@@ -4,9 +4,13 @@ ArtOverflow::Application.routes.draw do
 
   devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations' }
   resources :users do
-   member do
+    member do
       post :follow
       post :stop_following
+    end
+
+    resources :pictures do
+      get :latest, on: :collection
     end
   end
   resources :comments do

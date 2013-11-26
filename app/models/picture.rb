@@ -11,4 +11,6 @@ class Picture < ActiveRecord::Base
   validates :name, :path, :user_id, presence: true
 
   mount_uploader :path, PictureUploader
+
+  scope :latest, -> { order(:created_at).limit(15).reverse_order }
 end
