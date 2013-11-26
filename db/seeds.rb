@@ -6,12 +6,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
   # Mayor.create(name: 'Emanuel', city: cities.first)
-user = User.new(email: 'example@example.com', role: :user, first_name: 'bruce', last_name: 'wayne', nickname: 'batman', password: 'password', password_confirmation: 'password')
+user = User.new(email: 'example@example.com', role: :user, name: 'bruce', nickname: 'batman', password: 'password', password_confirmation: 'password')
 user.skip_confirmation!
 user.save!
-
-AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
-
 
 (15 * 5).times do |index|
   Picture.create name: "Test_#{index}", path: File.open(File.join(Rails.root, "/db/images/#{index % 15}.jpg")), user_id: User.first.id
