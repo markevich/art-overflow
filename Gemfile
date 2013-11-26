@@ -28,10 +28,6 @@ gem "compass-rails", "~> 2.0.alpha.0"
 gem 'zurb-foundation'
 #
 
-#administration interface
-gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
-#
-
 #image uploading and preprocessing
 gem 'carrierwave'
 gem 'carrierwave-imageoptimizer'

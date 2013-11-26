@@ -21,6 +21,5 @@ module ArtOverflow
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.precompile += %w(*jbar.js *jbar.css subscribe.css)
-    config.assets.precompile += ['rails_admin/rails_admin.css', 'rails_admin/rails_admin.js']
   end
 end
