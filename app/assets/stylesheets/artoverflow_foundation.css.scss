@@ -9,15 +9,22 @@ $colorRed: #e74c3c;
 $colorDarkRed: #bf4032;
 $colorDarkBlue:#5f979d;
 $colorBgDarkBlue: #26394d;
-
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+} 
+@mixin transition($arg){
+  -webkit-transition: $arg;
+  -moz-transition: $arg;
+  -o-transition: $arg;
+  transition: $arg;
+}
 .btn{
-  // background-color: $colorBlue;
+  @include border-radius(6px);
   color: #ffffff;
   display: inline-block;
   padding: .5em;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
   &:hover{
     color: #ffffff;
   }
@@ -74,14 +81,14 @@ ul{
   display: inline-block;
   padding: .7em;
   color: #ffffff;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  @include border-radius(6px);
+  @include transition(all 0.3s ease-in-out);
   padding-left: 0px;
   font-size: 14px;
   font-weight: bold;
   font-family: Arial;
   span {
+    @include transition(all 0.3s ease-in-out);
     float: left;
     margin-top: -.7em;
     padding-left: .5em;

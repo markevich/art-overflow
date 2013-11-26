@@ -1,19 +1,26 @@
 .authorization
   .row
-    .large-centered.large-4.columns.account
+    .large-6.columns.text-right
+      =image_tag("login.png")
+    .large-6.columns
       %h1
         ARTOVERFLOW
+      .row
+        .large-8.columns
+          = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+            = f.input :email, label: false, placeholder: 'Email'
+            = f.input :password, label: false, placeholder: 'Пароль'
+            .action
+              = f.submit t('user.sign_in'), class: 'btn btn-blue' 
+              = link_to t('user.forgot_password'), '#', class: 'grey forgot-password'   
+      .row
+        .large-8.columns
+          .join-us.grey
+          %hr
+          .join-us.grey
+            Еще не с нами?
+            = link_to t('user.registration'), new_user_registration_path, class: 'grey'
 
-  .row
-    .large-centered.large-4.columns
-      = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-        = f.input :email, label: false, placeholder: 'Email'
-        = f.input :password, label: false, placeholder: 'Пароль'
-        = link_to t('user.forgot_password'), '#', class: 'grey forgot-password'
-        = f.submit t('user.sign_in'), class: 'btn btn-blue'
-  .row
-    .large-centered.large-4.columns
-      .join-us.grey
-        Еще не с нами?
-        = link_to t('user.registration'), new_user_registration_path, class: 'grey'
+
+
 

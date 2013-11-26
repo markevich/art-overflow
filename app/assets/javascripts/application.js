@@ -21,3 +21,30 @@
 //= require_tree .
 
 $(function(){ $(document).foundation(); });
+$(document).on('ready page:load',function(){
+	$('.close-reveal-modal').on('click', function(){
+		$('.reveal-modal-bg').removeClass('reveal-modal-bg');
+		$('.reveal-modal').css("display","none");
+	});
+
+	$('.sign-in').on('click',function(){
+		if($('.login-user').hasClass('top')){
+			$('.login-user').removeClass('top');
+		}
+		else{
+			$('.login-user').addClass('top');
+		} 	
+	});
+
+	if ($(".reveal-modal-bg").is(":visible")){
+		if($('#myModal').hasClass('top-reval-model')){
+			$('#myModal').removeClass('top-reval-model');
+		}
+		else{
+			$('#myModal').addClass('top-reval-model');
+		} 	
+	}
+
+
+	
+});

@@ -10,18 +10,30 @@ $colorDarkRed: #bf4032;
   src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/
 }
 $font:Gothic;
-
+/*functions*/
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+} 
+@mixin transition($arg){
+  -webkit-transition: $arg;
+  -moz-transition: $arg;
+  -o-transition: $arg;
+  transition: $arg;
+}
+a{
+  @include transition(all 0.2s ease-in-out);
+}
 .border-radius-circle{
-  -webkit-border-radius: 35px;
-  -moz-border-radius: 35px;
-  border-radius: 35px;
+  @include border-radius(35px);
 }
 .blue{
     color:$blue;
 }
 h1,h2,h3,h4,h5{
   color: $darckBlue;
-  font-family:$arial ;
+  font-family:$arial;
   font-weight: bold;
 }
 .grey{
@@ -78,9 +90,7 @@ h1,h2,h3,h4,h5{
       }
     }
     textarea{
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      border-radius: 6px;
+      @include border-radius(6px);
       resize: none;
     }
     .new-comment-form{
@@ -234,11 +244,9 @@ h1,h2,h3,h4,h5{
     img{
       width: 5em;
       height: 5em;
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      border-radius: 6px;
+      @include border-radius(6px);
     }
-    }
+  }
   .large-5{
     margin-left: -1em;
     h3{
@@ -256,9 +264,7 @@ h1,h2,h3,h4,h5{
     .red{
       background-color: $colorRed;
       color: #ffffff;
-      -webkit-border-radius: 10px;
-      -moz-border-radius: 10px;
-      border-radius: 10px;
+      @include border-radius(10px);
       padding: 0.1em 0.5em;
       font-size: 0.75em;
       text-align: center;
@@ -331,8 +337,8 @@ h1,h2,h3,h4,h5{
 }
 
 .simple_form {
-  margin-top: 2em;
-  margin-bottom: 2em;
+  margin-top: .5em;
+  margin-bottom: 1em;
   label{
     margin-right: 1em;
     font-family: Arial;
@@ -343,9 +349,7 @@ h1,h2,h3,h4,h5{
     margin-left: 0.3em;
   }
   input{
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
-    border-radius: 6px;
+    @include border-radius(6px);
     margin-bottom: 0.2em;
   }
   .field_with_error input{
@@ -367,40 +371,111 @@ h1,h2,h3,h4,h5{
     .input{
       margin-bottom: 1em;
     }
-    input[type=text], input[type=password], input[type=email]{
-      height: 38px;
-    }
-    input[type=submit]{
-      box-shadow: none;
-      border: 0;
-      padding: 8px;
-      cursor: pointer;
-    }
   }
 }
-.authorization{
-  .account{
-    h1{
-      font-family: Gothic;
-      font-size: 3em;
-      margin-top: 30px;
-      margin-bottom: 0;
+.authorization,.registration, .login-user{
+  margin-top: 6em;
+  img{
+    margin-right: 1em;
+  }
+  h1{
+    font-family: $font;
+    font-size: 4em;
+    margin-top: 0.2em;
+  }
+  input{
+    height: 2.8em;
+    font-size: 0.9em;
+    padding-top: 0.7em;
+    &:focus{
+      box-shadow: none;
+      border-color: none;
     }
   }
-  form{
-    margin: 0;
+  a{
+    color: $blue;
+    text-decoration: underline;
+    &:hover{
+      text-decoration: none;
+      color: $colorRed;
+    }
   }
-  a.forgot-password{
-    float: right;
-    margin-top: 0.5em;
+  .btn-blue{
+    padding: 0.45em 1.5em!important;
+    height: auto!important;
+    font-weight: bold;
+    font-size: 1em;
+    font-family: Arial;
+    border: none;
+    background-color: $blue;
+    @include transition(all 0.2s ease-in-out);
+    &:hover{
+      background-color: $colorRed;
+    }
+  }
+  img{
+    marin-right: 2em;
+  }
+  .action{
+    a{
+      float: right;
+      margin-top: 0.5em;
+    }
   }
   .join-us{
-    margin-left: 3em;
-    margin-top: 4em;
+    a{
+      float: right;
+    }
+  }
+  input.password{
+    border:1px solid $colorRed;
   }
 }
+.registration{
+  h1{
+    font-size: 2.6em;
+  }
+}
+.login-user{
+  position: absolute;
+  z-index: 1;
+  background-color: $darckBlue;
+  padding: 1em;
+  padding-bottom: 0;
+  width: 19em;
+  @include border-radius(6px);
+  top: -999px;
+  right: 0;
+  margin-top: 0;
+  @include transition(all 0.2s ease-in-out);
+  input{
+    margin-bottom: 1em;
+  }
+  .btn{
+    padding: 0.35em 1.5em !important;
+  }
+  .join-us{
+    margin-top: 0.4em;
+    text-align: left;
+    a{
+      float: none;
+      margin-left: 0.5em;
+    }
+  }
+  img{
+    position: absolute;
+    top: -7px;
+    right: 25px;
+  }
+}
+.top{
+  top: 65px;
+}
+.top-reval-model{
+  top: 50%!important;
+}
 .user-menu{  
- display: none;
+  display: none;
   padding-top: 0.4em;
   position: absolute;
   z-index: 1;
@@ -413,15 +488,11 @@ h1,h2,h3,h4,h5{
   }
   ul {   
      background-color: #26394d;
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      border-radius: 6px;
+      @include border-radius(6px);
     li{
       margin: 0;
       padding: 0.3em 0.7em;
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      border-radius: 6px;
+      @include border-radius(6px);
       &:hover{
         background-color: $colorRed;
       }
@@ -441,9 +512,7 @@ h1,h2,h3,h4,h5{
   display: block;
 }
 .user-menu-hover{
-     -webkit-border-radius: 6px!important;
-      -moz-border-radius: 6px!important;
-      border-radius: 6px!important;
+    @include border-radius(6px!important);
 }
 #search ~ a{
   vertical-align: 10px;
@@ -457,3 +526,29 @@ h1,h2,h3,h4,h5{
     border-bottom: 1px dashed $colorRed;
   }
 }
+
+
+
+
+.reveal-modal {
+    visibility: visible;
+    display: block;
+    position: absolute;
+    left: 50%;
+    z-index: 99;
+    height: auto;
+    margin-left: -40%;
+    @include transition(all 0.3s ease-in-out);
+    width: 80%;
+    background-color: white;
+    padding: 1.25em;
+    border: solid 1px #666666;
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    top: -999px;
+    .close-reveal-modal{
+      background: transparent;
+      padding: 0;
+      border: 0;
+    }
+  }

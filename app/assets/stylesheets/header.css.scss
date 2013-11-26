@@ -4,7 +4,18 @@ $bgBlue: #70b2b8;
 $colorBlue: #70b2b8;
 $colorRed: #e74c3c;
 $colorDarkRed: #bf4032;
-
+/*functions*/
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+} 
+@mixin transition($arg){
+  -webkit-transition: $arg;
+  -moz-transition: $arg;
+  -o-transition: $arg;
+  transition: $arg;
+}
 #header{
   height: 60px;
   background-color: #26394d;
@@ -60,6 +71,7 @@ $colorDarkRed: #bf4032;
          font-size: 0.9em;
          font-weight: bold;
          font-family: $font;
+         @include transition(all 0.3s ease-in-out);
          &:hover{
            color: $colorRed;
          }
@@ -89,9 +101,7 @@ $colorDarkRed: #bf4032;
       right: 0;
       top: -27px;
       height: 30px;
-      -webkit-border-radius:6px;
-      -moz-border-radius:6px;
-      border-radius:6px;
+      @include border-radius(6px);
       border: 0;
       background-color: #26394d;
       color: #70b2b8;
@@ -103,16 +113,11 @@ $colorDarkRed: #bf4032;
       background-position: 10px;
       background-image: url(image-path("search.png"));
       background-repeat: no-repeat;
-      -webkit-transition: width 0.2s ease-out;
-      -moz-transition: width 0.2s ease-out;
-      -o-transition: width 0.2s ease-out;
-      transition: width 0.2s ease-out;
+      @include transition(width 0.2s ease-out);
       &.active{
         background-image: url(image-path("red.png"));
         background-color: #1f2f40;
-        -webkit-border-radius:6px;
-        -moz-border-radius:6px;
-        border-radius:6px;
+        @include border-radius(6px);;
         color: #e74c3c;
         width: 85%;
         color: #e74c3c;
@@ -120,9 +125,7 @@ $colorDarkRed: #bf4032;
       &:hover{
         background-image: url(image-path("red.png"));
         background-color: #1f2f40;
-        -webkit-border-radius:6px;
-        -moz-border-radius:6px;
-        border-radius:6px;
+        @include border-radius(6px);
         color: #e74c3c;
       }
     }
@@ -137,20 +140,13 @@ $colorDarkRed: #bf4032;
     position: absolute;
     width: 40px;
     height: 40px;
-    -webkit-border-radius: 22px;
-    -moz-border-radius: 22px;
-    border-radius: 22px;
+    @include border-radius(22px);
     border: 1px solid transparent;
     top: -2px;
     cursor: pointer;
-    -webkit-transition: border-radius 0.2s ease-out;
-    -moz-transition: border-radius 0.2s ease-out;
-    -o-transition: border-radius 0.2s ease-out;
-    transition: border-radius 0.2s ease-out;
+     @include transition(border-radius 0.2s ease-out);
     &:hover{
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
-      border-radius: 6px;
+      @include border-radius(6px);
     }
   }
   }
@@ -164,20 +160,14 @@ $colorDarkRed: #bf4032;
   z-index: 2;
   right: 9%;
   top: 70px;
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  @include border-radius(6px);
 }
 #profile-menu ul{
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  @include border-radius(6px);
   color: white;
 }
 #profile-menu li{
-  -webkit-border-radius: 6px;
-  -moz-border-radius: 6px;
-  border-radius: 6px;
+  @include border-radius(6px);
   color: white;
   padding:10px 10px;
   font-family: Arial;
