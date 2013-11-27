@@ -8,6 +8,7 @@ $bgBlue: #70b2b8;
 $colorBlue: #70b2b8;
 $colorRed: #e74c3c;
 $colorDarkRed: #bf4032;
+ $bgLightGrey: #fafafa;
 /*functions*/
 @mixin border-radius($radius){
   -webkit-border-radius: $radius;
@@ -20,6 +21,23 @@ $colorDarkRed: #bf4032;
   -o-transition: $arg;
   transition: $arg;
 }
+@mixin right-radius-border($arg){
+	-webkit-border-top-right-radius: $arg;
+	-webkit-border-bottom-right-radius: $arg;
+	-moz-border-radius-topright: $arg;
+	-moz-border-radius-bottomright: $arg;
+	border-top-right-radius: $arg;
+	border-bottom-right-radius: $arg;
+}
+@mixin left-radius-border($arg){
+	-webkit-border-top-left-radius: $arg;
+	-webkit-border-bottom-left-radius: $arg;
+	-moz-border-radius-topleft: $arg;
+	-moz-border-radius-bottomleft: $arg;
+	border-top-left-radius: $arg;
+	border-bottom-left-radius: $arg;
+}
+
 @font-face{
   font-family: Gothic;/*задаем назв. шрифта*/
   src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/

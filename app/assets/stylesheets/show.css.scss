@@ -342,7 +342,7 @@ h1,h2,h3,h4,h5{
     }
   }
 }
-.authorization,.registration, .login-user{
+.authorization,.registration, .login-user, .profil-form form{
   margin-top: 6em;
   img{
     margin-right: 1em;
@@ -369,7 +369,7 @@ h1,h2,h3,h4,h5{
       color: $colorRed;
     }
   }
-  .btn-blue{
+  .btn-blue, .btn-green{
     padding: 0.45em 1.5em!important;
     height: auto!important;
     font-weight: bold;
@@ -469,6 +469,8 @@ h1,h2,h3,h4,h5{
         color: white;
         font-family: $arial;
         font-size: 14px;
+        display: block;
+        width: 100%;
       }
     }
   }
@@ -521,3 +523,77 @@ h1,h2,h3,h4,h5{
       border: 0;
     }
   }
+
+
+
+//-----------------------------------------------profil-----------------------------------------------
+.edit-profil{
+  margin-top: 0.6em;
+  font-size: 1.5em;
+}
+.profil-form {
+  background-color: $bgLightGrey;
+  margin-top: -1em;
+  form {
+    margin-top: 3em;
+  }
+  label{
+    margin-bottom: 0.7em;
+    display: block;
+    span{
+      margin-left: 1em;
+    }
+  }
+  input{
+    margin-bottom: 2em;
+    &:focus{
+    }
+  }
+  .btn.btn-blue{
+    padding: 0.4em!important;
+  }
+  .btn.btn-green{
+    padding: 0.4em!important;
+    background-color: #27ae60!important;
+    cursor: pointer;
+    &:hover{
+      background-color: $colorRed!important;
+    }
+  }
+  .collapse{
+    span{
+      height: 3.35em;
+      margin-top: 0em;
+      padding: 0.5em;
+      @include border-radius(6px);
+      @include right-radius-border(0px);
+    }
+    input[type="text"]{
+      @include left-radius-border(0px);
+      @include right-radius-border(6px!important);
+    }
+  }
+  .avatarka {
+    margin-bottom: 1.5em;
+    img{
+      width: 84px;
+    }
+    input{
+      margin-top: 1em;
+    }
+  }
+  .ok{
+    padding-top: 0.7em;
+    position: absolute;
+    top: 28px;
+    right: -25px;
+    background-color: #27ae60;
+    padding: 0.5em;
+    padding-top: 0.7em;
+    @include border-radius(6px);
+    img{
+      margin-right: 0;
+      display: inline-block;
+    }
+  }
+}
