@@ -20,29 +20,29 @@ $colorDarkRed: #bf4032;
   height: 60px;
   background-color: #26394d;
 
-  ::-webkit-input-placeholder {
+  #search ::-webkit-input-placeholder {
     color: #70b2b8;
   }
-  ::-moz-placeholder {
+  #search ::-moz-placeholder {
     color: #70b2b8;
   }
-  :-moz-placeholder {
+  #search :-moz-placeholder {
     color: #70b2b8;
   }
-  :-ms-input-placeholder {
+  #search :-ms-input-placeholder {
     color: #70b2b8;
   }
 
-  input:hover::-webkit-input-placeholder, input.active::-webkit-input-placeholder {
+  #search  input:hover::-webkit-input-placeholder, input.active::-webkit-input-placeholder {
     color: #e74c3c;
   }
-  input:hover:-ms-input-placeholder, input.active:-ms-input-placeholder {
+  #search input:hover:-ms-input-placeholder, input.active:-ms-input-placeholder {
     color: #e74c3c;
   }
-  input:hover::-moz-placeholder, input.active::-moz-placeholder {
+  #search  input:hover::-moz-placeholder, input.active::-moz-placeholder {
     color: #e74c3c;
   }
-  input:hover:-moz-placeholder, input.active:-moz-placeholder {
+  #search  input:hover:-moz-placeholder, input.active:-moz-placeholder {
     color: #e74c3c;
   }
 }
