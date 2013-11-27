@@ -1,0 +1,39 @@
+$blue:#6eb2ba;
+$bgBlueMenu: #b1d2d5;
+$darckBlue:#26394d;
+$arial:Arial;
+$grey: #a9b1b8;
+$bgGreen:#27ae60;
+$bgBlue: #70b2b8;
+$colorBlue: #70b2b8;
+$colorRed: #e74c3c;
+$colorDarkRed: #bf4032;
+/*functions*/
+@mixin border-radius($radius){
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+} 
+@mixin transition($arg){
+  -webkit-transition: $arg;
+  -moz-transition: $arg;
+  -o-transition: $arg;
+  transition: $arg;
+}
+@font-face{
+  font-family: Gothic;/*задаем назв. шрифта*/
+  src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/
+}
+$font:Gothic;
+a{
+  @include transition(all 0.2s ease-in-out);
+   &:hover{
+       color: $colorRed;
+    }
+}
+.border-radius-circle{
+  @include border-radius(35px);
+}
+.blue{
+    color:$blue;
+}
