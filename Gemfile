@@ -1,13 +1,13 @@
 source 'http://rubygems.org'
 
 #rails
-gem 'rails', '4.0.0'
+gem 'rails', '4.0.2'
 gem 'rails-observers'
 gem 'turbolinks'
 gem 'jquery-rails'
-gem 'sass-rails', '4.0.0'
+gem 'sass-rails'
 gem 'coffee-rails'
-gem 'uglifier', '>= 1.0.3'
+gem 'uglifier'
 #
 
 #template rendering
@@ -80,7 +80,7 @@ end
 
 group :production do
   #notify about exceptions by email
-  gem 'exception_notification', ' ~> 4.0.0'
+  gem 'exception_notification'
   #
 
   #caching
@@ -102,8 +102,8 @@ end
 
 group :test do
   #integration tests
-  gem 'cucumber',  '1.2.5'
-  gem 'cucumber-rails', '1.3.0', :require => false 
+  gem 'cucumber'
+  gem 'cucumber-rails', :require => false
   #
 
   gem 'database_cleaner'
@@ -126,11 +126,7 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails'
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'guard-spork'
-  gem 'guard-rspec'
-  gem 'guard-cucumber'
-  gem 'spork-rails', github: 'sporkrb/spork-rails'
 end
