@@ -12,7 +12,7 @@ module BootstrapFlashHelper
       next unless ALERT_TYPES.include?(type)
 
       Array(message).each do |msg|
-        text = content_tag(:div, nil, :class => "reveal-modal-bg", :style => "display: block")
+        text = content_tag(:div, nil, :style => "display: block")
         text += content_tag(:div,
                            content_tag(:button, raw("&times;"), :class => "close-reveal-modal", "data-dismiss" => "alert") +
                            msg.html_safe, :class => "alert fade in alert-#{type} reveal-modal", :id => "myModal")

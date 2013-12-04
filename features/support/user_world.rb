@@ -45,7 +45,6 @@ module UserWorld
 
   def fill_registration_form
     fill_in('user_name', with: 'Bruce Wayne')
-    fill_in('user_nickname', with: 'Batman')
     fill_in('user_email', with: user_email)
     fill_in('user_password', with: user_password)
   end

@@ -8,7 +8,6 @@ FactoryGirl.define do
   end
 
   factory :user do
-    nickname "Batman"
     name "Bruce Wayne"
     email
     city 'Minsk'

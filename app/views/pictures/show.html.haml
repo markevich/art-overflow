@@ -4,7 +4,7 @@
     %h1
       = @picture.name
     %p.blue
-      = link_to @picture.user.nickname, url_for(@picture.user)
+      = link_to @picture.user.name, url_for(@picture.user)
       %span.grey
         %span.star
           *
@@ -42,7 +42,7 @@
       %h1
         Другие работы
       %p.blue
-        = link_to(@picture.user.nickname, url_for(@picture.user))
+        = link_to(@picture.user.name, url_for(@picture.user))
         %ul.img-other-job.large-block-grid-3.small-block-grid-1
           - most_popular_pictures(@picture.user).each do |pic|
             %li

@@ -7,7 +7,6 @@ describe User do
   it { should have_many(:picture_likes).through(:pictures) }
 
   it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:nickname) }
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password) }
   it { should respond_to(:premium?)}
