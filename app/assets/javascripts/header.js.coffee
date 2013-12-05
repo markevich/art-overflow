@@ -14,3 +14,11 @@ $(document).on 'ready page:load', ->
 
   $(document).on 'mouseleave', '.user-menu ', ->
     $('.ava img').removeClass('user-menu-hover')
+
+
+  $(document).on 'click', '.sign-in', ->
+    loginPanel = $('.login-user')
+    if loginPanel.hasClass('top')
+      loginPanel.removeClass('top')
+    else
+      loginPanel.addClass('top')

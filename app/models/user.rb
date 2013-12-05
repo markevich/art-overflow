@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
 
   before_create :set_password_confirmation
 
-  validates :name, :nickname, :email, :password, presence: true
+  validates :name, :email, :password, presence: true
 
   has_many :pictures, dependent: :destroy
   has_many :comments, dependent: :destroy
