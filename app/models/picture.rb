@@ -13,4 +13,6 @@ class Picture < ActiveRecord::Base
   mount_uploader :path, PictureUploader
 
   scope :latest, -> { order(:created_at).limit(15).reverse_order }
+
+  delegate :name, to: :user, prefix: true
 end
