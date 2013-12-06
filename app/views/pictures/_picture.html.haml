@@ -4,8 +4,7 @@
     /  = picture.name
     %a{href: picture_path(picture)}
       .info
-        %h1
-          Super Hero!!
+        %h5=picture.name
         %p
           You've got an a tag containing an img tag. That's your normal state. You then add a background-image as your hover state, and it's appearing in the background of your a tag - behind the img tag.
       = image_tag picture.path.thumb, class: 'picture'
@@ -13,15 +12,11 @@
         %a{href:'#' }
           Slava Markevich
       .picture-actions
-        - if rand(2) == 0
-          %div.heart_normal.active
-        - else
-          %div.heart_normal
+        -#active %div.heart_normal.active
+        %div.heart_normal
         %span
-          3
-        - if rand(2) == 0
-          %div.share_normal.active
-        - else
-          %div.share_normal
+          = picture.likes_count
+        -# active %div.share_normal.active
+        %div.share_normal
         %span
           3
