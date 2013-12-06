@@ -1,6 +1,7 @@
-.row.user-content
-  .large-12.columns.user
-    = image_tag 'images.jpg', class: "border-radius-circle"
+//верхняя панель 'о пользователе'
+%section.row.user-content
+  .large-12.columns
+    = image_tag 'images.jpg', class: "border-radius-circle user"
     %h1
       = @picture.name
     %p.blue
@@ -13,18 +14,23 @@
         %span.star
           *
         \#мост
-  .row.picture-show
-    .large-12.columns
-      = image_tag '1.png', class: ''
-  .picture-actions.row
-    .large-12.columns.small-4
-      = render 'pictures/like_button', voted: @voted
-      = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
-      %a.btn.btn-blue
-        Поделиться
-        = image_tag 'follow.gif', class:"img-follow"
-.bg-comments
-  .row.comments
+
+//показ картинки
+.picture-show.text-align.bg-grey
+  = image_tag '1.png', class: ''
+
+//кнопки под картинки
+%section.picture-actions.row
+  .large-12.columns.small-4
+    = render 'pictures/like_button', voted: @voted
+    = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
+    %a.btn.btn-blue
+      Поделиться
+      = image_tag 'follow.gif', class:"img-follow"
+
+//комментарии
+.bg-light-grey
+  %section.row.comments
     .large-7.columns
       .row
         .large-12.columns.title
@@ -38,12 +44,15 @@
       = render 'comments/form', commentable: @picture
       .user-comment
         = render @comments, commentable: @picture
+      %a{ id:"button_load_more" }
+        Загрузить остальные
+        
     .other-job-right.large-5.columns
       %h1
         Другие работы
       %p.blue
         = link_to(@picture.user.name, url_for(@picture.user))
-        %ul.img-other-job.large-block-grid-3.small-block-grid-1
+        %ul.large-block-grid-3.small-block-grid-1
           - most_popular_pictures(@picture.user).each do |pic|
             %li
               %a{href: picture_path(pic)}
@@ -53,7 +62,8 @@
           Ads via The Deck
         %p
           = image_tag 'th.gif'
-          %p.txt-news-comment
+          %p
             New Field Notes Brand limited-release for summer,
-          %a.link-news-comment
-            The Night Sky Edition.
+            %a
+              The Night Sky Edition. 
+
