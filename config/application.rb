@@ -19,6 +19,8 @@ module ArtOverflow
     config.i18n.default_locale = :ru
     config.i18n.locale = :ru
 
+    I18n.enforce_available_locales = true
+
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.precompile += %w(*jbar.js *jbar.css subscribe.css)
   end
