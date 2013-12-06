@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   def show
     @following = current_user.following?(@user) if user_signed_in?
-    @pictures = @user.pictures_latest
+    @pictures = Picture.latest.includes(:user).where(user: @user)
   end
 
   def follow

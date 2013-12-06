@@ -62,5 +62,5 @@ Then(/^I visit latest user pictures page$/) do
 end
 
 Then(/^I see pictures on page$/) do
-  expect(page).to have_content "Slava Markevich"
+  expect(page).to have_content current_user.name
 end
