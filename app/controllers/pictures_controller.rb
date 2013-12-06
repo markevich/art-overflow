@@ -6,7 +6,7 @@ class PicturesController < ApplicationController
   def index
     @page = (params[:page] || 1).to_i
     offset = (@page - 1) * PAGE_SIZE
-    @pictures = Picture.limit(PAGE_SIZE).offset(offset)
+    @pictures = Picture.includes(:user).limit(PAGE_SIZE).offset(offset)
 
     render @pictures if request.xhr?
   end

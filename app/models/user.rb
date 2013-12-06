@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :password, presence: true
 
-  has_many :pictures, dependent: :destroy
+  has_many :pictures, dependent: :destroy, inverse_of: :user
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy
   has_many :picture_likes, through: :pictures, source: :likes
