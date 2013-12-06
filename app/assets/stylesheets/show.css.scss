@@ -1,211 +1,210 @@
 @import 'setting.css.scss';
 
-h1,h2,h3,h4,h5{
+ h1,h2,h3,h4,h5{
   color: $darckBlue;
   font-family:$arial;
   font-weight: bold;
 }
+
 .grey{
   color: $grey;
 }
+section{
+  padding: 1em 0;
+}
+
+//----------------------------------------------------comment------------------------------------------
+//стили верхней понели для пользователя
 .user-content{
-  .user{
-    margin-top: 1em;
-    margin-bottom: 1em;
-    img{
-      position: absolute;
-      width: 3.2em;
-      margin-top: -0.2em;
-    }
-    p,h1{
-      margin-left: 4.5em;
-    }
-    p{
-      font-weight: bold;
-      margin-left: 5em;
-      font-size: 0.9em;
-      .grey{
-         font-size: 0.85em;
-          font-weight: normal;
-      }
-    }
-    .star{
-      vertical-align: -2px;
-    }
+
+  img.user{
+    display: inline-block;
+    float: left;
+    margin-right: 1em;
+    max-width: 3.5em;
   }
-  .picture-actions{
-    margin-top: 1em;
-    margin-bottom: 1em;
-    .button-toggler{
-      display: inline-block;
-    }
+
+  p{
+    font-size: 0.8em;
+  }
+
+}
+
+//стили для звездочек между поль и временем
+.star{
+    padding: 0.1em;
+    vertical-align: -2px;
+}
+
+//текст комментария
+.txt-comment{
+  margin-bottom: 0.7em;
+}
+
+//кнопки над картинкой
+.picture-actions{
+
+  a{
+    float: left;
+    margin-right: 1em;
+  }
+
+}
+
+//временный стиль
+.bg-grey{
+  img{
+      margin-bottom: -3px;
   }
 }
-.bg-comments{
-  background-color: #fafafa;
-  .comments{
-    padding-top: 2em;
-    .title{
-      h1,p{
-        display: inline-block;
-      }
-      p{
-        float: right;
-        font-size: 0.9em;
-      }
-      p.blue{
+
+//комментарии польз
+.comments{
+  //кнопка загрузить остольное
+  #button_load_more{
+    width: 100%;
+  }
+
+  hr{
+    margin-bottom: 0;
+  }
+
+  .title{
+    padding-left: 0;
+
+    h1{
+      display: inline-block;
+    }
+
+    p{
+      float: right;
+      font-size: 0.9em;
+      &.blue{
         cursor: pointer;
         margin-right: 1em;
       }
     }
-    textarea{
-      @include border-radius(6px);
-      resize: none;
-    }
-    .new-comment-form{
-      position: relative;
-      img{
-        top: 1.5em;
-        position: absolute;
-        width: 3em;
-      }
-      .input-comment{
-        display: inline-block;
-        width: 87%;
-        margin-left: 1em;
-        margin-top: 1.5em;
-        margin-left: 4em;
-        input[name="commit"]{
-          border: 0;
-          font-size: 0.9em;
-          font-family: Arial;
-          color: white;
-          font-weight: bold;
-          float: right;
-        }
-      }
-
-    }
 
   }
-  .user-comment{
+
+  //комментария блок
+  .message-comment{
+    margin-top: 1em;
+    padding: 0
+  }
+
+//инпут лдля ввода комментария
+  .input-comment{
+    float: left;
+    padding: 0.7em;
+    .simple_form{
+      margin-bottom: 0.5em;
+    }
+
     a{
-      color:$blue ;
+      font-weight: normal;
       text-decoration: underline;
+      margin-right: 1em;
+      padding: 0;
+      font-size: 0.8em;
       &:hover{
         text-decoration: none;
       }
     }
-    img{
-      position: absolute;
-      width: 3em;
-    }
-    .row-comment{
-      margin-left: 4em;
-      h1{
-        display: inline-block;
-      }
-      span{
-        font-size: 0.85em;
-        color: $grey;
-        .txt-comment{
-          margin-top: 0.5em;
-          color: black;
-          font-size: 1.1em;
-        }
-        .reply-to-comment{
-          margin-top: 2em;
-        }
-      }
-      .star{
-        vertical-align: -2px;
-      }
-      a[rel="nofollow"]{
-        float: right;
-        margin-top: -1em;
-        margin-bottom: 2em;
-      }
-      .like{
-        position: absolute;
-        right: 2em;
-        top: 0;
-        img{
-          top: 0.3em;
-        }
-        p{
-          display: inline-block;
-          margin-left: 1.3em;
-        }
-        .button_to{
-          display: inline-block;
-          input[value="Мне нравится"]{
-            background-color: transparent;
-            border: 0;
-            font-size: 0.9em;
-            font-family: Arial;
-            color: $blue;
-            cursor: pointer;
-            &:hover{
-              color:$colorRed ;
-            }
-
-          }
-        }
-
-        img{
-          width: 1em;
-        }
-      }
-    }
 
   }
-  .other-job-right{
-    h1{
-      display: inline-block;
+
+//для всех ариах стилей внутри комментариев
+  textarea{
+    @include border-radius(6px);
+    resize: none;
+    font-size: 1em;
+    height: 2.5em;
+    min-height: 2.5em;
+    overflow: hidden;
+    padding-top: 0.67em;
+  }
+
+//гавно-кнопка. почему ссылкой нельзя?
+  .create-btn{
+    background-color: transparent;
+    border: none;
+    text-decoration: underline;
+    border-radius: 0;
+    cursor: pointer;
+    font-family: Arial;
+    color: #2795b6;
+    @include transition(all 0.2s ease-in-out);
+    &:hover{
+      color: $colorRed;
+      text-decoration: none;
     }
-    .blue{
-      font-weight: bold;
-      display: inline-block;
-    }
-    ul{
-      li{
-        margin-right: 0em;
-        padding: 0.5em;
-        padding-top: 0;
-        padding-bottom: 0.5em;
-        img{
-          width: 100%;
-          height: 100%;
-        }
-      }
-    }
-    .information{
-      a{
-        color:$blue ;
-        font-size: 0.8em;
-        text-decoration: underline;
-        &:hover{
-          text-decoration: none;
-        }
-      }
-      h1{
-        margin-bottom: 0.7em;
-      }
-      p{
-        img{
-          margin-right: 1em;
-          float: left;
-        }
-      }
-      .txt-news-comment{
-        line-height: 1em;
-        margin-bottom: 0.5em;
-      }
+  }
+
+//гавно-кнопка. почему ссылкой нельзя?
+  .button_to input[type="submit"]{
+    cursor: pointer;
+    margin-top: -5px;
+    @include border-radius(6px);
+    color: #ffffff;
+    display: inline-block;
+    padding: .5em;
+    background-color: #70b2b8;
+    @include transition(all 0.2s ease-in-out);
+    border: 0;
+    &:hover{
+      background-color: #5f979d;
     }
   }
 }
 
-//profil page
+
+//сердце и количество
+.likes_count{
+  float: right;
+  margin-left: 0.3em;
+  margin-top: -5px;
+  ~img{
+    float: right;
+  }
+}
+
+//гавно-кнопка. почему ссылкой нельзя?
+.button_to{
+  float: right;
+  display: inline-block;
+  margin-top: -6px;
+}
+
+//другие работы польз
+.other-job-right{
+  
+  h1{
+    margin-bottom: 1em;
+  }
+
+  h1,.blue{
+    display: inline-block;
+  }
+
+//информационная часть
+  .information{
+
+    img{
+      float: left;
+      margin-right: 1em;
+    }
+
+    p{
+      line-height: 1.3em;
+    }
+
+  }
+}
+
+
+
+//--------------------------------------profil page----------------------------------------------------
 .profil{
   margin-top: 2em;
   .large-2{

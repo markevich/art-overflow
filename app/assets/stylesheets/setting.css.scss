@@ -8,7 +8,7 @@ $bgBlue: #70b2b8;
 $colorBlue: #70b2b8;
 $colorRed: #e74c3c;
 $colorDarkRed: #bf4032;
- $bgLightGrey: #fafafa;
+$bgLightGrey: #fafafa;
 /*functions*/
 @mixin border-radius($radius){
   -webkit-border-radius: $radius;
@@ -54,4 +54,13 @@ a{
 }
 .blue{
     color:$blue;
+}
+.text-align{
+  text-align: center;
+}
+.bg-grey{
+  background-color: rgb(233, 233, 233);
+}
+.bg-light-grey{
+  background-color: $bgLightGrey;
 }
