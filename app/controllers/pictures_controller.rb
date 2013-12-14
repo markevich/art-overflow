@@ -27,17 +27,10 @@ class PicturesController < ApplicationController
 
   def create
     picture_params = permitted_params.merge({ user: current_user })
+    @picture = Picture.new(picture_params)
+    flash[:notice] = "Picture was succesfully created." if @picture.save
 
-    picture_params['tag_list'] = picture_params['tag_list'].split.join(", ")
-
-    picture = Picture.new(picture_params)
-
-    if picture.save()
-      redirect_to picture
-    else
-      #TODO add flashes
-      raise
-    end
+    respond_with @picture
   end
 
   def like
@@ -75,5 +68,4 @@ class PicturesController < ApplicationController
       :tag_list
     )
   end
-
 end

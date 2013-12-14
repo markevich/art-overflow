@@ -1,5 +1,11 @@
+= javascript_include_tag 'load-image.min', 'jquery.Jcrop'
+= stylesheet_link_tag 'jquery.Jcrop'
+
 = simple_form_for @picture do |f|
-  = f.input :name
   = f.input :path
+  #crop-area{ data: { width: PictureUploader::CROP_AREA_WIDTH, height: PictureUploader::CROP_AREA_HEIGHT} }
+  %br
+  %canvas#crop-preview{ width: 300, height: 200, style: "overflow: hidden" }
+  = f.input :name
   = f.input :tag_list
   = f.submit

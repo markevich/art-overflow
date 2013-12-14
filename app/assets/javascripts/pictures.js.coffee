@@ -31,3 +31,24 @@ $(document).on 'ready page:load', ->
 
   $('.reply-to-comment').on 'click', ->
     $(this).parents('.message-comment:first').find('.reply-to-comment-container:first').toggle()
+
+  showPreview= (c) ->
+    if (parseInt(c.w) > 0)
+      imageObj = $('#crop-area canvas')[0]
+      canvas = $('#crop-preview')[0]
+      context = canvas.getContext('2d')
+      console.log(canvas.width, canvas.height)
+      context.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height)
+
+  $(document).on "change", "#picture_path", (e) ->
+    cropData = $('#crop-area').data()
+    loadImage e.target.files[0], ((canvas) =>
+        $("#crop-area").html(canvas)
+        $.Jcrop '#crop-area canvas',
+          onChange: showPreview
+          onSelect: showPreview
+          aspectRatio: 300/200
+      ),
+        maxWidth: cropData.width,
+        maxHeight: cropData.height,
+        canvas: true

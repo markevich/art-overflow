@@ -8,7 +8,7 @@ class Picture < ActiveRecord::Base
   belongs_to :user
   belongs_to :gallery
 
-  validates :name, :path, :user_id, presence: true
+  validates :name, :path, :user, presence: true
 
   mount_uploader :path, PictureUploader
 

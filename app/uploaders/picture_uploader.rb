@@ -1,6 +1,10 @@
 # encoding: utf-8
 
 class PictureUploader < CarrierWave::Uploader::Base
+  CROP_AREA_WIDTH = 800.freeze
+  CROP_AREA_HEIGHT = 600.freeze
+  THUMB_WIDTH = 315.freeze
+  THUMB_HEIGHT = 210.freeze
   include CarrierWave::MiniMagick
   include CarrierWave::ImageOptimizer
 
@@ -8,12 +12,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # include Sprockets::Helpers::RailsHelper
   # include Sprockets::Helpers::IsolatedHelper
 
-  # Choose what kind of storage to use for this uploader:
   storage :file
-  # storage :fog
-
-  # Override the directory where uploaded files will be stored.
-  # This is a sensible default for uploaders that are meant to be mounted:
   def store_dir
     "uploads/#{model.class.to_s.underscore}/#{mounted_as}"
   end
@@ -35,7 +34,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fit => [280, 280]
+    process :resize_to_fit => [THUMB_WIDTH, THUMB_HEIGHT]
   end
 
   process :optimize
