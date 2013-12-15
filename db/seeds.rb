@@ -6,16 +6,31 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
   # Mayor.create(name: 'Emanuel', city: cities.first)
-user = User.new(email: 'example@example.com', role: :user, name: 'bruce', password: 'password', password_confirmation: 'password')
-user.skip_confirmation!
-user.save!
 
-(15 * 5).times do |index|
-  Picture.create name: "Test_#{index}", path: File.open(File.join(Rails.root, "/db/images/#{index % 15}.jpg")), user_id: User.first.id
+def create_user name, counter = nil
+  user = User.new(email: "example@example.com#{counter}", role: :user, name: name, password: 'password', password_confirmation: 'password')
+  user.skip_confirmation!
+  user.save!
+end
+
+[
+  'Batman',
+  'Batgirl',
+  'Flash',
+  'Superman',
+  'Aquaman',
+  'Nightwing'
+].each_with_index do |name, i|
+  create_user(name, i)
+end
+
+users = User.all
+(15 * 10).times do |index|
+  Picture.create name: "Test_#{index}", path: File.open(File.join(Rails.root, "/db/images/#{(1..40).to_a.sample}.jpg")), user: users.sample
 end
 
 Picture.all.find_each do |picture|
-  5.times do |counter|
-    picture.comments.create(user_id: User.first.id, text: "Example comment #{counter}", commentable_id: picture.id, commentable_type: 'Picture')
+  (0..2).to_a.sample.times do |counter|
+    picture.comments.create(user_id: users.sample, text: "Example comment #{counter}", commentable_id: picture.id, commentable_type: 'Picture')
   end
 end

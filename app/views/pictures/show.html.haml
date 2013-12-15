@@ -46,7 +46,7 @@
         = render @comments, commentable: @picture
       %a{ id:"button_load_more" }
         Загрузить остальные
-        
+
     .other-job-right.large-5.columns
       %h1
         Другие работы
@@ -56,7 +56,7 @@
           - most_popular_pictures(@picture.user).each do |pic|
             %li
               %a{href: picture_path(pic)}
-                = image_tag pic.path
+                = image_tag pic.path.thumb
       .information
         %h1
           Ads via The Deck
@@ -65,5 +65,5 @@
           %p
             New Field Notes Brand limited-release for summer,
             %a
-              The Night Sky Edition. 
+              The Night Sky Edition.
 
