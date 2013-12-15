@@ -63,9 +63,15 @@ class PicturesController < ApplicationController
 
   def permitted_params
     params.require(:picture).permit(
+      :crop_x,
+      :crop_y,
+      :crop_h,
+      :crop_w,
       :name,
       :path,
       :tag_list
-    )
+    ).tap do |whitelist|
+      whitelist[:user] = current_user
+    end.permit!
   end
 end

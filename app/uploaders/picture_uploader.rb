@@ -5,6 +5,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   CROP_AREA_HEIGHT = 600.freeze
   THUMB_WIDTH = 315.freeze
   THUMB_HEIGHT = 210.freeze
+  THUMB_ASPECT_RATIO = (THUMB_WIDTH.to_f / THUMB_HEIGHT).freeze
   include CarrierWave::MiniMagick
   include CarrierWave::ImageOptimizer
 
@@ -34,7 +35,24 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :resize_to_fit => [THUMB_WIDTH, THUMB_HEIGHT]
+    process :crop
+    process :optimize
+    process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
+  end
+
+  def crop
+    if model.crop_x.present?
+      resize_to_limit(CROP_AREA_WIDTH, CROP_AREA_HEIGHT)
+      manipulate! do |img|
+        x = model.crop_x.to_i
+        y = model.crop_y.to_i
+        w = model.crop_w.to_i
+        h = model.crop_h.to_i
+        img.crop("#{w}x#{h}+#{x}+#{y}")
+        img
+      end
+    end
+
   end
 
   process :optimize

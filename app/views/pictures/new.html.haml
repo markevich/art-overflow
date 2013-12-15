@@ -3,9 +3,20 @@
 
 = simple_form_for @picture do |f|
   = f.input :path
-  #crop-area{ data: { width: PictureUploader::CROP_AREA_WIDTH, height: PictureUploader::CROP_AREA_HEIGHT} }
-  %br
-  %canvas#crop-preview{ width: 300, height: 200, style: "overflow: hidden" }
+  #crop-parameters{ data: {                                      |
+      width: PictureUploader::CROP_AREA_WIDTH,                   |
+      height: PictureUploader::CROP_AREA_HEIGHT,                 |
+      thumb_width: PictureUploader::THUMB_WIDTH,                 |
+      thumb_height: PictureUploader::THUMB_HEIGHT,               |
+      thumb_aspect_ratio: PictureUploader::THUMB_ASPECT_RATIO }  |
+    }                                                            |
+
+  #crop-area
+  %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
+  = f.input :crop_x, as: :hidden
+  = f.input :crop_y, as: :hidden
+  = f.input :crop_w, as: :hidden
+  = f.input :crop_h, as: :hidden
   = f.input :name
   = f.input :tag_list
   = f.submit
