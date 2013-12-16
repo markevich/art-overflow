@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery with: :exception
   include PublicActivity::StoreController
+  protect_from_forgery with: :exception
   add_flash_types :error, :success
+  respond_to :html
 
   before_filter :set_cookie_current_user
   before_filter :configure_permitted_parameters, if: :devise_controller?
