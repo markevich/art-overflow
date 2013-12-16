@@ -26,8 +26,7 @@ class PicturesController < ApplicationController
   end
 
   def create
-    picture_params = permitted_params.merge({ user: current_user })
-    @picture = Picture.new(picture_params)
+    @picture = Picture.new(permitted_params)
     flash[:notice] = "Picture was succesfully created." if @picture.save
 
     respond_with @picture

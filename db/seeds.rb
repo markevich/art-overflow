@@ -24,9 +24,11 @@ end
   create_user(name, i)
 end
 
+create_user('Джон Уэин')
+
 users = User.all
 (15 * 10).times do |index|
-  Picture.create name: "Test_#{index}", path: File.open(File.join(Rails.root, "/db/images/#{(1..40).to_a.sample}.jpg")), user: users.sample
+  Picture.create name: "Test_#{index}", path: File.open(File.join(Rails.root, "/db/images/#{index % 40}.jpg")), user: users.sample
 end
 
 Picture.all.find_each do |picture|
