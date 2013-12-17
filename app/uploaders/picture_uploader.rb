@@ -15,7 +15,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   storage :file
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{mounted_as}"
+    "uploads/#{model.class.to_s.underscore}/#{model.id}"
   end
 
   # Provide a default URL as a default if there hasn't been a file uploaded:
@@ -33,11 +33,26 @@ class PictureUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
 
+
   # Create different versions of your uploaded files:
   version :thumb do
     process :crop
     process :optimize
     process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
+    process :convert_and_interlace
+  end
+
+  process :optimize
+  process :convert_and_interlace
+
+  def convert_and_interlace
+    manipulate! do |img|
+      img.combine_options do |c|
+        c.depth '8'
+        c.interlace 'plane'
+      end
+      img
+    end
   end
 
   def crop
@@ -55,18 +70,17 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   end
 
-  process :optimize
-
-  # Add a white list of extensions which are allowed to be uploaded.
-  # For images you might use something like this:
   def extension_white_list
     %w(jpg jpeg gif png)
   end
 
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
   # def filename
-  #   "something.jpg" if original_filename
+  #   "#{secure_token}.jpg" if original_filename.present?
   # end
 
+  # protected
+  # def secure_token
+  #   var = :"@#{mounted_as}_secure_token"
+  #   model.instance_variable_get(var) or model.instance_variable_set(var, SecureRandom.uuid)
+  # end
 end

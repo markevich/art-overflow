@@ -17,8 +17,4 @@ class Picture < ActiveRecord::Base
   scope :latest, -> { order(:created_at).limit(15).reverse_order }
 
   delegate :name, to: :user, prefix: true
-
-  def crop_picture
-    path.recreate_versions!(:thumb)
-  end
 end
