@@ -1,20 +1,28 @@
 require 'spec_helper'
 
 describe PicturesController do
-  it { should respond_to(:like) }
-  it { should respond_to(:unlike) }
-
   let(:user) { create(:user) }
   before { sign_in user }
 
-  describe "#like" do
-    let(:pic) { create(:picture) }
-    it 'changes likes count' do
-      post :like, id: pic.id
-      expect(pic.reload.likes_count).to eq 1
-      response.body.should eq({count: pic.likes_count, state: :active}.to_json)
-    end
+  it_should_behave_like 'index action' do
+    let!(:pic) { create(:picture) }
+
+    before { get :index }
   end
+
+  it_should_behave_like 'new action' do
+    before { get :new }
+  end
+
+  it_should_behave_like 'show action', :picture
+
+  it_should_behave_like 'create action' do
+    let(:path) { Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/files/avatar.jpg'))) }
+    let(:valid_params) { { picture: build_attributes_for(:picture).merge(path: path) } }
+
+    let(:invalid_params) { { picture: build_attributes_for(:picture) } }
+  end
+
 
   describe "#unlike" do
     let(:pic) { create(:picture) }
@@ -26,31 +34,17 @@ describe PicturesController do
     end
   end
 
-  describe "#create" do
-    let(:params) {
-      {
-        :picture => {
-          :name => "test pic", 
-          :path => Rack::Test::UploadedFile.new(File.join(Rails.root, 'spec/files/avatar.jpg')),
-          :tag_list => "tag1 tag2 tag3"
-        }
-      }
-    }
-
-    it { expect { post :create, params }.to change(Picture, :count).by(1) }
-    it { expect { post :create, params }.to change(ActsAsTaggableOn::Tagging, :count).by(3) }
-  end
-
-  describe "#show" do
+  describe "#like" do
     let(:pic) { create(:picture) }
-    before { get :show, id: pic.id }
-
-    it { assigns(:picture).should_not be_nil }
-    it { response.should be_success }
+    it 'changes likes count' do
+      post :like, id: pic.id
+      expect(pic.reload.likes_count).to eq 1
+      response.body.should eq({count: pic.likes_count, state: :active}.to_json)
+    end
   end
 
   describe "#latest" do
-    let(:pic) { create(:picture) }
+    let!(:pic) { create(:picture) }
     before { get :latest, user_id: pic.user.id }
 
     it { response.should be_success }

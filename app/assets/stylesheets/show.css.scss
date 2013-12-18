@@ -596,3 +596,76 @@ section{
     }
   }
 }
+
+
+//--------------------------------------------------new picture-----------------------------------------
+.dowland-file{
+  label, abbr, .input{
+    color: white;
+  }
+  label{
+    display: block;
+  }
+  label:first-child{
+    font-weight: bold;
+  }
+  text-align: center;
+  border: 2px dashed grey;
+  margin: 1em 0;
+  @include border-radius(6px);
+  padding: 2em;
+  color: white;
+  input.file{
+    width: auto;
+  }
+}
+.title-dowland{
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+} 
+.btn-dowland{
+  border: none;
+  padding: 0.4em 1em;
+  font-weight: bold;
+  background-color: white;
+  color: #70b2b8;
+  cursor: pointer;
+  @include border-radius(6px);
+  margin-top: .3em;
+  display: inline-block;
+}
+.crop{
+  .blue{
+    color: #70b2b8;
+    font-weight: bold;
+  }
+  overflow: hidden;
+    #crop-area{
+      float: right;
+    }
+    #crop-pr{
+      float: right;
+      padding: 2em;
+    }
+    span.right{
+      margin-right: 6px;
+      float: right;
+    }
+}
+
+.new-picture-descript{
+  margin-bottom: 2em;
+  input, textarea{
+    @include border-radius(6px);
+    resize: none;
+    margin-bottom: 2em;
+  }
+  label{
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+  }
+  .btn{
+    margin-top: 1em;
+    cursor: pointer;
+  }
+}

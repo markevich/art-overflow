@@ -15,6 +15,8 @@ gem 'simple_form'
 gem 'haml-rails'
 #
 
+gem 'jcrop-rails-v2'
+
 #authentication processing
 gem 'devise'
 #

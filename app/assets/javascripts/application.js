@@ -19,3 +19,8 @@
 //= require jbar.js
 //= require turbolinks
 //= require_tree .
+$(document).on('page:load', function() {
+	$('.btn-dowland').click(function(){
+	   $('input.file').click();
+	});
+});

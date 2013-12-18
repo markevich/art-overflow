@@ -23,5 +23,6 @@ module ArtOverflow
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
     config.assets.precompile += %w(*jbar.js *jbar.css subscribe.css)
+    config.assets.precompile += %w(load-image.min.js jquery.Jcrop.js jquery.Jcrop.css)
   end
 end

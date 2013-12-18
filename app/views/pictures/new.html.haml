@@ -1,5 +1,62 @@
+= javascript_include_tag 'load-image.min', 'jquery.Jcrop'
+= stylesheet_link_tag 'jquery.Jcrop'
+
 = simple_form_for @picture do |f|
-  = f.input :name
-  = f.input :path
-  = f.input :tag_list
-  = f.submit
+  .row
+    .large-12.columns
+      %h3.title-dowland
+        Загрузка
+  .bg-blue
+    .row
+      .large-12.columns
+        .dowland-file
+          %label
+            Перетащи сюда файл с картинкой
+          %label
+            или
+          %a{class:'btn-dowland'}
+            Выбери файл для загрузки
+          / = f.input :path, class:'hidden-btn'
+  #crop-parameters{ data: {                                      |
+      width: PictureUploader::CROP_AREA_WIDTH,                   |
+      height: PictureUploader::CROP_AREA_HEIGHT,                 |
+      thumb_width: PictureUploader::THUMB_WIDTH,                 |
+      thumb_height: PictureUploader::THUMB_HEIGHT,               |
+      thumb_aspect_ratio: PictureUploader::THUMB_ASPECT_RATIO }  |
+    }                                                            |
+  .bg-grey.crop
+    #crop-pr
+      %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
+      %br
+      %span.blue
+        we
+      %span.right
+        15
+    #crop-area
+.row
+  .large-6.columns.new-picture-descript
+    %label
+      Заголовок
+    %input{type:'text'}
+    %label
+      Описание
+    %textarea
+    %label
+      Тэги
+    %input{type:'text'}
+    %label
+      Альбом
+    %a{href:"#", class:"[tiny small medium large] [secondary alert success] [radius round] button dropdown"} 
+      мой альбом
+    %br
+    %inpit{type:'submit',class:'btn btn-green'}
+      Отправить
+
+/ = f.input :crop_x, as: :hidden
+/ = f.input :crop_y, as: :hidden
+/ = f.input :crop_w, as: :hidden
+/ = f.input :crop_h, as: :hidden
+/ = f.input :name
+/ = f.input :tag_list
+/ = f.submit
+
