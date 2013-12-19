@@ -1,3 +1,4 @@
+= javascript_include_tag "jquery.adaptive-backgrounds.min", "data-turbolinks-track" => true
 //верхняя панель 'о пользователе'
 %section.row.user-content
   .large-12.columns
@@ -15,9 +16,9 @@
           *
         \#мост
 
-//показ картинки
-.picture-show.text-align.bg-grey
-  = image_tag @picture.path
+//показ картинки :data => {'user-name' => 'John', 'user-age' => 24} %p.title :data => {'adaptive-background' => '1'}'
+.picture-show.text-align.bg-grey{class: "imgWrap"}
+  = image_tag @picture.path,:data => {'adaptive-background' => '1'}
 
 //кнопки под картинки
 %section.picture-actions.row

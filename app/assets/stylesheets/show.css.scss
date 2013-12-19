@@ -1,6 +1,6 @@
 @import 'setting.css.scss';
 
- h1,h2,h3,h4,h5{
+h1,h2,h3,h4,h5{
   color: $darckBlue;
   font-family:$arial;
   font-weight: bold;
@@ -32,8 +32,8 @@ section{
 
 //стили для звездочек между поль и временем
 .star{
-    padding: 0.1em;
-    vertical-align: -2px;
+  padding: 0.1em;
+  vertical-align: -2px;
 }
 
 //текст комментария
@@ -54,7 +54,7 @@ section{
 //временный стиль
 .bg-grey{
   img{
-      margin-bottom: -3px;
+    margin-bottom: -3px;
   }
 }
 
@@ -93,7 +93,7 @@ section{
     padding: 0
   }
 
-//инпут лдля ввода комментария
+  //инпут лдля ввода комментария
   .input-comment{
     float: left;
     padding: 0.7em;
@@ -114,7 +114,7 @@ section{
 
   }
 
-//для всех ариах стилей внутри комментариев
+  //для всех ариах стилей внутри комментариев
   textarea{
     @include border-radius(6px);
     resize: none;
@@ -125,7 +125,7 @@ section{
     padding-top: 0.67em;
   }
 
-//гавно-кнопка. почему ссылкой нельзя?
+  //гавно-кнопка. почему ссылкой нельзя?
   .create-btn{
     background-color: transparent;
     border: none;
@@ -141,7 +141,7 @@ section{
     }
   }
 
-//гавно-кнопка. почему ссылкой нельзя?
+  //гавно-кнопка. почему ссылкой нельзя?
   .button_to input[type="submit"]{
     cursor: pointer;
     margin-top: -5px;
@@ -178,7 +178,7 @@ section{
 
 //другие работы польз
 .other-job-right{
-  
+
   h1{
     margin-bottom: 1em;
   }
@@ -187,7 +187,7 @@ section{
     display: inline-block;
   }
 
-//информационная часть
+  //информационная часть
   .information{
 
     img{
@@ -268,7 +268,7 @@ section{
         position: absolute;
         bottom: -0.7em;
         left: 1.3em;
-         position: absolute;
+        position: absolute;
       }
       a{
         color: #ffffff;
@@ -455,8 +455,8 @@ section{
     right: -90px;
   }
   ul {   
-     background-color: #26394d;
-      @include border-radius(6px);
+    background-color: #26394d;
+    @include border-radius(6px);
     li{
       margin: 0;
       padding: 0.3em 0.7em;
@@ -482,7 +482,7 @@ section{
   display: block;
 }
 .user-menu-hover{
-    @include border-radius(6px!important);
+  @include border-radius(6px!important);
 }
 #search ~ a{
   vertical-align: 12px;
@@ -501,27 +501,27 @@ section{
 
 
 .reveal-modal {
-    visibility: visible;
-    display: block;
-    position: absolute;
-    left: 50%;
-    z-index: 99;
-    height: auto;
-    margin-left: -40%;
-    @include transition(all 0.3s ease-in-out);
-    width: 80%;
-    background-color: white;
-    padding: 1.25em;
-    border: solid 1px #666666;
-    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    top: -999px;
-    .close-reveal-modal{
-      background: transparent;
-      padding: 0;
-      border: 0;
-    }
+  visibility: visible;
+  display: block;
+  position: absolute;
+  left: 50%;
+  z-index: 99;
+  height: auto;
+  margin-left: -40%;
+  @include transition(all 0.3s ease-in-out);
+  width: 80%;
+  background-color: white;
+  padding: 1.25em;
+  border: solid 1px #666666;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  top: -999px;
+  .close-reveal-modal{
+    background: transparent;
+    padding: 0;
+    border: 0;
   }
+}
 
 
 
@@ -595,4 +595,82 @@ section{
       display: inline-block;
     }
   }
+}
+
+
+//--------------------------------------------------new picture-----------------------------------------
+.download-file{
+  label, abbr, .input{
+    color: white;
+  }
+  label{
+    display: block;
+  }
+  label:first-child{
+    font-weight: bold;
+  }
+  text-align: center;
+  border: 2px dashed grey;
+  margin: 1em 0;
+  @include border-radius(6px);
+  padding: 2em;
+  color: white;
+  input.file{
+    width: auto;
+  }
+}
+.title-download{
+  margin-bottom: 1em;
+  margin-top: 0.5em;
+} 
+.btn-download{
+  border: none;
+  padding: 0.4em 1em;
+  font-weight: bold;
+  background-color: white;
+  color: #70b2b8;
+  cursor: pointer;
+  @include border-radius(6px);
+  margin-top: .3em;
+  display: inline-block;
+}
+#crop{
+  overflow: hidden;
+  display: none;
+
+  .blue{
+    color: #70b2b8;
+    font-weight: bold;
+  }
+  #crop-area{
+    float: right;
+  }
+  #crop-pr{
+    float: right;
+    padding: 2em;
+  }
+  span.right{
+    margin-right: 6px;
+    float: right;
+  }
+}
+
+.new-picture-description{
+  margin-bottom: 2em;
+  input, textarea{
+    @include border-radius(6px);
+    resize: none;
+    margin-bottom: 2em;
+  }
+  label{
+    margin-top: 0.5em;
+    margin-bottom: 0.3em;
+  }
+  .btn{
+    margin-top: 1em;
+    cursor: pointer;
+  }
+}
+div.picture_path{
+  display: none;
 }
