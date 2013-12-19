@@ -14,7 +14,7 @@ $bgLightGrey: #fafafa;
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   border-radius: $radius;
-} 
+}
 @mixin transition($arg){
   -webkit-transition: $arg;
   -moz-transition: $arg;
@@ -22,20 +22,20 @@ $bgLightGrey: #fafafa;
   transition: $arg;
 }
 @mixin right-radius-border($arg){
-	-webkit-border-top-right-radius: $arg;
-	-webkit-border-bottom-right-radius: $arg;
-	-moz-border-radius-topright: $arg;
-	-moz-border-radius-bottomright: $arg;
-	border-top-right-radius: $arg;
-	border-bottom-right-radius: $arg;
+  -webkit-border-top-right-radius: $arg;
+  -webkit-border-bottom-right-radius: $arg;
+  -moz-border-radius-topright: $arg;
+  -moz-border-radius-bottomright: $arg;
+  border-top-right-radius: $arg;
+  border-bottom-right-radius: $arg;
 }
 @mixin left-radius-border($arg){
-	-webkit-border-top-left-radius: $arg;
-	-webkit-border-bottom-left-radius: $arg;
-	-moz-border-radius-topleft: $arg;
-	-moz-border-radius-bottomleft: $arg;
-	border-top-left-radius: $arg;
-	border-bottom-left-radius: $arg;
+  -webkit-border-top-left-radius: $arg;
+  -webkit-border-bottom-left-radius: $arg;
+  -moz-border-radius-topleft: $arg;
+  -moz-border-radius-bottomleft: $arg;
+  border-top-left-radius: $arg;
+  border-bottom-left-radius: $arg;
 }
 
 @font-face{
@@ -45,21 +45,29 @@ $bgLightGrey: #fafafa;
 $font:Gothic;
 a{
   @include transition(all 0.2s ease-in-out);
-   &:hover{
-       color: $colorRed;
-    }
+  &:hover{
+    color: $colorRed;
+  }
 }
 .border-radius-circle{
   @include border-radius(35px);
 }
 .blue{
-    color:$blue;
+  color:$blue;
 }
 .text-align{
   text-align: center;
 }
 .bg-grey{
   background-color: rgb(233, 233, 233);
+  -webkit-transition: background-color 0.5s ease;
+  -moz-transition: background-color 0.5s ease;
+  -o-transition: background-color 0.5s ease;
+  -ms-transition: background-color 0.5s ease;
+  transition: background-color 0.5s ease;
+  img{
+    max-height: 800px;
+  }
 }
 .bg-blue{
   background-color: #70b2b8;
