@@ -599,7 +599,7 @@ section{
 
 
 //--------------------------------------------------new picture-----------------------------------------
-.dowland-file{
+.download-file{
   label, abbr, .input{
     color: white;
   }
@@ -619,11 +619,11 @@ section{
     width: auto;
   }
 }
-.title-dowland{
+.title-download{
   margin-bottom: 1em;
   margin-top: 0.5em;
 } 
-.btn-dowland{
+.btn-download{
   border: none;
   padding: 0.4em 1em;
   font-weight: bold;
@@ -653,7 +653,7 @@ section{
     }
 }
 
-.new-picture-descript{
+.new-picture-description{
   margin-bottom: 2em;
   input, textarea{
     @include border-radius(6px);

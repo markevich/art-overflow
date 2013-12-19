@@ -4,19 +4,19 @@
 = simple_form_for @picture do |f|
   .row
     .large-12.columns
-      %h3.title-dowland
+      %h3.title-download
         Загрузка
   .bg-blue
     .row
       .large-12.columns
-        .dowland-file
+        .download-file
           %label
             Перетащи сюда файл с картинкой
           %label
             или
-          %a{class:'btn-dowland'}
+          %a.btn-download
             Выбери файл для загрузки
-          / = f.input :path, class:'hidden-btn'
+          = f.input :path, class:'hidden-btn'
   #crop-parameters{ data: {                                      |
       width: PictureUploader::CROP_AREA_WIDTH,                   |
       height: PictureUploader::CROP_AREA_HEIGHT,                 |
@@ -34,7 +34,7 @@
         15
     #crop-area
 .row
-  .large-6.columns.new-picture-descript
+  .large-6.columns.new-picture-description
     %label
       Заголовок
     %input{type:'text'}
@@ -49,7 +49,7 @@
     %a{href:"#", class:"[tiny small medium large] [secondary alert success] [radius round] button dropdown"} 
       мой альбом
     %br
-    %inpit{type:'submit',class:'btn btn-green'}
+    %input{type:'submit',class:'btn btn-green'}
       Отправить
 
 / = f.input :crop_x, as: :hidden
