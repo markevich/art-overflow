@@ -11,8 +11,7 @@
     = javascript_include_tag "//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.1/html5shiv.js"
     = stylesheet_link_tag "application", :media => "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "jquery.adaptive-backgrounds.min" => true
-   
+
     = analytics_init if Rails.env.production?
     %link(href="images/apple-touch-icon-144x144.png" rel="apple-touch-icon-precomposed" sizes="144x144")
     %link(href="images/apple-touch-icon-114x114.png" rel="apple-touch-icon-precomposed" sizes="114x114")
@@ -20,19 +19,10 @@
     %link(href="images/apple-touch-icon.png" rel="apple-touch-icon-precomposed")
     %link(href="favicon.ico" rel="shortcut icon")
 
-
-
   %body
-
     :javascript
       window.current_user = $.cookies.get('current_user')
     = render :partial => 'layouts/header'
-
-
     = bootstrap_flash
     = yield
     = render :partial => 'layouts/footer'
-    /
-      Javascripts
-      \==================================================
-    / Placed at the end of the document so the pages load faster

@@ -1,4 +1,7 @@
 $(document).on 'ready page:load', ->
+  $(document).on 'click', '.btn-download', -> 
+    $('input.file').click()
+
   new ImageUploader()
 
 class ImageUploader
@@ -8,8 +11,10 @@ class ImageUploader
 
   setImagePreview= (callback) ->
     $(document).on 'change', '#picture_path', (e) ->
+      $('#image-selector').hide()
       loadImage e.target.files[0], ((canvas) =>
           $("#crop-area").html(canvas)
+          $('#crop').show()
           callback()
         ),
           maxWidth: cropData().width,
