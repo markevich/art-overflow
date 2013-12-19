@@ -32,4 +32,4 @@ $(document).on 'ready page:load', ->
   $('.reply-to-comment').on 'click', ->
     $(this).parents('.message-comment:first').find('.reply-to-comment-container:first').toggle()
 
-  $.adaptiveBackground.run();
+  $.adaptiveBackground.run()
