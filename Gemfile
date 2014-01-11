@@ -26,7 +26,7 @@ gem 'mysql2'
 #
 
 #
-gem "compass-rails", "~> 2.0.alpha.0"
+gem "compass-rails"
 gem 'zurb-foundation'
 #
 
@@ -60,7 +60,7 @@ gem 'acts-as-taggable-on'
 #
 
 group :development do
-  gem 'capistrano'
+  gem 'capistrano', '2.15.5'
   gem 'capistrano-rbenv'
   gem 'quiet_assets'
   gem 'letter_opener'
