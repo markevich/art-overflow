@@ -42,7 +42,7 @@ gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git'
 
 #sidekiq
 gem 'sidekiq'
-gem 'slim', '1.3.8', group: [:development, :production]
+gem 'slim'
 gem 'sinatra', :require => nil, group: [:development, :production]
 #
 
@@ -77,7 +77,7 @@ group :development, :production do
 end
 
 group :development, :test do
-  gem 'debugger'
+  gem 'pry-rails'
 end
 
 group :production do
