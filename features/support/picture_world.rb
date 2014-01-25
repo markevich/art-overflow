@@ -12,12 +12,7 @@ module PictureWorld
   end
 
   def create_many_pictures(count)
-    picture = create(:picture)
-    count.times do
-      ActiveRecord::Base.transaction do
-        picture.dup.save
-      end
-    end
+    create_list(:picture, count)
   end
 
   def picture_likes_count

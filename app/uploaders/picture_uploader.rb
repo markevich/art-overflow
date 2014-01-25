@@ -39,21 +39,9 @@ class PictureUploader < CarrierWave::Uploader::Base
     process :crop
     process :optimize
     process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
-    process :convert_and_interlace
   end
 
   process :optimize
-  process :convert_and_interlace
-
-  def convert_and_interlace
-    manipulate! do |img|
-      img.combine_options do |c|
-        c.depth '8'
-        c.interlace 'plane'
-      end
-      img
-    end
-  end
 
   def crop
     if model.crop_x.present?
