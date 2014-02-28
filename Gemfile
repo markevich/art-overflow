@@ -16,6 +16,7 @@ gem 'haml-rails'
 #
 
 gem 'jcrop-rails-v2'
+gem 'tire'
 
 #authentication processing
 gem 'devise'
@@ -107,6 +108,7 @@ group :test do
   gem 'cucumber'
   gem 'cucumber-rails', :require => false
   #
+  gem 'fakeweb'
 
   gem 'database_cleaner'
 

@@ -19,8 +19,10 @@
         %span
           = image_tag("cloudlet.png")
         Загрузить
+
       #search
-        %input{type: "text", placeholder: "Поиск"}
+        = form_tag search_index_path, method: :get do
+          = text_field_tag :query, params[:query], autocomplete: :off, placeholder: 'Поиск'
       - if user_signed_in?
         %span.ava
           = image_tag 'images.jpg'
@@ -32,20 +34,20 @@
             %li
               = link_to t('user.settings'), edit_user_registration_path
             %li
-              = link_to t('user.logout'), destroy_user_session_path, method: :delete   
+              = link_to t('user.logout'), destroy_user_session_path, method: :delete
       - else
         / = link_to t('user.sign_in'), new_user_session_path, class: 'sign-in'
         %a{class: 'sign-in'}
-          Вход 
+          Вход
       .login-user
         %form{class: 'simple_form'}
           = image_tag('triangle.png');
           %input{type: "text", placeholder: "Еmail"}
           %input{type: "text", placeholder: "Пароль"}
           .action
-            %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue'}     
+            %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue'}
             = link_to "Забыл пароль?", '#', class: 'grey forgot-password'
           .join-us.grey
             Еще не с нами?
             = link_to t('user.registration'), new_user_registration_path, class: 'grey'
-      
+

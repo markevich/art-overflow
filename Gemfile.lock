@@ -45,6 +45,7 @@ GEM
     acts-as-taggable-on (3.0.1)
       rails (>= 3, < 5)
     addressable (2.3.5)
+    ansi (1.4.3)
     arel (4.0.1)
     atomic (1.1.14)
     bcrypt-ruby (3.1.2)
@@ -132,6 +133,7 @@ GEM
     factory_girl_rails (4.3.0)
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
+    fakeweb (1.3.0)
     ffi (1.9.3)
     fssm (0.2.10)
     gherkin (2.12.2)
@@ -144,6 +146,7 @@ GEM
       activesupport (>= 4.0.1)
       haml (>= 3.1, < 5.0)
       railties (>= 4.0.1)
+    hashr (0.0.22)
     highline (1.6.20)
     hike (1.2.3)
     i18n (0.6.9)
@@ -228,6 +231,8 @@ GEM
     redis (3.0.7)
     redis-namespace (1.4.1)
       redis (~> 3.0.4)
+    rest-client (1.6.7)
+      mime-types (>= 1.16)
     rspec (2.14.1)
       rspec-core (~> 2.14.0)
       rspec-expectations (~> 2.14.0)
@@ -293,6 +298,14 @@ GEM
       atomic
     tilt (1.4.1)
     timers (1.1.0)
+    tire (0.6.2)
+      activemodel (>= 3.0)
+      activesupport
+      ansi
+      hashr (~> 0.0.19)
+      multi_json (~> 1.3)
+      rake
+      rest-client (~> 1.6)
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
@@ -338,6 +351,7 @@ DEPENDENCIES
   devise-i18n
   exception_notification
   factory_girl_rails
+  fakeweb
   google-analytics-rails
   haml-rails
   jcrop-rails-v2
@@ -364,6 +378,7 @@ DEPENDENCIES
   simple_form
   sinatra
   slim
+  tire
   turbolinks
   uglifier
   unicorn

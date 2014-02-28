@@ -6,10 +6,13 @@ class User < ActiveRecord::Base
 
   validates :name, :email, :password, presence: true
 
-  has_many :pictures, dependent: :destroy, inverse_of: :user
+  has_many :pictures, dependent: :destroy, inverse_of: :user do
+    def popular
+      order(likes_count: :desc).limit(3)
+    end
+  end
   has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy
-  has_many :picture_likes, through: :pictures, source: :likes
+  has_many :likes, dependent: :destroy, counter_cache: true
   delegate :latest, to: :pictures, prefix: true
 
   ROLES = %w[admin moderator]
@@ -18,6 +21,28 @@ class User < ActiveRecord::Base
   acts_as_followable
 
   include PublicActivity::Model
+
+  include Tire::Model::Search
+  include Tire::Model::Callbacks
+
+  mapping do
+    indexes :id, type: :integer, index: :not_analyzed
+    indexes :name, type: :string, boost: 10
+    indexes :likes_count, type: :integer
+    indexes :city, type: :string
+    indexes :popular_pictures, as: 'pictures.popular' do
+      indexes :id, type: :integer, index: :no
+      indexes :name, type: :string, index: :no
+      indexes :path, type: :string, index: :no
+    end
+  end
+
+  def self.search(query_params)
+    tire.search do
+      query { string query_params } if query_params
+      sort { by :likes_count }
+    end
+  end
 
   def liked?(likeable)
     likes.exists?(likeable: likeable)

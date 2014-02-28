@@ -3,6 +3,7 @@ ArtOverflow::Application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations' }
+  resources :search, only: :index
   resources :users do
     member do
       post :follow
