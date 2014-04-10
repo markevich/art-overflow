@@ -32,20 +32,21 @@
             %li
               = link_to t('user.settings'), edit_user_registration_path
             %li
-              = link_to t('user.logout'), destroy_user_session_path, method: :delete   
+              = link_to t('user.logout'), destroy_user_session_path, method: :delete
       - else
         / = link_to t('user.sign_in'), new_user_session_path, class: 'sign-in'
         %a{class: 'sign-in'}
-          Вход 
+          Вход
       .login-user
-        %form{class: 'simple_form'}
+        / %form{class: 'simple_form', action: new_user_session_path}
+        = simple_form_for(User.new, url: new_user_session_path) do
           = image_tag('triangle.png');
-          %input{type: "text", placeholder: "Еmail"}
-          %input{type: "text", placeholder: "Пароль"}
+          %input{name: "user[email]", type: "text", placeholder: "Еmail"}
+          %input{name: "user[password]", type: "text", placeholder: "Пароль"}
           .action
-            %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue'}     
+            %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue'}
             = link_to "Забыл пароль?", '#', class: 'grey forgot-password'
           .join-us.grey
             Еще не с нами?
             = link_to t('user.registration'), new_user_registration_path, class: 'grey'
-      
+
