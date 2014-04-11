@@ -10,7 +10,6 @@ describe Picture do
   it { should respond_to(:tags) }
 
   it { should validate_presence_of(:name) }
-  it { should validate_presence_of(:path) }
   it { should validate_presence_of(:user) }
 
   it { should respond_to(:user_name) }

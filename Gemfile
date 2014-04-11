@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 #rails
-gem 'rails', '4.0.2'
+gem 'rails', '4.1.0'
 gem 'rails-observers'
 gem 'turbolinks'
 gem 'jquery-rails'
@@ -130,7 +130,11 @@ group :test do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'shoulda-matchers'
+  gem 'rspec-rails', '~> 3.0.0.beta'
+  gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers', require: false
+  gem 'spring'
+  gem 'spring-commands-rspec'
+  gem 'spring-commands-cucumber'
+  gem 'capybara', github: 'jnicklas/capybara'
   gem 'factory_girl_rails'
 end

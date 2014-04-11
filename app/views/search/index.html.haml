@@ -1,10 +1,8 @@
 - @users.each do |u|
-  = binding.pry
   %div
     = link_to u.name, u
     = u.likes_count
     %div
-      = puts u.popular_pictures
       - u.popular_pictures.each do |p|
         = link_to image_tag(p.path.thumb.url), picture_path(p.id)
 

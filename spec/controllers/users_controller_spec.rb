@@ -22,7 +22,7 @@ describe UsersController do
       it { expect{ follow_user }.to change(user, :follow_count).by(1) }
       it { expect(follow_user).to be_success }
 
-      it { expect { follow_self }.to_not change(user, :follow_count).by(1) }
+      it { expect { follow_self }.not_to change{ user.follow_count } }
     end
 
     context 'unauthorized' do
@@ -49,7 +49,7 @@ describe UsersController do
       it { expect{ stop_following_user }.to change(another_user, :followers_count).by(-1) }
       it { expect(stop_following_user).to be_success }
 
-      it { expect { stop_following_self }.to_not change(user, :follow_count).by(-1) }
+      it { expect { stop_following_self }.not_to change{ user.follow_count } }
       it { expect{stop_following_self}.to change(response, :body).to eq({state: :inactive}.to_json) }
     end
 
@@ -85,7 +85,7 @@ describe UsersController do
         get :show, id: another_user.id
       end
 
-      it { expect(assigns[:following]).to be_false }
+      it { expect(assigns[:following]).to be_falsey }
     end
   end
 end

@@ -29,8 +29,9 @@ describe PicturesController do
     it 'returns likes count' do
       user.like(pic)
       post :unlike, id: pic.id
+
       expect(pic.reload.likes_count).to eq 0
-      response.body.should eq({count: pic.likes_count, state: :inactive}.to_json)
+      expect(response.body).to eq({count: pic.likes_count, state: :inactive}.to_json)
     end
   end
 
@@ -38,8 +39,9 @@ describe PicturesController do
     let(:pic) { create(:picture) }
     it 'changes likes count' do
       post :like, id: pic.id
+
       expect(pic.reload.likes_count).to eq 1
-      response.body.should eq({count: pic.likes_count, state: :active}.to_json)
+      expect(response.body).to eq({count: pic.likes_count, state: :active}.to_json)
     end
   end
 
@@ -47,6 +49,6 @@ describe PicturesController do
     let!(:pic) { create(:picture) }
     before { get :latest, user_id: pic.user.id }
 
-    it { response.should be_success }
+    it { expect(response).to be_success }
   end
 end

@@ -28,11 +28,11 @@ describe User do
     context 'liked' do
       before { user.likes.create(likeable: likeable) }
 
-      it { expect(user.liked?(likeable)).to be_true }
+      it { expect(user.liked?(likeable)).to be_truthy }
     end
 
     context 'not liked' do
-      it { expect(user.liked?(likeable)).to be_false }
+      it { expect(user.liked?(likeable)).to be_falsey }
     end
   end
 
