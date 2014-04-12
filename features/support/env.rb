@@ -4,7 +4,8 @@ require 'sidekiq'
 require 'sidekiq/testing/inline'
 require 'cucumber/rails'
 require 'capybara/poltergeist'
-require 'cucumber/rspec/doubles'
+require 'rspec/mocks'
+
 if false
   Capybara.javascript_driver = :selenium
   require 'capybara/firebug'
@@ -21,13 +22,25 @@ end
 
 World(FactoryGirl::Syntax::Methods)
 
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+World(RSpec::Mocks::ExampleMethods)
+
+Before do
+  RSpec::Mocks.setup
+end
+
+After do
+  begin
+    RSpec::Mocks.verify
+  ensure
+    RSpec::Mocks.teardown
+  end
+end
 
 DatabaseCleaner.strategy = :transaction
 
 Before do
   #get rid of noisy messages vatar.jpg 568x640 24bit N JFIF  [OK] 114403 --> 114341 bytes (0.05%), optimized.
-  ImageOptimizer.stub(:new).and_return double('ImageOptimizer').as_null_object
+  allow(ImageOptimizer).to receive(:new).and_return double('ImageOptimizer').as_null_object
 end
 
 Before('@no-txn,@selenium,@culerity,@celerity,@javascript') do

@@ -3,15 +3,16 @@ require 'rubygems'
 ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
-require 'rspec/autorun'
 require "factory_girl"
 require 'sidekiq/testing'
+require 'shoulda/matchers'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
+  config.raise_errors_for_deprecations!
 
   config.before(:each, devise: true) do
     Rails.application.routes.default_url_options[:host] = 'test.host'
@@ -20,7 +21,7 @@ RSpec.configure do |config|
   config.before do
     ActiveRecord::Base.observers.disable :all
     #get rid of noisy messages vatar.jpg 568x640 24bit N JFIF  [OK] 114403 --> 114341 bytes (0.05%), optimized.
-    ImageOptimizer.stub(:new).and_return double('ImageOptimizer').as_null_object
+    allow(ImageOptimizer).to receive(:new).and_return(double('ImageOptimizer').as_null_object)
   end
 
   config.use_transactional_fixtures = false
