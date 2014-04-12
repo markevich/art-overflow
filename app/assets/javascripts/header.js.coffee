@@ -5,8 +5,8 @@ $(document).on 'ready page:load', ->
     $(@).children().removeClass 'hovered'
 
   $('#search').on 'click', ->
-    $(@).children().addClass 'active'
-  .children().on 'blur', ->
+    $(@).find('input').addClass 'active'
+  .find('input').on 'blur', ->
     $(@).removeClass('active') unless !!$(@).val()
 
   $(document).on 'mouseenter', '.user-menu', ->

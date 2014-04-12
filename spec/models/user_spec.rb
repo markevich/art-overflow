@@ -3,8 +3,7 @@ require 'spec_helper'
 describe User do
   it { should have_many(:pictures).dependent(:destroy) }
   it { should have_many(:comments).dependent(:destroy) }
-  it { should have_many(:likes).dependent(:destroy) }
-  it { should have_many(:picture_likes).through(:pictures) }
+  it { should have_many(:likes).dependent(:destroy).counter_cache(true) }
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:email) }
@@ -29,11 +28,11 @@ describe User do
     context 'liked' do
       before { user.likes.create(likeable: likeable) }
 
-      it { expect(user.liked?(likeable)).to be_true }
+      it { expect(user.liked?(likeable)).to be_truthy }
     end
 
     context 'not liked' do
-      it { expect(user.liked?(likeable)).to be_false }
+      it { expect(user.liked?(likeable)).to be_falsey }
     end
   end
 

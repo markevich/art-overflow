@@ -37,4 +37,6 @@ ArtOverflow::Application.configure do
     Bullet.growl = false
   end
 
+  config.assets.raise_runtime_errors = true
+  config.action_view.raise_on_missing_translations = true
 end

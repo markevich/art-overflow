@@ -19,8 +19,10 @@
         %span
           = image_tag("cloudlet.png")
         Загрузить
+
       #search
-        %input{type: "text", placeholder: "Поиск"}
+        = form_tag search_index_path, method: :get do
+          = text_field_tag :query, params[:query], autocomplete: :off, placeholder: 'Поиск'
       - if user_signed_in?
         %span.ava
           = image_tag 'images.jpg'

@@ -92,4 +92,7 @@ ArtOverflow::Application.configure do
     }
 
   GA.tracker = "UA-40948610-2"
+
+  # Do not dump schema after migrations.
+  config.active_record.dump_schema_after_migration = false
 end
