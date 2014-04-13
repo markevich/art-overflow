@@ -23,8 +23,10 @@ When(/^I visit authentication page$/) do
 end
 
 When(/^I fill in my login and password$/) do
-  fill_authorization_form
-  click_button(I18n.t('user.sign_in'))
+  within '.authorization' do
+    fill_authorization_form
+    click_button(I18n.t('user.sign_in'))
+  end
 end
 
 Then(/^I should see that I am authorized$/) do
@@ -47,7 +49,7 @@ Then(/^I confirm my account through email$/) do
 end
 
 Then(/^I should see that my account is confirmed$/) do
-  User.find_by_email(user_email).should be_confirmed
+  expect(User.find_by_email(user_email)).to be_confirmed
   expect(page).to have_content I18n.t('devise.confirmations.confirmed')
 end
 

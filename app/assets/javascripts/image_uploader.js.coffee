@@ -1,8 +1,5 @@
-$(document).on 'ready page:load', ->
-  $(document).on 'click', '.btn-download', -> 
-    $('input.file').click()
-
-  new ImageUploader()
+$(document).on 'click', '.btn-download', ->
+  $('input.file').click()
 
 class ImageUploader
   constructor: ()->
@@ -48,3 +45,4 @@ class ImageUploader
       context = canvas.getContext('2d')
       context.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height)
 
+new ImageUploader()

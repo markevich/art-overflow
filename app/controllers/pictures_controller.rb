@@ -1,7 +1,7 @@
 class PicturesController < ApplicationController
   PAGE_SIZE = 15
   before_filter :set_model, only: [:show, :like, :unlike]
-  before_filter :authenticate_user!, only: [:like, :unlike]
+  before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :like, :unlike]
 
   def index
     @page = (params[:page] || 1).to_i
@@ -67,6 +67,7 @@ class PicturesController < ApplicationController
       :crop_h,
       :crop_w,
       :name,
+      :description,
       :path,
       :tag_list
     ).tap do |whitelist|

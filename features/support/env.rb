@@ -14,6 +14,7 @@ else
 end
 
 Capybara.default_selector = :css
+Capybara.ignore_hidden_elements = true
 
 full_names = Dir["#{Rails.root}/app/helpers/*.rb"]
 full_names.collect do |full_name|

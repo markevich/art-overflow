@@ -40,12 +40,5 @@
       = f.input :crop_w, as: :hidden
       = f.input :crop_h, as: :hidden
       = f.input :name
-      %label
-        Описание
-      %textarea
-      -# %label
-      -#   Альбом
-      -# %a{href:"#", class:"[tiny small medium large] [secondary alert success] [radius round] button dropdown"}
-      -#   мой альбом
-      %br
-      = f.button :submit, class: 'btn btn-green'
+      = f.input :description
+      = f.button :submit, class: 'btn btn-green', value: 'Отправить', data: { disable_with: 'Загружаем' }
