@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140413090519) do
+ActiveRecord::Schema.define(version: 20140413113237) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -170,6 +170,7 @@ ActiveRecord::Schema.define(version: 20140413090519) do
     t.string   "city"
     t.string   "vk"
     t.integer  "likes_count",            default: 0
+    t.string   "avatar"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

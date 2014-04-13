@@ -22,6 +22,7 @@ ru:
     profile: 'Профиль'
     forgot_password: 'Забыл пароль'
     registration: 'Регистрация'
+    avatar_update: 'Аватар успешно изменен.'
 
   pictures:
     show_more: 'Загрузить остальные'

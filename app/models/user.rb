@@ -2,9 +2,12 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :confirmable
 
+  attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+  mount_uploader :avatar, AvatarUploader
+
   before_create :set_password_confirmation
 
-  validates :name, :email, :password, presence: true
+  validates :name, :email, presence: true
 
   has_many :pictures, dependent: :destroy, inverse_of: :user do
     def popular
