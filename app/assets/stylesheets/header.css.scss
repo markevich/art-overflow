@@ -1,7 +1,7 @@
 @import 'setting.css.scss';
 //----------------------------------------------стили для шапки--------------------------------------------------------
 header{
-  padding: 0.8em;
+  padding: 10px;
   padding-bottom: 0.3em;
   background-color: #26394d;
 //стили для поиска профиля
@@ -36,7 +36,7 @@ h1{
   font-family: $font!important;
   color: white;
   font-size: 1.55em!important;
-  margin-top: 0.3em !important;
+  margin-top: 2px !important;
 }
 
 nav{
@@ -47,11 +47,11 @@ nav{
        width: auto!important;
        padding-left: 0.7em;
        padding-bottom: 0;
-        margin-top: 0.4em;
+        margin-top: 4px;
        a{
          font-size: 0.9em;
          font-weight: bold;
-         font-family: $font;
+         font-family: Arial;
          &:hover{
            color: $colorRed;
          }
@@ -71,7 +71,7 @@ nav{
     width: 180px;
     input{
       margin-right: 1em;
-      top: -27px;
+      top: -30px;
       width: 95px;
       position: absolute;
       right: 0;
@@ -172,4 +172,78 @@ nav{
   }
 }
 
+}
+
+.flash-success{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 54px;
+  background: url('bg-green.png') repeat-x;
+  text-align: center;
+  z-index: 11;
+  span.message{
+    background-image: url("flash.png");
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Arial;
+    padding-top: 17px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    padding-left: 29px;
+    background-position: left bottom;
+    padding-bottom: 2px;
+    &:hover{
+      color: white;
+    }
+  }
+  .close{
+      cursor: pointer;
+      color: white;
+      font-family: Arial;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      display: inline-block;
+    }
+}
+.flash-error{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 54px;
+  background: url('bg-red.png') repeat-x;
+  text-align: center;
+  z-index: 12;
+  span.message{
+    padding-bottom: 2px;
+    background-image: url("flash-error.png");
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: Arial;
+
+    padding-top: 17px;
+    display: inline-block;
+    background-repeat: no-repeat;
+    padding-left: 29px;
+    background-position: left bottom;
+    &:hover{
+      color: white;
+
+    }
+
+  }
+  .close{
+      cursor: pointer;
+      color: white;
+      font-family: Arial;
+      position: absolute;
+      top: 5px;
+      right: 10px;
+      display: inline-block;
+    }
 }

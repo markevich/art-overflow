@@ -1,0 +1,12 @@
+- if message = flash[:success] || flash[:notice]
+  .flash-success
+    %span.message
+      = message
+    %span.close
+      x
+- elsif message = flash[:error] || flash[:alert]
+  .flash-error
+    %span.message
+      = message
+    %span.close
+      x

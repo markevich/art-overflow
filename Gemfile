@@ -138,3 +138,4 @@ group :development, :test do
   gem 'capybara', github: 'jnicklas/capybara'
   gem 'factory_girl_rails'
 end
+gem 'sprockets-rails', github: 'rails/sprockets-rails'

@@ -21,7 +21,7 @@ module ArtOverflow
     I18n.enforce_available_locales = true
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    config.assets.precompile += %w(*jbar.js *jbar.css subscribe.css)
+    config.assets.precompile += %w(jbar jbar.css subscribe.css)
     config.assets.precompile += %w(load-image.min.js jquery.Jcrop.js jquery.Jcrop.css)
     config.assets.precompile += %w(jquery.adaptive-backgrounds.min.js)
   end
