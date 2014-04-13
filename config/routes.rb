@@ -8,6 +8,8 @@ Rails.application.routes.draw do
     member do
       post :follow
       post :stop_following
+      get :avatar_edit
+      patch :avatar_update
     end
 
     resources :pictures do

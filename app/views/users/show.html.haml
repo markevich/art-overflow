@@ -1,7 +1,7 @@
 %div{'data-check-user' => true, 'data-user-id' => @user.id}
 .row.profil
   .large-2.columns
-    =image_tag("download.jpeg")
+    =image_tag(@user.avatar)
   .large-5.columns
     %h3
       = @user.name
@@ -72,7 +72,7 @@
         %li
           %a
             Тэги
-    
+
   //.picture-actions
   //  = render partial: 'follow_button', locals: {user: @user, following: @following}
 = render 'pictures/list', page: 0, pictures: @pictures

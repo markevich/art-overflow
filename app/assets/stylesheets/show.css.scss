@@ -395,7 +395,7 @@ section{
       float: right;
     }
   }
- 
+
 }
 .registration{
   h1{
@@ -441,7 +441,7 @@ section{
 .top-reval-model{
   top: 50%!important;
 }
-.user-menu{  
+.user-menu{
   display: none;
   padding-top: 0.4em;
   position: absolute;
@@ -453,7 +453,7 @@ section{
     position: relative;
     right: -90px;
   }
-  ul {   
+  ul {
     background-color: #26394d;
     @include border-radius(6px);
     li{
@@ -624,7 +624,7 @@ top: -2px;
 .title-download{
   margin-bottom: 1em;
   margin-top: 0.5em;
-} 
+}
 .btn-download{
   border: none;
   padding: 0.4em 1em;
@@ -684,6 +684,6 @@ top: -2px;
     padding-top: 20px;
   }
 }
-div.picture_path{
+div.picture_path, div.user_avatar{
   display: none;
 }

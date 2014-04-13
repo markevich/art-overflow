@@ -25,14 +25,14 @@
           = text_field_tag :query, params[:query], autocomplete: :off, placeholder: 'Поиск'
       - if user_signed_in?
         %span.ava
-          = image_tag 'images.jpg'
+          = image_tag current_user.avatar
         .user-menu
           = image_tag 'triangle.png'
           %ul.large-block-grid-1
             %li
               = link_to t('user.profile'), user_path(current_user)
             %li
-              = link_to t('user.settings'), edit_user_registration_path
+              = link_to t('user.settings'), edit_user_path(current_user)
             %li
               = link_to t('user.logout'), destroy_user_session_path, method: :delete
       - else

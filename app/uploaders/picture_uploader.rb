@@ -8,10 +8,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   THUMB_ASPECT_RATIO = (THUMB_WIDTH.to_f / THUMB_HEIGHT).freeze
   include CarrierWave::MiniMagick
   include CarrierWave::ImageOptimizer
-
-  # Include the Sprockets helpers for Rails 3.1+ asset pipeline compatibility:
-  # include Sprockets::Helpers::RailsHelper
-  # include Sprockets::Helpers::IsolatedHelper
+  include Uploaders::Mixin::Base
 
   storage :file
   def store_dir
@@ -36,31 +33,12 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   # Create different versions of your uploaded files:
   version :thumb do
-    process :crop
+    process :crop => [CROP_AREA_WIDTH, CROP_AREA_HEIGHT]
     process :optimize
     process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
   end
 
   process :optimize
-
-  def crop
-    if model.crop_x.present?
-      resize_to_limit(CROP_AREA_WIDTH, CROP_AREA_HEIGHT)
-      manipulate! do |img|
-        x = model.crop_x.to_i
-        y = model.crop_y.to_i
-        w = model.crop_w.to_i
-        h = model.crop_h.to_i
-        img.crop("#{w}x#{h}+#{x}+#{y}")
-        img
-      end
-    end
-
-  end
-
-  def extension_white_list
-    %w(jpg jpeg gif png)
-  end
 
   # def filename
   #   "#{secure_token}.jpg" if original_filename.present?
