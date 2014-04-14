@@ -60,6 +60,8 @@ gem "acts_as_follower", github: 'markevich/acts_as_follower', branch: 'rails4'
 gem 'acts-as-taggable-on'
 #
 
+gem 'inherited_resources'
+
 group :development do
   gem 'capistrano', '2.15.5'
   gem 'capistrano-rbenv'

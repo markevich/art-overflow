@@ -1,12 +1,11 @@
 class PicturesController < ApplicationController
   PAGE_SIZE = 15
   before_filter :set_model, only: [:show, :like, :unlike]
+  before_filter :set_page_and_offset, only: [:index, :latest_list, :popular_list]
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :like, :unlike]
 
   def index
-    @page = (params[:page] || 1).to_i
-    offset = (@page - 1) * PAGE_SIZE
-    @pictures = Picture.includes(:user).limit(PAGE_SIZE).offset(offset)
+    @pictures = Picture.includes(:user).limit(PAGE_SIZE).offset(@offset)
 
     render @pictures if request.xhr?
   end
@@ -50,14 +49,53 @@ class PicturesController < ApplicationController
 
   def latest
     @user = User.find(params[:user_id])
-    @pictures = @user.pictures_latest
-    render 'users/show'
+    @pictures = @user.pictures_latest.limit(PAGE_SIZE).offset(@offset)
+    # respond_to do |format|
+    #   format.js { render @pictures }
+    #   format.html { render 'users/show' }
+    # end
+
+    if request.xhr?
+      render @pictures
+    else
+      render 'users/show'
+    end
   end
+
+  # def latest_list
+  #   @user = User.find(params[:user_id])
+  #   @pictures = @user.pictures_latest.limit(PAGE_SIZE).offset(@offset)
+
+  #   render @pictures
+  # end
+
+  def popular
+    @user = User.find(params[:user_id])
+    @pictures = @user.pictures_popular.limit(PAGE_SIZE).offset(@offset)
+
+    if request.xhr?
+      render @pictures
+    else
+      render 'users/_popular'
+    end
+  end
+
+  # def popular_list
+  #   @user = User.find(params[:user_id])
+  #   @pictures = @user.pictures_popular.limit(PAGE_SIZE).offset(@offset)
+
+  #   render @pictures
+  # end
 
   private
 
   def set_model
     @picture = Picture.find params[:id]
+  end
+
+  def set_page_and_offset
+    @page = (params[:page] || 1).to_i
+    @offset = (@page - 1) * PAGE_SIZE
   end
 
   def permitted_params

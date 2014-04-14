@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
     resources :pictures do
       get :latest, on: :collection
+      # get :latest_list, on: :collection
+      get :popular, on: :collection
+      # get :popular_list, on: :collection
     end
   end
   resources :comments do
