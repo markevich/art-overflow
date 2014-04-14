@@ -17,6 +17,5 @@
 //= require jquery.parsequery.min.js
 //= require jquery.adaptive-backgrounds.min
 //= require cookie.min.js
-//= require jbar.js
 //= require turbolinks
 //= require_tree .

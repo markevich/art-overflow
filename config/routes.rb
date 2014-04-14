@@ -35,14 +35,10 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:destroy, :create]
 
-  resources :subscribers, only: [:index, :create] do
-    get :unsubscribe, on: :member
-  end
-
   resources :ping, only: :index
 
   resource :foundations, only: [] do
     get :elements
   end
-  root to: 'subscribers#index'
+  root to: 'pictures#index'
 end

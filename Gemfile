@@ -61,6 +61,7 @@ gem 'acts-as-taggable-on'
 #
 
 gem 'inherited_resources'
+gem 'responders'
 
 group :development do
   gem 'capistrano', '2.15.5'

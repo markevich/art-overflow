@@ -414,6 +414,7 @@ DEPENDENCIES
   quiet_assets
   rails (= 4.1.0)
   rails-observers
+  responders
   rspec-rails (~> 3.0.0.beta)
   ruby_gntp
   russian

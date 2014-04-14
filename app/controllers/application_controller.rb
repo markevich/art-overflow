@@ -1,20 +1,12 @@
 class ApplicationController < ActionController::Base
   include PublicActivity::StoreController
   protect_from_forgery with: :exception
-  add_flash_types :error, :success
+
   respond_to :html
 
   before_filter :set_cookie_current_user
   before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
-
-  if Rails.env.test?
-    rescue_from Exception do |e|
-      logger.error e
-      logger.error e.backtrace.join "\n"
-      raise e
-    end
-  end
 
   def store_location
     if request.fullpath != "/users/sign_in" && \
