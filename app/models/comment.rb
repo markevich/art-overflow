@@ -6,6 +6,9 @@ class Comment < ActiveRecord::Base
 
   validates :commentable_id, :commentable_type, :user_id, :text, presence: true
 
+  delegate :name, to: :user, prefix: true
+  delegate :avatar, to: :user, prefix: true
+
   # Define your filters for content
   # Expample for: gem 'RedCloth', gem 'sanitize'
   # your personal SmilesProcessor

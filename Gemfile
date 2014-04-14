@@ -37,6 +37,7 @@ gem 'carrierwave-imageoptimizer'
 gem 'mini_magick'
 #
 
+
 #sidekiq
 gem 'sidekiq'
 gem 'slim'
@@ -68,6 +69,8 @@ group :development do
   gem 'bullet'
   gem 'uniform_notifier'
   gem 'ruby_gntp'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :production do

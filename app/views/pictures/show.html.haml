@@ -3,9 +3,9 @@
   .large-12.columns
     = image_tag 'images.jpg', class: "border-radius-circle user"
     %h1
-      = @picture.name
+      = resource.name
     %p.blue
-      = link_to @picture.user.name, url_for(@picture.user)
+      = link_to resource.user_name, resource.user
       %span.grey
         %span.star
           *
@@ -15,15 +15,15 @@
           *
         \#мост
 
-//показ картинки :data => {'user-name' => 'John', 'user-age' => 24} %p.title :data => {'adaptive-background' => '1'}'
+//показ картинки
 .picture-show.text-align.bg-grey{class: "imgWrap"}
-  = image_tag @picture.path,:data => {'adaptive-background' => '1'}
+  = image_tag resource.path,:data => {'adaptive-background' => '1'}
 
 //кнопки под картинки
 %section.picture-actions.row
   .large-12.columns.small-4
     = render 'pictures/like_button', voted: @voted
-    = render partial: 'users/follow_button', locals: {following: @following, user: @picture.user}
+    = render partial: 'users/follow_button', locals: {following: @following, user: resource.user}
     %a.btn.btn-blue
       Поделиться
       = image_tag 'follow.gif', class:"img-follow"
@@ -35,23 +35,23 @@
       .row
         .large-12.columns.title
           %h1
-            Комментарии (#{@picture.comments_count})
+            Комментарии (#{resource.comments_count})
           %p
             Последние
           %p.blue
             = image_tag 'arrow_bottom.gif'
             Популярные
-      = render 'comments/form', commentable: @picture
+      = render 'comments/form', commentable: resource if user_signed_in?
       .user-comment
-        = render @comments, commentable: @picture
+        = render resource.comments.includes(:user), commentable: resource
 
     .other-job-right.large-5.columns
       %h1
         Другие работы
       %p.blue
-        = link_to(@picture.user.name, url_for(@picture.user))
+        = link_to(resource.user_name, resource.user)
         %ul.large-block-grid-3.small-block-grid-1
-          - most_popular_pictures(@picture.user).each do |pic|
+          - most_popular_pictures(resource.user).each do |pic|
             %li
               %a{href: picture_path(pic)}
                 = image_tag pic.path.thumb

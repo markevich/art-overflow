@@ -22,20 +22,8 @@ class InfinityScrollerManager
       container: scrollable
       fetchPath: scrollable.data('fetch-path')
       currentPage: parseInt(scrollable.attr('data-current-page'))
-      triggerFunction: getTrigger(scrollable)
       preloader: scrollable.find('[data-scroller-preloader]')
       pager: new Pager(scrollable.data('id'), scrollable)
-
-  getTrigger = (scrollable) ->
-    trigger_element = scrollable.find(':visible[data-scroller-trigger]')
-    trigger = null
-    if trigger_element.length
-      trigger = (callback) =>
-        trigger_element.on 'click', (e) =>
-          e.preventDefault()
-          trigger_element.hide()
-          callback()
-    trigger
 
 class ScrollerStorage
   @add: (scrollable) ->
@@ -53,43 +41,37 @@ class ScrollerStorage
 class Scroller
   constructor: (params) ->
     @setInstanceParams(params)
-    if @triggerFunction
-      @activateByTrigger(@triggerFunction)
-    else
-      @activate()
+    @addNewPage()
+    @activate()
 
   setInstanceParams: (params) ->
     @id = params.id
     @currentPage = params.currentPage
-    @triggerFunction = params.triggerFunction
     @container = params.container
     @preloader = params.preloader
     @fetchPath = params.fetchPath
     @pager = params.pager
 
-  activateByTrigger: (trigger) ->
-    trigger =>
-      @loadingStarted()
-      @addNewPage =>
-        @activate()
-
   activate: ->
     @pager.start()
     @enableInfinityScrolling()
 
-  addNewPage: (callback) ->
+  addNewPage: ->
+    @loadingStarted()
     @fetchFromServer (data) =>
       @pager.addPagerElement(@currentPage)
+      @loadingFinished()
       @container.append data
       @container.attr('data-current-page', @currentPage)
-      callback()
 
   fetchFromServer: (callback) ->
-    nextPage = @currentPage + 1
-    queryParams = "?page=#{nextPage}"
-    $.ajax(url: @fetchPath, data: $.parseQuery(queryParams))
+    queryParams = $.getQuery()
+    queryParams['page']=@currentPage
+    queryString = '?' + $.param(queryParams)
+
+    $.ajax(url: @fetchPath, data: $.parseQuery(queryString))
     .done (data) =>
-      @currentPage = nextPage
+      @currentPage = @currentPage + 1
       if $.trim(data)?.length
         callback(data)
       else
@@ -100,9 +82,7 @@ class Scroller
     $(document).on "scroll.#{@id}", =>
       return if @loadingNow()
       if $(window).scrollTop() >= ($(document).height() - $(window).height()) - 450
-        @loadingStarted()
-        @addNewPage =>
-          @loadingFinished()
+        @addNewPage()
 
   loadingNow: ->
     $(window).data "loading.#{@id}"

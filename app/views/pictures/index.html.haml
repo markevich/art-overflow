@@ -1,1 +1,14 @@
-= render 'list', page: @page, pictures: @pictures, fetch_path: pictures_path
+#pictures{ data: {                            |
+    infinity_scrollable: true,                |
+    id: 'main_gallery',                       |
+    current_page: page,                       |
+    fetch_path: url_for([parent, :pictures])  |
+    }                                         |
+  }                                           |
+
+  .pager{data: {page: page}}
+  =# render collection
+  #js-
+  - if collection.count == PicturesController::PAGE_SIZE
+    - #Если число картинок кратно PAGE_SIZE, то кнопка "загрузить еще" ничего не сделает :(
+    .preloader{data: { scroller_preloader: true }}

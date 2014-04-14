@@ -21,15 +21,21 @@ class @Pager
   pageReallyChanged: (newPage) ->
     @page isnt newPage
 
-
   hasTurbolinksState:->
     history && history.state && history.state.turbolinks
 
   replaceTurbolinkState: (page) ->
     newState = history.state
     newState.page = page
-    history.replaceState(newState, '', "?page=#{page}")
+    @setState(newState, page)
 
   replaceState: (page) ->
-    history.replaceState({page: page}, '', "?page=#{page}")
+    @setState({ page: page }, page)
+
+  setState: (state, page) ->
+    queryParams = $.getQuery()
+    queryParams['page'] = page
+    queryString = '?' + $.param(queryParams)
+    history.replaceState(state, '', queryString)
+
 
