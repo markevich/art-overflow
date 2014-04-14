@@ -1,5 +1,4 @@
 class Comment < ActiveRecord::Base
-  include PublicActivity::Model
   include Likeable
 
   belongs_to :user

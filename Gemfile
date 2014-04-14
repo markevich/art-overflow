@@ -37,10 +37,6 @@ gem 'carrierwave-imageoptimizer'
 gem 'mini_magick'
 #
 
-#track user activity
-gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git'
-#
-
 #sidekiq
 gem 'sidekiq'
 gem 'slim'

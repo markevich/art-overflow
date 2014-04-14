@@ -32,16 +32,6 @@ GIT
     shoulda-matchers (2.5.0)
       activesupport (>= 3.0.0)
 
-GIT
-  remote: https://github.com/pokonski/public_activity.git
-  revision: 84b9673eef7d2c0c4685befb375b1daf50490aed
-  specs:
-    public_activity (2.0)
-      actionpack (>= 3.0.0)
-      activerecord (>= 3.0)
-      i18n (>= 0.5.0)
-      railties (>= 3.0.0)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -410,7 +400,6 @@ DEPENDENCIES
   nyan-cat-formatter
   poltergeist
   pry-rails
-  public_activity!
   quiet_assets
   rails (= 4.1.0)
   rails-observers

@@ -19,12 +19,8 @@ class User < ActiveRecord::Base
   delegate :latest, to: :pictures, prefix: true
   delegate :popular, to: :pictures, prefix: true
 
-  ROLES = %w[admin moderator]
-
   acts_as_follower
   acts_as_followable
-
-  include PublicActivity::Model
 
   include Tire::Model::Search
   include Tire::Model::Callbacks

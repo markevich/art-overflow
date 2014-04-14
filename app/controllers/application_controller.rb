@@ -1,12 +1,22 @@
-class ApplicationController < ActionController::Base
-  include PublicActivity::StoreController
-  protect_from_forgery with: :exception
+require "application_responder"
 
+class ApplicationController < ActionController::Base
+  self.responder = ApplicationResponder
   respond_to :html
+
+  protect_from_forgery with: :exception
 
   before_filter :set_cookie_current_user
   before_filter :configure_permitted_parameters, if: :devise_controller?
   after_filter :store_location
+
+  if Rails.env.test?
+    rescue_from Exception do |e|
+      logger.error e
+      logger.error e.backtrace.join "\n"
+      raise e
+    end
+  end
 
   def store_location
     if request.fullpath != "/users/sign_in" && \
@@ -18,6 +28,10 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     session[:previous_url] || pictures_path
+  end
+
+  def after_confirmation_path_for(resource_name, resource)
+    new_user_session_path
   end
 
   protected

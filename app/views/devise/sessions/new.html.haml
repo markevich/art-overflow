@@ -7,7 +7,7 @@
         ARTOVERFLOW
       .row
         .large-8.columns
-          = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+          = simple_form_for(resource, :as => resource_name, :url => user_session_path) do |f|
             = f.input :email, label: false, placeholder: 'Email'
             = f.input :password, label: false, placeholder: 'Пароль'
             .action
