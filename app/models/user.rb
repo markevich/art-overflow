@@ -16,8 +16,6 @@ class User < ActiveRecord::Base
   end
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy, counter_cache: true
-  delegate :latest, to: :pictures, prefix: true
-  delegate :popular, to: :pictures, prefix: true
 
   acts_as_follower
   acts_as_followable

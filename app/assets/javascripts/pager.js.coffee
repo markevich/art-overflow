@@ -4,7 +4,9 @@ class @Pager
   start: ->
     $(document).on "scroll.#{@id}", =>
       pageAbove = @container.find('.pager:above-the-top:last').attr('data-page')
-      @changePage(pageAbove) if pageAbove && @pageReallyChanged(pageAbove)
+      if pageAbove
+        pageNum = pageAbove - 1
+        @changePage(pageNum) if @pageReallyChanged(pageNum)
 
   addPagerElement: (newPage) ->
     pager = @container.find('.pager:last').clone()

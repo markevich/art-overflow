@@ -1,4 +1,6 @@
 class PicturesController < InheritedResources::Base
+  belongs_to :user, optional: true
+
   PAGE_SIZE = 15
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :like, :unlike]
   before_filter :set_like_parameters, only: :show, if: :user_signed_in?
@@ -38,10 +40,11 @@ class PicturesController < InheritedResources::Base
     @following = current_user.following?(resource)
   end
 
-  helper_method :page, :fetch_path, :collection
+  helper_method :page, :order, :fetch_path, :collection
 
   def permitted_params
-    params.require(:picture).permit(
+    params.permit(picture:
+    [
       :crop_x,
       :crop_y,
       :crop_h,
@@ -50,13 +53,20 @@ class PicturesController < InheritedResources::Base
       :description,
       :path,
       :tag_list
-    ).tap do |whitelist|
-      whitelist[:user_id] = current_user.id
+    ]).tap do |whitelist|
+      whitelist[:picture] ||= {}
+      whitelist[:picture][:user_id] = current_user.id
     end.permit!
   end
 
   def page
     @page ||= (params[:page] || 1).to_i
+  end
+
+  def order
+    return({ params[:order] => :desc }) if Picture.column_names.include?(params[:order])
+
+    { created_at: :desc }
   end
 
   def fetch_path
@@ -65,8 +75,9 @@ class PicturesController < InheritedResources::Base
 
   def collection
     @collection ||= begin
-                      offset = page * PAGE_SIZE
-                      end_of_association_chain.includes(:user).limit(PAGE_SIZE).offset(offset)
-                    end
+      offset = (page - 1) * PAGE_SIZE
+
+      end_of_association_chain.includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
+    end
   end
 end

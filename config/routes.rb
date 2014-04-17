@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :search, only: :index
-  resources :users do
+  resources :users, except: :show do
     member do
       post :follow
       post :stop_following
@@ -12,12 +12,7 @@ Rails.application.routes.draw do
       patch :avatar_update
     end
 
-    resources :pictures do
-      get :latest, on: :collection
-      # get :latest_list, on: :collection
-      get :popular, on: :collection
-      # get :popular_list, on: :collection
-    end
+    resources :pictures
   end
   resources :comments do
     member do

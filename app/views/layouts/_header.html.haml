@@ -6,14 +6,10 @@
           ARTOVERFLOW
     %nav.large-5.columns#menu
       %ul.large-block-grid-4
-        %li
-          = link_to "Обновления", activities_path
-        %li
-          = link_to "Популярные", "#"
-        %li
-          = link_to "Новые", "#"
-        %li
-          = link_to "Категории", "#"
+        = active_link_to "Обновления", 'javascript:void(0)'
+        = active_link_to "Популярные", pictures_path(order: :likes_count)
+        = active_link_to "Новые", pictures_path
+        = active_link_to "Категории", 'javascript:void(0)'
     .large-5.columns#dowland
       %a.btn-blue-double{ href: new_picture_path }
         %span

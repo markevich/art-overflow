@@ -1,3 +1,5 @@
+= render(parent, resource: parent) if parent
+
 #pictures{ data: {                            |
     infinity_scrollable: true,                |
     id: 'main_gallery',                       |
@@ -7,8 +9,4 @@
   }                                           |
 
   .pager{data: {page: page}}
-  =# render collection
-  #js-
-  - if collection.count == PicturesController::PAGE_SIZE
-    - #Если число картинок кратно PAGE_SIZE, то кнопка "загрузить еще" ничего не сделает :(
-    .preloader{data: { scroller_preloader: true }}
+  .preloader{data: { scroller_preloader: true }}

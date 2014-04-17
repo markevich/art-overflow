@@ -20,14 +20,6 @@ Given(/^I remember the number of pictures$/) do
   @page = 1
 end
 
-When(/^I click show more button$/) do
-  show_more_link.click
-end
-
-Then(/^I should not see show more button$/)do
-  expect(show_more_link).to be_nil
-end
-
 Then(/^new pictures should appear on page$/) do
   @page += 1
   expect(page).to have_css('.image-block', count: PicturesController::PAGE_SIZE * @page)

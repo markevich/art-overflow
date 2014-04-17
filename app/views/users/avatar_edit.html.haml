@@ -1,7 +1,7 @@
 = javascript_include_tag 'load-image.min', 'jquery.Jcrop', 'data-turbolinks-track' => true
 = stylesheet_link_tag 'jquery.Jcrop', 'data-turbolinks-track' => true
 
-= simple_form_for(@user, url: avatar_update_user_path(@user)) do |f|
+= simple_form_for(resource, url: avatar_update_user_path(resource)) do |f|
   .row
     .large-12.columns
       %h3.title-download

@@ -13,8 +13,5 @@ class Picture < ActiveRecord::Base
 
   mount_uploader :path, PictureUploader
 
-  scope :latest, -> { order(:created_at).reverse_order.limit(15) }
-  scope :popular, -> { order(likes_count: :desc).limit(15) }
-
   delegate :name, to: :user, prefix: true
 end

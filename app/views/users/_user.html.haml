@@ -1,21 +1,21 @@
-%div{'data-check-user' => true, 'data-user-id' => @user.id}
+%div{'data-check-user' => true, 'data-user-id' => resource.id}
 .row.profil
   .large-2.columns
-    =image_tag(@user.avatar)
+    =image_tag(resource.avatar)
   .large-5.columns
     %h3
-      = @user.name
+      = resource.name
     %sup
       %span.grey
-        = @user.name
-      - if @user.premium?
+        = resource.name
+      - if resource.premium?
         %span.red
           PRO
     .social
       %a
         %span.blue
           =image_tag("locationGr.png")
-          = @user.city
+          = resource.city
       %a
         %span.blue
           =image_tag("glob.png")
@@ -23,30 +23,30 @@
       %span.blue
         %a
           =image_tag("twitterGr.png")
-        %a{href: "http://vk.com/#{@user.vk}"}
+        %a{href: "http://vk.com/#{resource.vk}"}
           =image_tag("vkGr.png")
-    = render 'users/follow_button', following: @following, user: @user
+    = render 'users/follow_button', following: @following, resource: resource
   .large-5.columns
     .user-counters
       .likes
         .top
         .bottom
         .count
-          = @user.likes_count
+          = resource.likes_count
         %span.blue
           Симпатий
       .followers
         .top
         .bottom
         .count
-          = @user.followers_count
+          = resource.followers_count
         %span.blue
           Подписчика
       .follows
         .top
         .bottom
         .count
-          = @user.follows.count
+          = resource.follows.count
         %span.blue
           Подписок
 .profil-menu
@@ -54,12 +54,9 @@
     .large-12
       %ul.small-block-grid-6
         %li
-          %a{href: latest_user_pictures_path(@user)}
-            = I18n.t('pictures.latest')
-          =image_tag("arrowblue.png")
+          = active_link_to 'Новые', user_pictures_path(resource)
         %li
-          %a{href: popular_user_pictures_path(@user)}
-            Популярные
+          = active_link_to 'Популярные', user_pictures_path(resource, order: :likes_count)
         %li
           %a
             Альбомы

@@ -3,7 +3,7 @@ Given(/^I am not following another user$/) do
 end
 
 When(/^I visit another user page$/) do
-  visit user_path(another_user)
+  visit user_pictures_path(another_user)
 end
 
 When(/^I click follow button$/) do

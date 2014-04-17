@@ -38,19 +38,12 @@ describe UsersController do
       post :stop_following, id: another_user.id
     end
 
-    def stop_following_self
-      post :stop_following, id: user.id
-    end
-
     context 'authorized' do
       before { follow_user }
 
       it { expect{ stop_following_user }.to change(user, :follow_count).by(-1) }
       it { expect{ stop_following_user }.to change(another_user, :followers_count).by(-1) }
       it { expect(stop_following_user).to be_success }
-
-      it { expect { stop_following_self }.not_to change{ user.follow_count } }
-      it { expect{stop_following_self}.to change(response, :body).to eq({state: :inactive}.to_json) }
     end
 
     context 'unauthorized' do
@@ -58,34 +51,6 @@ describe UsersController do
       it 'redirect to sign_in page', devise: true do
         expect { stop_following_user }.to change(response, :redirect_url).to(new_user_session_url)
       end
-    end
-  end
-
-  describe "#show" do
-    context 'authorized' do
-      before { sign_in user }
-
-      def open_following_user
-        user.follow(another_user)
-        get :show, id: another_user.id
-      end
-
-      def open_unfollowing_user
-        user.stop_following(another_user)
-        get :show, id: another_user.id
-      end
-
-      it { expect{ open_following_user }.to change{ assigns[:following] }.to(true) }
-      it { expect{ open_unfollowing_user }.to change{ assigns(:following) }.to(false) }
-    end
-
-    context 'unauthorized' do
-      before do
-        sign_out :user
-        get :show, id: another_user.id
-      end
-
-      it { expect(assigns[:following]).to be_falsey }
     end
   end
 
