@@ -9,7 +9,6 @@ describe User do
   it { should validate_presence_of(:email) }
   it { should validate_presence_of(:password) }
   it { should respond_to(:premium?)}
-  it { should respond_to(:pictures_latest)}
 
   let(:user) { create(:user) }
   let(:admin_user) { create(:user, :admin) }

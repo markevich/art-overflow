@@ -1,7 +1,6 @@
 class Picture < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
-  include PublicActivity::Model
   include Commentable
   include Likeable
 
@@ -13,8 +12,6 @@ class Picture < ActiveRecord::Base
   validates :name, :path, :user, presence: true
 
   mount_uploader :path, PictureUploader
-
-  scope :latest, -> { order(:created_at).limit(15).reverse_order }
 
   delegate :name, to: :user, prefix: true
 end

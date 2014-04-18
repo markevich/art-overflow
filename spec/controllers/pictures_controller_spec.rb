@@ -44,11 +44,4 @@ describe PicturesController do
       expect(response.body).to eq({count: pic.likes_count, state: :active}.to_json)
     end
   end
-
-  describe "#latest" do
-    let!(:pic) { create(:picture) }
-    before { get :latest, user_id: pic.user.id }
-
-    it { expect(response).to be_success }
-  end
 end

@@ -3,6 +3,6 @@
     = link_to u.name, u
     = u.likes_count
     %div
-      - u.popular_pictures.each do |p|
+      - u.popular_for_search_pictures.each do |p|
         = link_to image_tag(p.path.thumb.url), picture_path(p.id)
 

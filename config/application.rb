@@ -13,7 +13,6 @@ module ArtOverflow
   class Application < Rails::Application
     config.autoload_paths += %W{#{config.root}/app}
 
-    config.active_record.observers = :subscriber_observer
 
     config.i18n.default_locale = :ru
     config.i18n.locale = :ru
@@ -21,7 +20,6 @@ module ArtOverflow
     I18n.enforce_available_locales = true
 
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
-    config.assets.precompile += %w(jbar jbar.css subscribe.css)
     config.assets.precompile += %w(load-image.min.js jquery.Jcrop.js jquery.Jcrop.css)
     config.assets.precompile += %w(jquery.adaptive-backgrounds.min.js)
   end

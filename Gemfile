@@ -37,9 +37,6 @@ gem 'carrierwave-imageoptimizer'
 gem 'mini_magick'
 #
 
-#track user activity
-gem 'public_activity', git: 'https://github.com/pokonski/public_activity.git'
-#
 
 #sidekiq
 gem 'sidekiq'
@@ -60,6 +57,9 @@ gem "acts_as_follower", github: 'markevich/acts_as_follower', branch: 'rails4'
 gem 'acts-as-taggable-on'
 #
 
+gem 'inherited_resources'
+gem 'responders'
+
 group :development do
   gem 'capistrano', '2.15.5'
   gem 'capistrano-rbenv'
@@ -69,6 +69,8 @@ group :development do
   gem 'bullet'
   gem 'uniform_notifier'
   gem 'ruby_gntp'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
 group :development, :production do

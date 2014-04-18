@@ -10,20 +10,15 @@ class User < ActiveRecord::Base
   validates :name, :email, presence: true
 
   has_many :pictures, dependent: :destroy, inverse_of: :user do
-    def popular
+    def popular_for_search
       order(likes_count: :desc).limit(3)
     end
   end
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy, counter_cache: true
-  delegate :latest, to: :pictures, prefix: true
-
-  ROLES = %w[admin moderator]
 
   acts_as_follower
   acts_as_followable
-
-  include PublicActivity::Model
 
   include Tire::Model::Search
   include Tire::Model::Callbacks
@@ -33,7 +28,7 @@ class User < ActiveRecord::Base
     indexes :name, type: :string, boost: 10
     indexes :likes_count, type: :integer
     indexes :city, type: :string
-    indexes :popular_pictures, as: 'pictures.popular' do
+    indexes :popular_for_search_pictures, as: 'pictures.popular_for_search' do
       indexes :id, type: :integer, index: :no
       indexes :name, type: :string, index: :no
       indexes :path, type: :string, index: :no

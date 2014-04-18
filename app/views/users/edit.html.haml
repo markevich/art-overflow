@@ -28,7 +28,7 @@
 .profil-form
   .row
     .large-6
-      = simple_form_for(@user) do |f|
+      = simple_form_for(resource) do |f|
         .row
           .large-12.columns
             %label
@@ -42,9 +42,9 @@
                 84*84 jpg. или .png
             .row
               .small-4.large-2.columns
-                = image_tag(@user.avatar)
+                = image_tag(resource.avatar)
               .small-8.large-10.columns
-                = link_to "Сменить аватар", avatar_edit_user_path(@user), class: 'btn btn-blue'
+                = link_to "Сменить аватар", avatar_edit_user_path(resource), class: 'btn btn-blue'
         .row
           .large-12.columns
             %label

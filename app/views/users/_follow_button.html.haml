@@ -1,11 +1,11 @@
 .js-button-watch.button-toggler.follow-button{ data: { voted: following}}
   - if user_signed_in?
-    %a.btn.btn-red.remote-link.deactivate-button{ href: stop_following_user_path(user),
+    %a.btn.btn-red.remote-link.deactivate-button{ href: stop_following_user_path(resource),
       data: { method: :post, remote: :true, disable_with: I18n.t('follow')},
       style: 'display: none'}
       = I18n.t('follow')
 
-    %a.btn.btn-blue.remote-link.activate-button{ href: follow_user_path(user),
+    %a.btn.btn-blue.remote-link.activate-button{ href: follow_user_path(resource),
       data: { method: :post, remote: :true, disable_with: I18n.t('follow')},
       style: 'display: none'}
       = I18n.t('follow')

@@ -2,9 +2,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
-  devise_for :users, controllers: { registrations: 'registrations', confirmations: 'confirmations' }
+  devise_for :users
   resources :search, only: :index
-  resources :users do
+  resources :users, except: :show do
     member do
       post :follow
       post :stop_following
@@ -12,9 +12,7 @@ Rails.application.routes.draw do
       patch :avatar_update
     end
 
-    resources :pictures do
-      get :latest, on: :collection
-    end
+    resources :pictures
   end
   resources :comments do
     member do
@@ -32,14 +30,10 @@ Rails.application.routes.draw do
   end
   resources :comments, only: [:destroy, :create]
 
-  resources :subscribers, only: [:index, :create] do
-    get :unsubscribe, on: :member
-  end
-
   resources :ping, only: :index
 
   resource :foundations, only: [] do
     get :elements
   end
-  root to: 'subscribers#index'
+  root to: 'pictures#index'
 end

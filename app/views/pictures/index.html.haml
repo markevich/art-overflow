@@ -1,1 +1,12 @@
-= render 'list', page: @page, pictures: @pictures
+= render(parent, resource: parent) if parent
+
+#pictures{ data: {                            |
+    infinity_scrollable: true,                |
+    id: 'main_gallery',                       |
+    current_page: page,                       |
+    fetch_path: url_for([parent, :pictures])  |
+    }                                         |
+  }                                           |
+
+  .pager{data: {page: page}}
+  .preloader{data: { scroller_preloader: true }}

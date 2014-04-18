@@ -55,9 +55,9 @@ nav{
          &:hover{
            color: $colorRed;
          }
-       }
-       &.active a{
-        color: $colorRed;
+         &.active {
+          color: $colorRed;
+         }
        }
      }
    }
@@ -94,7 +94,6 @@ nav{
         @include border-radius(6px);;
         color: #e74c3c;
         width: 85%;
-        color: #e74c3c;
       }
       &:hover{
         background-image: url(image-path("red.png"));
@@ -213,7 +212,7 @@ nav{
   position: fixed;
   top: 0;
   width: 100%;
-  height: 54px;
+  height: 51px;
   background: url('bg-red.png') repeat-x;
   text-align: center;
   z-index: 12;
