@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     end
 
     resources :pictures
+    resources :albums
   end
   resources :comments do
     member do
@@ -20,8 +21,6 @@ Rails.application.routes.draw do
       post :unlike
     end
   end
-  resources :galleries
-  resources :activities
   resources :pictures do
     member do
       post :like

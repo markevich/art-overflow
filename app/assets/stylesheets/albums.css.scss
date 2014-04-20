@@ -1,0 +1,41 @@
+// Place all the styles related to the albums controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.image-block {
+  .container{
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+  }
+  .added{
+    display: block;
+    height: 210px;
+    width: 315px;
+    background: #b1d2d5;
+    border: 4px dashed #5f979d;
+    display: table-cell;
+    vertical-align: middle;
+
+    .plus{
+      background: url(add-plus.png) no-repeat;
+      height: 40px;
+      width: 40px;
+      margin: 0 auto;
+      display: block;
+    }
+    .name{
+      font-size: 16px;
+      font-weight: bold;
+      font-family: Arial;
+      color: white;
+      text-align: center;
+      margin-top: 10px;
+      &:hover{
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Arial;
+      }
+    }
+  }
+}
