@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
   has_many :comments, dependent: :destroy
   has_many :likes, dependent: :destroy, counter_cache: true
-
+  has_many :albums
   acts_as_follower
   acts_as_followable
 
@@ -68,6 +68,10 @@ class User < ActiveRecord::Base
 
   def premium?
     true
+  end
+
+  def to_header_path
+    "#{to_partial_path}_header"
   end
 
   protected

@@ -1,0 +1,15 @@
+-# = render parent, resource: parent
+.edit-container
+  %div
+    .image-edit-album
+      = image_tag 'img-1.png', class:"img-follow"
+      %a
+        Изменить обложку
+      %br
+      %a
+        Удалить альбом
+    .form-edit-album
+      = simple_form_for([parent, resource]) do |f|
+        = f.input :name
+        = f.input :description
+        = f.button :submit, value: 'Сохранить изменения',class: 'btn btn-green'

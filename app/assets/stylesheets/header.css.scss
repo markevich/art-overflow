@@ -1,9 +1,55 @@
 @import 'setting.css.scss';
 //----------------------------------------------стили для шапки--------------------------------------------------------
+.profil-menu,.profil{
+  font-family: Arial;
+}
+@-moz-document url-prefix()
+{
+  header {
+    background-color: #26394D;
+    height: 54px;
+    padding-bottom: 0.3em;
+    padding-top: 8px;
+  }
+  header h1 {
+    padding-top: 7px;
+  }
+  header #menu {
+    padding-top: 8px!important;
+  }
+  header #dowland #search {
+    top: 14px;
+  }
+  header nav ul li a {
+    display: inline-block;
+    font-family: Arial;
+    font-size: 0.9em;
+    font-weight: bold;
+    position: relative;
+    top: -4px;
+}
+#dowland{
+    position: relative;
+    top:-1px;
+}
+ #search ~ a {
+    border-bottom: 1px dashed #6EB2BA;
+    color: #6EB2BA;
+    font-family: Arial;
+    font-size: 14px;
+    font-weight: bold;
+    overflow: hidden;
+    position: relative;
+    top: 10px!important;
+    vertical-align: 12px;
+}
+
+}
 header{
-  padding: 10px;
+  padding-top: 10px;
   padding-bottom: 0.3em;
   background-color: #26394d;
+  height: 54px;
 //стили для поиска профиля
   #search ::-webkit-input-placeholder {
     color: #70b2b8;
@@ -35,19 +81,21 @@ header{
 h1{
   font-family: $font!important;
   color: white;
-  font-size: 1.55em!important;
-  margin-top: 2px !important;
+  padding-top: 4px;
+  font-size: 22px!important;
+}
+#menu{
+  padding-top: 5px;
 }
 
 nav{
   height: 2em;
    ul{
-    margin-top: 0.4em;
      li{
+      padding-bottom: 0!important;
+      padding-top: 0!important;
        width: auto!important;
-       padding-left: 0.7em;
-       padding-bottom: 0;
-        margin-top: 4px;
+        margin-top: 0px;
        a{
          font-size: 0.9em;
          font-weight: bold;
@@ -212,7 +260,7 @@ nav{
   position: fixed;
   top: 0;
   width: 100%;
-  height: 51px;
+  height: 54px;
   background: url('bg-red.png') repeat-x;
   text-align: center;
   z-index: 12;
@@ -246,3 +294,21 @@ nav{
       display: inline-block;
     }
 }
+.profil-menu ul li.active{
+  background-image: url("arrowblue.png");
+  background-position: bottom center;
+  background-repeat: no-repeat;
+  bottom: -11px;  
+  position: relative;
+
+}
+.profil-menu ul li.active a{
+  position: relative;
+  top: -11px;
+}
+.close-modal{
+  display: block;
+  background: #969696;
+
+}
+

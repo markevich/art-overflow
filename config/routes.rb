@@ -13,15 +13,19 @@ Rails.application.routes.draw do
     end
 
     resources :pictures
+    resources :albums
   end
+
+  resources :albums, except: :show do
+    resources :pictures
+  end
+
   resources :comments do
     member do
       post :like
       post :unlike
     end
   end
-  resources :galleries
-  resources :activities
   resources :pictures do
     member do
       post :like
