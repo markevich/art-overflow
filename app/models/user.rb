@@ -70,6 +70,10 @@ class User < ActiveRecord::Base
     true
   end
 
+  def to_header_path
+    "#{to_partial_path}_header"
+  end
+
   protected
   def set_password_confirmation
     self.password_confirmation = self.password

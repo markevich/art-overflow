@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :album do
+    name 'Album'
+    user
   end
 end

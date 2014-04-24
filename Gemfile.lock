@@ -161,6 +161,7 @@ GEM
     gherkin (2.12.2)
       multi_json (~> 1.3)
     google-analytics-rails (0.0.5)
+    google-analytics-turbolinks (0.0.3)
     haml (4.0.5)
       tilt
     haml-rails (0.5.3)
@@ -396,6 +397,7 @@ DEPENDENCIES
   factory_girl_rails
   fakeweb
   google-analytics-rails
+  google-analytics-turbolinks
   haml-rails
   inherited_resources
   jcrop-rails-v2

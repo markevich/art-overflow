@@ -1,0 +1,21 @@
+= cache album do
+  .image-block
+    /%h1
+    /  = picture.name
+    %a{href: url_for([album, :pictures])}
+      .info
+        %h5=album.name
+        %p
+          You've got an a tag containing an img tag. That's your normal state. You then add a background-image as your hover state, and it's appearing in the background of your a tag - behind the img tag.
+      = image_tag Picture.first.path.thumb, class: 'picture'
+      .name
+        = link_to album.name, [album, :pictures]
+      .picture-actions
+        -#active %div.heart_normal.active
+        %div.heart_normal
+        %span
+          = 0
+        -# active %div.share_normal.active
+        %div.share_normal
+        %span
+          3
