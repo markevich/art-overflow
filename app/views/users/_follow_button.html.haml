@@ -12,8 +12,7 @@
       %span.active-count
         = resource.followers_count
   - else
-    = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link js-activate-button',
-      data: { remote: true, disable_with: I18n.t('follow') }) do
+    = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link js-activate-button') do
       = I18n.t('follow')
       %span.active-count
         = resource.followers_count
