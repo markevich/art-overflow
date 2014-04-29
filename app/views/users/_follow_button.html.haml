@@ -1,15 +1,19 @@
-.js-button-watch.button-toggler.follow-button{ data: { voted: following}}
+.js-button-watch.button-toggler.follow-button{ data: { voted: following} }
   - if user_signed_in?
-    %a.btn.btn-red.remote-link.deactivate-button{ href: stop_following_user_path(resource),
-      data: { method: :post, remote: :true, disable_with: I18n.t('follow')},
-      style: 'display: none'}
+    = link_to(stop_following_user_path(resource), method: :post, class: 'button-red js-remote-link js-deactivate-button',
+      data: { remote: true, disable_with: I18n.t('follow') }) do
       = I18n.t('follow')
+      %span.active-count
+        = resource.followers_count
 
-    %a.btn.btn-blue.remote-link.activate-button{ href: follow_user_path(resource),
-      data: { method: :post, remote: :true, disable_with: I18n.t('follow')},
-      style: 'display: none'}
+    = link_to(follow_user_path(resource), method: :post, class: 'button-blue js-remote-link js-activate-button',
+      data: { remote: true, disable_with: I18n.t('follow') }) do
       = I18n.t('follow')
-
+      %span.active-count
+        = resource.followers_count
   - else
-    %a.btn.btn-blue{ href: new_user_session_path}
+    = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link js-activate-button',
+      data: { remote: true, disable_with: I18n.t('follow') }) do
       = I18n.t('follow')
+      %span.active-count
+        = resource.followers_count

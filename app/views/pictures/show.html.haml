@@ -23,10 +23,7 @@
 %section.picture-actions.row
   .large-12.columns.small-4
     = render 'pictures/like_button', voted: @voted
-    = render partial: 'users/follow_button', locals: {following: @following, user: resource.user}
-    %a.btn.btn-blue
-      Поделиться
-      = image_tag 'follow.gif', class:"img-follow"
+    = render partial: 'users/follow_button', locals: { following: @following, resource: resource.user }
 
 //комментарии
 .bg-light-grey

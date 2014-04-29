@@ -19,9 +19,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   def interlace
     manipulate! do |img, index, options|
-      img.combine_options do |c|
-        c.interlace "plane"
-      end
+      img.interlace "plane"
       img
     end
   end
@@ -29,6 +27,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :crop => [CROP_AREA_WIDTH, CROP_AREA_HEIGHT]
     process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
+    process :interlace
   end
 
   # def filename

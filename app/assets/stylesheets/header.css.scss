@@ -159,11 +159,12 @@ nav{
 
 .ava{
   img{
+    border: 1px solid  white;
     position: absolute;
     width: 40px;
     height: 40px;
     @include border-radius(22px);
-    border: 1px solid transparent;
+
     top: -2px;
     cursor: pointer;
      @include transition(border-radius 0.2s ease-out);

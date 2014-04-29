@@ -37,7 +37,7 @@ class PicturesController < InheritedResources::Base
 
   def set_like_parameters
     @voted = current_user.liked?(resource)
-    @following = current_user.following?(resource)
+    @following = current_user.following?(resource.user)
   end
 
   helper_method :page, :order, :collection

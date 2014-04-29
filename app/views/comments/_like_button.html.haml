@@ -1,7 +1,22 @@
-- if user_signed_in?
-  - if current_user.liked?(comment)
-    = button_to(t('like'), action: 'unlike', controller: 'comments', id: comment.id)
+- liked = user_signed_in? ? current_user.liked?(comment) : false
+.js-button-watch.button-toggler.like-button{ data: { voted: liked } }
+  - if user_signed_in?
+    = link_to(unlike_comment_path(comment), method: :post, class: 'like-button-comment js-remote-link js-deactivate-button',
+        data: { remote: true, disable_with: I18n.t('like')}) do
+      = I18n.t('like')
+      %span.unlike-img
+      %span.active-count.likes_count
+        = comment.likes_count
+
+    = link_to(like_comment_path(comment), method: :post, class: 'like-button-comment js-remote-link js-activate-button',
+        data: { remote: true, disable_with: I18n.t('like')}) do
+      = I18n.t('like')
+      %span.like-img
+      %span.active-count.likes_count
+        = comment.likes_count
   - else
-    = button_to(t('like'), action: 'like', controller: 'comments', id: comment.id)
-- else
-  = button_to(t('like'), new_user_session_path)
+    = link_to(new_user_session_path, class: 'like-button-comment') do
+      = I18n.t('like')
+      %span.like-img
+      %span.active-count.likes_count
+        = comment.likes_count

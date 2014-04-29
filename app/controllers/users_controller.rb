@@ -4,13 +4,19 @@ class UsersController < InheritedResources::Base
   actions :all, except: [:index, :show]
 
   def follow
-    current_user.follow(resource)
-    render json: { state: :active }
+    if current_user.follow(resource)
+      render json: { count: resource.reload.followers_count, state: :active }
+    else
+      render json: { count: resource.reload.followers_count, state: :inactive }
+    end
   end
 
   def stop_following
-    current_user.stop_following(resource)
-    render json: { state: :inactive}
+    if current_user.stop_following(resource)
+      render json: { count: resource.reload.followers_count, state: :inactive }
+    else
+      render json: { count: resource.reload.followers_count, state: :active }
+    end
   end
 
   def avatar_edit

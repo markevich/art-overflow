@@ -35,11 +35,11 @@ Then(/^I unlike his comment$/) do
 end
 
 Then(/^I see that I liked his comment$/) do
-  expect(page).to have_button(like_comment_button)
+  expect(page).to have_link(like_comment_link)
 end
 
 Then(/^I see I can like his comment$/) do
-  expect(page).to have_button(like_comment_button)
+  expect(page).to have_link(like_comment_link)
 end
 
 Then(/^I delete my comment$/) do
