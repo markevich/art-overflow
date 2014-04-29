@@ -58,5 +58,4 @@
         %li
           = active_link_to 'Популярные', user_pictures_path(resource, order: :likes_count)
         %li
-          %a
-            Альбомы
+          = active_link_to 'Альбомы', user_albums_path(resource)

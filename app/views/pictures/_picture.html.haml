@@ -9,7 +9,7 @@
           You've got an a tag containing an img tag. That's your normal state. You then add a background-image as your hover state, and it's appearing in the background of your a tag - behind the img tag.
       = image_tag picture.path.thumb, class: 'picture'
       .name
-        = link_to picture.user_name, picture.user
+        = link_to picture.user_name, [picture.user, :pictures]
       .picture-actions
         -#active %div.heart_normal.active
         %div.heart_normal

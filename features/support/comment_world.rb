@@ -3,7 +3,7 @@ module CommentWorld
     "Not perfect, but still fun."
   end
 
-  def like_comment_button
+  def like_comment_link
     I18n.t('like')
   end
 
@@ -14,7 +14,7 @@ module CommentWorld
 
   def like_comment
     within '.comments' do
-      click_button like_comment_button
+      click_link like_comment_link
     end
   end
 

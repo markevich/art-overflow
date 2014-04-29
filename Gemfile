@@ -17,6 +17,7 @@ gem 'haml-rails'
 
 gem 'jcrop-rails-v2'
 gem 'tire'
+gem 'google-analytics-turbolinks'
 
 #authentication processing
 gem 'devise'

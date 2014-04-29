@@ -1,5 +1,5 @@
 class PicturesController < InheritedResources::Base
-  belongs_to :user, optional: true
+  belongs_to :user, :album, polymorphic: true
 
   PAGE_SIZE = 15
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :like, :unlike]
@@ -37,10 +37,10 @@ class PicturesController < InheritedResources::Base
 
   def set_like_parameters
     @voted = current_user.liked?(resource)
-    @following = current_user.following?(resource)
+    @following = current_user.following?(resource.user)
   end
 
-  helper_method :page, :order, :fetch_path, :collection
+  helper_method :page, :order, :collection
 
   def permitted_params
     params.permit(picture:
@@ -67,10 +67,6 @@ class PicturesController < InheritedResources::Base
     return({ params[:order] => :desc }) if Picture.column_names.include?(params[:order])
 
     { created_at: :desc }
-  end
-
-  def fetch_path
-    url_for([parent, :pictures], order: 'created_at')
   end
 
   def collection

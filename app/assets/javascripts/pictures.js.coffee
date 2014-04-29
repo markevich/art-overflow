@@ -9,14 +9,14 @@ $(document).on 'mouseover', '#pictures .picture', ->
 
 toggle_watched_buttons = (xhr, watcher) ->
   if xhr.state == 'inactive'
-    watcher.find('.activate-button').show()
-    watcher.find('.deactivate-button').hide()
+    watcher.find('.js-activate-button').show()
+    watcher.find('.js-deactivate-button').hide()
   else
-    watcher.find('.deactivate-button').show()
-    watcher.find('.activate-button').hide()
+    watcher.find('.js-deactivate-button').show()
+    watcher.find('.js-activate-button').hide()
   watcher.find('.active-count').html(xhr.count)
 
-$(document).on 'ajax:success', '.js-button-watch .remote-link', (evt, xhr, settings) ->
+$(document).on 'ajax:success', '.js-button-watch .js-remote-link', (evt, xhr, settings) ->
   watcher = $($(@).closest('.js-button-watch'))
   toggle_watched_buttons(xhr, watcher)
 
@@ -30,6 +30,6 @@ $(document).on 'ready page:load', ->
     $.each $('.js-button-watch'), (_, element) ->
       element = $(element)
       if element.attr('data-voted')?
-        element.find('.deactivate-button').show()
+        element.find('.js-deactivate-button').show()
       else
-        element.find('.activate-button').show()
+        element.find('.js-activate-button').show()

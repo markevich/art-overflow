@@ -12,15 +12,21 @@ class CommentsController < ApplicationController
   end
 
   def like
-    comment = Comment.find(params[:id])
-    current_user.like(comment)
-    redirect_to :back
+    resource = Comment.find(params[:id])
+    if current_user.like(resource)
+      render json: { count: resource.reload.likes_count, state: :active }
+    else
+      render json: { count: resource.reload.likes_count, message: 'fail', state: :inactive}
+    end
   end
 
   def unlike
-    comment = Comment.find(params[:id])
-    current_user.unlike(comment)
-    redirect_to :back
+    resource = Comment.find(params[:id])
+    if current_user.unlike(resource)
+      render json: { count: resource.reload.likes_count, state: :inactive }
+    else
+      render json: { count: resource.reload.likes_count, message: 'fail', state: :active}
+    end
   end
 
   def permitted_params

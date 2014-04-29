@@ -1,7 +1,6 @@
 #pictures{
   margin: 5px auto;
   width: 1625px;
-  min-height: 800px;
   .image-block{
     float: left;
     padding: 10px;
@@ -10,52 +9,49 @@
     color: #6eb2ba;
     font-size: 14px;
     position: relative;
-      .info{
-        padding: 0 10px;
-        line-height: 20px;
-        position: absolute;
-        display: none;
-        color: black;
-        h5{
-          font-size: 16px;
-          margin-left: 10px;
-          margin-top: 20px;
-          font-weight: bold;
-          margin-bottom: 10px;
+    .info{
+      padding: 0 10px;
+      line-height: 20px;
+      position: absolute;
+      display: none;
+      color: black;
+      h5{
+        font-size: 16px;
+        margin-left: 10px;
+        margin-top: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
 
-        }
-        p{
-          vertical-align: 2;
-          margin: 0 10px;
-          width: 255px;
-          font-size: 14px;
-        }
       }
-      img.picture{
-        width: 315px;
-        height: 210px;
-        opacity: 1;
-        -webkit-transition: opacity 0.2s ease-out;
-        -moz-transition: opacity 0.2s ease-out;
-        -o-transition: opacity 0.2s ease-out;
-        transition: opacity 0.2s ease-out;
+      p{
+        vertical-align: 2;
+        margin: 0 10px;
+        width: 255px;
+        font-size: 14px;
       }
-      h1{
-        padding-bottom: 5px;
-      }
+    }
+    img.picture{
+      width: 315px;
+      height: 210px;
+      opacity: 1;
+      -webkit-transition: opacity 0.2s ease-out;
+      -moz-transition: opacity 0.2s ease-out;
+      -o-transition: opacity 0.2s ease-out;
+      transition: opacity 0.2s ease-out;
+    }
+    h1{
+      padding-bottom: 5px;
+    }
     .name{
       float: left;
       margin-top: 10px;
-     &:hover{
-       color: #e74c3c;
-     }
+      &:hover{
+        color: #e74c3c;
+      }
       a{
         color: inherit;
         text-decoration: none;
       }
-
-
-
     }
     .picture-actions{
       float: right;
@@ -101,15 +97,32 @@
       }
     }
   }
-  .preloader{
-    background-image: url(image-path('preloader.gif'));
-    background-repeat: no-repeat;
-    height: 30px;
-    width: 30px;
-    margin: 0 auto;
-    clear: both;
-    display: none;
-  }
+}
+.count-preloader {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-top: -5;
+  border: solid 3px;
+  border-color: #555 transparent;
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 1.5s;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-timing-function: linear;
+  -o-animation-name: rotate;
+  -o-animation-duration: 1.5s;
+  -o-animation-iteration-count: infinite;
+  -o-animation-timing-function: linear;
+  animation-name: rotate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 #button_load_more {
   background-color: #b5d6d9;
@@ -131,12 +144,15 @@
   width: 92%;
   margin-left: 0.6em;
 }
-.pager{
-  clear: both;
-}
+
 #button_load_more:hover{
   background-color: #70b2b8;
 }
+
+.js-activate-button, .js-deactivate-button{
+  display: none;
+}
+
 $PICTURE_WIDTH: 335px;
 $MAX_COLUMNS: 10;
 

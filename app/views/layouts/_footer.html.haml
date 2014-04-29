@@ -12,13 +12,11 @@
     .large-2.columns.nav-footer.large-offset-1.small-2
       %ul.large-block-grid-1.small-block-grid-1
         %li.active
-          = link_to "О проекте", activities_path
+          = link_to "О проекте", '#'
         %li
-          = link_to "Комманда", "#"
+          = link_to "Команда", "#"
         %li
           = link_to "Цели", "#"
-        %li
-          = link_to "Спонсоры", "#"
         %li
           = link_to "Политика", "#"
     .large-4.columns.large-offset-1.ads.small-4
@@ -31,3 +29,11 @@
     .large-12.columns.copyright
       %p
         Copyright © 2009–2013 Artoverflow LLC. All screenshots © their respective owners. Shipped from Salem, Mass. USA.
+
+
+#myModal{class: 'reveal-modal [expand, xlarge, large, medium, small]'}
+  %h2 Awesome. I have it
+  %p.lead Your couch.  It is mine.
+  %p Im a cool paragraph that lives inside of an even cooler modal. Wins
+  %a{class: "close-reveal-modal"}
+    &#215;
