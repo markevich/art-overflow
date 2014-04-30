@@ -585,7 +585,11 @@ section{
 
 //-----------------------------------------------profil-----------------------------------------------
 .edit-profil{
-  padding: 0 20px;
+  padding: 10px 20px;
+  position: relative;
+  margin: auto;
+  font-size: 26px;
+  max-width: 1660px
 }
 .profil-form {
   background-color: $bgLightGrey;
