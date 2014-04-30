@@ -2,17 +2,22 @@ ru:
   submit: 'Отправить'
   activerecord:
     models:
-      subscriber: 'Подписчик'
       user: 'Пользователь'
+      comment: Комментарий
+      album: Альбом
+      picture: Работа
     attributes:
-      subscriber:
-        email: 'E-mail'
       user:
         email: 'E-mail'
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         name: 'Имя'
-        role: 'Роль'
+      album:
+        name: Имя
+        description: Описание
+      picture:
+        name: Имя
+        description: Описание
   user:
     start_following: "Вы успешно подписались на обновления %{name}."
     stop_following: "Вы успешно отписались от обновлений %{name}."
@@ -38,7 +43,6 @@ ru:
     confirm_destroy: Вы уверены?
     destroy: Удалить комментарий
     edit: Редактировать
-
 
   subscriber:
     subscribed: 'Вы успешно подписаны на обновления.'

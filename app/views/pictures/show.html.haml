@@ -31,18 +31,19 @@
     .comments-container-left
       %h3
         Комментарии (#{resource.comments_count})
-      .current-user-comment
-        .user-avatar
-          = image_tag 'images.jpg', class: "border-radius-circle user"
-        .description-user
-          %a
-            Коля Кекс
-          %span.star.grey
-            *
-          %span.grey
-            1 час назад
-          %div
-            = resource.description
+      - unless resource.description.blank?
+        .current-user-comment
+          .user-avatar
+            = image_tag 'images.jpg', class: "border-radius-circle user"
+          .description-user
+            %a
+              Коля Кекс
+            %span.star.grey
+              *
+            %span.grey
+              1 час назад
+            %div
+              = resource.description
       = render 'comments/form', commentable: resource if user_signed_in?
       .user-comment
         = render resource.comments.includes(:user), commentable: resource

@@ -1,6 +1,8 @@
 // Place all the styles related to the albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import 'setting.css.scss';
+
 .comments{
   font-family: Arial;
 }
@@ -50,7 +52,7 @@
   &:hover{
     color: white;
     background-color: #5f979d;
-    }
+  }
 }
 .me_like{
   float: right;
@@ -165,7 +167,7 @@
   }
 }
 .modal-content{
-  background: #eeeeee;
+  background: #fff;
   padding: 15px;
   padding-top: 0;
   z-index: 1134;
@@ -177,64 +179,79 @@
   left: 50%;
   overflow: hidden;
   border-radius: 13px;
-  textarea{
-    height: 120px;
-    border-radius: 6px;
-    resize: none;
+  .input{
+    margin: 20px 0 20px 0;
+
+    & abbr{
+      color: red;
+    }
+
+    &.error{
+      margin: 20px 0 20px 0;
+
+      input, textarea{
+        border: 2px solid $colorRed;
+      }
+    }
+
+    input, textarea{
+      display: block;
+      width: 545px;
+      border: 1px solid $grey;
+      font-size: 16px;
+      padding: 10px 10px;
+      border-radius: 5px;
+      resize: none;
+    }
+
+    textarea{
+      height: 110px;
+    }
   }
-  .simple_form{
-    margin: 0;
-  }
-  h1{
+  .title{
     margin-left: -15px;
     margin-right: -15px;
     background: #26394d;
     font-size: 20px;
     color: white;
     font-weight: bold;
-    padding: 10px  20px ;
+    padding: 15px 20px ;
   }
   .close{
     color: white;
-  font-size: 15px;
-  position: absolute;
-  top: 9px;
-  right: 15px;
-  cursor: pointer;
-  }
-  .control-label{
-    margin-top: 15px;
-    font-size: 16px;
-    font-weight: normal;
-    font-family: Arial;
+    font-size: 15px;
+    position: absolute;
+    top: 9px;
+    right: 15px;
+    cursor: pointer;
   }
   .button{
     border: 0 none transparent;
     font-family: Arial;
     font-size: 14px;
+    cursor: pointer;
     float: right;
+    padding: 8px;
+    margin: 0;
     &:hover{
       background-color: #e74c3c !important;
     }
   }
-  .close-reveal-modal{
-    display: none;
-  }
   .close-modal{
+    text-decoration: none;
     display: block;
     background: #969696;
     float: right;
     color: white;
-        border: 0 none transparent;
+    border: 0 none transparent;
     font-family: Arial;
-font-size: 14px;
-font-weight: bold;
-    padding: .55em;
+    font-size: 14px;
+    padding: 9px;
     border-radius: 6px;
     margin-left: 15px;
   }
   input:focus,textarea:focus,input:active,textarea:active{
-    outline: none!important;
+    outline: none;
     box-shadow: none;
   }
 }
@@ -252,61 +269,61 @@ font-weight: bold;
 }
 .edit-container{
 
-margin-bottom: 0;
+  margin-bottom: 0;
   background: #e6e6e6;
-margin-top: -16px;
->div{
-  overflow: hidden;
-  margin-left: auto;
-margin-right: auto;
-margin-top: 0;
-max-width: 62.5em;
-.image-edit-album{
-  width: 30%;
-  padding-top: 50px;
-  float: left;
-  img{
-    width: 100%;
-  }
-  a{
-    margin-top: 10px;
-    font-size: 12px;
-    font-family: Arial;
+  margin-top: -16px;
+  >div{
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    max-width: 62.5em;
+    .image-edit-album{
+      width: 30%;
+      padding-top: 50px;
+      float: left;
+      img{
+        width: 100%;
+      }
+      a{
+        margin-top: 10px;
+        font-size: 12px;
+        font-family: Arial;
 
-    display: inline-block;
-    a:last-child{
+        display: inline-block;
+        a:last-child{
 
+        }
+      }
+    }
+    .form-edit-album{
+      width: 68%;
+      float: right;
+      .button{
+        font-size: 14px;
+        font-family: Arial;
+        border: 0 none transparent;
+        &:hover{
+          background-color: #e74c3c;
+        }
+      }
+      label{
+        padding: 15px 0;
+        margin: 0;
+        font-size: 16px;
+        font-family: Arial;
+        font-weight: normal;
+      }
+      textarea:focus,input:focus{
+        box-shadow: none;
+      }
+      textarea{
+        resize:none;
+        height: 120px;
+        -webkit-border-radius: 6px;
+        -moz-border-radius: 6px;
+        border-radius: 6px;
+      }
     }
   }
-}
-.form-edit-album{
-  width: 68%;
-  float: right;
-  .button{
-    font-size: 14px;
-    font-family: Arial;
-    border: 0 none transparent;
-    &:hover{
-      background-color: #e74c3c;
-    }
-  }
-  label{
-    padding: 15px 0;
-    margin: 0;
-    font-size: 16px;
-    font-family: Arial;
-    font-weight: normal;
-  }
-  textarea:focus,input:focus{
-    box-shadow: none;
-  }
-  textarea{
-    resize:none;
-    height: 120px;
-    -webkit-border-radius: 6px;
--moz-border-radius: 6px;
-border-radius: 6px;
-  }
-}
-}
 }

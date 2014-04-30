@@ -15,6 +15,10 @@ class AlbumsController < InheritedResources::Base
 
   private
 
+  def smart_resource_url
+    url_for([parent, :albums])
+  end
+
   helper_method :page, :order, :collection
 
   def page

@@ -17,7 +17,5 @@
   .js-button-watch.button-toggler.like-button
     = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link js-activate-button') do
       = I18n.t('like')
-      .counter
-        .count-preloader
       %span.active-count
         = resource.likes_count
