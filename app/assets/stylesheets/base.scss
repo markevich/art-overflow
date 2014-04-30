@@ -79,24 +79,23 @@ ul{
 .btn-blue-double{
   background-color: $colorBlue;
   display: inline-block;
-  padding: .7em;
+  width: 130px;
+  height: 28px;
   color: #ffffff;
+  float: right;
   @include border-radius(6px);
   @include transition(all 0.3s ease-in-out);
   padding-left: 0px;
   font-size: 14px;
   font-weight: bold;
   font-family: Arial;
-  span {
+  text-align: center;
+  text-decoration: none;
+  span.icon {
     @include transition(all 0.3s ease-in-out);
+    height: 28px;
+    width: 40px;
     float: left;
-    margin-top: -.7em;
-    padding-left: .5em;
-    padding-right: 0.6em;
-    padding-top: .7em;
-    padding-bottom: 0.7em;
-    margin-bottom: -.7em;
-    margin-right: 0.6em;
     background-color: $colorDarkBlue;
     -webkit-border-top-left-radius: 6px;
     -webkit-border-bottom-left-radius: 6px;
@@ -104,14 +103,18 @@ ul{
     -moz-border-radius-bottomleft: 6px;
     border-top-left-radius: 6px;
     border-bottom-left-radius: 6px;
-    img{
-      vertical-align: -1px;
-    }
+    background-repeat:no-repeat;
+    background-image: url(image-path('cloudlet.png'));
+    background-position: center;
+  }
+  .text{
+    padding-top: 7px;
+    display: inline-block;
   }
   &:hover{
     color: #ffffff;
     background-color: $colorRed;
-    span{
+    span.icon{
       background-color: $colorDarkRed;
     }
   }

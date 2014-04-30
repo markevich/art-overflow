@@ -1,7 +1,7 @@
 @import 'setting.css.scss';
 
 h1,h2,h3,h4,h5{
-  color: $darckBlue;
+  color: $darkBlue;
   font-family:$arial;
   font-weight: bold;
 }
@@ -10,7 +10,7 @@ h1,h2,h3,h4,h5{
   color: $grey;
 }
 section{
-  padding: 1em 0;
+  padding: 16px 0;
 }
 
 //----------------------------------------------------comment------------------------------------------
@@ -22,6 +22,7 @@ section{
     float: left;
     margin-right: 1em;
     max-width: 3.5em;
+    margin-top: -5px;
   }
 
   p{
@@ -29,7 +30,12 @@ section{
   }
 
 }
-
+.picture-actions{
+  margin: auto;
+  max-width: 1660px;
+  padding: 20px;
+  overflow: hidden;
+}
 //стили для звездочек между поль и временем
 .star{
   padding: 0.1em;
@@ -46,7 +52,9 @@ section{
 
   a{
     float: left;
-    margin-right: 1em;
+    margin-right: 15px;
+    text-decoration: none;
+
   }
 
 }
@@ -96,17 +104,9 @@ section{
   //инпут лдля ввода комментария
   .input-comment{
     float: left;
-    padding: 0.7em;
-    .simple_form{
-      margin-bottom: 0.5em;
-    }
-
-    a{
+      a{
       font-weight: normal;
       text-decoration: underline;
-      margin-right: 1em;
-      padding: 0;
-      font-size: 0.8em;
       &:hover{
         text-decoration: none;
       }
@@ -185,6 +185,7 @@ section{
 
   h1,.blue{
     display: inline-block;
+    font-size: 16px;
   }
 
   //информационная часть
@@ -206,15 +207,10 @@ section{
 
 //--------------------------------------profil page----------------------------------------------------
 .profil{
-  margin-top: 2em;
-  .large-2{
-    width: 11.66667%;
-    img{
-      width: 5em;
-      height: 5em;
-      @include border-radius(6px);
-    }
-  }
+  margin: auto;
+  max-width: 1660px;
+  padding: 10px 20px 9px 20px;
+  overflow: hidden;
   .large-5{
     margin-left: -1em;
     h3{
@@ -239,31 +235,112 @@ section{
       display: inline-block;
       vertical-align: 0.8em;
     }
-    .social{
-      margin-bottom: 0.5em;
-      margin-top: 0.2em;
-      img{
-        cursor: pointer;
-        vertical-align: -0.2em;
+
+  }
+  .social{
+    margin-bottom: 0.5em;
+    margin-top: 0.2em;
+    img{
+      cursor: pointer;
+      vertical-align: -3px;
+    }
+    .blue{
+      margin-right: 0.4em;
+    }
+    a{
+      color: $blue;
+      &:hover{
+        color: $colorRed;
       }
-      .blue{
-        margin-right: 0.4em;
+    }
+  }
+  .profil-data{
+    float: right;
+    width: 40%;
+    text-align: right;
+  }
+  .description-profil{
+    float: left;
+    width: 60%;
+    h3{
+      margin-top: 5px;
+      font-size: 22px;
+      color: #26394d;
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+    sup{
+      vertical-align: 10px;
+      span{
+        font-size: 12px;
+        padding: 0 5px;
       }
+      .red{
+        background-color: $colorRed;
+        color:#ffffff;
+        padding:1px 8px;
+        -webkit-border-radius: 9px;
+        -moz-border-radius: 9px;
+        border-radius: 9px;
+      }
+    }
+  }
+  .avatar-provil{
+    width: 90px;
+    display: table-cell;
+    float: left;
+    margin-right: 20px;
+    height: 90px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    overflow: hidden;
+    img{
+      width: 100%;
+
+      height: 100%;
+    }
+  }
+  .button-blue{
+    background-image: url(image-path('flash.png'));
+    display: inline-block;
+    padding-left: 42px;
+    padding-right: 10px;
+    margin-top: 6px;
+    background-position: 9px center;
+    span{
+      display: none;
+    }
+  }
+  .button-red{
+    background-color: $colorRed;
+    background-image: url(image-path('flash.png'));
+    display: inline-block;
+    padding-left: 42px;
+    padding-right: 10px;
+    text-decoration: none;
+    margin-top: 6px;
+    background-position: 9px center;
+    span{
+      display: none;
     }
   }
 }
 .profil-menu{
   background-color: $bgBlueMenu;
-  margin-top: 1em;
-  margin-bottom: 1em;
+
   ul{
-    margin-left: 0.5em;
     position: relative;
+    margin: auto;
+    max-width: 1660px;
+    padding: 10px 20px 9px 20px;
     li{
       width: auto;
-      padding-bottom: 0.7em;
-      padding-top: 0.7em;
-      font-size: 0.85em;
+      margin: 5px;
+      display: inline-block;
+      &:first-child{
+        margin-right: 0;
+      }
       img{
         position: absolute;
         bottom: -0.7em;
@@ -272,6 +349,10 @@ section{
       }
       a{
         color: #ffffff;
+        font-size: 14px;
+        text-decoration: none;
+        font-weight: bold;
+        font-family: Arial;
       }
     }
   }
@@ -305,8 +386,6 @@ section{
 }
 
 .simple_form {
-  margin-top: .5em;
-  margin-bottom: 1em;
   label{
     margin-right: 1em;
     font-family: Arial;
@@ -338,102 +417,78 @@ section{
   margin-bottom: 100px;
   .simple_form{
     .input{
-      margin-bottom: 1em;
+      margin-bottom: 16px;
     }
   }
 }
-.authorization,.registration, .login-user, .profil-form form{
-  margin-top: 6em;
-  img{
-    margin-right: 1em;
-  }
-  h1{
-    font-family: $font;
-    font-size: 4em;
-    margin-top: 0.2em;
-  }
-  input{
-    height: 2.8em;
-    font-size: 0.9em;
-    padding-top: 0.7em;
-    &:focus{
-      box-shadow: none;
-      border-color: none;
-    }
-  }
-  a{
-    color: $blue;
-    text-decoration: underline;
-    &:hover{
-      text-decoration: none;
-      color: $colorRed;
-    }
-  }
-  .btn-blue, .btn-green{
-    padding: 0.45em 1.5em!important;
-    height: auto!important;
-    font-weight: bold;
-    font-size: 1em;
-    font-family: Arial;
-    border: none;
-    background-color: $blue;
-    @include transition(all 0.2s ease-in-out);
-    &:hover{
-      background-color: $colorRed;
-    }
-  }
-  img{
-    marin-right: 2em;
-  }
-  .action{
-    a{
-      float: right;
-      margin-top: 0.5em;
-    }
-  }
-  .join-us{
-    a{
-      float: right;
-    }
-  }
 
-}
-.registration{
-  h1{
-    font-size: 2.6em;
-  }
-}
+
 .login-user{
   position: absolute;
   z-index: 1;
-  background-color: $darckBlue;
-  padding: 1em;
+  background-color: $darkBlue;
   padding-bottom: 0;
   display: none;
-  width: 19em;
+  width: 235px;
+  padding: 15px;
   @include border-radius(6px);
-  top: 65px;
-  right: 0;
+  top: 72px;
+  right: 10px;
   margin-top: 0;
   @include transition(all 0.2s ease-in-out);
-  input{
-    margin-bottom: 1em;
-  }
-  .btn{
-    padding: 0.35em 1.5em !important;
-  }
+
   .join-us{
-    margin-top: 0.4em;
     text-align: left;
     a{
       float: none;
-      margin-left: 0.5em;
     }
   }
   img{
     position: absolute;
     top: -7px;
     right: 25px;
+  }
+  input{
+    width: 220px;
+    font-size: 14px;
+    border: 0 none transparent;
+    padding: 8px;
+
+  }
+  input[type='password'],.btn-blue{
+    margin-top: 15px;
+  }
+  .btn-blue{
+    width: 105px;
+    padding: 5px 0;
+    padding-bottom: 4px;
+    font-size: 15px;
+    float: left;
+    font-family: Arial;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  .forgot-password{
+    font-size: 12px;
+    margin-top: 25px;
+    float: right;
+    color: $blue;
+    &:hover{
+      color: $colorRed;
+    }
+  }
+  .join-us{
+    border-top:1px solid #4c5b6c;
+    font-size: 12px;
+    padding-top: 12px;
+    clear: both;
+    a{
+      float: right;
+      color: $blue;
+      &:hover{
+        color: $colorRed;
+      }
+    }
   }
 }
 .top{
@@ -444,15 +499,9 @@ section{
 }
 .user-menu{
   display: none;
-  padding-top: 0.4em;
   position: absolute;
   z-index: 1;
-  right: 10%;
-  width: 8em;
   img{
-    margin-bottom: -0.25em;
-    position: relative;
-    right: -90px;
   }
   ul {
     background-color: #26394d;
@@ -475,6 +524,11 @@ section{
   }
 }
 
+.ava img{
+  right: 0;
+  top: -7px;
+  margin-bottom: -10px;
+}
 .ava:hover ~ .user-menu {
   display: block;
 }
@@ -484,21 +538,7 @@ section{
 .user-menu-hover{
   @include border-radius(6px!important);
 }
-#search ~ a{
-  vertical-align: 12px;
-  color: $blue;
-  font-family: $arial;
-  font-weight: bold;
-  font-size: 14px;
-  border-bottom: 1px dashed $blue;
-  overflow: hidden;
-position: relative;
-top: -2px;
-  &:hover{
-    color: $colorRed;
-    border-bottom: 1px dashed $colorRed;
-  }
-}
+
 
 
 

@@ -1,15 +1,14 @@
 .registration
-  .row
-    .large-6.columns.text-right
+  .container-registration
+    .container-registration-left
       =image_tag("reg.png")
-    .large-6.columns
+    .container-registration-right
       %h1
-        Создай бесплатно свой профиль
-      .row
-        .large-8.columns
-          = simple_form_for(resource, :as => resource_name, :url => user_registration_path) do |f|
-            = f.input :name, label: false, placeholder: 'Отображаемое имя'
-            = f.input :email, label: false, placeholder: 'Email'
-            = f.input :password, label: false, placeholder: 'Пароль'
-            .action
-              = f.submit t(:submit), class: 'btn btn-blue'
+        Регистрация нового <br/> пользователя
+      .form-registration
+        = simple_form_for(resource, :as => resource_name, :url => user_registration_path) do |f|
+          = f.input :name, label: false, placeholder: 'Отображаемое имя'
+          = f.input :email, label: false, placeholder: 'Email'
+          = f.input :password, label: false, placeholder: 'Пароль'
+          .action
+            = f.submit t(:submit), class: 'button-registration'

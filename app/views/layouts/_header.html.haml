@@ -1,47 +1,48 @@
 %header
-  .row
-    .large-2.columns#logo
-      %a{href: '/'}
-        %h1
-          ARTOVERFLOW
-    %nav.large-5.columns#menu
-      %ul.large-block-grid-4
-        = active_link_to "Обновления", 'javascript:void(0)'
-        = active_link_to "Популярные", pictures_path(order: :likes_count)
-        = active_link_to "Новые", root_path
-    .large-5.columns#dowland
-      %a.btn-blue-double{ href: new_picture_path }
-        %span
-          = image_tag("cloudlet.png")
-        Загрузить
+  .alignment-header
+    .container-left
+      #logo
+        %a{href: '/'}
+          %h1
+            ARTOVERFLOW
+      %nav#menu
+        %ul
+          = active_link_to "Обновления", 'javascript:void(0)'
+          = active_link_to "Популярные", pictures_path(order: :likes_count)
+          = active_link_to "Новые", root_path
+    .container-right
+      #dowland
 
-      #search
-        = form_tag search_index_path, method: :get do
-          = text_field_tag :query, params[:query], autocomplete: :off, placeholder: 'Поиск'
-      - if user_signed_in?
-        %span.ava
-          = image_tag current_user.avatar
-        .user-menu
-          = image_tag 'triangle.png'
-          %ul.large-block-grid-1
-            %li
-              = link_to t('user.profile'), user_pictures_path(current_user)
-            %li
-              = link_to t('user.settings'), edit_user_path(current_user)
-            %li
-              = link_to t('user.logout'), destroy_user_session_path, method: :delete
-      - else
-        %a{class: 'sign-in'}
-          Вход
-      .login-user
-        = simple_form_for(User.new, url: new_user_session_path) do
-          = image_tag('triangle.png');
-          %input{name: "user[email]", type: "text", placeholder: "Еmail"}
-          %input{name: "user[password]", type: "text", placeholder: "Пароль"}
-          .action
-            %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue', value: 'Войти'}
-            = link_to "Забыли пароль?", '#', class: 'grey forgot-password'
-          .join-us.grey
-            Еще не с нами?
-            = link_to t('user.registration'), new_user_registration_path, class: 'grey'
-
+        - if user_signed_in?
+          %span.ava
+            = image_tag current_user.avatar
+          .user-menu
+            = image_tag 'triangle.png'
+            %ul
+              %li
+                = link_to t('user.profile'), user_pictures_path(current_user)
+              %li
+                = link_to t('user.settings'), edit_user_path(current_user)
+              %li
+                = link_to t('user.logout'), destroy_user_session_path, method: :delete
+        - else
+          %a{class: 'sign-in'}
+            Вход
+        .login-user
+          = simple_form_for(User.new, url: new_user_session_path) do
+            = image_tag('triangle.png');
+            %input{name: "user[email]", type: "text", placeholder: "Еmail"}
+            %input{name: "user[password]", type: "password", placeholder: "Пароль"}
+            .action
+              %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue', value: 'Войти'}
+              = link_to "Забыли пароль?", '#', class: 'grey forgot-password'
+            .join-us.grey
+              Еще не с нами?
+              = link_to t('user.registration'), new_user_registration_path, class: 'grey'
+        #search
+          = form_tag search_index_path, method: :get do
+            = text_field_tag :query, params[:query], autocomplete: :off, placeholder: 'Поиск'
+        %a.btn-blue-double{ href: new_picture_path }
+          %span.icon
+          %span.text
+            Загрузить

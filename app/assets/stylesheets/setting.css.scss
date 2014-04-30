@@ -1,6 +1,6 @@
 $blue:#6eb2ba;
 $bgBlueMenu: #b1d2d5;
-$darckBlue:#26394d;
+$darkBlue:#26394d;
 $arial:Arial;
 $grey: #a9b1b8;
 $bgGreen:#27ae60;
@@ -41,6 +41,10 @@ $bgLightGrey: #fafafa;
 @font-face{
   font-family: Gothic;/*задаем назв. шрифта*/
   src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/
+}
+body{
+  font-family: Arial;
+  min-width: 980px;
 }
 $font:Gothic;
 a{

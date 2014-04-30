@@ -3,16 +3,12 @@
     = link_to(unlike_picture_path, method: :post, class: 'button-red js-remote-link js-deactivate-button',
       data: { remote: true, disable_with: I18n.t('like') }) do
       = I18n.t('like')
-      .counter
-        .count-preloader
       %span.active-count
         = resource.likes_count
 
     = link_to(like_picture_path, method: :post, class: 'button-blue js-remote-link js-activate-button',
       data: { remote: true, disable_with: I18n.t('like') }) do
       = I18n.t('like')
-      .counter
-        .count-preloader
       %span.active-count
         = resource.likes_count
 

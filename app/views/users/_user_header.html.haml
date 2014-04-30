@@ -1,8 +1,8 @@
 %div{'data-check-user' => true, 'data-user-id' => resource.id}
-.row.profil
-  .large-2.columns
-    =image_tag(resource.avatar)
-  .large-5.columns
+.profil
+  .description-profil
+    .avatar-provil
+      =image_tag(resource.avatar)
     %h3
       = resource.name
     %sup
@@ -26,7 +26,7 @@
         %a{href: "http://vk.com/#{resource.vk}"}
           =image_tag("vkGr.png")
     = render 'users/follow_button', following: @following, resource: resource
-  .large-5.columns
+  .profil-data
     .user-counters
       .likes
         .top
@@ -50,12 +50,10 @@
         %span.blue
           Подписок
 .profil-menu
-  .row
-    .large-12
-      %ul.small-block-grid-6
-        %li
-          = active_link_to 'Новые', user_pictures_path(resource)
-        %li
-          = active_link_to 'Популярные', user_pictures_path(resource, order: :likes_count)
-        %li
-          = active_link_to 'Альбомы', user_albums_path(resource)
+  %ul
+    %li
+      = active_link_to 'Новые', user_pictures_path(resource)
+    %li
+      = active_link_to 'Популярные', user_pictures_path(resource, order: :likes_count)
+    %li
+      = active_link_to 'Альбомы', user_albums_path(resource)

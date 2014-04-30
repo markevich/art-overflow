@@ -1,55 +1,12 @@
 @import 'setting.css.scss';
 //----------------------------------------------стили для шапки--------------------------------------------------------
-.profil-menu,.profil{
-  font-family: Arial;
-}
-@-moz-document url-prefix()
-{
-  header {
-    background-color: #26394D;
-    height: 54px;
-    padding-bottom: 0.3em;
-    padding-top: 8px;
-  }
-  header h1 {
-    padding-top: 7px;
-  }
-  header #menu {
-    padding-top: 8px!important;
-  }
-  header #dowland #search {
-    top: 14px;
-  }
-  header nav ul li a {
-    display: inline-block;
-    font-family: Arial;
-    font-size: 0.9em;
-    font-weight: bold;
-    position: relative;
-    top: -4px;
-}
-#dowland{
-    position: relative;
-    top:-1px;
-}
- #search ~ a {
-    border-bottom: 1px dashed #6EB2BA;
-    color: #6EB2BA;
-    font-family: Arial;
-    font-size: 14px;
-    font-weight: bold;
-    overflow: hidden;
-    position: relative;
-    top: 10px!important;
-    vertical-align: 12px;
-}
 
-}
 header{
-  padding-top: 10px;
-  padding-bottom: 0.3em;
-  background-color: #26394d;
-  height: 54px;
+  position: relative;
+  background-color: $darkBlue;
+ /* height: 54px;*/
+  padding: 15px 20px 9px 20px;
+  overflow: hidden;
 //стили для поиска профиля
   #search ::-webkit-input-placeholder {
     color: #70b2b8;
@@ -76,62 +33,96 @@ header{
   #search  input:hover:-moz-placeholder,#search input.active:-moz-placeholder {
     color: #e74c3c;
   }
-
+  .alignment-header{
+    position: relative;
+    margin: auto;
+    max-width: 1660px;
+    .container-left{
+      width: 60%;
+      padding-top: 6px;
+      float: left;
+      text-align: left;
+    }
+    .container-right{
+      width: 40%;
+      float: right;
+      text-align: right;
+    }
+  }
 //общие стили для хэдера
 h1{
-  font-family: $font!important;
+  font-family: $font;
   color: white;
-  padding-top: 4px;
-  font-size: 22px!important;
-}
-#menu{
-  padding-top: 5px;
+  font-size: 26px;
+  float: left;
+  padding-right: 26px;
+  letter-spacing: 0px;
 }
 
+
 nav{
-  height: 2em;
    ul{
      li{
-      padding-bottom: 0!important;
-      padding-top: 0!important;
-       width: auto!important;
         margin-top: 0px;
+        float: left;
        a{
-         font-size: 0.9em;
+         font-size: 14px;
          font-weight: bold;
          font-family: Arial;
+         text-decoration: none;
+         margin: 0px 14px;
          &:hover{
            color: $colorRed;
+           text-decoration: none;
          }
          &.active {
           color: $colorRed;
+
          }
        }
      }
    }
 }
-
+  .login-user{
+    float: right;
+  }
+a.sign-in{
+    color: $blue;
+    font-family: $arial;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    border-bottom: 1px dashed $blue;
+    overflow: hidden;
+    position: relative;
+    float: right;
+    display: block;
+    padding-top: 5px;
+    &:hover{
+      color: $colorRed;
+      border-bottom: 1px dashed $colorRed;
+    }
+  }
 #dowland{
   #search{
+    float: right;
     display: inline-block;
     position: relative;
-    vertical-align: 4px;
-    width: 180px;
+    width: 165px;
+    margin: 0 15px;
+    top: -2px;
     input{
-      margin-right: 1em;
-      top: -30px;
+      float: right;
       width: 95px;
-      position: absolute;
+
       right: 0;
       height: 30px;
       @include border-radius(6px);
       border: 0;
       background-color: #26394d;
       padding-left: 30px;
-      font: bold 0.85em Arial;
+      font: bold 14px Arial;
       cursor: pointer;
-      background-position: 1px;
-      padding-left: 30px;
       background-position: 10px;
       background-image: url(image-path("search.png"));
       background-repeat: no-repeat;
@@ -150,22 +141,16 @@ nav{
         color: #e74c3c;
       }
     }
-    img{
-      position: absolute;
-      top: 8px;
-      left: 8px;
-    }
   }
 
 .ava{
   img{
     border: 1px solid  white;
-    position: absolute;
+    position: relative;
+    float: right;
     width: 40px;
     height: 40px;
     @include border-radius(22px);
-
-    top: -2px;
     cursor: pointer;
      @include transition(border-radius 0.2s ease-out);
     &:hover{
@@ -191,7 +176,6 @@ nav{
     li{
       @include border-radius(6px);
       color: white;
-      padding:10px 10px;
       font-family: Arial;
       font-size: 14px;
       cursor: pointer;
@@ -299,17 +283,21 @@ nav{
   background-image: url("arrowblue.png");
   background-position: bottom center;
   background-repeat: no-repeat;
-  bottom: -11px;  
+  bottom: -25px;
   position: relative;
 
 }
 .profil-menu ul li.active a{
   position: relative;
-  top: -11px;
+  top: -25px;
 }
 .close-modal{
   display: block;
   background: #969696;
-
 }
 
+@-moz-document url-prefix(){
+  header h1{
+    letter-spacing: -2px;
+  }
+}

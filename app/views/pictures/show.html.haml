@@ -1,6 +1,6 @@
 //верхняя панель 'о пользователе'
-%section.row.user-content
-  .large-12.columns
+%section.user-content
+  .user-container
     = image_tag 'images.jpg', class: "border-radius-circle user"
     %h1
       = resource.name
@@ -20,45 +20,41 @@
   = image_tag resource.path,:data => {'adaptive-background' => '1'}
 
 //кнопки под картинки
-%section.picture-actions.row
-  .large-12.columns.small-4
+%section.picture-actions
+  .picture-actions-button
     = render 'pictures/like_button', voted: @voted
     = render partial: 'users/follow_button', locals: { following: @following, resource: resource.user }
 
 //комментарии
 .bg-light-grey
-  %section.row.comments
-    .large-7.columns
-      .row
-        .large-12.columns.title
-          %h1
-            Комментарии (#{resource.comments_count})
-          %p
-            Последние
-          %p.blue
-            = image_tag 'arrow_bottom.gif'
-            Популярные
+  %section.comments
+    .comments-container-left
+      %h1
+        Комментарии (#{resource.comments_count})
+      .current-user-comment
+        .user-avatar
+          = image_tag 'images.jpg', class: "border-radius-circle user"
+        .description-user
+          %a
+            Коля Кекс
+          %span.star.grey
+            *
+          %span.grey
+            1 час назад
+          %div
+            Быстрый набросок для тренеровки
       = render 'comments/form', commentable: resource if user_signed_in?
       .user-comment
         = render resource.comments.includes(:user), commentable: resource
 
-    .other-job-right.large-5.columns
+    .other-job-right
       %h1
         Другие работы
       %p.blue
         = link_to(resource.user_name, [resource.user, :pictures])
-        %ul.large-block-grid-3.small-block-grid-1
+        %ul
           - most_popular_pictures(resource.user).each do |pic|
             %li
               %a{href: picture_path(pic)}
                 = image_tag pic.path.thumb
-      .information
-        %h1
-          Ads via The Deck
-        %p
-          = image_tag 'th.gif'
-          %p
-            New Field Notes Brand limited-release for summer,
-            %a
-              The Night Sky Edition.
 

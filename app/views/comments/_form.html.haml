@@ -4,7 +4,6 @@
   .large-11.columns.input-comment
     = simple_form_for Comment.new do |f|
       = f.input :text, placeholder: I18n.t('comment.text'), label: false
-
       = f.hidden_field :commentable_type, value: commentable.class
       = f.hidden_field :commentable_id,   value: commentable.id
       = f.submit I18n.t('comment.create'), class: 'blue create-btn'
