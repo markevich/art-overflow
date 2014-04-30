@@ -11,11 +11,9 @@
       .name
         = link_to picture.user_name, [picture.user, :pictures]
       .picture-actions
-        -#active %div.heart_normal.active
         %div.heart_normal
         %span
           = picture.likes_count
-        -# active %div.share_normal.active
         %div.share_normal
         %span
           3

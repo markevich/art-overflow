@@ -3,7 +3,6 @@ class PicturesController < InheritedResources::Base
 
   PAGE_SIZE = 15
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :like, :unlike]
-  before_filter :set_like_parameters, only: :show, if: :user_signed_in?
 
   belongs_to :user, optional: true
 
@@ -31,13 +30,6 @@ class PicturesController < InheritedResources::Base
     else
       render json: { count: resource.reload.likes_count, message: 'fail', state: :active}
     end
-  end
-
-  private
-
-  def set_like_parameters
-    @voted = current_user.liked?(resource)
-    @following = current_user.following?(resource.user)
   end
 
   helper_method :page, :order, :collection

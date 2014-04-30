@@ -1,10 +1,7 @@
-.row
-  .message-comment.new-comment-form.large-1.columns
-    = image_tag current_user.avatar, class:"border-radius-circle"
-  .large-11.columns.input-comment
-    = simple_form_for Comment.new do |f|
-      = f.input :text, placeholder: I18n.t('comment.text'), label: false
-      = f.hidden_field :commentable_type, value: commentable.class
-      = f.hidden_field :commentable_id,   value: commentable.id
-      = f.submit I18n.t('comment.create'), class: 'blue create-btn'
-  %hr
+= image_tag current_user.avatar, class:"border-radius-circle"
+.input-comment
+  = simple_form_for Comment.new do |f|
+    = f.input :text, placeholder: I18n.t('comment.text'), label: false
+    = f.hidden_field :commentable_type, value: commentable.class
+    = f.hidden_field :commentable_id,   value: commentable.id
+    = f.submit I18n.t('comment.create'), class: 'blue create-btn'

@@ -18,6 +18,10 @@ class AvatarUploader < CarrierWave::Uploader::Base
   process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
 
   def filename
-    "#{model.id}.jpg" if original_filename.present?
+    "avatar.#{model.path.file.extension}" if original_filename.present?
+  end
+
+  def default_url
+    ActionController::Base.helpers.asset_path("fallback/default_avatar.png")
   end
 end
