@@ -1,5 +1,4 @@
-
-@import 'setting';
+@import 'setting.css.scss';
 .container-registration,.container-authorization{
   max-width: 980px;
   margin: 80px auto;
@@ -8,7 +7,6 @@
     float: left;
   }
   .container-registration-right,.container-authorization-right{
-   /* margin-left: 360px;*/
     width: 280px;
     float: left;
     margin-left: 30px;

@@ -16,7 +16,6 @@ section{
 //----------------------------------------------------comment------------------------------------------
 //стили верхней понели для пользователя
 .user-content{
-
   img.user{
     display: inline-block;
     float: left;
@@ -49,112 +48,17 @@ section{
 
 //кнопки над картинкой
 .picture-actions{
-
   a{
     float: left;
     margin-right: 15px;
     text-decoration: none;
-
   }
-
 }
 
 //временный стиль
 .bg-grey{
   img{
     margin-bottom: -3px;
-  }
-}
-
-//комментарии польз
-.comments{
-  //кнопка загрузить остольное
-  #button_load_more{
-    width: 100%;
-  }
-
-  hr{
-    margin-bottom: 0;
-  }
-
-  .title{
-    padding-left: 0;
-
-    h1{
-      display: inline-block;
-    }
-
-    p{
-      float: right;
-      font-size: 0.9em;
-      &.blue{
-        cursor: pointer;
-        margin-right: 1em;
-      }
-    }
-
-  }
-
-  //комментария блок
-  .message-comment{
-    margin-top: 1em;
-    padding: 0
-  }
-
-  //инпут лдля ввода комментария
-  .input-comment{
-    float: left;
-      a{
-      font-weight: normal;
-      text-decoration: underline;
-      &:hover{
-        text-decoration: none;
-      }
-    }
-
-  }
-
-  //для всех ариах стилей внутри комментариев
-  textarea{
-    @include border-radius(6px);
-    resize: none;
-    font-size: 1em;
-    height: 2.5em;
-    min-height: 2.5em;
-    overflow: hidden;
-    padding-top: 0.67em;
-  }
-
-  //гавно-кнопка. почему ссылкой нельзя?
-  .create-btn{
-    background-color: transparent;
-    border: none;
-    text-decoration: underline;
-    border-radius: 0;
-    cursor: pointer;
-    font-family: Arial;
-    color: #2795b6;
-    @include transition(all 0.2s ease-in-out);
-    &:hover{
-      color: $colorRed;
-      text-decoration: none;
-    }
-  }
-
-  //гавно-кнопка. почему ссылкой нельзя?
-  .button_to input[type="submit"]{
-    cursor: pointer;
-    margin-top: -5px;
-    @include border-radius(6px);
-    color: #ffffff;
-    display: inline-block;
-    padding: .5em;
-    background-color: #70b2b8;
-    @include transition(all 0.2s ease-in-out);
-    border: 0;
-    &:hover{
-      background-color: #5f979d;
-    }
   }
 }
 
@@ -168,42 +72,6 @@ section{
     float: right;
   }
 }
-
-//гавно-кнопка. почему ссылкой нельзя?
-.button_to{
-  float: right;
-  display: inline-block;
-  margin-top: -6px;
-}
-
-//другие работы польз
-.other-job-right{
-
-  h1{
-    margin-bottom: 1em;
-  }
-
-  h1,.blue{
-    display: inline-block;
-    font-size: 16px;
-  }
-
-  //информационная часть
-  .information{
-
-    img{
-      float: left;
-      margin-right: 1em;
-    }
-
-    p{
-      line-height: 1.3em;
-    }
-
-  }
-}
-
-
 
 //--------------------------------------profil page----------------------------------------------------
 .profil{
@@ -303,7 +171,6 @@ section{
   }
   .button-blue{
     background-image: url(image-path('flash.png'));
-    display: inline-block;
     padding-left: 42px;
     padding-right: 10px;
     margin-top: 6px;
@@ -315,7 +182,6 @@ section{
   .button-red{
     background-color: $colorRed;
     background-image: url(image-path('flash.png'));
-    display: inline-block;
     padding-left: 42px;
     padding-right: 10px;
     text-decoration: none;

@@ -1,5 +1,6 @@
-.js-button-watch.button-toggler.like-button{ data: { voted: voted} }
-  - if user_signed_in?
+- if user_signed_in?
+  - voted = current_user.liked?(resource)
+  .js-button-watch.button-toggler.like-button{ data: { voted: voted} }
     = link_to(unlike_picture_path, method: :post, class: 'button-red js-remote-link js-deactivate-button',
       data: { remote: true, disable_with: I18n.t('like') }) do
       = I18n.t('like')
@@ -12,7 +13,8 @@
       %span.active-count
         = resource.likes_count
 
-  - else
+- else
+  .js-button-watch.button-toggler.like-button
     = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link js-activate-button') do
       = I18n.t('like')
       .counter

@@ -1,5 +1,6 @@
-.js-button-watch.button-toggler.follow-button{ data: { voted: following} }
-  - if user_signed_in?
+- if user_signed_in?
+  - following = current_user.following?(resource)
+  .js-button-watch.button-toggler.follow-button{ data: { voted: following} }
     = link_to(stop_following_user_path(resource), method: :post, class: 'button-red js-remote-link js-deactivate-button',
       data: { remote: true, disable_with: I18n.t('follow') }) do
       = I18n.t('follow')
@@ -11,7 +12,8 @@
       = I18n.t('follow')
       %span.active-count
         = resource.followers_count
-  - else
+- else
+  .js-button-watch.button-toggler.follow-button
     = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link js-activate-button') do
       = I18n.t('follow')
       %span.active-count

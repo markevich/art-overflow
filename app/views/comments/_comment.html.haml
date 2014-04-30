@@ -1,24 +1,14 @@
-.row
-  .message-comment.large-1.columns
-    = image_tag comment.user_avatar, class: "border-radius-circle"
-  .input-comment.large-11.columns
-    %p.blue
-      = comment.user_name
-      %span.grey
-        %span.star
-          *
-        1 час назад
-      = render 'comments/like_button', comment: comment
-
-      .txt-comment
-        = comment.text
-      - if user_signed_in?
-        .reply-to-comment
-          %a
-            Ответить
-          = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }
-    %hr
-      = render 'comments/form', commentable: commentable if user_signed_in?
-  .large-12.columns
-    %a.show-all-comment
-      show all
+= image_tag comment.user_avatar, class: "border-radius-circle"
+.input-comment
+  %p.blue
+    = comment.user_name
+    %span.grey
+      %span.star
+        *
+      1 час назад
+    = render 'comments/like_button', comment: comment
+    .txt-comment
+      = comment.text
+    .reply-to-comment
+      - if user_signed_in? && comment.user_id == current_user.id
+        = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }

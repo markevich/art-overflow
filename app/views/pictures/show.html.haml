@@ -22,14 +22,14 @@
 //кнопки под картинки
 %section.picture-actions
   .picture-actions-button
-    = render 'pictures/like_button', voted: @voted
-    = render partial: 'users/follow_button', locals: { following: @following, resource: resource.user }
+    = render 'pictures/like_button'
+    = render partial: 'users/follow_button', locals: { resource: resource.user }
 
 //комментарии
 .bg-light-grey
   %section.comments
     .comments-container-left
-      %h1
+      %h3
         Комментарии (#{resource.comments_count})
       .current-user-comment
         .user-avatar
@@ -42,13 +42,13 @@
           %span.grey
             1 час назад
           %div
-            Быстрый набросок для тренеровки
+            = resource.description
       = render 'comments/form', commentable: resource if user_signed_in?
       .user-comment
         = render resource.comments.includes(:user), commentable: resource
 
     .other-job-right
-      %h1
+      %h3
         Другие работы
       %p.blue
         = link_to(resource.user_name, [resource.user, :pictures])

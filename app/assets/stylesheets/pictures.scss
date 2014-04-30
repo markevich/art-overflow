@@ -1,4 +1,4 @@
-@import "setting";
+@import "setting.css.scss";
 #pictures{
   margin: 5px auto;
   width: 1625px;
@@ -155,6 +155,11 @@
   }
   .other-job-right{
     margin-left: 65%;
+    h3, .blue{
+      margin-bottom: 16px;
+      display: inline-block;
+      font-size: 16px;
+    }
     a{
       color: $blue;
       font-weight: bold;
