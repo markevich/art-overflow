@@ -1,6 +1,7 @@
 // Place all the styles related to the albums controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "setting";
 .comments{
   font-family: Arial;
 }
@@ -149,6 +150,7 @@
     border: 4px dashed #5f979d;
     display: table-cell;
     vertical-align: middle;
+    text-decoration: none;
     .plus{
       background: url(add-plus.png) no-repeat;
       height: 40px;
@@ -227,8 +229,8 @@
     color: white;
         border: 0 none transparent;
     font-family: Arial;
-font-size: 14px;
-font-weight: bold;
+    font-size: 14px;
+    font-weight: bold;
     padding: .55em;
     border-radius: 6px;
     margin-left: 15px;
@@ -251,18 +253,19 @@ font-weight: bold;
   display: block;
 }
 .edit-container{
-
-margin-bottom: 0;
+  margin-bottom: 0;
   background: #e6e6e6;
-margin-top: -16px;
+  margin-top: -16px;
 >div{
   overflow: hidden;
   margin-left: auto;
-margin-right: auto;
-margin-top: 0;
-max-width: 62.5em;
+  margin-right: auto;
+  margin-top: 0;
+  max-width: 1660px;
+  padding: 0 20px;
 .image-edit-album{
-  width: 30%;
+  width: 315px;
+  margin-bottom: 50px;
   padding-top: 50px;
   float: left;
   img{
@@ -272,16 +275,21 @@ max-width: 62.5em;
     margin-top: 10px;
     font-size: 12px;
     font-family: Arial;
-
+    color: $blue;
     display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    &:hover{
+      color: $colorRed;
+    }
     a:last-child{
 
     }
   }
 }
 .form-edit-album{
-  width: 68%;
-  float: right;
+  margin-left: 335px;
+  margin-top: 50px;
   .button{
     font-size: 14px;
     font-family: Arial;
@@ -291,11 +299,28 @@ max-width: 62.5em;
     }
   }
   label{
-    padding: 15px 0;
+    padding: 8px 3px;
     margin: 0;
-    font-size: 16px;
+    font-size: 15px;
     font-family: Arial;
     font-weight: normal;
+    display: block;
+
+  }
+  input,textarea{
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.75);
+    padding: 10px;
+    min-width: 400px;
+  }
+  .btn-green{
+    width: auto;
+    min-width: 0;
+    margin-top: 15px;
+    margin-bottom:20px;
+    color: #ffffff;
   }
   textarea:focus,input:focus{
     box-shadow: none;

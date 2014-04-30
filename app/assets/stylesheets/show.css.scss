@@ -106,8 +106,8 @@ section{
 
   }
   .social{
-    margin-bottom: 0.5em;
-    margin-top: 0.2em;
+    margin-bottom: 16px;
+    margin-top: 1px;
     img{
       cursor: pointer;
       vertical-align: -3px;
@@ -175,6 +175,8 @@ section{
     padding-right: 10px;
     margin-top: 6px;
     background-position: 9px center;
+    padding-top: 5px;
+    padding-bottom: 7px;
     span{
       display: none;
     }
@@ -186,6 +188,8 @@ section{
     padding-right: 10px;
     text-decoration: none;
     margin-top: 6px;
+    padding-top: 5px;
+    padding-bottom: 7px;
     background-position: 9px center;
     span{
       display: none;
@@ -391,10 +395,11 @@ section{
       }
       a{
         color: white;
-        font-family: $arial;
+        font-family: Arial;
         font-size: 14px;
         display: block;
         width: 100%;
+        font-weight: bold;
         text-decoration: none;
       }
     }
@@ -447,7 +452,15 @@ section{
   }
 }
 
-
+.name-new-album.add_album {
+  text-align: center;
+  font-family: Arial;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  margin-top: 3px;
+  font-weight: bold;
+}
 
 //-----------------------------------------------profil-----------------------------------------------
 .edit-profil{
@@ -459,55 +472,116 @@ section{
 }
 .profil-form {
   background-color: $bgLightGrey;
-  margin-top: -1em;
-  form {
-    margin-top: 3em;
-  }
-  label{
-    margin-bottom: 0.7em;
-    display: block;
-    span{
-      margin-left: 1em;
-    }
-  }
-  input{
-    margin-bottom: 2em;
-    &:focus{
-    }
-  }
-  .btn.btn-blue{
-    padding: 0.4em!important;
-  }
-  .btn.btn-green{
-    padding: 0.4em!important;
-    background-color: #27ae60!important;
-    cursor: pointer;
-    &:hover{
-      background-color: $colorRed!important;
-    }
-  }
-  .collapse{
-    span{
-      height: 3.35em;
-      margin-top: 0em;
-      padding: 0.5em;
-      @include border-radius(6px);
-      @include right-radius-border(0px);
-    }
-    input[type="text"]{
-      @include left-radius-border(0px);
-      @include right-radius-border(6px!important);
-    }
-  }
-  .avatarka {
-    margin-bottom: 1.5em;
-    img{
-      width: 84px;
+  .profil-form-container{
+    position: relative;
+    margin: auto;
+    max-width: 1660px;
+    padding: 0 20px;
+
+
+    label{
+      font-family: Arial;
+      color: black;
+      font-size: 16px;
+      margin-left: 7px
     }
     input{
-      margin-top: 1em;
+      width: 500px;
+      border: 1px solid #cccccc;
+      -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+      box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+      color: rgba(0,0,0,0.75);
+      padding: 10px;
+      margin-top:0;
     }
   }
+  .edit_user{
+    >div{
+      overflow: hidden;
+    }
+    .name{
+      padding-top: 40px;
+    }
+    form {
+      margin-top: 3em;
+    }
+    label{
+      margin-bottom: 0.7em;
+      display: block;
+      span{
+        margin-left: 1em;
+      }
+    }
+    input{
+      margin-bottom: 2em;
+      &:focus{
+      }
+    }
+    .btn.btn-blue{
+      padding: 0.4em!important;
+    }
+    .btn.btn-green{
+      padding: 0.4em;
+      background-color: #27ae60;
+      cursor: pointer;
+      color: #ffffff;
+      width: auto;
+      font-size: 14px;
+      font-weight: bold;
+      &:hover{
+        background-color: $colorRed;
+      }
+    }
+    #user_vk {
+      width: 399px;
+    }
+    .collapse{
+      span{
+        @include border-radius(6px);
+        @include right-radius-border(0px);
+        background: #f2f2f2;
+        border-color: #d9d9d9;
+        border-right: none;
+        float: left;
+        height: 23px;
+        border: 1px solid #cccccc;
+        margin-right: -1px;
+        margin-top: 0;
+        width: 100px;
+        padding-top: 12px;
+        text-align: center;
+      }
+      input[type="text"]{
+        @include left-radius-border(0px);
+        @include right-radius-border(6px!important);
+      }
+    }
+    .btn-blue{
+      text-decoration: none;
+      font-size: 14px;
+      font-family: Arial;
+      margin-left: 10px;
+      margin-top: 30px;
+      width: auto;
+      color: white;
+      font-weight: bold;
+      &:hover{
+        background-color: $colorRed;
+      }
+    }
+    .avatarka {
+      margin-bottom: 1.5em;
+      img{
+        width: 84px;
+        height: 84px;
+        float: left;
+      }
+      input{
+        margin-top: 1em;
+      }
+    }
+  }
+
   .ok{
     padding-top: 0.7em;
     position: absolute;

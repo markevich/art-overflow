@@ -17,64 +17,98 @@ $copyRight:#5f979d;
 .move{
   clear: both;
   background-color: $bgfooter;
+  width: 100%;
+  height: 32px;
+  position: fixed;
+  z-index: 5;
+  bottom: 0;
   p{
      color: $colorBlue;
     font-size: 12px;
     font-family:$fontArial;
   }
   footer{
-     margin-top: 3em;
-    h1{
-      color: $colorRed;
-      font-family:$font;
-      font-size: 26px;
-    }
-    p.bold{
-      margin-top: 1em;
-      margin-bottom: 1em;
-      img{
-        vertical-align: -3px;
-        margin-right: 0.3em;
-      }
-    }
-  }
-  .nav-footer{
-    margin-top: 3.5em;
+    padding: 0 20px;
     ul{
+      position: absolute;
+      bottom: 43px;
+      background-color: #26394d;
+      width: 130px;
+      overflow: hidden;
+      bottom: 18px;
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
       li{
-        padding-top: 0;
-        padding-bottom: 0;
-        a{
-          font-size: 12px;
-          font-family: $fontArial;
-           &:hover{
-             color: $colorRed;
-           }
-        }
 
-      }
-      li.active{
         a{
-          color: $colorRed;
+          color: #ffffff;
+          display: block;
+          padding: 6px 10px;
+          text-align: left;
+          -webkit-border-radius: 6px;
+          -moz-border-radius: 6px;
+          border-radius: 6px;
+
+          cursor: pointer;
+          &:hover{
+            background-color: $colorRed;
+          }
         }
       }
     }
-  }
-  .ads{
-    margin-top: 3em;
-    img{
-      width: 155px;
+    h1{
+      color: #e74c3c;
+      font-family: Gothic;
+      font-size: 26px;
+      float: right;
+      margin-top: 9px;
+    }
+    .show-social{
+      position: absolute;
+      left: 10px;
+      top: -16px;
+      width: 148px;
+      display: inline-block;
+      img{
+        position: relative;
+        bottom: 7px;
+        left: 59px;
+        transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);
+      }
+    }
+    a.infinity-footer-button{
+      padding: 9px;
+      border-right: 1px solid;
+      color: #70b2b8;
+      font-size: 12px;
+      cursor: pointer;
+      -webkit-transition: all 0s ease-in-out;
+      -moz-transition: all 0s ease-in-out;
+      -o-transition: all 0s ease-in-out;
+      transition: all 0s ease-in-out;
+      &:hover{
+        color: $colorRed;
+        sup{
+          border-color:  $colorRed transparent transparent transparent;
+        }
+      }
+      sup{
+        width: 0px;
+        height: 0px;
+        border-style: solid;
+        border-width: 5px 5px 0 5px;
+        border-color: #70b2b8 transparent transparent transparent;
+        float: right;
+        margin-top: -7px;
+        margin-left: 7px;
+      }
+    }
+    .infinity-footer-button{
       float: left;
-      margin-right: 1em;
-    }
-    p{
-      margin-top: 1em;
     }
   }
-  .copyright{
-    margin-bottom: 2em;
-    p{
-       color: $copyRight;
-    }
-  }
+
 }
