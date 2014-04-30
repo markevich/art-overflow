@@ -2,10 +2,8 @@
 = stylesheet_link_tag 'jquery.Jcrop', 'data-turbolinks-track' => true
 
 = simple_form_for @picture do |f|
-  .row
-    .large-12.columns
-      %h3.title-download
-        Загрузка
+  %h3.title-download
+    Загрузка
   .bg-blue#image-selector
     .row
       .large-12.columns
@@ -25,20 +23,21 @@
       thumb_aspect_ratio: PictureUploader::THUMB_ASPECT_RATIO }  |
     }                                                            |
   .bg-grey#crop
-    #crop-pr
-      %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
-      %br
-      %span.blue
-        we
-      %span.right
-        15
-    #crop-area
-  .row
-    .large-6.columns.new-picture-description
-      = f.input :crop_x, as: :hidden
-      = f.input :crop_y, as: :hidden
-      = f.input :crop_w, as: :hidden
-      = f.input :crop_h, as: :hidden
-      = f.input :name
-      = f.input :description
-      = f.button :submit, class: 'btn btn-green', value: 'Отправить', data: { disable_with: 'Загружаем' }
+    .crop-picture-new
+      #crop-area
+      #crop-pr
+        %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
+        %br
+        %span.blue
+          we
+        %span.right
+          15
+
+  .new-picture-description
+    = f.input :crop_x, as: :hidden
+    = f.input :crop_y, as: :hidden
+    = f.input :crop_w, as: :hidden
+    = f.input :crop_h, as: :hidden
+    = f.input :name
+    = f.input :description
+    = f.button :submit, class: 'btn btn-green', value: 'Отправить', data: { disable_with: 'Загружаем' }

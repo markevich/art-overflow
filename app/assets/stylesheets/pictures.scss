@@ -22,7 +22,6 @@
         margin-top: 20px;
         font-weight: bold;
         margin-bottom: 10px;
-
       }
       p{
         vertical-align: 2;
@@ -46,6 +45,8 @@
     .name{
       float: left;
       margin-top: 10px;
+      display: table-cell;
+      width: 260px;
       &:hover{
         color: #e74c3c;
       }
@@ -57,6 +58,11 @@
     .picture-actions{
       float: right;
       margin-top: 10px;
+      padding: 0;
+      span{
+        vertical-align: 2px;
+      }
+/*      margin-top: 10px;*/
       img{
         width: 13px;
         cursor: pointer;

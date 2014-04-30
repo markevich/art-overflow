@@ -6,7 +6,7 @@ header{
   background-color: $darkBlue;
  /* height: 54px;*/
   padding: 15px 20px 9px 20px;
-  overflow: hidden;
+ /* overflow: hidden;*/
 //стили для поиска профиля
   #search ::-webkit-input-placeholder {
     color: #70b2b8;
@@ -20,7 +20,9 @@ header{
   #search :-ms-input-placeholder {
     color: #70b2b8;
   }
-
+.clear{
+  clear: both;
+}
   #search  input:hover::-webkit-input-placeholder,#search input.active::-webkit-input-placeholder {
     color: #e74c3c;
   }

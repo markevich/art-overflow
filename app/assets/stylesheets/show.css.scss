@@ -364,17 +364,27 @@ section{
   top: 50%!important;
 }
 .user-menu{
-  display: none;
   position: absolute;
   z-index: 1;
-  img{
+  top: 22px;
+  right: 0px;
+  width: 150px;
+  display: none;
+  img {
+    position: relative;
+    top: 19px;
+    right: 14px;
   }
   ul {
     background-color: #26394d;
+    top: 15px;
+    position: relative;
     @include border-radius(6px);
     li{
       margin: 0;
-      padding: 0.3em 0.7em;
+      padding: 6px 10px;
+      text-align: left;
+
       @include border-radius(6px);
       &:hover{
         background-color: $colorRed;
@@ -385,6 +395,7 @@ section{
         font-size: 14px;
         display: block;
         width: 100%;
+        text-decoration: none;
       }
     }
   }
@@ -408,7 +419,11 @@ section{
 
 
 
-
+.simple_form.new_picture .title-download{
+  position: relative;
+  margin: auto;
+  max-width: 1660px;
+}
 .reveal-modal {
   visibility: visible;
   display: block;
@@ -436,8 +451,7 @@ section{
 
 //-----------------------------------------------profil-----------------------------------------------
 .edit-profil{
-  margin-top: 0.6em;
-  font-size: 1.5em;
+  padding: 0 20px;
 }
 .profil-form {
   background-color: $bgLightGrey;
@@ -520,17 +534,15 @@ section{
   }
   text-align: center;
   border: 2px dashed grey;
-  margin: 1em 0;
   @include border-radius(6px);
-  padding: 2em;
+  padding: 5em;
   color: white;
   input.file{
     width: auto;
   }
 }
 .title-download{
-  margin-bottom: 1em;
-  margin-top: 0.5em;
+  padding: 15px 20px;
 }
 .btn-download{
   border: none;
@@ -552,10 +564,10 @@ section{
     font-weight: bold;
   }
   #crop-area{
-    float: right;
+    float: left;
   }
   #crop-pr{
-    float: right;
+    float: left;
     padding: 2em;
   }
   span.right{
@@ -563,17 +575,46 @@ section{
     float: right;
   }
 }
-
+.crop-picture-new{
+  position: relative;
+  margin: auto;
+  max-width: 1660px;
+  padding: 0 20px;
+}
 .new-picture-description{
-  margin-bottom: 2em;
+  position: relative;
+  margin: auto;
+  max-width: 1660px;
+  padding: 0 20px;
   input, textarea{
     @include border-radius(6px);
     resize: none;
     margin-bottom: 10px;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.75);
+    display: block;
+    font-size: 0.875em;
+    padding: 5px;
+    width: 320px;
+    display: inline-block;
+  }
+  textarea{
+    height: 100px;
+  }
+  small{
+    margin-left: 5px;
+  }
+  .btn-green{
+    width: auto;
+    color: #ffffff;
   }
   label{
-    margin-top: 0.5em;
-    margin-bottom: 10px;
+    display: block;
+    font-family: Arial;
+    color: black;
+    font-size: 16px;
   }
   .btn{
     margin-top: 0;
