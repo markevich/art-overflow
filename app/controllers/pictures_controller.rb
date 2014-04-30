@@ -43,6 +43,7 @@ class PicturesController < InheritedResources::Base
       :crop_w,
       :name,
       :description,
+      :album_id,
       :path,
       :tag_list
     ]).tap do |whitelist|

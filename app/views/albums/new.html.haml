@@ -1,13 +1,3 @@
-= render parent.to_header_path, resource: parent
-.image-block
-  .container
-    %a.added{href: new_user_album_path(parent)}
-      %span.plus
-      .name
-        Создать альбом
-
-%h1 New album
-
 #newAlbum.modal-content
   = simple_form_for([parent, resource]) do |f|
     .title
@@ -16,7 +6,7 @@
         x
     = f.input :name
     = f.input :description
-    = link_to 'Отмена', url_for([parent, :albums]),class: 'close-modal'
-    = f.button :submit, value: 'Создать альбом',class: 'btn btn-green'
+    = link_to 'Отмена', url_for([parent, :albums]), class: 'close-modal'
+    = f.button :submit, value: 'Создать альбом', class: 'btn btn-green'
 
 .modal-background
