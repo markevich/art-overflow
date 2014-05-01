@@ -1,0 +1,30 @@
+%div{'data-check-user' => true, 'data-user-id' => resource.id}
+.profil.show-user-album
+  .description-user-album
+    =image_tag(resource.pictures.first.path.thumb)
+    .comuns-description-user-album
+      %h3
+        Прикольные
+      %a
+        Евстратенко Константин
+      %div
+        Звезда решает годовой параллакс (датировка приведена по Петавиусу, Цеху, Хайсу). Расстояния планет от Солнца возрастают приблизительно в геометрической прогрессии!!!
+  .profil-data
+    .user-counters
+      .likes
+        .top
+        .bottom
+        .count
+          = resource.pictures.count
+        %span.blue
+          Симпатий
+
+.profil-menu
+  %ul
+    %li
+      = active_link_to 'Все альбомы', user_albums_path(resource), class: 'album-all'
+    %li
+      = active_link_to 'Новые', user_pictures_path(resource)
+    %li
+      = active_link_to 'Популярные', user_pictures_path(resource, order: :likes_count)
+

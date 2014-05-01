@@ -723,12 +723,57 @@ section{
     padding-top: 20px;
   }
 }
+
 div.picture_path, div.user_avatar{
   display: none;
 }
 .bg-grey img{
   max-width: 100%;
   height: auto
+}
+.show-user-album{
+  position: relative;
+  .description-user-album{
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+  .description-user-album img{
+    width: 125px;
+    float: left;
+    margin-right: 20px;
+    max-height: 90px;
+  }
+    .comuns-description-user-album{
+      margin-left: 145px;
+      margin-right: 115px;
+      h3{
+        font-size: 22px;
+        margin-bottom: 5px;
+      }
+      a{
+        color: $blue;
+        font-size: 14px;
+        &:hover{
+          color: $colorRed;
+        }
+      }
+      div{
+        margin-top: 5px;
+        color: #9e9e9e;
+        font-size: 13px;
+      }
+    }
+  .profil-data{
+    width: 100px;
+    position: absolute;
+    right: 15px;
+    top: 15px;
+  }
+}
+.profil-menu ul li a.album-all{
+  background: url(image_path('album-arrow.png')) no-repeat;
+  background-position: center left;
+  padding-left: 17px;
 }
 /*
 .picture-show {
