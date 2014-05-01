@@ -1,9 +1,35 @@
-- @users.each do |u|
+.search-container-new
+  - @users.each do |u|
+    %div.search-container
+      = image_tag(User.first.avatar)
+      .search
+        .search-description
+          = link_to u.name, u,class: 'avatar'
+          %sup
+            PRO
+        .blue
+          =image_tag('locationGr.png')
+          %span
+            Минск
+        .blue
+          =image_tag('glob.png')
+          %span
+            winniehooper.com
+        .blue
+          =image_tag('vkGr.png')
+        .action-button
+          %a.button-blue
+            Следить за автором
+          .like-search
+            .heart_normal
+            %span
+              0
+            .man
+            %span
+              0
+      %div.picture-search
+        - u.popular_for_search_pictures.each do |p|
+          = link_to image_tag(p.path.thumb.url), picture_path(p.id)
 
-  %div
-    = image_tag(u.avatar)
-    = link_to u.name, u
-    %div
-      - u.popular_for_search_pictures.each do |p|
-        = link_to image_tag(p.path.thumb.url), picture_path(p.id)
+
 

@@ -775,6 +775,107 @@ div.picture_path, div.user_avatar{
   background-position: center left;
   padding-left: 17px;
 }
+.search-container-new{
+  margin: auto;
+  max-width: 1660px;
+  padding: 10px 20px 9px 20px;
+  overflow: hidden;
+}
+.search-container{
+  position: relative;
+  padding: 15px 0;
+  border-top:1px solid #ccc;
+  >img{
+    width: 85px;
+    height: 85px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    float: left;
+  }
+  .search{
+    margin-left: 100px;
+    margin-right: 399px;
+  }
+  &:first-child{
+    border: 0 none  transparent;
+  }
+  .avatar{
+    font-size: 16px;
+    color: #26394d;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  sup{
+    background-color: #e74c3c;
+    color: #ffffff;
+    padding: 1px 8px;
+    -webkit-border-radius: 9px;
+    -moz-border-radius: 9px;
+    border-radius: 9px;
+    font-size: 11px;
+    display: inline-block;
+    vertical-align: 8px;
+  }
+  .blue{
+    display: inline-block;
+    margin-top: 6px;
+    span{
+      font-size: 14px;
+      margin-right: 5px;
+      vertical-align: 3px;
+    }
+  }
+  .clear{
+    clear: both;
+  }
+  .action-button{
+   /* clear: both;*/
+    margin-top: 15px;
+    .button-blue{
+      background-image: url(image_path("flash.png"));
+      padding-left: 42px;
+      padding-right: 10px;
+      margin-top: 6px;
+      background-position: 9px center;
+      padding-top: 5px;
+      padding-bottom: 7px;
+      margin-right: 13px;
+    }
+  }
+  .heart_normal{
+    background-image: url(image_path("heart_normal.png"));
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 12px;
+    cursor: pointer;
+  }
+  .man{
+    background-image: url(image_path("man-1.png"));
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 16px;
+    cursor: pointer;
+  }
+  .picture-search{
+    position: absolute;
+    right: 0px;
+    top: 13px;
+    img{
+      width: 125px;
+      margin-left: 10px;
+    }
+  }
+  .like-search{
+    display: inline-block;
+    vertical-align: -2px;
+  }
+}
+header #dowland #search input{
+  color: $blue;
+}
 /*
 .picture-show {
   overflow: hidden;
