@@ -6,7 +6,7 @@ class Picture < ActiveRecord::Base
 
   acts_as_taggable
 
-  belongs_to :user
+  belongs_to :user, touch: true
   belongs_to :album
 
   validates :name, :path, :user, presence: true

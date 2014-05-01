@@ -34,7 +34,7 @@
       - unless resource.description.blank?
         .current-user-comment
           .user-avatar
-            = image_tag 'images.jpg', class: "border-radius-circle user"
+            = image_tag resource.user.avatar, class: "border-radius-circle user"
           .description-user
             %a
               Коля Кекс

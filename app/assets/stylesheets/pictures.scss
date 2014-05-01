@@ -2,6 +2,7 @@
 #pictures{
   margin: 5px auto;
   width: 1625px;
+  overflow: hidden;
   .image-block{
     float: left;
     padding: 10px;
@@ -128,13 +129,17 @@
   overflow: hidden;
   .comments-container-left{
     float: left;
-    width: 60%;
+    width: 58%;
     .current-user-comment{
       margin-top: 20px;
       .user-avatar{
         display: table-cell;
-        width: 50px;
+        width: 45px;
         float: left;
+        padding-right: 15px;
+        img{
+          width: 100%;
+        }
       }
       .description-user{
         padding-top: 4px;
@@ -147,20 +152,22 @@
             color: $colorRed;
           }
 
+
         }
         span{
           font-size: 11px;
         }
-        div{
+        > div{
           color: #26394d;
           font-size: 14px;
           margin-top: 2px;
+          display: table-cell;
         }
       }
     }
   }
   .other-job-right{
-    margin-left: 65%;
+    margin-left: 60%;
     h3, .blue{
       margin-bottom: 16px;
       display: inline-block;
@@ -220,9 +227,113 @@
 .js-activate-button, .js-deactivate-button{
   display: none;
 }
+.form-user-comment{
+  clear: both;
+  margin-top: 15px;
+  img{
+    width: 45px;
+    float: left;
+    margin-right: 15px;
+    padding-top: 10px;
+  }
+  textarea{
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    resize: none;
+    height: 16px;
+    font-size: 16px;
+    resize:none;
+    border: 1px solid #cccccc;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+    color: rgba(0,0,0,0.75);
+    display: block;
+    width: 96%;
+    padding: 10px;
+    font-size: 14px;
+    font-family: Arial;
+    color: #bfbfbf;
 
+  }
+  .create-btn{
+    background: transparent;
+    border: 0 none transparent;
+    font-size: 12px;
+    font-family: Arial;
+    text-decoration: underline;
+    margin-top: 6px;
+    cursor: pointer;
+    &:hover{
+      color: $colorRed;
+    }
+  }
+  .input-comment{
+    border-top: 1px solid #ccc;
+    padding-top: 15px;
+    padding-bottom: 11px;
+    border-bottom: 1px solid #ccc;
+    form{
+      display: block;
+      margin-left: 60px;
+    }
+  }
+  
+}
+.answer-comment{
+    padding-top: 15px;
+      padding-bottom: 11px;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+      &:last-child{
+        border: 0 none transparent;
+      }
+    img{
+      width: 45px;
+      float: left;
+      margin-right: 15px;
+    }
+    .reply-to-comment{
+      a{
+        font-size: 12px;
+        font-family: Arial;
+        text-decoration: underline;
+        margin-top: 6px;
+        color: $blue;
+        cursor: pointer;
+        &:hover{
+          color: $colorRed;
+        }
+      }
+    }
+    .input-comment{
+     
+        margin-left: 65px;
+    }
+    .txt-comment{
+      margin-top: 2px;
+      color: #26394d;
+      font-size: 14px;
+      font-family: Arial;
+    }
+    p{
+      a{
+        text-decoration: none;
+        color: $blue;
+        &:hover{
+          color: $colorRed;
+        }
+      }
+      font-size: 12px;
+      font-family: Arial;
+      font-weight: bold;
+      .grey{
+        font-weight: normal;
+      }
+    }
+  }
 $PICTURE_WIDTH: 335px;
-$MAX_COLUMNS: 10;
+$MAX_COLUMNS: 7;
 
 $current_column: $MAX_COLUMNS;
 

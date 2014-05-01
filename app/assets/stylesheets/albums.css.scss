@@ -26,11 +26,15 @@
   font-size: 12px;
   text-decoration: none!important;
   float: right;
-  padding: 2px 10px!important;
-  padding-top: 3px !important;
+  padding: 4px 10px!important;
+  padding-top: 5px !important;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
+  position: absolute;
+top: 12px;
+right: 0;
+
   margin-right: 0!important;
   &:hover{
     background: #E9EDF1;
@@ -63,7 +67,7 @@
   margin-top: -3px;
 }
 .likes_count{
-  margin-top: -6px!important;
+  margin-top: -12px!important;
 
 }
 .reply-to-comment-container hr{

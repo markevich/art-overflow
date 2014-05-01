@@ -1,14 +1,15 @@
-= image_tag comment.user_avatar, class: "border-radius-circle"
-.input-comment
-  %p.blue
-    = comment.user_name
-    %span.grey
-      %span.star
-        *
-      1 час назад
-    = render 'comments/like_button', comment: comment
-    .txt-comment
-      = comment.text
-    .reply-to-comment
-      - if user_signed_in? && comment.user_id == current_user.id
-        = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }
+.answer-comment
+  = image_tag comment.user_avatar, class: "border-radius-circle"
+  .input-comment
+    %p.blue
+      = link_to comment.user_name, comment.user
+      %span.grey
+        %span.star
+          *
+        1 час назад
+      = render 'comments/like_button', comment: comment
+      .txt-comment
+        = comment.text
+      .reply-to-comment
+        - if user_signed_in? && comment.user_id == current_user.id
+          = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }

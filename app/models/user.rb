@@ -30,6 +30,7 @@ class User < ActiveRecord::Base
     indexes :name, type: :string, boost: 10
     indexes :likes_count, type: :integer
     indexes :city, type: :string
+    indexes :avatar, as: 'avatar.to_s'
     indexes :popular_for_search_pictures, as: 'pictures.popular_for_search' do
       indexes :id, type: :integer, index: :no
       indexes :name, type: :string, index: :no
