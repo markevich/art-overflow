@@ -1,18 +1,13 @@
-class CommentsController < ApplicationController
-  def create
-    comment_params = permitted_params.merge(user: current_user)
-    Comment.create(comment_params)
-    redirect_to :back
-  end
+class CommentsController < InheritedResources::Base
+  before_filter :authenticate_user!
 
-  def destroy
-    comment = Comment.find(params[:id])
-    comment.destroy if comment.user.id == current_user.id
-    redirect_to :back
+  actions :all, except: :new
+
+  def smart_resource_url
+    url_for resource.commentable
   end
 
   def like
-    resource = Comment.find(params[:id])
     if current_user.like(resource)
       render json: { count: resource.reload.likes_count, state: :active }
     else
@@ -21,7 +16,6 @@ class CommentsController < ApplicationController
   end
 
   def unlike
-    resource = Comment.find(params[:id])
     if current_user.unlike(resource)
       render json: { count: resource.reload.likes_count, state: :inactive }
     else
@@ -30,6 +24,9 @@ class CommentsController < ApplicationController
   end
 
   def permitted_params
-    params.require(:comment).permit(:text, :commentable_id, :commentable_type)
+    params.permit(comment: [:text, :commentable_id, :commentable_type]).tap do |wl|
+      wl[:comment] ||= {}
+      wl[:comment][:user_id] = current_user.id
+    end.permit!
   end
 end

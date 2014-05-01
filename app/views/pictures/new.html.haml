@@ -27,11 +27,6 @@
       #crop-area
       #crop-pr
         %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
-        %br
-        %span.blue
-          we
-        %span.right
-          15
 
   .new-picture-description
     = f.input :crop_x, as: :hidden
@@ -40,4 +35,5 @@
     = f.input :crop_h, as: :hidden
     = f.input :name
     = f.input :description
+    = f.association :album, collection: current_user.albums
     = f.button :submit, class: 'btn btn-green', value: 'Отправить', data: { disable_with: 'Загружаем' }

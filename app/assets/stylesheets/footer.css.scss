@@ -72,11 +72,11 @@ $copyRight:#5f979d;
       display: inline-block;
       img{
         position: relative;
-        bottom: 7px;
+        bottom: 8px;
         left: 59px;
-        transform: rotate(180deg);
+/*        transform: rotate(180deg);
         -ms-transform: rotate(180deg);
-        -webkit-transform: rotate(180deg);
+        -webkit-transform: rotate(180deg);*/
       }
     }
     a.infinity-footer-button{
@@ -111,4 +111,9 @@ $copyRight:#5f979d;
     }
   }
 
+}
+@-moz-document url-prefix(){
+  .move footer a.infinity-footer-button sup{
+    margin-top: 4px;
+  }
 }

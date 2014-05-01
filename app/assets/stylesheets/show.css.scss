@@ -399,8 +399,8 @@ section{
         font-size: 14px;
         display: block;
         width: 100%;
-        font-weight: bold;
         text-decoration: none;
+        font-weight: normal;
       }
     }
   }
@@ -664,19 +664,32 @@ section{
   margin: auto;
   max-width: 1660px;
   padding: 0 20px;
-  input, textarea{
+  input, textarea,select{
     @include border-radius(6px);
     resize: none;
     margin-bottom: 10px;
     border: 1px solid #cccccc;
-    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-    box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
-    color: rgba(0,0,0,0.75);
-    display: block;
+    -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+    color: rgba(0, 0, 0, 0.75);
     font-size: 0.875em;
-    padding: 5px;
-    width: 320px;
+    padding: 8px;
+    width: 565px;
     display: inline-block;
+  }
+  select{
+    width: 200px;
+    -moz-appearance: none;
+    appearance: none;
+    -webkit-appearance: none;
+    text-indent: 0.01px;
+    text-overflow: '';
+    background: image-url('select-arrow.png');
+    background-repeat: no-repeat;
+    background-position: 176px 16px;
+  }
+  select:focus,select:active{
+    outline: none;
   }
   textarea{
     height: 100px;
@@ -713,3 +726,12 @@ section{
 div.picture_path, div.user_avatar{
   display: none;
 }
+.bg-grey img{
+  max-width: 100%;
+  height: auto
+}
+/*
+.picture-show {
+  overflow: hidden;
+}
+*/
