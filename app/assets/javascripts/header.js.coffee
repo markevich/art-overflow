@@ -15,9 +15,14 @@ $(document).on 'mouseleave', '.user-menu ', ->
   $('.ava img').removeClass('user-menu-hover')
 
 $(document).on 'click', '.sign-in', ->
-  loginPanel = $('.login-user')
-  if loginPanel.is(':visible')
-    loginPanel.hide()
-  else
-    loginPanel.show()
+  togglePanel('.login-user')
 
+$(document).on 'click', '.infinity-footer-button', ->
+  togglePanel('.show-social')
+
+togglePanel = (panel_class) ->
+  panel = $(panel_class)
+  if panel.is(':visible')
+    panel.hide()
+  else
+    panel.show()
