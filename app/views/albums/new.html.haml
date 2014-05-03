@@ -1,12 +1,8 @@
 #newAlbum.modal-content
-  = simple_form_for([parent, resource]) do |f|
+  = simple_form_for([parent, resource], remote: true) do |f|
     .title
       Создать альбом
-      %span.close
-        x
     = f.input :name
     = f.input :description
-    = link_to 'Отмена', url_for([parent, :albums]), class: 'close-modal'
-    = f.button :submit, value: 'Создать альбом', class: 'btn btn-green'
-
-.modal-background
+    = f.button :submit, value: 'Создать альбом', class: 'btn btn-green', 
+      data: { disable_with: 'В процессе' }

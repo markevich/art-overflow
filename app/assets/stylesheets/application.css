@@ -9,5 +9,8 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require nprogress
+ *= require jquery.ui.all
+ *= require jquery.modal
  *= require_tree .
  */

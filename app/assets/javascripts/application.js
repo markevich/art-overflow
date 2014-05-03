@@ -17,5 +17,7 @@
 //= require jquery.parsequery.min.js
 //= require jquery.adaptive-backgrounds.min
 //= require cookie.min.js
+//= require jquery.ui.all
+//= require jquery.modal
 //= require turbolinks
 //= require_tree .

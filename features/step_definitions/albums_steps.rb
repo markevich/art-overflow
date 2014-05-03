@@ -1,0 +1,33 @@
+When(/^I visit My profile page$/) do
+  visit user_pictures_path(current_user)
+  expect(page).to have_text('Загрузить')
+end
+
+When(/^I click Albums link$/) do
+  click_link('Альбомы')
+end
+
+Then(/^I should see new album button$/) do
+  expect(page).to have_link 'Создать альбом'
+end
+
+When(/^I click new album button$/) do
+  click_link('Создать альбом')
+end
+
+When(/^I fill in new album fields$/) do
+  fill_in 'Имя', with: 'Новый альбом'
+  fill_in 'Описание', with: 'Супер описание'
+end
+
+Then(/^I should see album validation error$/) do
+  expect(page).to have_content('не может быть пустым')
+end
+
+When(/^I click create album button$/) do
+  click_button 'Создать альбом'
+end
+
+Then(/^I should see that new album is created$/) do
+  expect(page).to have_content 'Альбом успешно создан(а)'
+end

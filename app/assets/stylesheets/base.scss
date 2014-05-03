@@ -156,3 +156,9 @@ ul{
     margin-left: 1em;
   }
 }
+input[type="submit"]:disabled{
+  background-color: gray;
+  &:hover{
+    background-color: gray;
+  }
+}
