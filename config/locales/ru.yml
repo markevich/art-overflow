@@ -36,7 +36,9 @@ ru:
     latest: 'Новые'
 
   like: "Мне нравится"
+  unlike: "Понравилось"
   follow: "Следить за автором"
+  following: "Подписаны"
 
   comment:
     create: Создать комментарий
