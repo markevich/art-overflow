@@ -16,7 +16,7 @@ When(/^I click new album button$/) do
 end
 
 When(/^I fill in new album fields$/) do
-  fill_in 'Имя', with: 'Новый альбом'
+  fill_in 'Имя', with: 'Новый супер альбом'
   fill_in 'Описание', with: 'Супер описание'
 end
 
@@ -30,4 +30,8 @@ end
 
 Then(/^I should see that new album is created$/) do
   expect(page).to have_content 'Альбом успешно создан(а)'
+end
+
+Then(/^I see my new album in list$/) do
+  expect(page).to have_content('Новый супер альбом')
 end

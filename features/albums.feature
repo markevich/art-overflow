@@ -13,3 +13,4 @@ Feature: Album CRUD
     When I fill in new album fields
     When I click create album button
     Then I should see that new album is created
+    And I see my new album in list
