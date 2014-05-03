@@ -71,6 +71,10 @@ module UserWorld
     expect(link.scan('confirmation_token')).to_not be_nil
     link
   end
+
+  def profile_followers_counter_value
+    find('.profil-data').find('.user-counters').find('.followers').find('.count').text.to_i
+  end
 end
 
 World(UserWorld)

@@ -8,5 +8,7 @@ Feature: Following
     Then I should see that i am not following that user
     When I click follow button
     Then I should see that i am following that user
+    Then I should see that profile followers count is 1
     When I click unfollow button
     Then I should see that i am not following that user
+    Then I should see that profile followers count is 0
