@@ -9,6 +9,11 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 #
+#
+gem 'nprogress-rails'
+
+gem 'jquery-ui-rails'
+gem 'jquery-modal-rails', github: 'dei79/jquery-modal-rails'
 
 #template rendering
 gem 'simple_form'
