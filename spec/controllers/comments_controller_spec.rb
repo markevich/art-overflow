@@ -38,4 +38,9 @@ describe CommentsController do
       expect(comment.reload.likes_count).to eq 0
     end
   end
+
+  it_behaves_like 'destroy action' do
+    let(:comment) { create(:comment, commentable: picture) }
+    let(:params) { {id: comment.id} }
+  end
 end
