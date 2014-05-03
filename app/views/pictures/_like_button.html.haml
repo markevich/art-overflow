@@ -2,8 +2,8 @@
   - voted = current_user.liked?(resource)
   .js-button-watch.button-toggler.like-button{ data: { voted: voted} }
     = link_to(unlike_picture_path, method: :post, class: 'button-red js-remote-link js-deactivate-button',
-      data: { remote: true, disable_with: I18n.t('like') }) do
-      = I18n.t('like')
+      data: { remote: true, disable_with: I18n.t('unlike') }) do
+      = I18n.t('unlike')
       %span.active-count
         = resource.likes_count
 
