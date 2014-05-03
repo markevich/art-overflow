@@ -15,7 +15,7 @@ module FollowingWorld
   end
 
   def unfollow_button(user)
-    find_link I18n.t('follow'), href: stop_following_user_path(user)
+    find_link I18n.t('following'), href: stop_following_user_path(user)
   end
 end
 

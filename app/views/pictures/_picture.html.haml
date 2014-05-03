@@ -6,7 +6,7 @@
       .info
         %h5=picture.name
         %p
-          You've got an a tag containing an img tag. That's your normal state. You then add a background-image as your hover state, and it's appearing in the background of your a tag - behind the img tag.
+          = picture.description
       = image_tag picture.path.thumb, class: 'picture'
       .name
         = link_to picture.user_name, [picture.user, :pictures]

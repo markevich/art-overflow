@@ -24,7 +24,7 @@ module PictureWorld
   end
 
   def unlike_picture_button
-    like_picture_button
+    find(:link, I18n.t('unlike'))
   end
 
   def like_picture

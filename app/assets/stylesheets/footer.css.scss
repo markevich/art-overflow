@@ -73,7 +73,7 @@ $copyRight:#5f979d;
       left: 10px;
       top: -16px;
       width: 148px;
-      display: inline-block;
+      display: none;
       img{
         position: relative;
         bottom: 8px;
@@ -81,6 +81,13 @@ $copyRight:#5f979d;
 /*        transform: rotate(180deg);
         -ms-transform: rotate(180deg);
         -webkit-transform: rotate(180deg);*/
+      }
+      ul{
+        li{
+          a{
+            text-decoration:none;
+          }
+        }
       }
     }
     a.infinity-footer-button{

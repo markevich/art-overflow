@@ -1,9 +1,13 @@
 class CommentsController < InheritedResources::Base
   before_filter :authenticate_user!
 
-  actions :all, except: :new
+  actions :all, except: [:new, :index]
 
   def smart_resource_url
+    url_for resource.commentable
+  end
+
+  def smart_collection_url
     url_for resource.commentable
   end
 

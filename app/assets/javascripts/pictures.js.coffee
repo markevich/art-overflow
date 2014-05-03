@@ -15,6 +15,7 @@ toggle_watched_buttons = (xhr, watcher) ->
     watcher.find('.js-deactivate-button').show()
     watcher.find('.js-activate-button').hide()
   watcher.find('.active-count').html(xhr.count)
+  $('.profil-data .user-counters .followers .count').html(xhr.count)
 
 $(document).on 'ajax:success', '.js-button-watch .js-remote-link', (evt, xhr, settings) ->
   watcher = $($(@).closest('.js-button-watch'))
