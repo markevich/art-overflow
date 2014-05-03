@@ -22,6 +22,10 @@ When(/^I click unfollow button$/) do
   unfollow_button(another_user).click
 end
 
+Then(/^I should see that profile followers count is (\d+)$/) do |count|
+  expect(profile_followers_counter_value).to eq count
+end
+
 Then(/^I should see that i am not following that user$/) do
   expect(follow_button(another_user)).to_not be_nil
 end
