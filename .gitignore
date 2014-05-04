@@ -19,3 +19,4 @@ config/*.yml
 public/uploads
 rerun.txt
 *.js.js
+.powder

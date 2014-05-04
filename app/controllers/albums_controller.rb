@@ -1,4 +1,5 @@
 class AlbumsController < InheritedResources::Base
+  before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   belongs_to :user
 
   PAGE_SIZE = 15
@@ -10,6 +11,17 @@ class AlbumsController < InheritedResources::Base
           render collection
         end
       end
+    end
+  end
+
+  def create
+    resource = current_user.albums.build(permitted_params[:album])
+
+    if resource.save
+      flash[:notice] = I18n.t('flash.actions.create.notice', resource_name: Album.model_name.human)
+      render js: "window.location = '#{url_for([current_user, :albums])}'"
+    else
+      render(template: 'albums/new', locals: { resource: resource }, layout: false, status: 422)
     end
   end
 

@@ -2,6 +2,9 @@ require 'spec_helper'
 
 describe AlbumsController do
   let(:user) { create(:user) }
+
+  before { sign_in(user) }
+
   let(:album) { create(:album, user: user) }
 
   it_should_behave_like 'index action' do

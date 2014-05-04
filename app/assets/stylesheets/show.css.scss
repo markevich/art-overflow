@@ -830,9 +830,8 @@ div.picture_path, div.user_avatar{
     clear: both;
   }
   .action-button{
-   /* clear: both;*/
     margin-top: 15px;
-    .button-blue{
+    .button-blue,.button-red{
       background-image: url(image_path("flash.png"));
       padding-left: 42px;
       padding-right: 10px;
@@ -841,7 +840,18 @@ div.picture_path, div.user_avatar{
       padding-top: 5px;
       padding-bottom: 7px;
       margin-right: 13px;
+      .active-count{
+        display: none;
+      }
     }
+.button-red{
+  text-decoration: none;
+  background-color: $colorRed;
+}
+.follow-button{
+  float: left;
+width: 215px;
+}
   }
   .heart_normal{
     background-image: url(image_path("heart_normal.png"));
@@ -876,8 +886,4 @@ div.picture_path, div.user_avatar{
 header #dowland #search input{
   color: $blue;
 }
-/*
-.picture-show {
-  overflow: hidden;
-}
-*/
+

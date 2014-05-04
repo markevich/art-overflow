@@ -10,7 +10,7 @@
 
   .image-block
     .container
-      %a.added{href: new_user_album_path(parent)}
+      = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
         %span.plus
         .name-new-album.add_album
           Создать альбом

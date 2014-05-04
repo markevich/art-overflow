@@ -1,7 +1,7 @@
 .search-container-new
   - @users.each do |u|
     %div.search-container
-      = image_tag(User.first.avatar)
+      = image_tag(u.avatar)
       .search
         .search-description
           = link_to u.name, u,class: 'avatar'
@@ -18,8 +18,7 @@
         .blue
           =image_tag('vkGr.png')
         .action-button
-          %a.button-blue
-            Следить за автором
+          = render 'users/follow_button', resource: u
           .like-search
             .heart_normal
             %span
