@@ -162,3 +162,11 @@ input[type="submit"]:disabled{
     background-color: gray;
   }
 }
+
+.simple_form {
+  .error{
+    input{
+      border: 1px solid $colorRed !important;
+    }
+  }
+}
