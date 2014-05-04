@@ -55,24 +55,17 @@ section{
   }
 }
 
+.like-button{
+  .unlike-img, .like-img{
+    margin-left: 3px;
+  }
+}
 //временный стиль
 .bg-grey{
   img{
     margin-bottom: -2px;
   }
 }
-
-
-//сердце и количество
-.likes_count{
-  float: right;
-  margin-left: 0.3em;
-  margin-top: -5px;
-  ~img{
-    float: right;
-  }
-}
-
 //--------------------------------------profil page----------------------------------------------------
 .profil{
   margin: auto;
