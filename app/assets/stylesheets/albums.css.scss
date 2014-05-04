@@ -93,11 +93,11 @@ right: 0;
   &:hover{
     color: white;
     background-color: #e74c3c;
-    span{
+    .active-count{
       background-color: #bf4032;
     }
   }
-  span{
+  .active-count{
     padding: 9px 10px;
     background-color: #5f979d;
     height: 100%;
@@ -105,6 +105,15 @@ right: 0;
     margin-top: -9px;
     margin-left: 9px;
     display: inline-block;
+    .spinner-icon{
+      display: inline-block;
+      height: 12px;
+      margin-top: -5px;
+      vertical-align: -2px;
+      width: 12px;
+      border-top-color: white;
+      border-left-color: white;
+    }
   }
 }
 
@@ -127,11 +136,11 @@ right: 0;
   &:hover{
     color: white;
     background-color: #e74c3c;
-    span{
+    .active-count{
       background-color: #bf4032;
     }
   }
-  span{
+  .active-count{
     padding: 9px 10px;
     background-color: #bf4032;
     height: 100%;
@@ -139,6 +148,15 @@ right: 0;
     margin-top: -9px;
     margin-left: 9px;
     display: inline-block;
+    .spinner-icon{
+      display: inline-block;
+      height: 12px;
+      margin-top: -5px;
+      vertical-align: -2px;
+      width: 12px;
+      border-top-color: white;
+      border-left-color: white;
+    }
   }
 }
 .image-block {

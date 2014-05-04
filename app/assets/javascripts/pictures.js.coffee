@@ -14,8 +14,16 @@ toggle_watched_buttons = (xhr, watcher) ->
   else
     watcher.find('.js-deactivate-button').show()
     watcher.find('.js-activate-button').hide()
-  watcher.find('.active-count').html(xhr.count)
+  watcher.find('.counter').html(xhr.count)
   $('.profil-data .user-counters .followers .count').html(xhr.count)
+
+$(document).on 'ajax:send', '.js-button-watch .js-remote-link', (evt, xhr, settings) ->
+  $(@).find('.counter').hide()
+  $(@).find('.spinner-icon').show()
+
+$(document).on 'ajax:complete', '.js-button-watch .js-remote-link', (evt, xhr, settings) ->
+  $(@).find('.counter').show()
+  $(@).find('.spinner-icon').hide()
 
 $(document).on 'ajax:success', '.js-button-watch .js-remote-link', (evt, xhr, settings) ->
   watcher = $($(@).closest('.js-button-watch'))
