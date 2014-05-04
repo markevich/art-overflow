@@ -45,7 +45,8 @@ class PicturesController < InheritedResources::Base
       :description,
       :album_id,
       :path,
-      :tag_list
+      :tag_list,
+      :path_cache
     ]).tap do |whitelist|
       whitelist[:picture] ||= {}
       whitelist[:picture][:user_id] = current_user.id

@@ -4,31 +4,36 @@
 = simple_form_for @picture do |f|
   %h3.title-download
     Загрузка
-  .bg-blue#image-selector
-    .row
-      .large-12.columns
-        .download-file
-          %label
-            Перетащи сюда файл с картинкой
-          %label
-            или
-          %a.btn-download
-            Выбери файл для загрузки
-          = f.input :path, class:'hidden-btn'
-  #crop-parameters{ data: {                                      |
-      width: PictureUploader::CROP_AREA_WIDTH,                   |
-      height: PictureUploader::CROP_AREA_HEIGHT,                 |
-      thumb_width: PictureUploader::THUMB_WIDTH,                 |
-      thumb_height: PictureUploader::THUMB_HEIGHT,               |
-      thumb_aspect_ratio: PictureUploader::THUMB_ASPECT_RATIO }  |
-    }                                                            |
-  .bg-grey#crop
-    .crop-picture-new
-      #crop-area
-      #crop-pr
-        %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
+  - if @picture.path?
+    .cached-picture
+      = image_tag(@picture.path.thumb)
+  - else
+    .bg-blue#image-selector
+      .row
+        .large-12.columns
+          .download-file
+            %label
+              Перетащи сюда файл с картинкой
+            %label
+              или
+            %a.btn-download
+              Выбери файл для загрузки
+            = f.input :path, class:'hidden-btn'
+    #crop-parameters{ data: {                                      |
+        width: PictureUploader::CROP_AREA_WIDTH,                   |
+        height: PictureUploader::CROP_AREA_HEIGHT,                 |
+        thumb_width: PictureUploader::THUMB_WIDTH,                 |
+        thumb_height: PictureUploader::THUMB_HEIGHT,               |
+        thumb_aspect_ratio: PictureUploader::THUMB_ASPECT_RATIO }  |
+      }                                                            |
+    .bg-grey#crop
+      .crop-picture-new
+        #crop-area
+        #crop-pr
+          %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
 
   .new-picture-description
+    = f.hidden_field :path_cache
     = f.input :crop_x, as: :hidden
     = f.input :crop_y, as: :hidden
     = f.input :crop_w, as: :hidden
