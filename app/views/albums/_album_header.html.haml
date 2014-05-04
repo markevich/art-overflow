@@ -1,7 +1,6 @@
-%div{'data-check-user' => true, 'data-user-id' => resource.id}
 .profil.show-user-album
   .description-user-album
-    =image_tag(resource.pictures.first.path.thumb)
+    =image_tag(Picture.first.path)
     .comuns-description-user-album
       %h3
         Прикольные
@@ -22,9 +21,9 @@
 .profil-menu
   %ul
     %li
-      = active_link_to 'Все альбомы', user_albums_path(resource), class: 'album-all'
+      = active_link_to 'К списку альбомов', user_albums_path(resource.user), class: 'album-all'
     %li
-      = active_link_to 'Новые', user_pictures_path(resource)
+      = active_link_to 'Новые', album_pictures_path(resource)
     %li
-      = active_link_to 'Популярные', user_pictures_path(resource, order: :likes_count)
+      = active_link_to 'Популярные', album_pictures_path(resource, order: :likes_count)
 
