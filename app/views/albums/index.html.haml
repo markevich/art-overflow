@@ -8,12 +8,13 @@
     }                                         |
   }                                           |
 
-  .image-block
-    .container
-      = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
-        %span.plus
-        .name-new-album.add_album
-          Создать альбом
+  - if current_user.id == parent.id
+    .image-block
+      .container
+        = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
+          %span.plus
+          .name-new-album.add_album
+            Создать альбом
 
   .pager{data: {page: page}}
   .preloader{data: { scroller_preloader: true }}

@@ -63,7 +63,7 @@
       span{
         vertical-align: 2px;
       }
-/*      margin-top: 10px;*/
+      /*      margin-top: 10px;*/
       img{
         width: 13px;
         cursor: pointer;
@@ -278,60 +278,63 @@
       margin-left: 60px;
     }
   }
-  
+
 }
 .answer-comment{
-    padding-top: 15px;
-      padding-bottom: 11px;
-      border-bottom: 1px solid #ccc;
-      position: relative;
-      &:last-child{
-        border: 0 none transparent;
-      }
-    img{
-      width: 45px;
-      float: left;
-      margin-right: 15px;
-    }
-    .reply-to-comment{
-      a{
-        font-size: 12px;
-        font-family: Arial;
-        text-decoration: underline;
-        margin-top: 6px;
-        color: $blue;
-        cursor: pointer;
-        &:hover{
-          color: $colorRed;
-        }
-      }
-    }
-    .input-comment{
-     
-        margin-left: 65px;
-    }
-    .txt-comment{
-      margin-top: 2px;
-      color: #26394d;
-      font-size: 14px;
-      font-family: Arial;
-    }
-    p{
-      a{
-        text-decoration: none;
-        color: $blue;
-        &:hover{
-          color: $colorRed;
-        }
-      }
+  padding-top: 15px;
+  padding-bottom: 11px;
+  border-bottom: 1px solid #ccc;
+  position: relative;
+  &:last-child{
+    border: 0 none transparent;
+  }
+  img{
+    width: 45px;
+    float: left;
+    margin-right: 15px;
+  }
+  .reply-to-comment{
+    a{
       font-size: 12px;
       font-family: Arial;
-      font-weight: bold;
-      .grey{
-        font-weight: normal;
+      text-decoration: underline;
+      margin-top: 6px;
+      color: $blue;
+      cursor: pointer;
+      &:hover{
+        color: $colorRed;
       }
     }
   }
+  .input-comment{
+
+    margin-left: 65px;
+  }
+  .txt-comment{
+    margin-top: 2px;
+    color: #26394d;
+    font-size: 14px;
+    font-family: Arial;
+  }
+  p{
+    a{
+      text-decoration: none;
+      color: $blue;
+      &:hover{
+        color: $colorRed;
+      }
+    }
+    font-size: 12px;
+    font-family: Arial;
+    font-weight: bold;
+    .grey{
+      font-weight: normal;
+    }
+  }
+}
+.follow-button{
+  margin-top: 8px;
+}
 $PICTURE_WIDTH: 335px;
 $MAX_COLUMNS: 7;
 

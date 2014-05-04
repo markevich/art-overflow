@@ -5,28 +5,13 @@
     %li.active
       %a
         Личные данные
-    %li
-      %a
-        Пароль
-    %li
-      %a
-        Уведомления
-    %li
-      %a
-        Приватность
-    %li
-      %a
-        Продажа
-    %li
-      %a
-        Тэги
 .profil-form
   .profil-form-container
     = simple_form_for(resource) do |f|
       .name
         %label
-          Имя и Фамилия
-        = f.input :name, placeholder: 'markevich', label: false
+          Имя
+        = f.input :name, placeholder: 'Johny', label: false
       .avatarka
         %label
           Аватар
@@ -36,17 +21,17 @@
           = image_tag(resource.avatar)
           .change-avatar
             = link_to "Сменить аватар", avatar_edit_user_path(resource), class: 'btn btn-blue'
-      %div
-        %label
-          Электронная почта
-        = f.input :email, placeholder: 'markevich@gmail.com', label: false
+      -# %div
+        -# %label
+          -# Электронная почта
+        -# = f.input :email, placeholder: 'markevich@gmail.com', label: false
       %div
         %label
           Город
         = f.input :city, placeholder: 'Минск', label: false
       %div
         %label
-          Ник
+          Вконтакте
         .collapse
           %span.prefix
             vk.com/
