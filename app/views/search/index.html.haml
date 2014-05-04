@@ -4,25 +4,27 @@
       = image_tag(u.avatar)
       .search
         .search-description
-          = link_to u.name, u,class: 'avatar'
-          %sup
-            PRO
-        .blue
-          =image_tag('locationGr.png')
-          %span
-            Минск
-        .blue
-          =image_tag('glob.png')
-          %span
-            winniehooper.com
-        .blue
-          =image_tag('vkGr.png')
+          = link_to u.name, u, class: 'avatar'
+          -# %sup
+            -# PRO
+        - if u.city?
+          .blue
+            =image_tag('locationGr.png')
+            %span
+              Минск
+        -# .blue
+          -# =image_tag('glob.png')
+          -# %span
+            -# winniehooper.com
+        - if u.vk?
+          .blue
+            =image_tag('vkGr.png')
         .action-button
           = render 'users/follow_button', resource: u
           .like-search
             .heart_normal
             %span
-              0
+              = u.likes_count
             .man
             %span
               0

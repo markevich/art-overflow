@@ -110,8 +110,11 @@
   margin: auto;
   max-width: 1660px;
   padding: 20px;
-  h1{
+  h3{
     margin-bottom: 4px;
+  }
+  .picture-user-info{
+     display: table-cell;
   }
   a{
     color:$blue;
@@ -334,6 +337,10 @@
 }
 .follow-button{
   margin-top: 8px;
+  a{
+    background-image: url(add-plus.png);
+    background-size: 15px;
+  }
 }
 $PICTURE_WIDTH: 335px;
 $MAX_COLUMNS: 7;

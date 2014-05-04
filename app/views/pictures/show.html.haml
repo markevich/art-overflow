@@ -1,19 +1,20 @@
 //верхняя панель 'о пользователе'
 %section.user-content
   .user-container
-    = image_tag 'images.jpg', class: "border-radius-circle user"
-    %h1
-      = resource.name
-    %p.blue
-      = link_to resource.user_name, [resource.user, :pictures]
-      %span.grey
-        %span.star
-          *
-        1 час назад
-      %span.grey
-        %span.star
-          *
-        \#мост
+    = image_tag resource.user_avatar, class: "border-radius-circle user"
+    .picture-user-info
+      %h3
+        = resource.name
+      %p.blue
+        = link_to resource.user_name, [resource.user, :pictures]
+        %span.grey
+          %span.star
+            *
+          1 час назад
+        -# %span.grey
+          -# %span.star
+            -# *
+          -# \#мост
 
 //показ картинки
 .picture-show.text-align.bg-grey{class: "imgWrap"}

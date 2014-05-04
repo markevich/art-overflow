@@ -171,7 +171,7 @@ section{
   }
   .button-blue{
     background-image: url(image-path('flash.png'));
-    padding-left: 42px;
+    padding-left: 30px;
     padding-right: 10px;
     margin-top: 6px;
     background-position: 9px center;
@@ -184,7 +184,7 @@ section{
   .button-red{
     background-color: $colorRed;
     background-image: url(image-path('flash.png'));
-    padding-left: 42px;
+    padding-left: 30px;
     padding-right: 10px;
     text-decoration: none;
     margin-top: 6px;
@@ -833,7 +833,7 @@ div.picture_path, div.user_avatar{
     margin-top: 15px;
     .button-blue,.button-red{
       background-image: url(image_path("flash.png"));
-      padding-left: 42px;
+      padding-left: 30px;
       padding-right: 10px;
       margin-top: 6px;
       background-position: 9px center;
