@@ -210,7 +210,7 @@ a.sign-in{
   position: fixed;
   top: 0;
   width: 100%;
-  height: 54px;
+  height: 51px;
   background: url('bg-green.png') repeat-x;
   text-align: center;
   z-index: 11;
@@ -245,7 +245,7 @@ a.sign-in{
   position: fixed;
   top: 0;
   width: 100%;
-  height: 54px;
+  height: 51px;
   background: url('bg-red.png') repeat-x;
   text-align: center;
   z-index: 12;
@@ -298,6 +298,6 @@ a.sign-in{
 
 @-moz-document url-prefix(){
   header h1{
-    letter-spacing: -2px;
+    // letter-spacing: -2px;
   }
 }
