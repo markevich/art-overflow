@@ -54,6 +54,9 @@ class AlbumsController < InheritedResources::Base
   def permitted_params
     params.permit(album: [
       :name, :description
-    ])
+    ]).tap do |whitelist|
+      whitelist[:album] ||= {}
+      whitelist[:album][:user_id] = current_user.id
+    end.permit!
   end
 end
