@@ -51,11 +51,3 @@
           = resource.follows.count
         %span.blue
           Подписок
-.profil-menu
-  %ul
-    %li
-      = active_link_to 'Новые', user_pictures_path(resource)
-    %li
-      = active_link_to 'Популярные', user_pictures_path(resource, order: :likes_count)
-    %li
-      = active_link_to 'Альбомы', user_albums_path(resource)

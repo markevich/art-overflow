@@ -1,5 +1,11 @@
 = render(parent.to_header_path, resource: parent) if parent
 
+- if parent && parent.is_a?(User)
+  = render partial: 'users/user_header_menu', locals: { resource: parent }
+- elsif parent && parent.is_a?(Album)
+  = render partial: 'albums/album_header_menu', locals: { resource: parent }
+
+
 #pictures{ data: {                            |
     infinity_scrollable: true,                |
     id: 'main_gallery',                       |

@@ -1,4 +1,5 @@
 = render parent.to_header_path, resource: parent
+= render partial: 'users/user_header_menu', locals: { resource: parent } if parent
 
 #pictures{ data: {                            |
     infinity_scrollable: true,                |

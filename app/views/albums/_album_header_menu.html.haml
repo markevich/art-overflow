@@ -1,0 +1,11 @@
+.profil-menu
+  %ul
+    %li
+      = active_link_to 'К списку альбомов', user_albums_path(resource.user), class: 'album-all'
+    %li
+      = active_link_to 'Новые', album_pictures_path(resource)
+    %li
+      = active_link_to 'Популярные', album_pictures_path(resource, order: :likes_count)
+    %li
+      = active_link_to 'Редактирование альбома', edit_user_album_path(resource.user, resource)
+
