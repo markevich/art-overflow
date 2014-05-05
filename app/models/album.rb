@@ -1,6 +1,6 @@
 class Album < ActiveRecord::Base
   belongs_to :user
-  has_many :pictures
+  has_many :pictures, dependent: :restrict_with_exception
 
   validates :name, :user, presence: true
 

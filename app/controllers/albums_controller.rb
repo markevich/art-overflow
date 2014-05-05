@@ -1,6 +1,6 @@
 class AlbumsController < InheritedResources::Base
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
-  belongs_to :user
+  belongs_to :user, optional: true
 
   PAGE_SIZE = 15
 
@@ -23,6 +23,10 @@ class AlbumsController < InheritedResources::Base
     else
       render(template: 'albums/new', locals: { resource: resource }, layout: false, status: 422)
     end
+  end
+
+  def destroy
+    destroy! { user_albums_path(resource.user) }
   end
 
   private
