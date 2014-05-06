@@ -6,7 +6,7 @@
       .info
         %h5=album.name
         %p
-          You've got an a tag containing an img tag. That's your normal state. You then add a background-image as your hover state, and it's appearing in the background of your a tag - behind the img tag.
+          = album.description
       = image_tag nil, class: 'picture'
       .name
         = link_to album.name, [album, :pictures]

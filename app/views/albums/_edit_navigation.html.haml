@@ -1,0 +1,8 @@
+.profil-menu
+  %ul
+    %li
+      = active_link_to 'Все альбомы', user_albums_path(resource.user), class: 'album-all'
+    %li
+      = active_link_to resource.name, album_pictures_path(resource)
+    %li
+      = active_link_to 'Редактирование альбома', edit_user_album_path(resource.user, resource)

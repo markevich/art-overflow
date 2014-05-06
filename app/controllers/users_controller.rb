@@ -21,8 +21,7 @@ class UsersController < InheritedResources::Base
 
   def permitted_params
     params.permit(user:[
-      :name, :email, :password, :password_confirmation,
-      :city, :vk, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
+      :name, :city, :vk
     ])
   end
 end

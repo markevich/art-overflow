@@ -292,7 +292,6 @@ right: 0;
 .edit-container{
   margin-bottom: 0;
   background: #e6e6e6;
-  margin-top: -16px;
 >div{
   overflow: hidden;
   margin-left: auto;
@@ -309,6 +308,7 @@ right: 0;
     width: 100%;
   }
   a{
+    text-decoration: none;
     margin-top: 10px;
     font-size: 12px;
     font-family: Arial;
