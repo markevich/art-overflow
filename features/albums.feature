@@ -14,3 +14,7 @@ Feature: Album CRUD
     When I click create album button
     Then I should see that new album is created
     And I see my new album in list
+    Then I click on my album
+    Then I click on edit album
+    Then I click on delete album
+    Then I should see that new album is deleted

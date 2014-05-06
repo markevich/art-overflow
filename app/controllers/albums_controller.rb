@@ -1,6 +1,6 @@
 class AlbumsController < InheritedResources::Base
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
-  belongs_to :user
+  belongs_to :user, optional: true
 
   PAGE_SIZE = 15
 
@@ -27,8 +27,12 @@ class AlbumsController < InheritedResources::Base
 
   private
 
+  def smart_collection_url
+    user_albums_path(resource.user)
+  end
+
   def smart_resource_url
-    url_for([parent, :albums])
+    user_albums_path(resource.user)
   end
 
   helper_method :page, :order, :collection

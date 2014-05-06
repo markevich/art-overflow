@@ -35,3 +35,19 @@ end
 Then(/^I see my new album in list$/) do
   expect(page).to have_content('Новый супер альбом')
 end
+
+Then(/^I click on my album$/) do
+  click_link('Новый супер альбом')
+end
+
+Then(/^I click on edit album$/) do
+  click_link('Редактирование альбома')
+end
+
+Then(/^I click on delete album$/) do
+  click_link('Удалить альбом')
+end
+
+Then(/^I should see that new album is deleted$/) do
+  expect(page).to have_content 'Альбом успешно удален(а)'
+end
