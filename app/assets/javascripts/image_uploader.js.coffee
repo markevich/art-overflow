@@ -43,6 +43,7 @@ class ImageUploader
       imageObj = $('#crop-area canvas')[0]
       canvas = $('#crop-preview')[0]
       context = canvas.getContext('2d')
+      context.clearRect(0, 0, context.canvas.width, context.canvas.height)
       context.drawImage(imageObj, c.x, c.y, c.w, c.h, 0, 0, canvas.width, canvas.height)
 
 new ImageUploader()
