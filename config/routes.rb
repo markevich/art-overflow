@@ -8,10 +8,9 @@ Rails.application.routes.draw do
     member do
       post :follow
       post :stop_following
-      get :avatar_edit
-      patch :avatar_update
     end
 
+    resource :user_avatar, only: [:new, :create]
     resources :pictures
     resources :albums
   end

@@ -24,7 +24,7 @@ module CommentWorld
 
   def likes_for_comment_count
     within '.comments' do
-      count = find('.likes_count')
+      count = find('.counter')
       count.text.to_i
     end
   end

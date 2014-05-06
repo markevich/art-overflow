@@ -5,15 +5,19 @@
         data: { remote: true, disable_with: I18n.t('like')}) do
       = I18n.t('like')
       %span.unlike-img
-      %span.active-count.likes_count
-        = comment.likes_count
+      %span.active-count
+        %span.counter
+          = comment.likes_count
+        %span.spinner-icon{style: 'display:none'}
 
     = link_to(like_comment_path(comment), method: :post, class: 'like-button-comment js-remote-link js-activate-button',
         data: { remote: true, disable_with: I18n.t('like')}) do
       = I18n.t('like')
       %span.like-img
-      %span.active-count.likes_count
-        = comment.likes_count
+      %span.active-count
+        %span.counter
+          = comment.likes_count
+        %span.spinner-icon{style: 'display:none'}
   - else
     = link_to(new_user_session_path, class: 'like-button-comment') do
       = I18n.t('like')
