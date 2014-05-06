@@ -20,3 +20,12 @@ Feature: User Registration
     When I visit another user page
     Then I visit latest user pictures page
     Then I see pictures on page
+
+  Scenario: User avatar upload
+    Given I am logged in
+    When I visit edit profile page
+    When I click change avatar button
+    When I select my new avatar picture
+    When I click confirm button
+    Then I should see that my profile updated
+

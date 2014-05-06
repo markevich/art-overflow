@@ -10,10 +10,11 @@ Rails.application.routes.draw do
       post :stop_following
     end
 
-    resource :user_avatar, only: [:new, :create]
     resources :pictures
     resources :albums
   end
+
+  resources :user_avatars, only: [:edit, :update]
 
   resources :albums, except: :show do
     resources :pictures

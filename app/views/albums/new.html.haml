@@ -2,6 +2,8 @@
   = simple_form_for([parent, resource], remote: true) do |f|
     .title
       Создать альбом
+      %span.close
+        x
     = f.input :name
     = f.input :description
     = f.button :submit, value: 'Создать альбом', class: 'btn btn-green', 

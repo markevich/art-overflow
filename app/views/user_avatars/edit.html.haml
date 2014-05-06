@@ -1,0 +1,16 @@
+#edit-user-avatar
+  = simple_form_for(resource, url: user_avatar_path(resource)) do |f|
+    = f.hidden_field :crop_x
+    = f.hidden_field :crop_y
+    = f.hidden_field :crop_w
+    = f.hidden_field :crop_h
+    = f.input :avatar
+    #crop-area
+    #crop-parameters{ data: {                                      |
+        width: AvatarUploader::CROP_AREA_WIDTH,                    |
+        height: AvatarUploader::CROP_AREA_HEIGHT,                  |
+        thumb_width: AvatarUploader::THUMB_WIDTH,                  |
+        thumb_height: AvatarUploader::THUMB_HEIGHT,                |
+        thumb_aspect_ratio: AvatarUploader::THUMB_ASPECT_RATIO }   |
+      }                                                            |
+    = f.button :submit, class: 'btn btn-green', value: 'Сохранить'

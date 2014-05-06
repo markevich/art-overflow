@@ -1,3 +1,6 @@
+= javascript_include_tag 'load-image.min', 'jquery.Jcrop', 'data-turbolinks-track' => true
+= stylesheet_link_tag 'jquery.Jcrop', 'data-turbolinks-track' => true
+
 %h2.edit-profil
   Настройки профиля
 .profil-menu
@@ -16,15 +19,12 @@
         %label
           Аватар
           %span
-            84*84 jpg. или .png
+            100*100 jpg. или .png
         .image-profile
           = image_tag(resource.avatar)
           .change-avatar
-            = link_to "Сменить аватар", avatar_edit_user_path(resource), class: 'btn btn-blue'
-      -# %div
-        -# %label
-          -# Электронная почта
-        -# = f.input :email, placeholder: 'markevich@gmail.com', label: false
+            = link_to_modal "Сменить аватар", edit_user_avatar_path(resource),
+              data: { remote: true }, class: 'btn btn-blue js-trigger-uploader'
       %div
         %label
           Город

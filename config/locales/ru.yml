@@ -12,6 +12,7 @@ ru:
         password: 'Пароль'
         password_confirmation: 'Подтверждение пароля'
         name: 'Имя'
+        avatar: Аватар
       album:
         name: Имя
         description: Описание

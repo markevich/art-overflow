@@ -1,0 +1,11 @@
+#edit-user-avatar{
+  .user_avatar{
+    display: block;
+  }
+  input[type=submit]{
+    display: none;
+  }
+  input{
+    border: 1px solid #cccccc;
+  }
+}
