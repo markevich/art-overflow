@@ -3,6 +3,8 @@ class Album < ActiveRecord::Base
   has_many :pictures, dependent: :restrict_with_exception
 
   validates :name, :user, presence: true
+  delegate :name, to: :user, prefix: true
+  delegate :count, to: :pictures, prefix: true
 
   def to_header_path
     "#{to_partial_path}_header"

@@ -6,7 +6,7 @@
       %h3
         = resource.name
       %a{ href: user_pictures_path(resource.user) }
-        = resource.user.name
+        = resource.user_name
       %div
         = resource.description
   .profil-data
@@ -15,6 +15,6 @@
         .top
         .bottom
         .count
-          = resource.pictures.count
+          = resource.pictures_count
         %span.blue
-          Симпатий
+          Рисунков

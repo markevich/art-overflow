@@ -25,14 +25,14 @@ class AlbumsController < InheritedResources::Base
     end
   end
 
-  def destroy
-    destroy! { user_albums_path(resource.user) }
-  end
-
   private
 
+  def smart_collection_url
+    user_albums_path(resource.user)
+  end
+
   def smart_resource_url
-    url_for([parent, :albums])
+    user_albums_path(resource.user)
   end
 
   helper_method :page, :order, :collection
