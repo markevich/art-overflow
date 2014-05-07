@@ -4,21 +4,18 @@
 = simple_form_for @picture do |f|
   %h3.title-download
     Загрузка
-  - if @picture.path?
-    .cached-picture
-      = image_tag(@picture.path.thumb)
-  - else
-    .bg-blue#image-selector
-      .row
-        .large-12.columns
-          .download-file
-            %label
-              Перетащи сюда файл с картинкой
-            %label
-              или
-            %a.btn-download
-              Выбери файл для загрузки
-            = f.input :path, class:'hidden-btn'
+  - unless @picture.path?
+    -# .bg-blue#image-selector
+    -#   .row
+    -#     .large-12.columns
+    -#       .download-file
+    -#         %label
+    -#           Перетащи сюда файл с картинкой
+    -#         %label
+    -#           или
+    -#         %a.btn-download
+    -#           Выбери файл для загрузки
+    -#         = f.input :path, class:'hidden-btn'
     #crop-parameters{ data: {                                      |
         width: PictureUploader::CROP_AREA_WIDTH,                   |
         height: PictureUploader::CROP_AREA_HEIGHT,                 |
@@ -38,6 +35,16 @@
     = f.hidden_field :crop_y
     = f.hidden_field :crop_w
     = f.hidden_field :crop_h
+
+    - if @picture.path?
+      .input
+        %label.file.control-label
+          Миниатюра
+        .cached-picture
+          = image_tag(@picture.path.thumb)
+    - else
+      = f.input(:path)
+
     = f.input :name
     = f.input :description
     = f.association :album, collection: current_user.albums
