@@ -11,9 +11,9 @@
       .name
         = link_to picture.user_name, [picture.user, :pictures]
       .picture-actions
-        %div.heart_normal
+        - if user_signed_in? && current_user.liked?(picture)
+          %div.heart_normal.active
+        - else
+          %div.heart_normal
         %span
           = picture.likes_count
-        %div.share_normal
-        %span
-          3
