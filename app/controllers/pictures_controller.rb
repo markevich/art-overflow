@@ -53,6 +53,12 @@ class PicturesController < InheritedResources::Base
     end.permit!
   end
 
+  private
+
+  def smart_collection_url
+    user_pictures_path(resource.user)
+  end
+
   def page
     @page ||= (params[:page] || 1).to_i
   end

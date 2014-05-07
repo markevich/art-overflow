@@ -46,3 +46,13 @@ Feature: Pictures
     Then I should see that i am following that user
     When I click unfollow button
     Then I should see that i am not following that user
+
+  Scenario: I edit my picture
+    Given I am logged in
+    Given my picture
+    When I visit my picture page
+    Then I click edit picture
+    Then I change picture name
+    Then I change picture description
+    Then I click save
+    Then I should see that my picture is edited
