@@ -19,28 +19,9 @@ class UsersController < InheritedResources::Base
     end
   end
 
-  def avatar_edit
-    render 'avatar_edit'
-  end
-
-  def avatar_update
-    # avatar should be changed after crop parameters filled in,
-    # otherwise it would not crop the picture
-    resource.crop_x = permitted_params[:crop_x]
-    resource.crop_y = permitted_params[:crop_y]
-    resource.crop_h = permitted_params[:crop_h]
-    resource.crop_w = permitted_params[:crop_w]
-    resource.avatar = permitted_params[:avatar]
-    flash[:notice] = I18n.t('user.avatar_update') if resource.save
-    respond_with(resource)
-  end
-
-  private
-
   def permitted_params
     params.permit(user:[
-      :name, :email, :password, :password_confirmation,
-      :city, :vk, :avatar, :crop_x, :crop_y, :crop_w, :crop_h
+      :name, :city, :vk
     ])
   end
 end

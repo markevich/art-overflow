@@ -8,13 +8,13 @@ Rails.application.routes.draw do
     member do
       post :follow
       post :stop_following
-      get :avatar_edit
-      patch :avatar_update
     end
 
     resources :pictures
     resources :albums
   end
+
+  resources :user_avatars, only: [:edit, :update]
 
   resources :albums, except: :show do
     resources :pictures

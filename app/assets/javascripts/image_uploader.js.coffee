@@ -22,6 +22,7 @@ class ImageUploader
     $.Jcrop '#crop-area canvas',
       onChange: update
       onSelect: update
+      minSize: [cropData().thumbWidth, cropData().thumbHeight]
       aspectRatio: cropData().thumbAspectRatio
       setSelect: [0, 0, cropData().width, cropData().height]
 

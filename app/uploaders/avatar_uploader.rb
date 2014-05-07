@@ -1,8 +1,8 @@
 class AvatarUploader < CarrierWave::Uploader::Base
-  CROP_AREA_WIDTH = 800.freeze
-  CROP_AREA_HEIGHT = 600.freeze
-  THUMB_WIDTH = 200.freeze
-  THUMB_HEIGHT = 200.freeze
+  CROP_AREA_WIDTH = 400.freeze
+  CROP_AREA_HEIGHT = 400.freeze
+  THUMB_WIDTH = 100.freeze
+  THUMB_HEIGHT = 100.freeze
   THUMB_ASPECT_RATIO = (THUMB_WIDTH.to_f / THUMB_HEIGHT).freeze
   include CarrierWave::MiniMagick
   include CarrierWave::ImageOptimizer
@@ -18,7 +18,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
 
   def filename
-    "avatar.#{model.path.file.extension}" if original_filename.present?
+    "avatar.#{model.avatar.file.extension}" if original_filename.present?
   end
 
   def default_url

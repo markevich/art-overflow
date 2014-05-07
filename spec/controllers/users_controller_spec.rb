@@ -53,40 +53,4 @@ describe UsersController do
       end
     end
   end
-
-  context 'avatar' do
-    describe '#avatar_edit' do
-      before do
-        sign_in user
-        get :avatar_edit, id: user.id
-      end
-
-      render_views
-
-      it do
-        should respond_with(:success)
-        should render_template(:avatar_edit)
-        should_not set_the_flash
-      end
-    end
-
-    describe '#avatar_update' do
-      let(:path) { Rack::Test::UploadedFile.new(File.open(File.join(Rails.root, '/spec/files/avatar.jpg'))) }
-      before do
-        sign_in user
-        patch :avatar_update, id: user.id, user: { avatar: path }
-      end
-
-      render_views
-
-      it { should respond_with(:redirect) }
-      it { should set_the_flash }
-      it 'does not set errors for resource' do
-        resource = assigns(user)
-        if resource && resource.errors.present?
-          raise resource.errors.full_messages.inspect
-        end
-      end
-    end
-  end
 end
