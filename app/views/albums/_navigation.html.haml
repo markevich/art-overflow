@@ -7,5 +7,5 @@
     %li
       = active_link_to 'Популярные', album_pictures_path(resource, order: :likes_count)
     %li
-      = active_link_to 'Редактирование альбома', edit_user_album_path(resource.user, resource)
+      = active_link_to 'Редактировать альбом', edit_user_album_path(resource.user, resource), class: 'navigation-edit-link'
 

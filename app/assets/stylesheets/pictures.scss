@@ -343,12 +343,25 @@
   }
 }
 .pager{
-  clear: both;
+  float: left;
+  margin-top: 250px;
 }
 
 .new_picture{
   #crop{
     margin-bottom: 25px;
+  }
+}
+
+.picture_path{
+  display: none;
+}
+
+.edit-picture{
+  float: right;
+  a{
+    font-size: 14px;
+    line-height: 30px;
   }
 }
 

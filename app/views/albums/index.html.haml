@@ -9,6 +9,8 @@
     }                                         |
   }                                           |
 
+  .pager{data: {page: page}}
+
   - if current_user.id == parent.id
     .image-block
       .container
@@ -17,6 +19,5 @@
           .name-new-album.add_album
             Создать альбом
 
-  .pager{data: {page: page}}
   .preloader{data: { scroller_preloader: true }}
 

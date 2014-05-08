@@ -5,17 +5,13 @@
   %h3.title-download
     Загрузка
   - unless @picture.path?
-    -# .bg-blue#image-selector
-    -#   .row
-    -#     .large-12.columns
-    -#       .download-file
-    -#         %label
-    -#           Перетащи сюда файл с картинкой
-    -#         %label
-    -#           или
-    -#         %a.btn-download
-    -#           Выбери файл для загрузки
-    -#         = f.input :path, class:'hidden-btn'
+    .bg-blue#image-selector
+      .row
+        .large-12.columns
+          .download-file
+            %a.btn-download
+              Выбери файл для загрузки
+            = f.input :path
     #crop-parameters{ data: {                                      |
         width: PictureUploader::CROP_AREA_WIDTH,                   |
         height: PictureUploader::CROP_AREA_HEIGHT,                 |
@@ -27,6 +23,9 @@
       .crop-picture-new
         #crop-area
         #crop-pr
+          .input
+            %label.file.control-label
+              Миниатюра
           %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
 
   .new-picture-description
@@ -42,8 +41,6 @@
           Миниатюра
         .cached-picture
           = image_tag(@picture.path.thumb)
-    - else
-      = f.input(:path)
 
     = f.input :name
     = f.input :description

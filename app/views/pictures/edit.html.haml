@@ -6,7 +6,7 @@
     .image-edit-album
       = image_tag resource.path, class:"img-follow"
       %br
-        = link_to 'Удалить картинку', picture_path(resource), method: :delete
+        = link_to 'Удалить картинку', picture_path(resource), method: :delete, data: { confirm: 'Вы уверены?' }
     .form-edit-album
       = simple_form_for([parent, resource]) do |f|
         = f.input :name
