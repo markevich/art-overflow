@@ -25,7 +25,7 @@
   .picture-actions-button
     = render 'pictures/like_button'
     = render partial: 'users/follow_button', locals: { resource: resource.user }
-    - if user_signed_in? && current_user.pictures.include?(resource)
+    %span{ data: { user_id: resource.user_id, show_if_owner: true} }
       = link_to 'Редактировать', edit_picture_path(resource)
 
 //комментарии

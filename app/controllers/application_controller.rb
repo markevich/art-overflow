@@ -54,6 +54,10 @@ class ApplicationController < ActionController::Base
 
   private
   def set_cookie_current_user
-    cookies[:current_user] = {id: current_user.id}.to_json if user_signed_in?
+    if user_signed_in?
+      cookies[:current_user] = {id: current_user.id}.to_json
+    else
+      cookies[:current_user] = nil
+    end
   end
 end
