@@ -10,6 +10,7 @@ class Picture < ActiveRecord::Base
   belongs_to :album
 
   validates :name, :path, :user, presence: true
+  validates :name, length: { minimum: 1, maximum: 250 }
 
   mount_uploader :path, PictureUploader
 

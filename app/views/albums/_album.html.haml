@@ -4,12 +4,12 @@
     /  = picture.name
     %a{href: url_for([album, :pictures])}
       .info
-        %h5=album.name
+        %h5= truncate(album.name, length: 20)
         %p
-          = album.description
+          = truncate(album.description, length: 150)
       = image_tag nil, class: 'picture'
       .name
-        = link_to album.name, [album, :pictures]
+        = link_to truncate(album.name, length: 20), [album, :pictures]
       .picture-actions
         %div.heart_normal
         %span

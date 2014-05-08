@@ -66,3 +66,7 @@ end
 Then(/^I see pictures on page$/) do
   expect(page).to have_content current_user.name
 end
+
+When(/^I visit my profile page$/) do
+  visit user_pictures_path(current_user)
+end
