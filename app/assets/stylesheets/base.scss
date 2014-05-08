@@ -13,7 +13,7 @@ $colorBgDarkBlue: #26394d;
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
   border-radius: $radius;
-} 
+}
 @mixin transition($arg){
   -webkit-transition: $arg;
   -moz-transition: $arg;
@@ -169,4 +169,12 @@ input[type="submit"]:disabled{
       border: 1px solid $colorRed !important;
     }
   }
+}
+
+[data-show-if-owner] {
+  display: none;
+}
+
+[data-hide-if-owner] {
+  display: none;
 }
