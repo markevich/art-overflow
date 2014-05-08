@@ -60,3 +60,31 @@ end
 When(/^I reload page$/) do
   visit current_path
 end
+
+Given(/^my picture$/) do
+  create_picture(current_user)
+end
+
+When(/^I visit my picture page$/) do
+  visit picture_path(current_user.pictures.first)
+end
+
+Then(/^I click edit picture$/) do
+  click_link 'Редактировать'
+end
+
+Then(/^I change picture name$/) do
+  fill_in 'Имя', with: 'Новое имя'
+end
+
+Then(/^I change picture description$/) do
+  fill_in 'Описание', with: 'Новое описание'
+end
+
+Then(/^I click save$/) do
+  click_button 'Сохранить изменения'
+end
+
+Then(/^I should see that my picture is edited$/) do
+  expect(page).to have_content 'Работа успешно обновлен(а)'
+end

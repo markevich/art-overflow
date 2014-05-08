@@ -1,0 +1,6 @@
+.profil-menu
+  %ul
+    %li
+      = active_link_to 'Все картинки', user_pictures_path(resource.user), class: 'album-all'
+    %li
+      = active_link_to 'Редактирование картинки', edit_picture_path(resource)
