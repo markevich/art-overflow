@@ -41,7 +41,7 @@ Then(/^I click on my album$/) do
 end
 
 Then(/^I click on edit album$/) do
-  click_link('Редактирование альбома')
+  click_link('Редактировать альбом')
 end
 
 Then(/^I click on delete album$/) do
