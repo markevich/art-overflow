@@ -13,10 +13,14 @@ ru:
       create:
         notice: Альбом успешно создан
       update:
-        notice: Альбом успешно обновлена
+        notice: Альбом успешно обновлен
       destroy:
         notice: Альбом успешно удален
         alert: Альбом не может быть удален
+
+    album_avatars:
+      update:
+        notice: Обложка альбома успешно обновлена
 
     pictures:
       create:
@@ -44,3 +48,8 @@ ru:
       destroy:
         notice: Пользователь успешно удален
         alert: Пользователь не может быть удален
+
+    user_avatars:
+      update:
+        notice: Аватар успешно обновлен
+

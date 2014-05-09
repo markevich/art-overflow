@@ -81,5 +81,5 @@ When(/^I click confirm album avatar button$/) do
 end
 
 Then(/^I should see that my album updated$/) do
-  expect(page).to have_content 'Альбом успешно обнолен'
+  expect(page).to have_content 'Обложка альбома успешно обновлена'
 end

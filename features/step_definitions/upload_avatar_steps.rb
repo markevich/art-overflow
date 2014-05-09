@@ -14,6 +14,6 @@ When(/^I click confirm button$/) do
   click_button 'Сохранить'
 end
 
-Then(/^I should see that my profile updated$/) do
-  expect(page).to have_content 'Пользователь успешно обновлен(а)'
+Then(/^I should see that my profile avatar updated$/) do
+  expect(page).to have_content 'Аватар успешно обновлен'
 end
