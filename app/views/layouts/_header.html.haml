@@ -7,7 +7,6 @@
             ARTOVERFLOW
       %nav#menu
         %ul
-          = active_link_to "Обновления", 'javascript:void(0)'
           = active_link_to "Популярные", pictures_path(order: :likes_count)
           = active_link_to "Новые", root_path
     .container-right
