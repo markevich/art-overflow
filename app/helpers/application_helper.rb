@@ -6,4 +6,8 @@ module ApplicationHelper
       link_to(name, path, options)
     end
   end
+
+  def time_passed_from_creation(resource)
+    "#{distance_of_time_in_words(resource.created_at, Time.now)} назад"
+  end
 end

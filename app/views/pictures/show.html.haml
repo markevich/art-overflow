@@ -10,7 +10,7 @@
         %span.grey
           %span.star
             *
-          1 час назад
+          = time_passed_from_creation(resource)
         -# %span.grey
           -# %span.star
             -# *
@@ -40,11 +40,11 @@
             = image_tag resource.user.avatar, class: "border-radius-circle user"
           .description-user
             %a
-              Коля Кекс
+              = link_to resource.user_name, [resource.user, :pictures]
             %span.star.grey
               *
             %span.grey
-              1 час назад
+              = time_passed_from_creation(resource)
             %div
               = resource.description
       = render 'comments/form', commentable: resource if user_signed_in?
