@@ -29,3 +29,13 @@ Feature: User Registration
     When I click confirm button
     Then I should see that my profile updated
 
+  Scenario: See pictures that I liked
+    Given I am logged in
+    Given Another user
+    Given picture of another user
+    When I visit another user picture page
+    When I like his picture
+    When I visit my profile page
+    When I click pictures that I liked
+    Then I see pictures on page
+

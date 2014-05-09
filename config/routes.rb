@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
     resources :pictures
     resources :albums
+    resources :likes
   end
 
   resources :user_avatars, only: [:edit, :update]

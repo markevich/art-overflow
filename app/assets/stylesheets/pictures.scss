@@ -4,6 +4,7 @@
   width: 1625px;
   overflow: hidden;
   .image-block{
+    word-break: break-all;
     float: left;
     padding: 10px;
     width: 315px;
@@ -147,6 +148,7 @@
       .description-user{
         padding-top: 4px;
         a{
+          text-decoration: none;
           color: $blue;
           cursor: pointer;
           font-weight: bold;

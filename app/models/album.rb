@@ -7,6 +7,8 @@ class Album < ActiveRecord::Base
 
 
   validates :name, :user, presence: true
+  validates :name, length: { minimum: 1, maximum: 250 }
+
   delegate :name, to: :user, prefix: true
   delegate :count, to: :pictures, prefix: true
 

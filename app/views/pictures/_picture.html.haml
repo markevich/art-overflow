@@ -4,12 +4,12 @@
     /  = picture.name
     %a{href: picture_path(picture)}
       .info
-        %h5=picture.name
+        %h5= truncate(picture.name, length: 20)
         %p
-          = picture.description
+          = truncate(picture.description, length: 150)
       = image_tag picture.path.thumb, class: 'picture'
       .name
-        = link_to picture.user_name, [picture.user, :pictures]
+        = link_to truncate(picture.user_name, length: 20), [picture.user, :pictures]
       .picture-actions
         - if user_signed_in? && current_user.liked?(picture)
           %div.heart_normal.active

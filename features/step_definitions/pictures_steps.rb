@@ -69,6 +69,10 @@ When(/^I visit my picture page$/) do
   visit picture_path(current_user.pictures.first)
 end
 
+When(/^I click pictures that I liked$/) do
+  click_link 'Понравившиеся'
+end
+
 Then(/^I click edit picture$/) do
   click_link 'Редактировать'
 end

@@ -2,11 +2,11 @@
   = image_tag comment.user_avatar, class: "border-radius-circle"
   .input-comment
     %p.blue
-      = link_to comment.user_name, comment.user
+      = link_to comment.user_name, [comment.user, :pictures]
       %span.grey
         %span.star
           *
-        1 час назад
+        = time_passed_from_creation(comment)
       = render 'comments/like_button', comment: comment
       .txt-comment
         = comment.text
