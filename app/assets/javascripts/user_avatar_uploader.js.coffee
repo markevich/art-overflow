@@ -18,7 +18,7 @@ $(document).on 'change', '#user_avatar', (e) ->
         onSelect: updateCoordinates
 
       $('#user_avatar').hide()
-      $('#edit-user-avatar input[type=submit]').show()
+      $('#edit-avatar input[type=submit]').show()
       $.modal.resize()
     ),
       maxWidth: cropData.width,

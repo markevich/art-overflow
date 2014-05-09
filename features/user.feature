@@ -27,7 +27,7 @@ Feature: User Registration
     When I click change avatar button
     When I select my new avatar picture
     When I click confirm button
-    Then I should see that my profile updated
+    Then I should see that my profile avatar updated
 
   Scenario: See pictures that I liked
     Given I am logged in

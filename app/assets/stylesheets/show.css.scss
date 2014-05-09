@@ -717,9 +717,6 @@ section{
   }
 }
 
-div.user_avatar{
-  display: none;
-}
 .bg-grey img{
   max-width: 100%;
   height: auto
@@ -842,6 +839,7 @@ div.user_avatar{
   text-decoration: none;
   background-color: $colorRed;
 }
+
 .follow-button{
   float: left;
 width: 215px;
@@ -882,4 +880,26 @@ header #dowland #search input{
 }
 .navigation-edit-link{
   float: right;
+}
+.container-for-empty{
+  margin: auto;
+  padding: 40px 20px 9px 20px;
+  max-width: 1660px;
+  text-align: center;
+  h2{
+    color: #cacaca;
+    font-size: 50px;
+    margin-bottom: 10px;
+  }
+  span{
+    font-family: Arial;
+    font-size: 27px;
+    margin-top: 10px;
+    display: block;
+    margin-bottom: 15px;
+    color: #b0b0b0;
+  }
+  .image-block-empty{
+    margin-top: 20px;
+  }
 }

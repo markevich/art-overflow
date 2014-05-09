@@ -29,7 +29,7 @@ When(/^I click create album button$/) do
 end
 
 Then(/^I should see that new album is created$/) do
-  expect(page).to have_content 'Альбом успешно создан(а)'
+  expect(page).to have_content 'Альбом успешно создан'
 end
 
 Then(/^I see my new album in list$/) do
@@ -49,5 +49,37 @@ Then(/^I click on delete album$/) do
 end
 
 Then(/^I should see that new album is deleted$/) do
-  expect(page).to have_content 'Альбом успешно удален(а)'
+  expect(page).to have_content 'Альбом успешно удален'
+end
+
+Given(/^my album$/) do
+  @album = create(:album, name: 'Cool album', user: current_user)
+end
+
+When(/^I go to my album$/) do
+  within '.name' do
+    click_link(@album.name)
+  end
+end
+
+When(/^I click edit button$/) do
+  click_link 'Редактировать альбом'
+end
+
+When(/^I click change album avatar button$/) do
+  click_link 'Изменить обложку'
+end
+
+When(/^I select my new album avatar picture$/) do
+  attach_file(:album_avatar, File.join(Rails.root, '/spec/files/avatar.jpg'))
+end
+
+When(/^I click confirm album avatar button$/) do
+  within '.modal' do
+    click_button 'Сохранить'
+  end
+end
+
+Then(/^I should see that my album updated$/) do
+  expect(page).to have_content 'Обложка альбома успешно обновлена'
 end

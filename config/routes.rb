@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   end
 
   resources :user_avatars, only: [:edit, :update]
+  resources :album_avatars, only: [:edit, :update]
 
   resources :albums, except: :show do
     resources :pictures

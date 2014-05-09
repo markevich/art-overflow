@@ -3,10 +3,53 @@ ru:
     actions:
       create:
         notice: '%{resource_name} успешно создан(а).'
-        # alert: '%{resource_name} could not be created.'
       update:
         notice: '%{resource_name} успешно обновлен(а).'
-        # alert: '%{resource_name} could not be updated.'
       destroy:
         notice: '%{resource_name} успешно удален(а).'
         alert: '%{resource_name} не может быть удален(а).'
+
+    albums:
+      create:
+        notice: Альбом успешно создан
+      update:
+        notice: Альбом успешно обновлен
+      destroy:
+        notice: Альбом успешно удален
+        alert: Альбом не может быть удален
+
+    album_avatars:
+      update:
+        notice: Обложка альбома успешно обновлена
+
+    pictures:
+      create:
+        notice: Картинка успешно создана
+      update:
+        notice: Картинка успешно обновлена
+      destroy:
+        notice: Картинка успешно удалена
+        alert: Картинка не может быть удалена
+
+    comments:
+      create:
+        notice: Комментарий успешно создан
+      update:
+        notice: Комментарий успешно обновлен
+      destroy:
+        notice: Комментарий успешно удален
+        alert: Комментарий не может быть удален
+
+    users:
+      create:
+        notice: Пользователь успешно создан
+      update:
+        notice: Пользователь успешно обновлен
+      destroy:
+        notice: Пользователь успешно удален
+        alert: Пользователь не может быть удален
+
+    user_avatars:
+      update:
+        notice: Аватар успешно обновлен
+

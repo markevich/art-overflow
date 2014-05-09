@@ -1,23 +1,38 @@
 = render parent.to_header_path, resource: parent
 = render partial: 'users/navigation', locals: { resource: parent } if parent
 
-#pictures{ data: {                            |
-    infinity_scrollable: true,                |
-    id: 'main_gallery',                       |
-    current_page: page,                       |
-    fetch_path: url_for([parent, :albums])    |
-    }                                         |
-  }                                           |
-
-  .pager{data: {page: page}}
-
-  - if current_user.id == parent.id
-    .image-block
+- if parent.albums_count == 0
+  #pictures
+    .image-block{ data: { user_id: parent.id, show_if_owner: true } }
       .container
         = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
           %span.plus
           .name-new-album.add_album
             Создать альбом
 
-  .preloader{data: { scroller_preloader: true }}
+  .container-for-empty{ data: { user_id: parent.id, hide_if_owner: true } }
+    %h2
+      Этот альбом ещё пуст.
+    .image-block-empty
+      =image_tag 'empty.png'
+      =image_tag 'empty.png'
+      =image_tag 'empty.png'
+- else
+  #pictures{ data: {                            |
+      infinity_scrollable: true,                |
+      id: 'main_gallery',                       |
+      current_page: page,                       |
+      fetch_path: url_for([parent, :albums])    |
+      }                                         |
+    }                                           |
 
+    .pager{data: {page: page}}
+
+    .image-block{ data: { user_id: parent.id, show_if_owner: true } }
+      .container
+        = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
+          %span.plus
+          .name-new-album.add_album
+            Создать альбом
+
+    .preloader{data: { scroller_preloader: true }}

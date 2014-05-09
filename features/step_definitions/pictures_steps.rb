@@ -90,5 +90,5 @@ Then(/^I click save$/) do
 end
 
 Then(/^I should see that my picture is edited$/) do
-  expect(page).to have_content 'Работа успешно обновлен(а)'
+  expect(page).to have_content 'Картинка успешно обновлена'
 end

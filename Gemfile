@@ -11,6 +11,7 @@ gem 'uglifier'
 #
 #
 gem 'nprogress-rails'
+gem 'petrovich'
 
 gem 'jquery-ui-rails'
 gem 'jquery-modal-rails', github: 'dei79/jquery-modal-rails'

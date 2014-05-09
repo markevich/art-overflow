@@ -12,7 +12,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   storage :file
   def store_dir
-    "uploads/#{model.class.to_s.underscore}/#{model.id}"
+    "uploads/#{model.user_id}/pictures/#{model.id}"
   end
 
   process :interlace
@@ -31,7 +31,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   end
 
   # def filename
-    # "#{secure_token}.jpg" if original_filename.present?
+    # "#{model.id}.#{model.path.file.extension}" if original_filename.present?
   # end
 
   # protected
