@@ -2,7 +2,7 @@ class Album < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   mount_uploader :avatar, AlbumUploader
 
-  belongs_to :user, counter_cache: true
+  belongs_to :user, counter_cache: true, touch: true
   has_many :pictures, dependent: :restrict_with_exception
 
 

@@ -2,7 +2,7 @@ class Comment < ActiveRecord::Base
   include Likeable
 
   belongs_to :user
-  belongs_to :commentable, polymorphic: true, counter_cache: true
+  belongs_to :commentable, polymorphic: true, counter_cache: true, touch: true
 
   validates :commentable_id, :commentable_type, :user_id, :text, presence: true
 

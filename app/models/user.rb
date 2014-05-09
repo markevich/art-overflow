@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
   end
 
   has_many :comments, dependent: :destroy
-  has_many :likes, dependent: :destroy, counter_cache: true
+  has_many :likes, dependent: :destroy
   has_many :albums
 
   acts_as_follower
