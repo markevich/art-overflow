@@ -1,5 +1,5 @@
 class Album < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   has_many :pictures, dependent: :restrict_with_exception
 
   validates :name, :user, presence: true
