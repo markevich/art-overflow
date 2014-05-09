@@ -29,7 +29,7 @@ When(/^I click create album button$/) do
 end
 
 Then(/^I should see that new album is created$/) do
-  expect(page).to have_content 'Альбом успешно создан(а)'
+  expect(page).to have_content 'Альбом успешно создан'
 end
 
 Then(/^I see my new album in list$/) do
@@ -49,7 +49,7 @@ Then(/^I click on delete album$/) do
 end
 
 Then(/^I should see that new album is deleted$/) do
-  expect(page).to have_content 'Альбом успешно удален(а)'
+  expect(page).to have_content 'Альбом успешно удален'
 end
 
 Given(/^my album$/) do
