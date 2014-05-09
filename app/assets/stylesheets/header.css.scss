@@ -211,11 +211,11 @@ a.sign-in{
   top: 0;
   width: 100%;
   height: 51px;
-  background: url('bg-green.png') repeat-x;
+  background: url(image-path('bg-green.png')) repeat-x;
   text-align: center;
   z-index: 11;
   span.message{
-    background-image: url("flash.png");
+    background-image: url(image-path("flash.png"));
     color: white;
     text-align: center;
     font-weight: bold;
@@ -246,12 +246,12 @@ a.sign-in{
   top: 0;
   width: 100%;
   height: 51px;
-  background: url('bg-red.png') repeat-x;
+  background: url(image-path('bg-red.png')) repeat-x;
   text-align: center;
   z-index: 12;
   span.message{
     padding-bottom: 2px;
-    background-image: url("flash-error.png");
+    background-image: url(image-path("flash-error.png"));
     color: white;
     text-align: center;
     font-weight: bold;
@@ -280,7 +280,7 @@ a.sign-in{
     }
 }
 .profil-menu ul li.active{
-  background-image: url("arrow_active.png");
+  background-image: url(image-path("arrow_active.png"));
   background-position: bottom center;
   background-repeat: no-repeat;
   bottom: -23px;

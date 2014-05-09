@@ -10,14 +10,14 @@
   display: inline-block;
   width: 13px;
   height: 12px;
-  background: url(heart_normal.png) no-repeat;
+  background: url(image-path('heart_normal.png')) no-repeat;
   vertical-align:  -2px;
 }
 .unlike-img{
   display: inline-block;
   width: 13px;
   height: 12px;
-  background: url(heart_active.png) no-repeat;
+  background: url(image-path('heart_active.png')) no-repeat;
   vertical-align:  -2px;
 }
 .like-button-comment{
@@ -72,7 +72,7 @@
 }
 .button-blue{
   background-color: #70b2b8;
-  background-image: url(like-img.gif);
+  background-image: url(image-path('like-img.gif'));
   background-repeat: no-repeat;
   background-position:  10px 8px;
   font-size: 14px;
@@ -119,7 +119,7 @@
 
 .button-red{
   background-color: #e74c3c;
-  background-image: url(like-img.gif);
+  background-image: url(image-path('like-img.gif'));
   background-repeat: no-repeat;
   background-position:  10px 8px;
   font-size: 14px;
@@ -170,7 +170,7 @@
     vertical-align: middle;
     text-decoration: none;
     .plus{
-      background: url(add-plus.png) no-repeat;
+      background: url(image-path('add-plus.png')) no-repeat;
       height: 40px;
       width: 40px;
       margin: 0 auto;
