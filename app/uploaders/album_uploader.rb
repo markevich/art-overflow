@@ -18,7 +18,7 @@ class AlbumUploader < CarrierWave::Uploader::Base
   process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
 
   def filename
-    "#{model.id}.#{model.picture.file.extension}" if original_filename.present?
+    "#{model.id}.#{model.avatar.file.extension}" if original_filename.present?
   end
 
   def default_url

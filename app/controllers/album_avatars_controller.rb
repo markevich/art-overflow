@@ -5,10 +5,14 @@ class AlbumAvatarsController < InheritedResources::Base
 
   actions :update, :edit
 
+  def smart_resource_url
+    url_for([current_user, :albums])
+  end
+
   private
 
   def permitted_params
-    params.permit(user: [
+    params.permit(album: [
       :crop_x,
       :crop_y,
       :crop_h,

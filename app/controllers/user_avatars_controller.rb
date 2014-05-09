@@ -5,6 +5,10 @@ class UserAvatarsController < InheritedResources::Base
 
   actions :update, :edit
 
+  def smart_resource_url
+    url_for([current_user, :pictures])
+  end
+
   private
 
   def permitted_params
