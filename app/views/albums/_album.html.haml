@@ -7,7 +7,7 @@
         %h5=album.name
         %p
           = album.description
-      = image_tag nil, class: 'picture'
+      = image_tag album.avatar, class: 'picture'
       .name
         = link_to album.name, [album, :pictures]
       .picture-actions

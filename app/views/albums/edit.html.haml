@@ -4,9 +4,8 @@
 .edit-container
   %div
     .image-edit-album
-      = image_tag 'img-1.png', class:"img-follow"
-      %a
-        Изменить обложку
+      = image_tag resource.avatar, class:"img-follow"
+      = link_to_modal 'Изменить обложку', edit_album_avatar_path(resource), data: { remote: true }
       %br
         = link_to 'Удалить альбом', album_path(resource), method: :delete, data: { confirm: 'Вы уверены?' }
     .form-edit-album

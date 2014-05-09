@@ -18,3 +18,14 @@ Feature: Album CRUD
     Then I click on edit album
     Then I click on delete album
     Then I should see that new album is deleted
+
+  Scenario: Album avatar upload
+    Given my album
+    When I visit My profile page
+    When I click Albums link
+    When I go to my album
+    When I click edit button
+    When I click change album avatar button
+    When I select my new album avatar picture
+    When I click confirm album avatar button
+    Then I should see that my album updated

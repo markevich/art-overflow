@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509074617) do
+ActiveRecord::Schema.define(version: 20140509090155) do
 
   create_table "albums", force: true do |t|
     t.datetime "created_at"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20140509074617) do
     t.string   "name"
     t.text     "description"
     t.integer  "pictures_count", default: 0
+    t.string   "avatar"
   end
 
   add_index "albums", ["user_id"], name: "index_albums_on_user_id", using: :btree
