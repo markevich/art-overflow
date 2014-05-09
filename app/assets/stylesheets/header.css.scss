@@ -280,16 +280,16 @@ a.sign-in{
     }
 }
 .profil-menu ul li.active{
-  background-image: url("arrowblue.png");
+  background-image: url("arrow_active.png");
   background-position: bottom center;
   background-repeat: no-repeat;
-  bottom: -25px;
+  bottom: -23px;
   position: relative;
 
 }
 .profil-menu ul li.active a{
   position: relative;
-  top: -25px;
+  top: -23px;
 }
 .close-modal{
   display: block;
