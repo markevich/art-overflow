@@ -5,12 +5,6 @@
       =image_tag(resource.avatar)
     %h3
       = resource.name
-    %sup
-      %span.grey
-        = resource.name
-      - if resource.premium?
-        %span.red
-          PRO
     - if resource.city?
       .social
         %a
