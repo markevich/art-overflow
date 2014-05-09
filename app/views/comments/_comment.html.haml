@@ -2,7 +2,7 @@
   = image_tag comment.user_avatar, class: "border-radius-circle"
   .input-comment
     %p.blue
-      = link_to comment.user_name, comment.user
+      = link_to comment.user_name, [comment.user, :pictures]
       %span.grey
         %span.star
           *

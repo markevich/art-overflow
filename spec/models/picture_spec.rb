@@ -11,6 +11,7 @@ describe Picture do
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:user) }
+  it { should ensure_length_of(:name) }
 
   it { should respond_to(:user_name) }
 end
