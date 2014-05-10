@@ -105,6 +105,7 @@ group :production do
 
   #web server
   gem 'unicorn'
+  gem 'unicorn-worker-killer'
   #
 
   #site analytics by google
