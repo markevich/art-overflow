@@ -1,5 +1,6 @@
 class Comment < ActiveRecord::Base
   include Likeable
+  include Trackable
 
   belongs_to :user
   belongs_to :commentable, polymorphic: true, counter_cache: true, touch: true

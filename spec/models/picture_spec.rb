@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe Picture do
+  it_should_behave_like 'trackable', :picture
+
   it { should belong_to(:user) }
   it { should belong_to(:album) }
 
