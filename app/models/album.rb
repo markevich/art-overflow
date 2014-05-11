@@ -3,8 +3,7 @@ class Album < ActiveRecord::Base
   mount_uploader :avatar, AlbumUploader
 
   belongs_to :user, counter_cache: true, touch: true
-  has_many :pictures, dependent: :restrict_with_exception
-
+  has_many :pictures, dependent: :destroy
 
   validates :name, :user, presence: true
   validates :name, length: { minimum: 1, maximum: 250 }
