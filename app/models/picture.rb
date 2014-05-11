@@ -15,5 +15,6 @@ class Picture < ActiveRecord::Base
   mount_uploader :path, PictureUploader
 
   delegate :name, to: :user, prefix: true
+  delegate :name, to: :album, prefix: true
   delegate :avatar, to: :user, prefix: true
 end
