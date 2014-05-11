@@ -11,9 +11,6 @@
       .name
         = link_to truncate(album.name, length: 20), [album, :pictures]
       .picture-actions
-        %div.heart_normal
+        %div.album_folder
         %span
-          = 0
-        %div.share_normal
-        %span
-          3
+          = album.pictures_count
