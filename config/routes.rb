@@ -38,8 +38,5 @@ Rails.application.routes.draw do
 
   resources :ping, only: :index
 
-  resource :foundations, only: [] do
-    get :elements
-  end
   root to: 'pictures#index'
 end
