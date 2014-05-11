@@ -30,18 +30,18 @@
         .count
           = resource.likes_count
         %span.blue
-          Симпатий
+          = I18n.t('counters.likes', count: resource.likes_count)
       .followers
         .top
         .bottom
         .count
           = resource.followers_count
         %span.blue
-          Подписчика
+          = I18n.t('counters.followers', count: resource.followers_count)
       .follows
         .top
         .bottom
         .count
           = resource.follows.count
         %span.blue
-          Подписок
+          = I18n.t('counters.follows', count: resource.follows.count)
