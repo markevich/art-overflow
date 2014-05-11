@@ -31,10 +31,10 @@ class User < ActiveRecord::Base
     indexes :likes_count, type: :integer
     indexes :city, type: :string
     indexes :avatar, as: 'avatar.to_s'
-    indexes :popular_for_search_pictures, as: 'pictures.popular_for_search' do
+    indexes :popular_pictures, as: 'pictures.popular_for_search' do
       indexes :id, type: :integer, index: :no
       indexes :name, type: :string, index: :no
-      indexes :path, type: :string, index: :no
+      indexes 'path.to_s', type: :string, index: :no
     end
   end
 
