@@ -1,22 +1,22 @@
 ru:
   counters:
     likes:
-      zero: Симпатий
+      many: Симпатий
       few: Симпатии
       one: Симпатия
       other: Симпатии
     followers:
-      zero: Подписчиков
+      many: Подписчиков
       one: Подписчик
       few: Подписчика
       other: Подписчиков
     follows:
-      zero: Подписок
+      many: Подписок
       few: Подписки
       one: Подписка
       other: Подписок
     pictures:
-      zero: Картинок
+      many: Картинок
       few: Картинки
       one: Картинка
       other: Картинки
