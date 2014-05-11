@@ -14,7 +14,7 @@ section{
 }
 
 //----------------------------------------------------comment------------------------------------------
-//стили верхней понели для пользователя
+//стили верхней панели для пользователя
 .user-content{
   img.user{
     display: inline-block;
@@ -734,26 +734,26 @@ section{
     float: left;
     margin-right: 20px;
   }
-    .comuns-description-user-album{
-      margin-left: 145px;
-      margin-right: 115px;
-      h3{
-        font-size: 22px;
-        margin-bottom: 5px;
-      }
-      a{
-        color: $blue;
-        font-size: 14px;
-        &:hover{
-          color: $colorRed;
-        }
-      }
-      div{
-        margin-top: 5px;
-        color: #9e9e9e;
-        font-size: 13px;
+  .columns-description-user-album{
+    margin-left: 145px;
+    margin-right: 115px;
+    h3{
+      font-size: 22px;
+      margin-bottom: 5px;
+    }
+    a{
+      color: $blue;
+      font-size: 14px;
+      &:hover{
+        color: $colorRed;
       }
     }
+    div{
+      margin-top: 5px;
+      color: #9e9e9e;
+      font-size: 13px;
+    }
+  }
   .profil-data{
     width: 100px;
     position: absolute;
@@ -835,15 +835,15 @@ section{
         display: none;
       }
     }
-.button-red{
-  text-decoration: none;
-  background-color: $colorRed;
-}
+    .button-red{
+      text-decoration: none;
+      background-color: $colorRed;
+    }
 
-.follow-button{
-  float: left;
-width: 215px;
-}
+    .follow-button{
+      float: left;
+      width: 215px;
+    }
   }
   .heart_normal{
     background-image: url(image_path("heart_normal.png"));

@@ -75,30 +75,19 @@
         background-repeat: no-repeat;
         width: 15px;
         height: 12px;
-        cursor: pointer;
         &.active{
           background-image: url(image-path('heart_active.png'));
         }
-        &:hover{
-          background-image: url(image-path('heart_hover.png'));
-        }
       }
 
-      div.share_normal{
-        background-image: url(image-path('microphone_normal.png'));
+      div.album_folder{
+        background-image: url(image-path('album_folder.png'));
+        background-size: 16px;
         display: inline-block;
         background-repeat: no-repeat;
-        width: 8px;
-        height: 13px;
-        cursor: pointer;
-        &.active{
-          background-image: url(image-path('microphone_active.png'));
-        }
-        &:hover{
-          background-image: url(image-path('microphone_hover.png'));
-        }
+        width: 18px;
+        height: 15px;
       }
-
 
       span{
         font-weight: normal;
@@ -115,7 +104,7 @@
     margin-bottom: 4px;
   }
   .picture-user-info{
-     display: table-cell;
+    display: table-cell;
   }
   a{
     color:$blue;
