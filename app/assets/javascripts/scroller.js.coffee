@@ -41,7 +41,6 @@ class ScrollerStorage
 class Scroller
   constructor: (params) ->
     @setInstanceParams(params)
-    @addNewPage()
     @activate()
 
   setInstanceParams: (params) ->
@@ -53,16 +52,19 @@ class Scroller
     @pager = params.pager
 
   activate: ->
-    @pager.start()
-    @enableInfinityScrolling()
+    @addNewPage =>
+      @addNewPage =>
+        @pager.start()
+        @enableInfinityScrolling()
 
-  addNewPage: ->
+  addNewPage: (callback) ->
     @loadingStarted()
     @fetchFromServer (data) =>
       @pager.addPagerElement(@currentPage)
       @loadingFinished()
       @container.append data
       @container.attr('data-current-page', @currentPage)
+      callback() if callback
 
   fetchFromServer: (callback) ->
     queryParams = $.getQuery()
