@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
     end
   end
 
+  def likes_count
+    pictures.sum(:likes_count)
+  end
+
   def liked?(likeable)
     likes.exists?(likeable: likeable)
   end

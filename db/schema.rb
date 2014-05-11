@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140509090155) do
+ActiveRecord::Schema.define(version: 20140511091759) do
 
   create_table "albums", force: true do |t|
     t.datetime "created_at"
@@ -117,7 +117,6 @@ ActiveRecord::Schema.define(version: 20140509090155) do
     t.string   "name"
     t.string   "city"
     t.string   "vk"
-    t.integer  "likes_count",            default: 0
     t.string   "avatar"
     t.integer  "pictures_count",         default: 0
     t.integer  "albums_count",           default: 0

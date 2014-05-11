@@ -47,4 +47,10 @@ describe User do
 
     it { expect { user.unlike(likeable) }.to change(Like, :count).by(-1)}
   end
+
+  describe 'likes_count' do
+    before { create_list(:picture, 2, :with_likes, user: user) }
+
+    it { expect(user.reload.likes_count).to eq 2 }
+  end
 end
