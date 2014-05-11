@@ -22,26 +22,27 @@
           %a{href: "http://vk.com/#{resource.vk}"}
             =image_tag("vkGr.png")
     = render 'users/follow_button', resource: resource
-  .profil-data
-    .user-counters
-      .likes
-        .top
-        .bottom
-        .count
-          = resource.likes_count
-        %span.blue
-          = I18n.t('counters.likes', count: resource.likes_count)
-      .followers
-        .top
-        .bottom
-        .count
-          = resource.followers_count
-        %span.blue
-          = I18n.t('counters.followers', count: resource.followers_count)
-      .follows
-        .top
-        .bottom
-        .count
-          = resource.follows.count
-        %span.blue
-          = I18n.t('counters.follows', count: resource.follows.count)
+  = cache resource do
+    .profil-data
+      .user-counters
+        .likes
+          .top
+          .bottom
+          .count
+            = resource.likes_count
+          %span.blue
+            = I18n.t('counters.likes', count: resource.likes_count)
+        .followers
+          .top
+          .bottom
+          .count
+            = resource.followers_count
+          %span.blue
+            = I18n.t('counters.followers', count: resource.followers_count)
+        .follows
+          .top
+          .bottom
+          .count
+            = resource.follows.count
+          %span.blue
+            = I18n.t('counters.follows', count: resource.follows.count)
