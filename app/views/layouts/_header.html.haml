@@ -40,7 +40,7 @@
               = link_to t('user.registration'), new_user_registration_path, class: 'grey'
         #search
           = form_tag search_index_path, method: :get do
-            = text_field_tag :query, params[:query], autocomplete: :off, placeholder: 'Поиск'
+            = text_field_tag :query, params[:query], autocomplete: :off, placeholder: 'Поиск', class: ('active' if params[:query])
         %a.btn-blue-double{ href: new_picture_path }
           %span.icon
           %span.text
