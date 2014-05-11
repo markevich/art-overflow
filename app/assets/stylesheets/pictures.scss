@@ -357,6 +357,19 @@
   }
 }
 
+.scroller-preloader{
+  position: relative;
+  left: 50%;
+  margin-left: -100px;
+  clear: both;
+  span{
+    font-size: 30px;
+    color: #b5d6d9;
+    margin-left: 15px;
+    vertical-align: 23px;
+  }
+}
+
 $PICTURE_WIDTH: 335px;
 $MAX_COLUMNS: 7;
 
