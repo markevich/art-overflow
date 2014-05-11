@@ -1,8 +1,7 @@
 .profil.show-user-album
   .description-user-album
-    - @pic = Picture.any? ? Picture.first.path : nil
-    =image_tag(@pic)
-    .comuns-description-user-album
+    = image_tag(resource.avatar)
+    .columns-description-user-album
       %h3
         = resource.name
       %a{ href: user_pictures_path(resource.user) }
@@ -17,4 +16,4 @@
         .count
           = resource.pictures_count
         %span.blue
-          Рисунков
+          = I18n.t('counters.pictures', count: resource.pictures_count)

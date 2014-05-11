@@ -5,43 +5,38 @@
       =image_tag(resource.avatar)
     %h3
       = resource.name
-    - if resource.city?
-      .social
+    .social
+      - if resource.city?
         %a
           %span.blue
             =image_tag("locationGr.png")
             = resource.city
-        -# %a
-          -# %span.blue
-            -# =image_tag("glob.png")
-            -# winniehooper.com
-      %span.blue
-        -# %a
-          -# =image_tag("twitterGr.png")
-        - if resource.vk?
+      - if resource.vk?
+        %span.blue
           %a{href: "http://vk.com/#{resource.vk}"}
             =image_tag("vkGr.png")
     = render 'users/follow_button', resource: resource
-  .profil-data
-    .user-counters
-      .likes
-        .top
-        .bottom
-        .count
-          = resource.likes_count
-        %span.blue
-          Симпатий
-      .followers
-        .top
-        .bottom
-        .count
-          = resource.followers_count
-        %span.blue
-          Подписчика
-      .follows
-        .top
-        .bottom
-        .count
-          = resource.follows.count
-        %span.blue
-          Подписок
+  = cache resource do
+    .profil-data
+      .user-counters
+        .likes
+          .top
+          .bottom
+          .count
+            = resource.likes_count
+          %span.blue
+            = I18n.t('counters.likes', count: resource.likes_count)
+        .followers
+          .top
+          .bottom
+          .count
+            = resource.followers_count
+          %span.blue
+            = I18n.t('counters.followers', count: resource.followers_count)
+        .follows
+          .top
+          .bottom
+          .count
+            = resource.follows.count
+          %span.blue
+            = I18n.t('counters.follows', count: resource.follows.count)

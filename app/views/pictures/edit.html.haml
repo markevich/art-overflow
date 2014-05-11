@@ -7,8 +7,9 @@
       = image_tag resource.path, class:"img-follow"
       %br
         = link_to 'Удалить картинку', picture_path(resource), method: :delete, data: { confirm: 'Вы уверены?' }
-    .form-edit-album
+    .form-edit-album.new-picture-description
       = simple_form_for([parent, resource]) do |f|
         = f.input :name
         = f.input :description
+        = f.association :album, collection: current_user.albums
         = f.button :submit, value: 'Сохранить изменения',class: 'btn btn-green'

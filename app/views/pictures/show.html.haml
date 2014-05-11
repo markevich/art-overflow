@@ -7,10 +7,19 @@
         = resource.name
       %p.blue
         = link_to resource.user_name, [resource.user, :pictures]
+      - if resource.album
         %span.grey
           %span.star
             *
-          = time_passed_from_creation(resource)
+        %p.blue
+          = link_to 'Все альбомы', [resource.user, :albums]
+          \/
+          = link_to resource.album_name, [resource.album, :pictures]
+      %span.grey
+      %span.grey
+        %span.star
+          *
+        = time_passed_from_creation(resource)
         -# %span.grey
           -# %span.star
             -# *

@@ -29,12 +29,13 @@ class User < ActiveRecord::Base
     indexes :id, type: :integer, index: :not_analyzed
     indexes :name, type: :string, boost: 10
     indexes :likes_count, type: :integer
+    indexes :followers_count, type: :integer
     indexes :city, type: :string
     indexes :avatar, as: 'avatar.to_s'
-    indexes :popular_for_search_pictures, as: 'pictures.popular_for_search' do
+    indexes :popular_pictures, as: 'pictures.popular_for_search' do
       indexes :id, type: :integer, index: :no
       indexes :name, type: :string, index: :no
-      indexes :path, type: :string, index: :no
+      indexes 'path.to_s', type: :string, index: :no
     end
   end
 
@@ -43,6 +44,10 @@ class User < ActiveRecord::Base
       query { string query_params } if query_params
       sort { by :likes_count }
     end
+  end
+
+  def likes_count
+    pictures.sum(:likes_count)
   end
 
   def liked?(likeable)

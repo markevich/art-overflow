@@ -75,54 +75,24 @@
         background-repeat: no-repeat;
         width: 15px;
         height: 12px;
-        cursor: pointer;
         &.active{
           background-image: url(image-path('heart_active.png'));
         }
-        &:hover{
-          background-image: url(image-path('heart_hover.png'));
-        }
       }
 
-      div.share_normal{
-        background-image: url(image-path('microphone_normal.png'));
+      div.album_folder{
+        background-image: url(image-path('album_folder.png'));
+        background-size: 16px;
         display: inline-block;
         background-repeat: no-repeat;
-        width: 8px;
-        height: 13px;
-        cursor: pointer;
-        &.active{
-          background-image: url(image-path('microphone_active.png'));
-        }
-        &:hover{
-          background-image: url(image-path('microphone_hover.png'));
-        }
+        width: 18px;
+        height: 15px;
       }
-
 
       span{
         font-weight: normal;
         color: #a6a6a6;
       }
-    }
-  }
-}
-.user-content{
-  margin: auto;
-  max-width: 1660px;
-  padding: 20px;
-  h3{
-    margin-bottom: 4px;
-  }
-  .picture-user-info{
-     display: table-cell;
-  }
-  a{
-    color:$blue;
-    text-decoration: none;
-    font-weight: bold;
-    &:hover{
-      color: $colorRed;
     }
   }
 }
@@ -365,6 +335,19 @@
   a{
     font-size: 14px;
     line-height: 30px;
+  }
+}
+
+.scroller-preloader{
+  position: relative;
+  left: 50%;
+  margin-left: -100px;
+  clear: both;
+  span{
+    font-size: 30px;
+    color: #b5d6d9;
+    margin-left: 15px;
+    vertical-align: 23px;
   }
 }
 

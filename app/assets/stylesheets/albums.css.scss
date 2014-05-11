@@ -161,8 +161,12 @@
 }
 .image-block {
   float: left;
+  .add-new-album{
+    min-height: 259px;
+  }
   .added{
     height: 180px;
+    margin-bottom: 30px;
     width: 315px;
     background: #b1d2d5;
     border: 15px solid #ecf0f1;

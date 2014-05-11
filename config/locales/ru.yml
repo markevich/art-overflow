@@ -1,4 +1,27 @@
 ru:
+  counters:
+    likes:
+      many: Симпатий
+      few: Симпатии
+      one: Симпатия
+      other: Симпатии
+    followers:
+      many: Подписчиков
+      one: Подписчик
+      few: Подписчика
+      other: Подписчиков
+    follows:
+      many: Подписок
+      few: Подписки
+      one: Подписка
+      other: Подписок
+    pictures:
+      many: Картинок
+      few: Картинки
+      one: Картинка
+      other: Картинки
+
+
   submit: 'Отправить'
   activerecord:
     models:

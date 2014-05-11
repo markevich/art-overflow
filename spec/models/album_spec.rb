@@ -5,5 +5,5 @@ describe Album do
   it { should validate_presence_of(:user) }
   it { should validate_presence_of(:name) }
   it { should ensure_length_of(:name) }
-  it { should have_many(:pictures).dependent(:restrict_with_exception) }
+  it { should have_many(:pictures).dependent(:destroy) }
 end
