@@ -5,10 +5,11 @@
   #pictures
     .image-block{ data: { user_id: parent.id, show_if_owner: true } }
       .container
-        = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
-          %span.plus
-          .name-new-album.add_album
-            Создать альбом
+        .add-new-album
+          = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
+            %span.plus
+            .name-new-album.add_album
+              Создать альбом
 
   .container-for-empty{ data: { user_id: parent.id, hide_if_owner: true } }
     %h2
@@ -30,9 +31,13 @@
 
     .image-block{ data: { user_id: parent.id, show_if_owner: true } }
       .container
-        = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
-          %span.plus
-          .name-new-album.add_album
-            Создать альбом
+        .add-new-album
+          = link_to_modal(new_user_album_path(parent), class: :added, data: { remote: true }) do
+            %span.plus
+            .name-new-album.add_album
+              Создать альбом
 
-    .preloader{data: { scroller_preloader: true }}
+    .scroller-preloader{data: { scroller_preloader: true }}
+      = image_tag 'scroller-preloader.gif'
+      %span
+        Загрузка...
