@@ -3,14 +3,13 @@ Feature: Pictures
   Scenario: Endless scrolling
     Given that many pictures exists
     Given I am on pictures page
-    Given I remember the number of pictures
-    When I scroll to next page
-    Then new pictures should appear on page
-    When I scroll to next page
-    Then new pictures should appear on page
+    Then I see 30 pictures on page
+    When I scroll to half of document
     And I should see "page=2" in current path
-    When I scroll to bottom of screen
-    Then I should see "page=3" in current path
+    When I scroll to bottom of document
+    Then new pictures should appear on page
+    When I scroll to half of document
+    And I should see "page=3" in current path
 
   Scenario: I like and unlike a picture
     Given Another user

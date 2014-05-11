@@ -16,21 +16,20 @@ Given(/^I am on pictures page$/) do
   visit pictures_path
 end
 
-Given(/^I remember the number of pictures$/) do
-  @page = 1
+Then(/^I see (\d+) pictures on page$/) do |count|
+  expect(page).to have_css('.image-block', count: count)
 end
 
 Then(/^new pictures should appear on page$/) do
-  @page += 1
-  expect(page).to have_css('.image-block', count: PicturesController::PAGE_SIZE * @page)
+  expect(page).to have_css('.image-block', count: PicturesController::PAGE_SIZE * 3)
 end
 
-When(/^I scroll to next page$/) do
-  scroll_to_next_page
+When(/^I scroll to half of document/) do
+  page.execute_script "window.scrollBy(0, $(document).height()/2)"
 end
 
-When(/^I scroll to bottom of screen$/) do
-  scroll_to_bottom_of_screen
+When(/^I scroll to bottom of document/) do
+  page.execute_script "window.scrollBy(0, $(document).height())"
 end
 
 When(/^I like his picture$/) do
