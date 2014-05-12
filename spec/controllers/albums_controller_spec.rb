@@ -32,4 +32,24 @@ describe AlbumsController do
   it_should_behave_like 'destroy action' do
     let(:params){{ user_id: user.id, id: album.id }}
   end
+
+  context 'unauthorized' do
+    describe "#edit" do
+      it_should_behave_like 'unauthorized action' do
+        before { get :edit, id: create(:album).id }
+      end
+    end
+
+    describe "#update" do
+      it_should_behave_like 'unauthorized action' do
+        before { get :update, id: create(:album).id }
+      end
+    end
+
+    describe "#destroy" do
+      it_should_behave_like 'unauthorized action' do
+        before { get :destroy, id: create(:album).id }
+      end
+    end
+  end
 end
