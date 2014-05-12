@@ -23,6 +23,7 @@ class ApplicationController < ActionController::Base
   def store_location
     if request.fullpath != "/users/sign_in" && \
         request.fullpath != "/users/sign_up" && \
+        !(request.fullpath =~ /\/users\/confirmation/) && \
         !request.xhr?
       session[:previous_url] = request.fullpath
     end
@@ -34,6 +35,10 @@ class ApplicationController < ActionController::Base
 
   def after_confirmation_path_for(resource_name, resource)
     new_user_session_path
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
   end
 
   protected

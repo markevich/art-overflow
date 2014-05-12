@@ -6,6 +6,7 @@
       = active_link_to 'Новые', album_pictures_path(resource)
     %li
       = active_link_to 'Популярные', album_pictures_path(resource, order: :likes_count)
-    %li
-      = active_link_to 'Редактировать альбом', edit_user_album_path(resource.user, resource), class: 'navigation-edit-link'
+    %span{ data: { user_id: resource.user_id, show_if_owner: true} }
+      %li
+        = active_link_to 'Редактировать альбом', edit_user_album_path(resource.user, resource), class: 'navigation-edit-link'
 

@@ -17,6 +17,20 @@ describe UsersController do
     post :follow, id: user.id
   end
 
+  context 'unauthorized' do
+    describe "#edit" do
+      it_should_behave_like 'unauthorized action' do
+        before { get :edit, id: create(:user).id }
+      end
+    end
+
+    describe "#update" do
+      it_should_behave_like 'unauthorized action' do
+        before { get :update, id: create(:user).id }
+      end
+    end
+  end
+
   describe "#follow" do
     context 'authorized' do
       it { expect{ follow_user }.to change(user, :follow_count).by(1) }

@@ -30,7 +30,7 @@ gem 'devise'
 #
 
 #database adapter
-gem 'mysql2'
+gem 'pg'
 #
 
 #
@@ -63,6 +63,8 @@ gem "acts_as_follower", github: 'markevich/acts_as_follower', branch: 'rails4'
 #tags
 gem 'acts-as-taggable-on'
 #
+
+gem 'cancan'
 
 gem 'inherited_resources'
 gem 'responders'

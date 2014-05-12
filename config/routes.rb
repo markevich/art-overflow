@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :search, only: :index
-  resources :users, except: :show do
+  resources :users, except: [:show, :destroy] do
     member do
       post :follow
       post :stop_following

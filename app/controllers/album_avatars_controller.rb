@@ -2,6 +2,7 @@ class AlbumAvatarsController < InheritedResources::Base
   before_action :authenticate_user!
 
   defaults resource_class: Album, collection_name: 'albums', instance_name: 'album'
+  load_and_authorize_resource
 
   actions :update, :edit
 

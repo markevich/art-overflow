@@ -1,6 +1,9 @@
 class PicturesController < InheritedResources::Base
   belongs_to :user, :album, polymorphic: true
 
+  load_and_authorize_resource :user
+  load_and_authorize_resource :picture, through: :user
+
   PAGE_SIZE = 15
   before_filter :authenticate_user!, only: [:new, :create, :update, :edit, :like, :unlike]
 

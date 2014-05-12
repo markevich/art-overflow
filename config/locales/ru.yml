@@ -78,3 +78,6 @@ ru:
     unsubscribed: 'Вы успешно отписались от рассылки.'
   errors:
     token_mismatch: 'Токены не совпали. Необходим %{expected}, но получили %{got}'
+
+  unauthorized:
+    default: "У вас нет доступа к этой странице."
