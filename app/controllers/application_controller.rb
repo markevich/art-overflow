@@ -34,6 +34,10 @@ class ApplicationController < ActionController::Base
     new_user_session_path
   end
 
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+
   protected
   def render_404
     render file: "#{Rails.root}/public/404.html", status: :not_found , layout: false
