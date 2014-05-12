@@ -217,7 +217,6 @@ GEM
     minitest (5.3.3)
     multi_json (1.9.2)
     multi_test (0.1.1)
-    mysql2 (0.3.15)
     net-scp (1.1.2)
       net-ssh (>= 2.6.5)
     net-sftp (2.1.2)
@@ -234,6 +233,7 @@ GEM
     orm_adapter (0.5.0)
     petrovich (0.1.5)
       unicode_utils (~> 1.4)
+    pg (0.17.1)
     poltergeist (1.5.0)
       capybara (~> 2.1)
       cliver (~> 0.3.1)
@@ -426,11 +426,11 @@ DEPENDENCIES
   letter_opener
   meta_request
   mini_magick
-  mysql2
   newrelic_rpm
   nprogress-rails
   nyan-cat-formatter
   petrovich
+  pg
   poltergeist
   pry-rails
   quiet_assets

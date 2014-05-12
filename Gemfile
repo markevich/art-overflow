@@ -30,7 +30,7 @@ gem 'devise'
 #
 
 #database adapter
-gem 'mysql2'
+gem 'pg'
 #
 
 #
