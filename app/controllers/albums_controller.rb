@@ -2,6 +2,9 @@ class AlbumsController < InheritedResources::Base
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :destroy]
   belongs_to :user, optional: true
 
+  load_and_authorize_resource :user
+  load_and_authorize_resource :album, through: :user
+
   PAGE_SIZE = 15
 
   def index

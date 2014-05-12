@@ -89,6 +89,7 @@ GEM
       activesupport
       uniform_notifier (>= 1.4.0)
     callsite (0.0.11)
+    cancan (1.6.10)
     capistrano (2.15.5)
       highline
       net-scp (>= 1.0.0)
@@ -398,6 +399,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   bullet
+  cancan
   capistrano (= 2.15.5)
   capistrano-rbenv
   capybara!

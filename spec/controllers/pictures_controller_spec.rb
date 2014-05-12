@@ -44,4 +44,24 @@ describe PicturesController do
       expect(response.body).to eq({count: pic.likes_count, state: :active}.to_json)
     end
   end
+
+  context 'unauthorized' do
+    describe "#edit" do
+      it_should_behave_like 'unauthorized action' do
+        before { get :edit, id: create(:picture).id }
+      end
+    end
+
+    describe "#update" do
+      it_should_behave_like 'unauthorized action' do
+        before { get :update, id: create(:picture).id }
+      end
+    end
+
+    describe "#destroy" do
+      it_should_behave_like 'unauthorized action' do
+        before { get :destroy, id: create(:picture).id }
+      end
+    end
+  end
 end
