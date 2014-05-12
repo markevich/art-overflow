@@ -15,7 +15,7 @@ class ActivitiesController < InheritedResources::Base
 
   private
 
-  PAGE_SIZE = 5
+  PAGE_SIZE = 15
   helper_method :page, :order, :collection
 
   def page
@@ -37,6 +37,6 @@ class ActivitiesController < InheritedResources::Base
   end
 
   def end_of_association_chain
-    current_user.received_activities
+    current_user.activities
   end
 end

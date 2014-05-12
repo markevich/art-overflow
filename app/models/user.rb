@@ -22,6 +22,13 @@ class User < ActiveRecord::Base
   has_many :own_activities, class_name: PublicActivity::Activity, as: :owner
   has_many :received_activities, class_name: PublicActivity::Activity, as: :recipient
 
+  has_many :follows, class_name: :follow, as: :follower
+
+  def activities
+    followable_ids = follows.pluck(:followable_id)
+    PublicActivity::Activity.where("owner_id IN (?) or recipient_id = ?", followable_ids, id)
+  end
+
   acts_as_follower
   acts_as_followable
 
