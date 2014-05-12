@@ -22,6 +22,8 @@ Rails.application.routes.draw do
     resources :pictures
   end
 
+  resources :activities, only: [:index]
+
   resources :comments do
     member do
       post :like

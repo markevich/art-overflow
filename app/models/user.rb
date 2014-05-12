@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :albums
 
+  has_many :own_activities, class_name: PublicActivity::Activity, as: :owner
+  has_many :received_activities, class_name: PublicActivity::Activity, as: :recipient
+
   acts_as_follower
   acts_as_followable
 

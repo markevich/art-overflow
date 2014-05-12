@@ -1,0 +1,15 @@
+%p
+  = link_to activity.owner.name, activity.owner
+
+  - if activity.trackable.likeable.is_a?(Picture)
+    - picture = activity.trackable.likeable
+    оценил изображение
+    %br
+    %a{href: picture_path(activity.trackable)}
+      = image_tag picture.path.thumb, class: 'picture'
+
+  - elsif activity.trackable.likeable.is_a?(Comment)
+    - comment = activity.trackable.likeable
+    оценил ваш комментарий
+    %a{href: picture_path(comment.commentable)}
+      = "\"#{comment.text}\""

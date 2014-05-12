@@ -1,0 +1,14 @@
+#activities{ data: {                          |
+    infinity_scrollable: true,                |
+    id: 'main_gallery',                       |
+    current_page: page,                       |
+    fetch_path: activities_path               |
+    }                                         |
+  }                                           |
+
+  .pager{data: {page: page}}
+
+  .scroller-preloader{data: { scroller_preloader: true }}
+    = image_tag 'scroller-preloader.gif'
+    %span
+      Загрузка...

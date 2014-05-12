@@ -1,0 +1,6 @@
+%p
+  = link_to activity.owner.name, activity.owner
+  загрузил изображение
+  %br
+  %a{href: picture_path(activity.trackable)}
+    = image_tag activity.trackable.path.thumb, class: 'picture'

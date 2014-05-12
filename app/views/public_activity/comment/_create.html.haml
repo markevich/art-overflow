@@ -1,0 +1,5 @@
+%p
+  = link_to activity.owner.name, activity.owner
+  оставил комментарий
+  %a{href: picture_path(activity.trackable.commentable)}
+    = "\"#{activity.trackable.text}\""
