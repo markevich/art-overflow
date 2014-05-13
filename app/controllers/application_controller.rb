@@ -21,6 +21,7 @@ class ApplicationController < ActionController::Base
   def store_location
     if request.fullpath != "/users/sign_in" && \
         request.fullpath != "/users/sign_up" && \
+        !(request.fullpath =~ /\/users\/confirmation/) && \
         !request.xhr?
       session[:previous_url] = request.fullpath
     end
