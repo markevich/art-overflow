@@ -1,0 +1,8 @@
+%h2.edit-profil
+  Настройки профиля
+.profil-menu
+  %ul
+    %li.active
+      = active_link_to 'Личные данные', edit_user_path(resource)
+    %li.active
+      = active_link_to 'Пароль', edit_user_passwords_path

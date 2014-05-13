@@ -1,17 +1,9 @@
-%h2.edit-profil
-  Настройки профиля
-.profil-menu
-  %ul
-    %li.active
-      %a
-        Личные данные
+= render partial: 'users/edit_navigation', locals: { resource: resource }
+
 .profil-form
   .profil-form-container
     = simple_form_for(resource) do |f|
-      .name
-        %label
-          Имя
-        = f.input :name, placeholder: 'Johny', label: false
+      = f.input :name, placeholder: 'Johny'
       .avatarka
         %label
           Аватар
@@ -22,10 +14,9 @@
           .change-avatar
             = link_to_modal "Сменить аватар", edit_user_avatar_path(resource),
               data: { remote: true }, class: 'btn btn-blue js-trigger-uploader'
-      %div
-        %label
-          Город
-        = f.input :city, placeholder: 'Минск', label: false
+
+      = f.input :city, placeholder: 'Минск'
+
       %div
         %label
           Вконтакте
@@ -33,5 +24,5 @@
           %span.prefix
             vk.com/
           = f.input :vk, placeholder: 'wine', label: false
-      %div
-        = f.submit "Сохранить", class: 'btn btn-green'
+
+      = f.submit "Сохранить", class: 'btn btn-green', data: { disable_with: 'Сохраняется' }

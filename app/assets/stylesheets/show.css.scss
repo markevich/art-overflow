@@ -494,8 +494,7 @@ section{
     margin: auto;
     max-width: 1660px;
     padding: 0 20px;
-
-
+    margin-top: 20px;
     label{
       font-family: Arial;
       color: black;
@@ -515,9 +514,6 @@ section{
   .edit_user{
     >div{
       overflow: hidden;
-    }
-    .name{
-      padding-top: 40px;
     }
     form {
       margin-top: 3em;

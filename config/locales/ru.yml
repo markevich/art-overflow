@@ -31,11 +31,13 @@ ru:
       picture: Работа
     attributes:
       user:
-        email: 'E-mail'
-        password: 'Пароль'
-        password_confirmation: 'Подтверждение пароля'
-        name: 'Имя'
+        email: E-mail
+        password: Пароль
+        password_confirmation: Подтверждение пароля
+        current_password: Текущий пароль
+        name: Имя
         avatar: Аватар
+        city: Город
       album:
         name: Имя
         description: Описание
