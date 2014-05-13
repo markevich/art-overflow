@@ -26,7 +26,8 @@ class User < ActiveRecord::Base
 
   def activities
     followable_ids = follows.pluck(:followable_id)
-    PublicActivity::Activity.where("owner_id IN (?) or recipient_id = ?", followable_ids, id)
+    return PublicActivity::Activity.none if followable_ids.empty? # fix it
+    PublicActivity::Activity.where("(owner_id IN (?) AND recipient_id IS NULL) OR recipient_id = ?", followable_ids, id).group(:trackable_id, :id)
   end
 
   acts_as_follower

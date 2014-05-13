@@ -10,6 +10,10 @@ class Comment < ActiveRecord::Base
   delegate :name, to: :user, prefix: true
   delegate :avatar, to: :user, prefix: true
 
+  def recipient
+    commentable.user
+  end
+
   # Define your filters for content
   # Expample for: gem 'RedCloth', gem 'sanitize'
   # your personal SmilesProcessor
