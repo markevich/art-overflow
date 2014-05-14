@@ -1,0 +1,7 @@
+%p
+  = link_to picture_collection.owner.name, picture_collection.owner
+  загрузил изображение(я)
+  - picture_collection.each do |picture|
+    %br
+    %a{href: picture_path(picture)}
+      = image_tag picture.path.thumb, class: 'picture'

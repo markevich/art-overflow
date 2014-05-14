@@ -7,7 +7,7 @@ class ActivitiesController < InheritedResources::Base
     respond_with do |format|
       format.html do
         if request.xhr?
-          render collection
+          render ActivityCollection::Manager.new(collection)
         end
       end
     end

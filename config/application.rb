@@ -11,7 +11,7 @@ Bundler.require(*Rails.groups)
 
 module ArtOverflow
   class Application < Rails::Application
-    config.autoload_paths += %W{#{config.root}/app}
+    config.autoload_paths += %W{#{config.root}/app #{config.root}/lib}
 
 
     config.i18n.default_locale = :ru

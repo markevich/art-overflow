@@ -1,0 +1,6 @@
+- comment_collection.each do |comment|
+  %p
+    = link_to comment.user.name, comment.user
+    оставил комментарий
+    %a{href: picture_path(comment.commentable)}
+      = "\"#{comment.text}\""
