@@ -1,14 +1,14 @@
 class ActivityCollection::Manager
-  def initialize(collection)
-    @collection = collection
-    @output = []
+  include Enumerable
+
+  def initialize(activerecord_collection)
+    @activerecord_collection = activerecord_collection
+    @activities_collections = []
     prepare
   end
 
-  def each
-    @output.each do |elem|
-      yield elem
-    end
+  def each(&block)
+    @activities_collections.each(&block)
   end
 
   def to_partial_path
@@ -18,7 +18,7 @@ class ActivityCollection::Manager
   private
 
   def prepare
-    @collection.each_with_index do |element, index|
+    @activerecord_collection.each_with_index do |element, index|
       @element = element
       @index = index
 
@@ -31,14 +31,14 @@ class ActivityCollection::Manager
       if next_element_exists? && next_element_same_as_current?
         next
       else
-        @output << @new_collection
+        @activities_collections << @new_collection
         @new_collection = nil
       end
     end
   end
 
   def next_element
-    @collection[@index + 1]
+    @activerecord_collection[@index + 1]
   end
 
   def next_element_exists?

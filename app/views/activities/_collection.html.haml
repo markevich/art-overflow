@@ -1,5 +1,4 @@
-= cache collection do
-  - collection.each do |element|
-    %hr
-    = time_passed_from_creation(element)
-    = render element
+- collection.each do |element|
+  %hr
+  = time_passed_from_creation(element)
+  = render element
