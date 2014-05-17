@@ -1,8 +1,8 @@
 class ActivityCollection::Manager
   include Enumerable
 
-  def initialize(activerecord_collection)
-    @activerecord_collection = activerecord_collection
+  def initialize(collection)
+    @grouped_collection = collection.group_by { |e| activity_object(e.trackable) }.values.flatten
     @activities_collections = []
     prepare
   end
@@ -18,7 +18,7 @@ class ActivityCollection::Manager
   private
 
   def prepare
-    @activerecord_collection.each_with_index do |element, index|
+    @grouped_collection.each_with_index do |element, index|
       @element = element
       @index = index
 
@@ -38,7 +38,7 @@ class ActivityCollection::Manager
   end
 
   def next_element
-    @activerecord_collection[@index + 1]
+    @grouped_collection[@index + 1]
   end
 
   def next_element_exists?
@@ -53,16 +53,20 @@ class ActivityCollection::Manager
 
   def activity_on_same_object?
     if next_element.trackable_type == @element.trackable_type
-      case @element.trackable
-      when Like
-        @element.trackable.likeable == next_element.trackable.likeable
-      when Follow
-        @element.trackable.followable == next_element.trackable.followable
-      when Comment
-        @element.trackable.commentable == next_element.trackable.commentable
-      when Picture
-        @element.trackable == next_element.trackable
-      end
+      activity_object(@element.trackable) == activity_object(next_element.trackable)
+    end
+  end
+
+  def activity_object(trackable)
+    case trackable
+    when ::Like
+      trackable.likeable
+    when ::Follow
+      trackable.followable
+    when ::Comment
+      trackable.commentable
+    when ::Picture
+      trackable
     end
   end
 end
