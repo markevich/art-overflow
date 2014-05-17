@@ -1,3 +1,9 @@
+- content_for :secondary_avatars do
+  .secondary-avatars
+    - like_collection.drop(1).first(9).each do |like|
+      %a{href: user_pictures_path(like.user)}
+        = image_tag like.user.avatar
+
 .activity
   .time-container
     = image_tag 'activity-like.png'
@@ -15,10 +21,7 @@
         - if like_collection.likeable.is_a?(Picture)
           изображение
 
-          .secondary-avatars
-            - like_collection.drop(1).first(9).each do |like|
-              %a{href: user_pictures_path(like.user)}
-                = image_tag like.user.avatar
+          = content_for :secondary_avatars
 
           - picture = like_collection.likeable
           %a{href: picture_path(picture)}
@@ -27,10 +30,7 @@
         - elsif like_collection.likeable.is_a?(Comment)
           ваш комментарий
 
-          .secondary-avatars
-            - like_collection.drop(1).first(9).each do |like|
-              %a{href: user_pictures_path(like.user)}
-                = image_tag like.user.avatar
+          = content_for :secondary_avatars
 
           - comment = like_collection.likeable
           %a{href: picture_path(comment.commentable)}
