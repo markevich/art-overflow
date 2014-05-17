@@ -48,7 +48,11 @@ class ActivityCollection::Manager
   def next_element_same_as_current?
     next_element.key == @element.key &&
       next_element.recipient == @element.recipient &&
-      activity_on_same_object?
+      (picture_upload? || activity_on_same_object?)
+  end
+
+  def picture_upload?
+    next_element.trackable.is_a?(::Picture)
   end
 
   def activity_on_same_object?
