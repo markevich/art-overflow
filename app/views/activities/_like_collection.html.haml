@@ -1,15 +1,29 @@
-%p
-  = render partial: 'collection_owners', locals: { records_collection: like_collection }
+.activity
+  .time-container
+    = image_tag 'activity-like.png'
+    %div
+      = time_passed_from_creation(like_collection)
+  .activity-container
+    .main-activity-avatar
+      = image_tag like_collection.first.user.avatar
+    .activity-content
+      - if like_collection.likeable.is_a?(Picture)
+        .activity-owners
+          = render partial: 'collection_owners', locals: { records_collection: like_collection }
+          оценили изображение
+        .secondary-avatars
+          - like_collection.first(9).each do |like|
+            = image_tag like.user.avatar
 
-  - if like_collection.likeable.is_a?(Picture)
-    оценили изображение
-    %br
-    - picture = like_collection.likeable
-    %a{href: picture_path(picture)}
-      = image_tag picture.path.thumb, class: 'picture'
+        - picture = like_collection.likeable
+        %a{href: picture_path(picture)}
+          = image_tag picture.path.thumb, class: 'picture'
+      
 
-  - if like_collection.likeable.is_a?(Comment)
-    - comment = like_collection.likeable
-    оценили ваш комментарий
-    %a{href: picture_path(comment.commentable)}
-      = "\"#{comment.text}\""
+    
+
+    / - if like_collection.likeable.is_a?(Comment)
+    /   - comment = like_collection.likeable
+    /   оценили ваш комментарий
+    /   %a{href: picture_path(comment.commentable)}
+    /     = "\"#{comment.text}\""

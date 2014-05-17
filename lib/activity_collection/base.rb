@@ -1,4 +1,6 @@
 class ActivityCollection::Base
+  include Enumerable
+  
   def initialize(element)
     @collection = [element]
   end
