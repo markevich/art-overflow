@@ -10,11 +10,9 @@
       .activity-content
         .activity-owners
           = link_to comment.user.name, [comment.user, :pictures]
-          оставил(а) комментарий
+          оставил комментарий
           %a{href: picture_path(comment.commentable)}
-            "
-            = comment.text
-            "
+            = "\"#{comment.text}\""
           на изображение
         .pictures-row
           %a{href: picture_path(comment.commentable)}

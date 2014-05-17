@@ -20,6 +20,18 @@ ru:
       few: Картинки
       one: Картинка
       other: Картинки
+    humans:
+      one: человек
+      few: человека
+      many: человек
+    has_followed:
+      one: подписался
+      few: подписались
+      many: подписались
+    has_liked:
+      one: оценил
+      few: оценили
+      many: оценили
 
 
   submit: 'Отправить'

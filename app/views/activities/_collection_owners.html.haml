@@ -6,4 +6,4 @@
 - if records_collection.count > 3
   еще
   = records_collection.count - 3
-  человек
+  = I18n.t('counters.humans', count: records_collection.count - 3)

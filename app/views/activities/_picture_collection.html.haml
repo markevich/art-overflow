@@ -5,11 +5,12 @@
       = time_passed_from_creation(picture_collection)
   .activity-container
     .main-activity-avatar
-      = image_tag picture_collection.owner.avatar
+      %a{href: user_pictures_path(picture_collection.owner)}
+        = image_tag picture_collection.owner.avatar
     .activity-content
       .activity-owners
         = link_to picture_collection.owner.name, [picture_collection.owner, :pictures]
-        загрузил(а) изображение
+        загрузил изображение
 
       - picture_collection.each_slice(3) do |pictures|
         .pictures-row

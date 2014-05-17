@@ -5,11 +5,15 @@
       = time_passed_from_creation(follow_collection)
   .activity-container
     .main-activity-avatar
-      = image_tag follow_collection.first.follower.avatar
+      %a{href: user_pictures_path(follow_collection.first.follower)}
+        = image_tag follow_collection.first.follower.avatar
     .activity-content
       .activity-owners
         = render partial: 'collection_owners', locals: { records_collection: follow_collection }
-        подписался(ись) на ваши обновления
+        = I18n.t('counters.has_followed', count: follow_collection.count)
+        на ваши обновления
+
       .secondary-avatars
-        - follow_collection.first(9).each do |follow|
-          = image_tag follow.follower.avatar
+        - follow_collection.drop(1).first(9).each do |follow|
+          %a{href: user_pictures_path(follow.follower)}
+            = image_tag follow.follower.avatar
