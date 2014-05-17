@@ -46,6 +46,23 @@ class ActivityCollection::Manager
   end
 
   def next_element_same_as_current?
-    next_element.key == @element.key && next_element.recipient == @element.recipient
+    next_element.key == @element.key &&
+      next_element.recipient == @element.recipient &&
+      activity_on_same_object?
+  end
+
+  def activity_on_same_object?
+    if next_element.trackable_type == @element.trackable_type
+      case @element.trackable
+      when Like
+        @element.trackable.likeable == next_element.trackable.likeable
+      when Follow
+        @element.trackable.followable == next_element.trackable.followable
+      when Comment
+        @element.trackable.commentable == next_element.trackable.commentable
+      when Picture
+        @element.trackable == next_element.trackable
+      end
+    end
   end
 end
