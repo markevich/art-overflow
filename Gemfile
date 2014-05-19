@@ -56,6 +56,8 @@ gem 'russian'
 gem 'devise-i18n'
 #
 
+gem 'enumerize'
+
 #following ability
 gem "acts_as_follower", github: 'markevich/acts_as_follower', branch: 'rails4'
 #

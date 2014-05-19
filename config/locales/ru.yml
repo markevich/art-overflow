@@ -21,6 +21,11 @@ ru:
       one: Картинка
       other: Картинки
 
+  enumerize:
+    user:
+      sex:
+        male: "Мужчина"
+        female: "Женщина"
 
   submit: 'Отправить'
   activerecord:

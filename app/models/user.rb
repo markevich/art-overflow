@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  extend Enumerize
+
   devise :database_authenticatable, :registerable,
          :recoverable, :trackable, :validatable, :confirmable
 
@@ -7,7 +9,9 @@ class User < ActiveRecord::Base
 
   before_create :set_password_confirmation
 
-  validates :name, :email, presence: true
+  validates :name, :email, :sex, presence: true
+
+  enumerize :sex, in: [:male, :female], predicates: true
 
   has_many :pictures, dependent: :destroy, inverse_of: :user do
     def popular_for_search

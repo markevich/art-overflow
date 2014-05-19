@@ -10,5 +10,6 @@
           = f.input :name, label: false, placeholder: 'Отображаемое имя'
           = f.input :email, label: false, placeholder: 'Email'
           = f.input :password, label: false, placeholder: 'Пароль'
+          = f.input :sex, label: false, as: :radio_buttons, placeholder: 'Пол'
           .action
             = f.submit t(:submit), class: 'button-registration'
