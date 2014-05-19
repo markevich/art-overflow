@@ -1,8 +1,15 @@
 @import 'setting.css.scss';
+.activity-wrapper{
+  background-color: #fafafa;
+}
 #activities {
   width: 680px;;
   padding: 30px 20px;
   margin: 0 auto;
+  background-image: url(image-path('activity-border.png'));
+  background-repeat: repeat-y;
+  background-position-x: 60px;
+
   .time-container{
     width: 80px;
     float: left;
@@ -10,8 +17,26 @@
     font-size: 11px;
     text-align: center;
     margin-right: 40px;
+    background-color: #fafafa;
+    padding-top: 14px;
+    margin-top: -14px;
+    padding-bottom: 14px;
+    margin-bottom: -14px;
   }
-  
+
+  .activity-container{
+    overflow: hidden;
+  }
+
+  .border{
+    position: absolute;
+    background-color: #ececec;
+    width: 500px;
+    height: 1px;
+    top: 5px;
+    left: 41px;
+  }
+
 
   .main-activity-avatar{
     float: left;
@@ -25,6 +50,7 @@
     }
   }
   .secondary-avatars {
+    padding-top: 5px;
     display: table-cell;
   }
 
@@ -41,7 +67,7 @@
   .activity{
     padding-top: 30px;
     padding-bottom: 30px;
-    border-top: 1px solid #ececec; 
+    position: relative;
   }
   .activity-content{
     display: table-cell;
@@ -50,7 +76,7 @@
 
     line-height: 16px;
     .activity-owners{
-      margin-bottom: 5px;
+      margin-bottom: 10px;
     }
 
     .picture{

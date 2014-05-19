@@ -1,4 +1,5 @@
 .activity
+  .border
   .time-container
     = image_tag 'activity-upload.png'
     %div
@@ -10,7 +11,8 @@
     .activity-content
       .activity-owners
         = link_to picture_collection.owner.name, [picture_collection.owner, :pictures]
-        загрузил изображение
+        = "загрузил #{picture_collection.count} "
+        = I18n.t('counters.uploaded_pictures', count: picture_collection.count)
 
       - picture_collection.each_slice(3) do |pictures|
         .pictures-row

@@ -5,33 +5,40 @@
         = image_tag like.user.avatar
 
 .activity
+  .border
   .time-container
     = image_tag 'activity-like.png'
     %div
       = time_passed_from_creation(like_collection)
-  .activity-container
-    .main-activity-avatar
-      %a{href: user_pictures_path(like_collection.first.user)}
-        = image_tag like_collection.first.user.avatar
-    .activity-content
-      .activity-owners
-        = render partial: 'collection_owners', locals: { records_collection: like_collection }
-        = I18n.t('counters.has_liked', count: like_collection.count)
-
-        - if like_collection.likeable.is_a?(Picture)
+  - if like_collection.likeable.is_a?(Picture)
+    .activity-container
+      .main-activity-avatar
+        %a{href: user_pictures_path(like_collection.first.user)}
+          = image_tag like_collection.first.user.avatar
+      .activity-content
+        .activity-owners
+          = render partial: 'collection_owners', locals: { records_collection: like_collection }
+          = I18n.t('counters.has_liked', count: like_collection.count)
           изображение
-
           = content_for :secondary_avatars
 
-          - picture = like_collection.likeable
-          %a{href: picture_path(picture)}
-            = image_tag picture.path.thumb, class: 'picture'
+        - picture = like_collection.likeable
+        %a{href: picture_path(picture)}
+          = image_tag picture.path.thumb, class: 'picture'
+  - elsif like_collection.likeable.is_a(Comment)
+    .activity-container
+      .main-activity-avatar
+        %a{href: user_pictures_path(like_collection.first.user)}
+          = image_tag like_collection.first.user.avatar
+      .activity-content
+        .activity-owners
+          = render partial: 'collection_owners', locals: { records_collection: like_collection }
+          = I18n.t('counters.has_liked', count: like_collection.count)
 
-        - elsif like_collection.likeable.is_a?(Comment)
           ваш комментарий
 
           = content_for :secondary_avatars
 
-          - comment = like_collection.likeable
-          %a{href: picture_path(comment.commentable)}
-            = "\"#{comment.text}\""
+        - comment = like_collection.likeable
+        %a{href: picture_path(comment.commentable)}
+          = "\"#{comment.text}\""

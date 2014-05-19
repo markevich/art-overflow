@@ -20,6 +20,10 @@ ru:
       few: Картинки
       one: Картинка
       other: Картинки
+    uploaded_pictures:
+      many: картинок
+      few: картинки
+      one: картинку
     humans:
       one: человек
       few: человека
