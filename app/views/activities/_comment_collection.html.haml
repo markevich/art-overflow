@@ -1,0 +1,20 @@
+- comment_collection.each do |comment|
+  .activity
+    .border
+    .time-container
+      = image_tag 'activity-upload.png'
+      %div
+        = time_passed_from_creation(comment)
+    .activity-container
+      .main-activity-avatar
+        = image_tag comment.user.avatar
+      .activity-content
+        .activity-owners
+          = link_to comment.user.name, [comment.user, :pictures]
+          оставил комментарий
+          %a{href: picture_path(comment.commentable)}
+            = "\"#{comment.text}\""
+          на изображение
+        .pictures-row
+          %a{href: picture_path(comment.commentable)}
+            = image_tag comment.commentable.path.thumb, class: 'picture'

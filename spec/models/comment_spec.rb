@@ -1,5 +1,7 @@
 require 'spec_helper'
 describe Comment do
+  it_should_behave_like 'trackable', :comment
+
   it { should belong_to(:user) }
   it { should belong_to(:commentable) }
 

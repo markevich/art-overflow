@@ -69,5 +69,5 @@
           - most_popular_pictures(resource.user).each do |pic|
             %li
               %a{href: picture_path(pic)}
-                = image_tag pic.path.thumb
+                = image_tag pic.path.small_thumb
 

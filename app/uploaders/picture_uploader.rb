@@ -3,8 +3,10 @@
 class PictureUploader < CarrierWave::Uploader::Base
   CROP_AREA_WIDTH = 800.freeze
   CROP_AREA_HEIGHT = 600.freeze
-  THUMB_WIDTH = 315.freeze
-  THUMB_HEIGHT = 210.freeze
+  SMALL_THUMB_WIDTH = 315.freeze
+  SMALL_THUMB_HEIGHT = 210.freeze
+  THUMB_WIDTH = 495.freeze
+  THUMB_HEIGHT = 330.freeze
   THUMB_ASPECT_RATIO = (THUMB_WIDTH.to_f / THUMB_HEIGHT).freeze
   include CarrierWave::MiniMagick
   include CarrierWave::ImageOptimizer
@@ -27,6 +29,11 @@ class PictureUploader < CarrierWave::Uploader::Base
   version :thumb do
     process :crop => [CROP_AREA_WIDTH, CROP_AREA_HEIGHT]
     process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
+    process :interlace
+  end
+
+  version :small_thumb, from_version: :thumb do
+    process :resize_to_fill => [SMALL_THUMB_WIDTH, SMALL_THUMB_HEIGHT]
     process :interlace
   end
 

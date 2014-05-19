@@ -25,6 +25,8 @@ Rails.application.routes.draw do
     resources :pictures
   end
 
+  resources :activities, only: [:index]
+
   resources :comments do
     member do
       post :like
@@ -41,8 +43,5 @@ Rails.application.routes.draw do
 
   resources :ping, only: :index
 
-  resource :foundations, only: [] do
-    get :elements
-  end
   root to: 'pictures#index'
 end
