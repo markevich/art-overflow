@@ -1,7 +1,7 @@
 - records_collection.first_three_owners.each_with_index do |owner, index|
   - separator = index == records_collection.count - 2 ? " и" : index != records_collection.count - 1 ? "," : ""
   = succeed separator do
-    = link_to owner.name, owner
+    = link_to owner.name, [owner, :pictures]
 
 - if records_collection.count > 3
   еще
