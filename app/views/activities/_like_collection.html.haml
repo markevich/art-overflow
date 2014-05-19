@@ -1,9 +1,3 @@
-- content_for :secondary_avatars do
-  .secondary-avatars
-    - like_collection.drop(1).first(9).each do |like|
-      %a{href: user_pictures_path(like.user)}
-        = image_tag like.user.avatar
-
 .activity
   .border
   .time-container
@@ -19,8 +13,11 @@
         .activity-owners
           = render partial: 'collection_owners', locals: { records_collection: like_collection }
           = I18n.t('counters.has_liked', count: like_collection.count)
-          изображение
-          = content_for :secondary_avatars
+          ваше изображение
+        .secondary-avatars
+          - like_collection.drop(1).first(9).each do |like|
+            %a{href: user_pictures_path(like.user)}
+              = image_tag like.user.avatar
 
         - picture = like_collection.likeable
         %a{href: picture_path(picture)}
@@ -34,10 +31,12 @@
         .activity-owners
           = render partial: 'collection_owners', locals: { records_collection: like_collection }
           = I18n.t('counters.has_liked', count: like_collection.count)
-
           ваш комментарий
 
-          = content_for :secondary_avatars
+        .secondary-avatars
+          - like_collection.drop(1).first(9).each do |like|
+            %a{href: user_pictures_path(like.user)}
+              = image_tag like.user.avatar
 
         - comment = like_collection.likeable
         %a{href: picture_path(comment.commentable)}
