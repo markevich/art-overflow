@@ -26,7 +26,7 @@
           .input
             %label.file.control-label
               Миниатюра
-          %canvas#crop-preview{ width: PictureUploader::THUMB_WIDTH, height: PictureUploader::THUMB_HEIGHT, style: "overflow: hidden" }
+          %canvas#crop-preview{ width: PictureUploader::SMALL_THUMB_WIDTH, height: PictureUploader::SMALL_THUMB_HEIGHT, style: "overflow: hidden" }
 
   .new-picture-description
     = f.hidden_field :path_cache
@@ -40,7 +40,7 @@
         %label.file.control-label
           Миниатюра
         .cached-picture
-          = image_tag(@picture.path.thumb)
+          = image_tag(@picture.path.small_thumb)
 
     = f.input :name
     = f.input :description

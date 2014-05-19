@@ -6,6 +6,8 @@ require 'sidekiq/testing/inline'
 require 'cucumber/rails'
 require 'capybara/poltergeist'
 require 'rspec/mocks'
+require 'public_activity/testing'
+PublicActivity.enabled = false
 
 if false
   Capybara.javascript_driver = :selenium

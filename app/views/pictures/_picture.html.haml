@@ -7,7 +7,7 @@
         %h5= truncate(picture.name, length: 20)
         %p
           = truncate(picture.description, length: 150)
-      = image_tag picture.path.thumb, class: 'picture'
+      = image_tag picture.path.small_thumb, class: 'picture'
       .name
         = link_to truncate(picture.user_name, length: 20), [picture.user, :pictures]
       .picture-actions

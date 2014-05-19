@@ -1,0 +1,118 @@
+@import 'setting.css.scss';
+.activity-wrapper{
+  background-color: #fafafa;
+}
+#activities {
+  width: 680px;;
+  padding: 30px 20px;
+  margin: 0 auto;
+  background-image: url(image-path('activity-border.png'));
+  background-repeat: repeat-y;
+  background-position-x: 60px;
+
+  .time-container{
+    width: 80px;
+    float: left;
+    color: #a9b1b8;
+    font-size: 11px;
+    text-align: center;
+    margin-right: 40px;
+    background-color: #fafafa;
+    padding-top: 14px;
+    margin-top: -14px;
+    padding-bottom: 14px;
+    margin-bottom: -14px;
+  }
+
+  .activity-container{
+    overflow: hidden;
+  }
+
+  .border{
+    position: absolute;
+    background-color: #ececec;
+    width: 500px;
+    height: 1px;
+    top: 5px;
+    left: 41px;
+  }
+
+
+  .main-activity-avatar{
+    float: left;
+    margin-right: 10px;
+    img{
+      width: 45px;
+      height: 45px;
+      -webkit-border-radius: 22px;
+      -moz-border-radius: 22px;
+      border-radius: 22px;
+    }
+  }
+  .secondary-avatars {
+    padding-top: 5px;
+    display: table-cell;
+  }
+
+  .secondary-avatars {
+    img{
+      width: 40px;
+      height: 40px;
+      -webkit-border-radius: 22px;
+      -moz-border-radius: 22px;
+      border-radius: 22px;
+      margin-right: 5px;
+    }
+  }
+  .activity{
+    padding-top: 30px;
+    padding-bottom: 30px;
+    position: relative;
+  }
+  .activity-content{
+    display: table-cell;
+    font-size: 12px;
+    color: #a9b1b8;
+
+    line-height: 16px;
+    .activity-owners{
+      margin-bottom: 10px;
+    }
+
+    .picture{
+      max-width: 100%;
+      height: auto;
+    }
+    a{
+        color: $blue;
+        text-decoration: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
+  }
+  .pictures-row{
+    a{
+      display: block;
+      float: left;
+      margin-right: 2%;
+      margin-bottom: 1%;
+    }
+    /* one item */
+    a:first-child:nth-last-child(1) {
+        width: 100%;
+    }
+    a:nth-last-child{
+      margin-right: 0;
+    }
+    /* two items */
+    a:first-child:nth-last-child(2),
+    a:first-child:nth-last-child(2) ~ a {
+        width: 48%;
+    }
+    /* three items */
+    a:first-child:nth-last-child(3),
+    a:first-child:nth-last-child(3) ~ a {
+        width: 31.3333%;
+    }
+  }
+}

@@ -19,6 +19,20 @@ class User < ActiveRecord::Base
   has_many :likes, dependent: :destroy
   has_many :albums
 
+  has_many :own_activities, class_name: PublicActivity::Activity, as: :owner
+  has_many :received_activities, class_name: PublicActivity::Activity, as: :recipient
+
+  has_many :follows, class_name: :follow, as: :follower
+
+  def activities
+    followable_ids = follows.pluck(:followable_id)
+    if followable_ids.empty?
+      PublicActivity::Activity.where("recipient_id = ?", id).group(:trackable_id, :id)
+    else
+      PublicActivity::Activity.where("(owner_id IN (?) AND recipient_id IS NULL) OR recipient_id = ?", followable_ids, id).group(:trackable_id, :id)
+    end
+  end
+
   acts_as_follower
   acts_as_followable
 

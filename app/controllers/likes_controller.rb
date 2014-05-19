@@ -1,5 +1,5 @@
 class LikesController < InheritedResources::Base
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index]
   belongs_to :user
 
   def index
