@@ -47,6 +47,7 @@ module UserWorld
     fill_in('user_name', with: 'Bruce Wayne')
     fill_in('user_email', with: user_email)
     fill_in('user_password', with: user_password)
+    choose(:user_sex_male)
   end
 
   def fill_authorization_form

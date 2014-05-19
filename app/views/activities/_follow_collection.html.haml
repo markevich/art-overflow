@@ -11,7 +11,10 @@
     .activity-content
       .activity-owners
         = render partial: 'collection_owners', locals: { records_collection: follow_collection }
-        = I18n.t('counters.has_followed', count: follow_collection.count)
+        - if follow_collection.count == 1
+          = declinatie('подписался', 'подписалась', follow_collection.first.follower)
+        - else
+          = I18n.t('counters.has_followed', count: follow_collection.count)
         на ваши обновления
 
       .secondary-avatars

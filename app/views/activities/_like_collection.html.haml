@@ -12,7 +12,10 @@
       .activity-content
         .activity-owners
           = render partial: 'collection_owners', locals: { records_collection: like_collection }
-          = I18n.t('counters.has_liked', count: like_collection.count)
+          - if like_collection.count == 1
+            = declinatie('оценил', 'оценила', like_collection.first.user)
+          - else
+            = I18n.t('counters.has_liked', count: like_collection.count)
           ваше изображение
         .secondary-avatars
           - like_collection.drop(1).first(9).each do |like|
@@ -22,7 +25,7 @@
         - picture = like_collection.likeable
         %a{href: picture_path(picture)}
           = image_tag picture.path.thumb, class: 'picture'
-  - elsif like_collection.likeable.is_a(Comment)
+  - elsif like_collection.likeable.is_a?(Comment)
     .activity-container
       .main-activity-avatar
         %a{href: user_pictures_path(like_collection.first.user)}
@@ -30,7 +33,10 @@
       .activity-content
         .activity-owners
           = render partial: 'collection_owners', locals: { records_collection: like_collection }
-          = I18n.t('counters.has_liked', count: like_collection.count)
+          - if like_collection.count == 1
+            = declinatie('оценил', 'оценила', like_collection.first.user)
+          - else
+            = I18n.t('counters.has_liked', count: like_collection.count)
           ваш комментарий
 
         .secondary-avatars

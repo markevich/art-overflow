@@ -11,7 +11,7 @@
     .activity-content
       .activity-owners
         = link_to picture_collection.owner.name, [picture_collection.owner, :pictures]
-        = "загрузил #{picture_collection.count} "
+        = "#{declinatie('загрузил', 'загрузила', picture_collection.owner)} #{picture_collection.count} "
         = I18n.t('counters.uploaded_pictures', count: picture_collection.count)
 
       - picture_collection.each_slice(3) do |pictures|

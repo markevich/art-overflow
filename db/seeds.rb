@@ -8,7 +8,12 @@
   # Mayor.create(name: 'Emanuel', city: cities.first)
 
 def create_user name, counter = nil
-  user = User.new(email: "example@example.com#{counter}", role: :user, name: name, password: 'password', password_confirmation: 'password')
+  user = User.new(email: "example@example.com#{counter}",
+    role: :user,
+    sex: :male,
+    name: name,
+    password: 'password',
+    password_confirmation: 'password')
   user.skip_confirmation!
   user.save!
 end
