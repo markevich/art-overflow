@@ -34,6 +34,7 @@ class PictureUploader < CarrierWave::Uploader::Base
 
   version :small_thumb, from_version: :thumb do
     process :resize_to_fill => [SMALL_THUMB_WIDTH, SMALL_THUMB_HEIGHT]
+    process :interlace
   end
 
   # def filename
