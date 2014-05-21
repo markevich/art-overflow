@@ -11,9 +11,10 @@
       .name
         = link_to truncate(picture.user_name, length: 20), [picture.user, :pictures]
       .picture-actions
-        - if user_signed_in? && current_user.liked?(picture)
-          %div.heart_normal.active
-        - else
-          %div.heart_normal
+        %div.heart_normal
+        -# - if user_signed_in? && current_user.liked?(picture)
+          -# %div.heart_normal.active
+        -# - else
+          -# %div.heart_normal
         %span
           = picture.likes_count
