@@ -52,7 +52,8 @@ class ActivityCollection::Manager
   end
 
   def picture_upload?
-    next_element.trackable.is_a?(::Picture)
+    next_element.owner == @element.owner &&
+      next_element.trackable.is_a?(::Picture)
   end
 
   def activity_on_same_object?
