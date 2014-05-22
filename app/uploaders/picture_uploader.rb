@@ -1,8 +1,8 @@
 # encoding: utf-8
 
 class PictureUploader < CarrierWave::Uploader::Base
-  CROP_AREA_WIDTH = 800.freeze
-  CROP_AREA_HEIGHT = 600.freeze
+  CROP_AREA_WIDTH = 1200.freeze
+  CROP_AREA_HEIGHT = 800.freeze
   SMALL_THUMB_WIDTH = 315.freeze
   SMALL_THUMB_HEIGHT = 210.freeze
   THUMB_WIDTH = 495.freeze
