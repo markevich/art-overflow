@@ -92,6 +92,7 @@ ArtOverflow::Application.configure do
     }
 
   GA.tracker = "UA-40948610-2"
+  GA.script_source = "('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js'"
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
