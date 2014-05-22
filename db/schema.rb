@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511091759) do
+ActiveRecord::Schema.define(version: 20140522141137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -87,6 +87,7 @@ ActiveRecord::Schema.define(version: 20140511091759) do
     t.datetime "updated_at"
     t.text     "description"
     t.string   "album_id"
+    t.integer  "view_count",     default: 0
   end
 
   add_index "pictures", ["album_id"], name: "index_pictures_on_album_id", using: :btree
