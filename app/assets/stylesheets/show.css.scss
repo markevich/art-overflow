@@ -50,7 +50,7 @@ section{
     float: left;
     margin-right: 1em;
     max-width: 3.5em;
-    margin-top: -5px;
+    margin-top: -11px;
   }
 }
 .picture-actions{
@@ -488,13 +488,15 @@ section{
   max-width: 1660px
 }
 .profil-form {
+  min-height: 100%;
+  position: relative;
   background-color: $bgLightGrey;
   .profil-form-container{
     position: relative;
     margin: auto;
     max-width: 1660px;
     padding: 0 20px;
-    margin-top: 20px;
+    padding-top: 20px;
     label{
       font-family: Arial;
       color: black;
@@ -514,6 +516,7 @@ section{
   .edit_user{
     >div{
       overflow: hidden;
+      margin-bottom: 20px;
     }
     form {
       margin-top: 3em;
@@ -526,9 +529,7 @@ section{
       }
     }
     input{
-      margin-bottom: 2em;
-      &:focus{
-      }
+      margin-bottom: 0;
     }
     .btn.btn-blue{
       padding: 0.4em!important;
@@ -549,20 +550,21 @@ section{
       width: 399px;
     }
     .collapse{
+      display: table;
       span{
         @include border-radius(6px);
         @include right-radius-border(0px);
         background: #f2f2f2;
         border-color: #d9d9d9;
         border-right: none;
-        float: left;
-        height: 21px;
+        float: none;
         border: 1px solid #cccccc;
         margin-right: -1px;
         margin-top: 0;
         width: 100px;
-        padding-top: 12px;
         text-align: center;
+        display: table-cell;
+        vertical-align: middle;
       }
       input[type="text"]{
         @include left-radius-border(0px);

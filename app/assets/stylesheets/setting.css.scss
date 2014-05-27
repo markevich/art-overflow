@@ -46,6 +46,9 @@ body{
   font-family: Arial;
   min-width: 980px;
 }
+html, body{
+  min-height: 100%;
+}
 $font:Gothic;
 a{
   @include transition(all 0.2s ease-in-out);

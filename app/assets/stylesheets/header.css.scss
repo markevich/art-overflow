@@ -4,7 +4,7 @@
 header{
   position: relative;
   background-color: $darkBlue;
-  padding: 10px 20px 9px 20px;
+  padding: 10px 20px 6px 20px;
 //стили для поиска профиля
   #search ::-webkit-input-placeholder {
     color: #70b2b8;
@@ -18,9 +18,9 @@ header{
   #search :-ms-input-placeholder {
     color: #70b2b8;
   }
-.clear{
-  clear: both;
-}
+  .clear{
+    clear: both;
+  }
   #search  input:hover::-webkit-input-placeholder,#search input.active::-webkit-input-placeholder {
     color: #e74c3c;
   }
@@ -32,6 +32,9 @@ header{
   }
   #search  input:hover:-moz-placeholder,#search input.active:-moz-placeholder {
     color: #e74c3c;
+  }
+  #menu ul{
+    margin-top: 2px;
   }
   .alignment-header{
     position: relative;
@@ -285,7 +288,7 @@ a.sign-in{
   background-repeat: no-repeat;
   bottom: -23px;
   position: relative;
-
+  z-index: 1;
 }
 .profil-menu ul li.active a{
   position: relative;
