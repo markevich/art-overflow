@@ -31,7 +31,7 @@ class LikesController < InheritedResources::Base
     @collection ||= begin
       offset = (page - 1) * PAGE_SIZE
 
-      end_of_association_chain.includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
+      end_of_association_chain.where(likeable_type: 'Picture').includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
     end
   end
 end
