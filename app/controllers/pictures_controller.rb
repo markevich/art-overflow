@@ -67,7 +67,7 @@ class PicturesController < InheritedResources::Base
   end
 
   def order
-    return({ params[:order] => :desc }) if Picture.column_names.include?(params[:order])
+    return({ params[:order] => :desc, id: :desc }) if Picture.column_names.include?(params[:order])
 
     { created_at: :desc }
   end
