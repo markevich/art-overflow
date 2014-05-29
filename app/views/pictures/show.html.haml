@@ -58,7 +58,7 @@
               = resource.description
       = render 'comments/form', commentable: resource if user_signed_in?
       .user-comment
-        = render resource.comments.includes(:user).order(created_at: :desc), commentable: resource
+        = render resource.comments.includes(:user).order(:created_at), commentable: resource
 
     .other-job-right
       %h3
