@@ -19,8 +19,8 @@ class PictureUploader < CarrierWave::Uploader::Base
     "uploads/#{model.user_id}/pictures/#{model.id}"
   end
 
-  process :interlace
   process resize_to_limit: [LIMIT_WIDTH, LIMIT_HEIGHT]
+  process :interlace
 
   def interlace
     manipulate! do |img, index, options|
