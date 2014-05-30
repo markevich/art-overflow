@@ -34,6 +34,23 @@
   .picture-actions-button
     = render 'pictures/like_button'
     = render partial: 'users/follow_button', locals: { resource: resource.user }
+    %social
+      :javascript
+        document.write(
+          VK.Share.button(
+            {
+              url: window.location,
+              title: "Art Overflow: #{resource.name}",
+              description: "#{resource.description}",
+              image: "#{resource.path}",
+              noparse: true
+            },
+            {
+              type: "custom",
+              text: "<img src=\"http://vk.com/images/share_32_2x.png\" width=\"32\" height=\"32\" />"
+            }
+        ));
+
     %span.edit-picture{ data: { user_id: resource.user_id, show_if_owner: true} }
       = link_to 'Редактировать', edit_picture_path(resource), class: 'blue'
 
