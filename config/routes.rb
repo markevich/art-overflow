@@ -5,11 +5,8 @@ Rails.application.routes.draw do
   devise_for :users
   resources :search, only: :index
   resources :users, except: [:show, :destroy] do
-    member do
-      post :follow
-      post :stop_following
-    end
-
+    resource :follow, only: [:create, :destroy]
+    resources :followers, only: [:index], controller: 'user_followers'
     resources :pictures
     resources :albums
     resources :likes, only: :index, controller: 'user_likes'
@@ -27,11 +24,11 @@ Rails.application.routes.draw do
   resources :activities, only: [:index]
 
   resources :comments do
-    resource :likes, only: [:create, :destroy]
+    resource :like, only: [:create, :destroy]
   end
 
   resources :pictures do
-    resource :likes, only: [:create, :destroy]
+    resource :like, only: [:create, :destroy]
     resources :likes, only: :index, controller: 'picture_likes'
   end
 

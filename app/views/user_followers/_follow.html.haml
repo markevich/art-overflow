@@ -1,0 +1,6 @@
+- cache follow.follower do
+  = link_to [follow.follower, :pictures] do
+    .mini-user-block
+      = image_tag(follow.follower.avatar)
+      %div
+        = follow.follower.name

@@ -1,5 +1,5 @@
 class PictureLikesController < InheritedResources::Base
-  before_action :authenticate_user!, except: [:index]
+  actions :index
 
   defaults resource_class: Like, collection_name: 'likes', instance_name: 'like'
   belongs_to :picture

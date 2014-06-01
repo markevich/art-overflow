@@ -2,19 +2,19 @@
   - following = current_user.following?(resource)
   .js-button-watch.button-toggler.follow-button{ data: { voted: following, user_id: resource.id, hide_if_owner: true} }
     .js-deactivate-button
-      = link_to(stop_following_user_path(resource), method: :post, class: 'button-red js-remote-link',
+      = link_to([resource, :follow], method: :delete, class: 'button-red js-remote-link',
         data: { remote: true }) do
         = I18n.t('following')
-      = link_to_modal('#', class: 'counter-container', data: { remote: true }) do
+      = link_to_modal([resource, :followers], class: 'counter-container', data: { remote: true }) do
         %span.counter
           = resource.followers_count
         %span.spinner-icon.blue{style: 'display:none'}
 
     .js-activate-button
-      = link_to(follow_user_path(resource), method: :post, class: 'button-blue js-remote-link',
+      = link_to([resource, :follow], method: :post, class: 'button-blue js-remote-link',
         data: { remote: true }) do
         = I18n.t('follow')
-      = link_to_modal('#', class: 'counter-container', data: { remote: true }) do
+      = link_to_modal([resource, :followers], class: 'counter-container', data: { remote: true }) do
         %span.counter
           = resource.followers_count
         %span.spinner-icon.red{style: 'display:none'}
@@ -23,7 +23,7 @@
     .js-activate-button
       = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link') do
         = I18n.t('follow')
-      = link_to_modal('#', class: 'counter-container', data: { remote: true }) do
+      = link_to_modal([resource, :followers], class: 'counter-container', data: { remote: true }) do
         %span.counter
           = resource.followers_count
         %span.spinner-icon{style: 'display:none'}

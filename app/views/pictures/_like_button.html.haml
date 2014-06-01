@@ -2,7 +2,7 @@
   - voted = current_user.liked?(resource)
   .js-button-watch.button-toggler.like-button{ data: { voted: voted} }
     .js-deactivate-button
-      = link_to([resource, :likes], method: :delete, class: 'button-red js-remote-link',
+      = link_to([resource, :like], method: :delete, class: 'button-red js-remote-link',
         data: { remote: true }) do
         = I18n.t('unlike')
       = link_to_modal([resource, :likes], class: 'counter-container', data: { remote: true }) do
@@ -11,7 +11,7 @@
         %span.spinner-icon.blue{style: 'display:none'}
 
     .js-activate-button
-      = link_to([resource, :likes], method: :post, class: 'button-blue js-remote-link',
+      = link_to([resource, :like], method: :post, class: 'button-blue js-remote-link',
         data: { remote: true }) do
         = I18n.t('like')
       = link_to_modal([resource, :likes], class: 'counter-container', data: { remote: true }) do
