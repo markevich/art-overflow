@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :search, only: :index
   resources :users, except: [:show, :destroy] do
     resource :follow, only: [:create, :destroy]
+    resources :follows, only: [:index]
     resources :followers, only: [:index], controller: 'user_followers'
     resources :pictures
     resources :albums

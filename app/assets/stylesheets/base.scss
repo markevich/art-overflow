@@ -149,8 +149,12 @@ ul{
     display: block;
     margin-top: 1em;
     text-align: center;
+    text-decoration: none;
   }
-
+  span{
+    margin-top: 1em;
+    display: block;
+  }
   .likes, .followers, .follows{
     float: left;
     margin-left: 1em;

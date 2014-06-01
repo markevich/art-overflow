@@ -8,7 +8,7 @@ class UserLikesController < InheritedResources::Base
     respond_with do |format|
       format.html do
         if request.xhr?
-          render collection
+          render partial: 'like', collection: collection
         end
       end
     end

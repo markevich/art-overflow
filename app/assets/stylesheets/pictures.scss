@@ -358,6 +358,32 @@
     overflow-x: hidden;
     overflow-y:auto;
   }
+  .images{
+    text-align: center;
+    .heart{
+      vertical-align: -6px;
+      width: 40px;
+      margin: 0 10px;
+    }
+    .pulse{
+      width: 60px;
+    }
+
+    .no-follows{
+      width: 130px;
+    }
+  }
+
+  .container-for-empty{
+    padding: 0;
+    h2{
+      color: #6B6B6B;
+      font-weight: normal;
+      font-size: 27px;
+      margin-bottom: 0;
+      margin-top: 5px;
+    }
+  }
 }
 .mini-user-block{
   width: 120px;

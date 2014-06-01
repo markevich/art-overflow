@@ -24,19 +24,19 @@
           .bottom
           .count
             = resource.likes_count
-          %span.blue
+          %span
             = I18n.t('counters.likes', count: resource.likes_count)
         .followers
           .top
           .bottom
           .count
             = resource.followers_count
-          %span.blue
+          = link_to_modal [resource, :followers], class: 'blue', data: { remote: true } do
             = I18n.t('counters.followers', count: resource.followers_count)
         .follows
           .top
           .bottom
           .count
             = resource.follows.count
-          %span.blue
+          = link_to_modal [resource, :follows], class: 'blue', data: { remote: true } do
             = I18n.t('counters.follows', count: resource.follows.count)

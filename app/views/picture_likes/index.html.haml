@@ -1,4 +1,13 @@
 = cache parent do
   #modal-options{data: { class: 'mini-users' } }
   %div.mini-users-container
-    = render partial: 'like', collection: collection
+    - if collection.present?
+      = render partial: 'like', collection: collection
+    - else
+      .images
+        = image_tag 'pulse.png', class: 'pulse'
+        = image_tag 'heart-large.png', class: 'heart'
+        = image_tag 'pulse.png', class: 'pulse'
+      .container-for-empty
+        %h2
+          Будь первым кто оценит это изображение.
