@@ -10,10 +10,10 @@ Rails.application.routes.draw do
       post :stop_following
     end
 
-
     resources :pictures
     resources :albums
     resources :likes
+    resource :notification_settings, only: [:show, :update]
   end
 
   resource :user_passwords, only: [:edit, :update]

@@ -1,0 +1,5 @@
+%p
+  = "Пользователь "
+  %a{href: "http://artoverflow.com#{user_pictures_path(@follow.follower)}"}
+    = "#{@follow.follower.name}"
+  подиписался на ваши обновления.

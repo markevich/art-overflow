@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140511091759) do
+ActiveRecord::Schema.define(version: 20140601105643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -75,6 +75,17 @@ ActiveRecord::Schema.define(version: 20140511091759) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "notification_settings", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "news",        default: true
+    t.boolean  "comments",    default: true
+    t.boolean  "subscribers", default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notification_settings", ["user_id"], name: "index_notification_settings_on_user_id", using: :btree
 
   create_table "pictures", force: true do |t|
     t.string   "name"
