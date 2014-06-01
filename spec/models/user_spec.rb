@@ -4,6 +4,7 @@ describe User do
   it { should have_many(:pictures).dependent(:destroy) }
   it { should have_many(:comments).dependent(:destroy) }
   it { should have_many(:likes).dependent(:destroy) }
+  it { should have_one(:notification_settings).dependent(:destroy) }
 
   it { should validate_presence_of(:name) }
   it { should validate_presence_of(:email) }

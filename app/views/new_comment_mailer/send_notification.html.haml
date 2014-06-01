@@ -1,0 +1,9 @@
+%p
+  = "Пользователь "
+  %a{href: "http://artoverflow.com#{user_pictures_path(@comment.user)}"}
+    = "#{@comment.user.name}"
+  оставил комментарий к
+  %a{href: "http://artoverflow.com#{picture_path(@comment.commentable)}"}
+    вашей работе:
+
+%p= @comment.text
