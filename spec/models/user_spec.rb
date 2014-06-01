@@ -35,19 +35,6 @@ describe User do
     end
   end
 
-  describe '#like' do
-    let(:likeable) { create(:comment) }
-
-    it { expect { user.like(likeable) }.to change(Like, :count).by(1)}
-  end
-
-  describe '#unlike' do
-    let(:likeable) { create(:comment) }
-    before { user.likes.create(likeable: likeable) }
-
-    it { expect { user.unlike(likeable) }.to change(Like, :count).by(-1)}
-  end
-
   describe 'likes_count' do
     before { create_list(:picture, 2, :with_likes, user: user) }
 

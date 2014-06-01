@@ -4,7 +4,7 @@
     .avatar-provil
       =image_tag(resource.avatar)
     %h3
-      = resource.name
+      = resource.name.truncate(50)
     .social
       - if resource.city?
         %a

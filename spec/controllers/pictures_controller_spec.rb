@@ -23,28 +23,6 @@ describe PicturesController do
     let(:invalid_params) { { picture: build_attributes_for(:picture) } }
   end
 
-
-  describe "#unlike" do
-    let(:pic) { create(:picture) }
-    it 'returns likes count' do
-      user.like(pic)
-      post :unlike, id: pic.id
-
-      expect(pic.reload.likes_count).to eq 0
-      expect(response.body).to eq({count: pic.likes_count, state: :inactive}.to_json)
-    end
-  end
-
-  describe "#like" do
-    let(:pic) { create(:picture) }
-    it 'changes likes count' do
-      post :like, id: pic.id
-
-      expect(pic.reload.likes_count).to eq 1
-      expect(response.body).to eq({count: pic.likes_count, state: :active}.to_json)
-    end
-  end
-
   context 'unauthorized' do
     describe "#edit" do
       it_should_behave_like 'unauthorized action' do

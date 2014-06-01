@@ -10,10 +10,9 @@ Rails.application.routes.draw do
       post :stop_following
     end
 
-
     resources :pictures
     resources :albums
-    resources :likes
+    resources :likes, only: :index, controller: 'user_likes'
   end
 
   resource :user_passwords, only: [:edit, :update]
@@ -28,17 +27,14 @@ Rails.application.routes.draw do
   resources :activities, only: [:index]
 
   resources :comments do
-    member do
-      post :like
-      post :unlike
-    end
+    resource :likes, only: [:create, :destroy]
   end
+
   resources :pictures do
-    member do
-      post :like
-      post :unlike
-    end
+    resource :likes, only: [:create, :destroy]
+    resources :likes, only: :index, controller: 'picture_likes'
   end
+
   resources :comments, only: [:destroy, :create]
 
   resources :ping, only: :index
