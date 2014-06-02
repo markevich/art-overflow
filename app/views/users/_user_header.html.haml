@@ -29,14 +29,14 @@
         .followers
           .top
           .bottom
-          .count
+          = link_to_modal [resource, :followers], class: 'count', data: { remote: true } do
             = resource.followers_count
           = link_to_modal [resource, :followers], class: 'blue', data: { remote: true } do
             = I18n.t('counters.followers', count: resource.followers_count)
         .follows
           .top
           .bottom
-          .count
+          = link_to_modal [resource, :follows], class: 'count', data: { remote: true } do
             = resource.follows.count
           = link_to_modal [resource, :follows], class: 'blue', data: { remote: true } do
             = I18n.t('counters.follows', count: resource.follows.count)

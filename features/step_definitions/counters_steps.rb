@@ -17,13 +17,13 @@ end
 
 When(/^I click to followers counter link$/) do
   within '.followers' do
-    find('a').click
+    find('.count').click
   end
 end
 
 When(/^I click to follows counter link$/) do
   within '.follows' do
-    find('a').click
+    find('.count').click
   end
 end
 

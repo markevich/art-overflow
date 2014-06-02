@@ -2,10 +2,15 @@
   #modal-options{data: { class: 'mini-users' } }
   %div.mini-users-container
     - if collection.present?
-      = render partial: 'follow', collection: collection
+      .target
+        - human_users = I18n.t('counters.follow_users', count: collection.count)
+        = "\"#{parent.name.truncate(35)}\" подписался на обновления #{collection.count} #{human_users}:"
+      .content-mini-user
+        = render partial: 'follow', collection: collection
     - else
-      .images
-        = image_tag 'no-follows.png', class: 'no-follows'
-      .container-for-empty
-        %h2
-          Этот пользователь ни на кого не подписан. Ты можешь быть первым.
+      .container-empty
+        .images
+          = image_tag 'no-follows.png', class: 'no-follows'
+        .container-for-empty
+          %h2
+            Этот пользователь ни на кого не подписан. Ты можешь быть первым.

@@ -350,13 +350,33 @@
     vertical-align: 23px;
   }
 }
+.container-empty{
+  padding:15px;
+}
 .mini-users{
-  width: 750px;
-  padding: 15px 20px;
+  width: 770px;
+  padding: 0px 0px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
   .mini-users-container{
     max-height: 500px;
     overflow-x: hidden;
     overflow-y:auto;
+
+    .target{
+      margin-bottom: 20px;
+    }
+  }
+  .content-mini-user{
+    padding: 0px 10px;
+  }
+  .target{
+    margin-bottom: 20px;
+    background-color: #26394d;
+    padding: 15px 10px;
+    color: rgb(235, 235, 235);
+    font-family: Arial;
   }
   .images{
     text-align: center;
