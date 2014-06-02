@@ -1,9 +1,9 @@
 class Comment < ActiveRecord::Base
-  include Likeable
   include Trackable
 
   belongs_to :user
   belongs_to :commentable, polymorphic: true, counter_cache: true, touch: true
+  has_many :likes, as: :likeable, dependent: :destroy
 
   validates :commentable_id, :commentable_type, :user_id, :text, presence: true
 

@@ -4,7 +4,7 @@
     .avatar-provil
       =image_tag(resource.avatar)
     %h3
-      = resource.name
+      = resource.name.truncate(50)
     .social
       - if resource.city?
         %a
@@ -24,19 +24,19 @@
           .bottom
           .count
             = resource.likes_count
-          %span.blue
+          %span
             = I18n.t('counters.likes', count: resource.likes_count)
         .followers
           .top
           .bottom
-          .count
+          = link_to_modal [resource, :followers], class: 'count', data: { remote: true } do
             = resource.followers_count
-          %span.blue
+          = link_to_modal [resource, :followers], class: 'blue', data: { remote: true } do
             = I18n.t('counters.followers', count: resource.followers_count)
         .follows
           .top
           .bottom
-          .count
+          = link_to_modal [resource, :follows], class: 'count', data: { remote: true } do
             = resource.follows.count
-          %span.blue
+          = link_to_modal [resource, :follows], class: 'blue', data: { remote: true } do
             = I18n.t('counters.follows', count: resource.follows.count)

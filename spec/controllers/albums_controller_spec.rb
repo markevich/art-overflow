@@ -8,6 +8,8 @@ describe AlbumsController do
   let(:album) { create(:album, user: user) }
 
   it_should_behave_like 'index action' do
+    before { create(:album, user: user) }
+
     before { get :index, user_id: user.id }
   end
 

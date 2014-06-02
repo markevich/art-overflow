@@ -69,7 +69,6 @@ section{
 .picture-actions{
   a{
     float: left;
-    margin-right: 15px;
     text-decoration: none;
   }
 }
@@ -189,7 +188,10 @@ section{
     background-position: 9px center;
     padding-top: 5px;
     padding-bottom: 7px;
-    span{
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+   & ~ .counter-container{
       display: none;
     }
   }
@@ -202,8 +204,11 @@ section{
     margin-top: 6px;
     padding-top: 5px;
     padding-bottom: 7px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
     background-position: 9px center;
-    span{
+    & ~ .counter-container{
       display: none;
     }
   }
@@ -848,15 +853,17 @@ section{
       padding-top: 5px;
       padding-bottom: 7px;
       margin-right: 13px;
-      .active-count{
-        display: none;
-      }
+      -webkit-border-radius: 3px;
+      -moz-border-radius: 3px;
+      border-radius: 3px;
     }
     .button-red{
       text-decoration: none;
       background-color: $colorRed;
     }
-
+    .counter-container{
+      display: none;
+    }
     .follow-button{
       float: left;
       width: 215px;
@@ -868,14 +875,6 @@ section{
     background-repeat: no-repeat;
     width: 15px;
     height: 12px;
-    cursor: pointer;
-  }
-  .man{
-    background-image: url(image_path("man-1.png"));
-    display: inline-block;
-    background-repeat: no-repeat;
-    width: 20px;
-    height: 16px;
     cursor: pointer;
   }
   .picture-search{

@@ -5,15 +5,12 @@ Rails.application.routes.draw do
   devise_for :users
   resources :search, only: :index
   resources :users, except: [:show, :destroy] do
-    member do
-      post :follow
-      post :stop_following
-    end
-
-
+    resource :follow, only: [:create, :destroy]
+    resources :follows, only: [:index]
+    resources :followers, only: [:index], controller: 'user_followers'
     resources :pictures
     resources :albums
-    resources :likes
+    resources :likes, only: :index, controller: 'user_likes'
   end
 
   resource :user_passwords, only: [:edit, :update]
@@ -28,17 +25,14 @@ Rails.application.routes.draw do
   resources :activities, only: [:index]
 
   resources :comments do
-    member do
-      post :like
-      post :unlike
-    end
+    resource :like, only: [:create, :destroy]
   end
+
   resources :pictures do
-    member do
-      post :like
-      post :unlike
-    end
+    resource :like, only: [:create, :destroy]
+    resources :likes, only: :index, controller: 'picture_likes'
   end
+
   resources :comments, only: [:destroy, :create]
 
   resources :ping, only: :index

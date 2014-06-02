@@ -5,6 +5,9 @@ class Like < ActiveRecord::Base
   belongs_to :user, touch: true
 
   validates :user, :likeable, presence: true
+  validates :user, uniqueness: { scope: [:likeable_id, :likeable_type] }
+
+  delegate :name, :avatar, to: :user, prefix: true
 
   def recipient
     likeable.user

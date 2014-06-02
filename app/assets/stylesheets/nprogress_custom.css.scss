@@ -1,4 +1,5 @@
 $color: #3CB9C4;
+$colorRed: #e74c3c;
 
 #nprogress{
  .bar {
@@ -13,12 +14,12 @@ $color: #3CB9C4;
 }
 
 .spinner-icon {
-  width: 14px;
-  height: 14px;
+  width: 10px;
+  height: 10px;
+
+  display: block;
 
   border: solid 2px transparent;
-  border-top-color: $color;
-  border-left-color: $color;
   border-radius: 10px;
 
   -webkit-animation: nprogress-spinner 400ms linear infinite;
@@ -28,6 +29,14 @@ $color: #3CB9C4;
   animation: nprogress-spinner 400ms linear infinite;
 }
 
+.spinner-icon.red{
+  border-top-color: $color;
+  border-left-color: $color;
+}
+.spinner-icon.blue{
+  border-top-color: $colorRed;
+  border-left-color: $colorRed;
+}
 @-webkit-keyframes nprogress-spinner {
   0% { -webkit-transform: rotate(0deg); transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); transform: rotate(360deg); }

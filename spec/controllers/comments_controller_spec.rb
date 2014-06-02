@@ -17,28 +17,6 @@ describe CommentsController do
     it { expect { post :create, params }.to change(picture.comments, :count).by(1) }
   end
 
-  context '#like' do
-    let(:comment) { create(:comment, commentable: picture) }
-
-    it do
-      post :like, id: comment.id
-      expect(comment.reload.likes_count).to eq 1
-    end
-  end
-
-  context '#unlike' do
-    let(:comment) { create(:comment, commentable: picture) }
-    before do
-      user.like(comment)
-      comment.reload
-    end
-
-    it do
-      post :unlike, id: comment.id
-      expect(comment.reload.likes_count).to eq 0
-    end
-  end
-
   it_behaves_like 'destroy action' do
     let(:comment) { create(:comment, commentable: picture) }
     let(:params) { {id: comment.id} }

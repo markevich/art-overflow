@@ -11,11 +11,11 @@ module FollowingWorld
   end
 
   def follow_button(user)
-    find_link I18n.t('follow'), href: follow_user_path(user)
+    find_link I18n.t('follow'), href: user_follow_path(user)
   end
 
   def unfollow_button(user)
-    find_link I18n.t('following'), href: stop_following_user_path(user)
+    find_link I18n.t('following'), href: user_follow_path(user)
   end
 end
 
