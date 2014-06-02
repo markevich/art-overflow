@@ -4,7 +4,7 @@
     - if collection.present?
       .target
         - human_users = I18n.t('counters.follow_users', count: collection.count)
-        = "\"#{parent.name.truncate(35)}\" подписался на обновления #{collection.count} #{human_users}:"
+        = "#{parent.name.truncate(35)} подписался на обновления #{collection.count} #{human_users}:"
       .content-mini-user
         = render partial: 'follow', collection: collection
     - else
