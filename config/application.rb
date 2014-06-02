@@ -13,6 +13,12 @@ module ArtOverflow
   class Application < Rails::Application
     config.autoload_paths += %W{#{config.root}/app #{config.root}/lib}
 
+    config.active_record.observers = begin
+      observers_path = Rails.root.join('app/observers/').to_s
+      Dir["#{observers_path}**/*.rb"].map do |f|
+        f.gsub(observers_path.to_s, '').gsub(/\.rb\z/, '')
+      end
+    end
 
     config.i18n.default_locale = :ru
     config.i18n.locale = :ru

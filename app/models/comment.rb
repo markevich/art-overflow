@@ -7,19 +7,11 @@ class Comment < ActiveRecord::Base
 
   validates :commentable_id, :commentable_type, :user_id, :text, presence: true
 
-  after_create :send_notification
-
   delegate :name, to: :user, prefix: true
   delegate :avatar, to: :user, prefix: true
 
   def recipient
     commentable.user
-  end
-
-  private
-
-  def send_notification
-    NotificationWorker.perform_async(:new_comment, id)
   end
 
   # Define your filters for content
