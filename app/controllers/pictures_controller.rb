@@ -60,7 +60,7 @@ class PicturesController < InheritedResources::Base
   private
 
   def increase_view_count
-    resource.update_column(:view_count, resource.view_count + 1)
+    Picture.increment_counter(:view_count, resource.id)
   end
 
   def smart_collection_url
