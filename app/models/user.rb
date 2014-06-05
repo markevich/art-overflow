@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   before_create :set_password_confirmation
-  after_create :create_notification_settings
+  after_create :create_notification_settings, unless: :skip_callbacks
 
   validates :name, :email, presence: true
 
