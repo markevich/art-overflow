@@ -9,6 +9,7 @@ class Comment < ActiveRecord::Base
 
   delegate :name, to: :user, prefix: true
   delegate :avatar, to: :user, prefix: true
+  alias_method :activity_owner, :user
 
   def recipient
     commentable.user

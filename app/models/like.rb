@@ -5,6 +5,7 @@ class Like < ActiveRecord::Base
   belongs_to :user, touch: true
 
   validates :user, :likeable, presence: true
+  alias_method :activity_owner, :user
 
   def recipient
     likeable.user

@@ -49,6 +49,10 @@ RSpec.configure do |config|
     ActiveRecord::Base.observers.disable :all
   end
 
+  config.with_options type: :feature do |f|
+    f.include Capybara::Helpers
+  end
+
   ActiveRecord::Base.skip_callbacks = true
 
   config.infer_base_class_for_anonymous_controllers = false

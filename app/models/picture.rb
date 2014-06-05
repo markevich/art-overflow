@@ -19,4 +19,9 @@ class Picture < ActiveRecord::Base
   delegate :name, to: :user, prefix: true
   delegate :name, to: :album, prefix: true
   delegate :avatar, to: :user, prefix: true
+  alias_method :activity_owner, :user
+
+  def recipient
+    nil
+  end
 end
