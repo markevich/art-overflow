@@ -5,7 +5,7 @@ class Picture < ActiveRecord::Base
 
   include Commentable
 
-  acts_as_taggable
+  acts_as_taggable_on :tags
 
   belongs_to :user, counter_cache: true, touch: true
   belongs_to :album, counter_cache: true, touch: true

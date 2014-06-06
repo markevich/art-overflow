@@ -172,6 +172,12 @@
         }
       }
     }
+    div.tagsinput{
+      padding: 0px;
+      a span.tag span {
+        font-weight: normal;
+      }
+    }
   }
 }
 #button_load_more {
