@@ -3,8 +3,10 @@ class NewFollowerMailer < ActionMailer::Base
 
   def send_notification(follow_id)
     @follow = Follow.find(follow_id)
-    user = @follow.recipient
-    email_with_name = "#{user.name} <#{user.email}>"
-    mail(to: email_with_name, subject: "Пользователь #{@follow.follower.name} теперь следит за вами в Art Overflow!").deliver
+    @follower = @follow.follower
+    @recipient = @follow.recipient
+
+    email_with_name = "#{@recipient.name} <#{@recipient.email}>"
+    mail(to: email_with_name, subject: "Пользователь #{@follower.name} подписался на ваши обновления.").deliver
   end
 end
