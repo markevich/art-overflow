@@ -6,6 +6,7 @@ require 'rspec/rails'
 require "factory_girl"
 require 'sidekiq/testing'
 require 'shoulda/matchers'
+require 'capybara/poltergeist'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
@@ -13,6 +14,7 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 require 'public_activity/testing'
 PublicActivity.enabled = false
+Capybara.javascript_driver = :poltergeist
 
 RSpec.configure do |config|
   config.raise_errors_for_deprecations!

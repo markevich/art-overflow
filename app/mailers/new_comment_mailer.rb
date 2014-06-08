@@ -3,8 +3,13 @@ class NewCommentMailer < ActionMailer::Base
 
   def send_notification(comment_id)
     @comment = Comment.find(comment_id)
-    user = @comment.recipient
-    email_with_name = "#{user.name} <#{user.email}>"
-    mail(to: email_with_name, subject: "Пользователь #{@comment.user.name} оставил комментарий к вашей работе!").deliver
+    @recipient = @comment.recipient
+    @user = @comment.user
+    @picture = @comment.commentable
+    email_with_name = "#{@recipient.name} <#{@recipient.email}>"
+
+    return if @recipient.id == @user.id
+
+    mail(to: email_with_name, subject: "Пользователь #{@user.name} оставил комментарий к вашей работе!").deliver
   end
 end

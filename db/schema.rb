@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20140601105643) do
     t.datetime "updated_at"
     t.text     "description"
     t.string   "album_id"
+    t.integer  "view_count",     default: 0
   end
 
   add_index "pictures", ["album_id"], name: "index_pictures_on_album_id", using: :btree
@@ -151,6 +152,7 @@ ActiveRecord::Schema.define(version: 20140601105643) do
     t.string   "avatar"
     t.integer  "pictures_count",         default: 0
     t.integer  "albums_count",           default: 0
+    t.string   "sex"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
