@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def index
-    @users = User.search(params[:query])
+    @users = User.search(URI::Escape(params[:query]))
   end
 
   def permitter_params
