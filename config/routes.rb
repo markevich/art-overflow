@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :pictures
     resources :albums
     resources :likes, only: :index, controller: 'user_likes'
+    resource :notification_settings, only: [:show, :update]
   end
 
   resource :user_passwords, only: [:edit, :update]

@@ -9,6 +9,8 @@ class Like < ActiveRecord::Base
 
   delegate :name, :avatar, to: :user, prefix: true
 
+  alias_method :activity_owner, :user
+
   def recipient
     likeable.user
   end

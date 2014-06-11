@@ -9,6 +9,7 @@ FactoryGirl.define do
 
   factory :user do
     name "Bruce Wayne"
+    notification_settings
     email
     city 'Minsk'
     password "1234567"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140606201213) do
+ActiveRecord::Schema.define(version: 20140601105643) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -76,6 +76,17 @@ ActiveRecord::Schema.define(version: 20140606201213) do
     t.datetime "updated_at"
   end
 
+  create_table "notification_settings", force: true do |t|
+    t.integer  "user_id"
+    t.boolean  "news",        default: true
+    t.boolean  "comments",    default: true
+    t.boolean  "subscribers", default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "notification_settings", ["user_id"], name: "index_notification_settings_on_user_id", using: :btree
+
   create_table "pictures", force: true do |t|
     t.string   "name"
     t.string   "path"
@@ -111,6 +122,7 @@ ActiveRecord::Schema.define(version: 20140606201213) do
   end
 
   add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
 
   create_table "tags", force: true do |t|
     t.string  "name"
@@ -143,6 +155,7 @@ ActiveRecord::Schema.define(version: 20140606201213) do
     t.string   "avatar"
     t.integer  "pictures_count",         default: 0
     t.integer  "albums_count",           default: 0
+    t.string   "sex"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

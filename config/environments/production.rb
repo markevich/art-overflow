@@ -71,6 +71,7 @@ ArtOverflow::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default_url_options = { :host => 'artoverflow.com' }
+  config.action_mailer.asset_host = 'http://artoverflow.com'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
@@ -84,12 +85,6 @@ ArtOverflow::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
-  config.middleware.use ExceptionNotification::Rack,
-    :email => {
-      :email_prefix => "[Artoverflow в печали!] ",
-      :sender_address => %{"notifier" <info@artoverflow.com>},
-      :exception_recipients => %w{slava.markevich@gmail.com onemur@gmail.com}
-    }
 
   GA.tracker = "UA-40948610-2"
   GA.script_source = "('https:' == document.location.protocol ? 'https://' : 'http://') + 'stats.g.doubleclick.net/dc.js'"

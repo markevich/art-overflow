@@ -13,6 +13,8 @@ gem 'uglifier'
 gem 'nprogress-rails'
 gem 'petrovich'
 
+gem 'exception_notification'
+
 gem 'jquery-ui-rails'
 gem 'jquery-modal-rails', github: 'dei79/jquery-modal-rails'
 
@@ -95,7 +97,6 @@ end
 
 group :production do
   #notify about exceptions by email
-  gem 'exception_notification'
   #
 
   #caching

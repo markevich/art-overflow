@@ -53,3 +53,7 @@ ru:
       update:
         notice: Аватар успешно обновлен
 
+    notification_settings:
+      update:
+        notice: Настройки уведомлений успешно обновлены
+

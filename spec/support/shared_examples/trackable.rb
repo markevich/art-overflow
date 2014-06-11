@@ -17,4 +17,7 @@ shared_examples_for 'trackable' do |factory_name|
       end
     end.to change(PublicActivity::Activity, :count).to(0)
   end
+
+  it { should respond_to(:activity_owner) }
+  it { should respond_to(:recipient) }
 end

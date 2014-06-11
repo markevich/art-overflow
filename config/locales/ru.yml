@@ -57,6 +57,7 @@ ru:
       comment: Комментарий
       album: Альбом
       picture: Работа
+      notification_settings: Настройки уведомлений
     attributes:
       user:
         email: E-mail
@@ -75,6 +76,10 @@ ru:
         description: Описание
         album: Альбом
         path: Изображение
+      notification_settings:
+        news: Новостях и обновлениях проекта
+        subscribers: Новых подписчиках
+        comments: Новых комментариях
   user:
     start_following: "Вы успешно подписались на обновления %{name}."
     stop_following: "Вы успешно отписались от обновлений %{name}."

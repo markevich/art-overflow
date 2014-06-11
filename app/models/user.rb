@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
 
   before_create :set_password_confirmation
+  after_create :create_notification_settings, unless: :skip_callbacks
 
   validates :name, :email, presence: true
 
@@ -23,6 +24,7 @@ class User < ActiveRecord::Base
   has_many :received_activities, class_name: PublicActivity::Activity, as: :recipient
 
   has_many :follows, class_name: :follow, as: :follower
+  has_one :notification_settings, dependent: :destroy
 
   def activities
     followable_ids = follows.pluck(:followable_id)
