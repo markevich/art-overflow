@@ -3,6 +3,7 @@ class PicturesController < InheritedResources::Base
 
   PAGE_SIZE = 15
   before_action :authenticate_user!, only: [:new, :create, :update, :edit, :like, :unlike]
+  before_action :increase_view_count, only: [:show]
 
   load_and_authorize_resource :user
   load_and_authorize_resource :picture, through: :user
@@ -16,22 +17,6 @@ class PicturesController < InheritedResources::Base
           render collection
         end
       end
-    end
-  end
-
-  def like
-    if current_user.like(resource)
-      render json: { count: resource.reload.likes_count, state: :active }
-    else
-      render json: { count: resource.reload.likes_count, message: 'fail', state: :inactive}
-    end
-  end
-
-  def unlike
-    if current_user.unlike(resource)
-      render json: { count: resource.reload.likes_count, state: :inactive }
-    else
-      render json: { count: resource.reload.likes_count, message: 'fail', state: :active}
     end
   end
 
@@ -57,6 +42,10 @@ class PicturesController < InheritedResources::Base
   end
 
   private
+
+  def increase_view_count
+    Picture.increment_counter(:view_count, resource.id)
+  end
 
   def smart_collection_url
     user_pictures_path(resource.user)

@@ -1,37 +1,24 @@
 class LikesController < InheritedResources::Base
-  before_action :authenticate_user!, except: [:index]
-  belongs_to :user
+  before_action :authenticate_user!
+  belongs_to :comment, :picture, polymorphic: true
 
-  def index
-    respond_with do |format|
-      format.html do
-        if request.xhr?
-          render collection
-        end
-      end
+  def create
+    like = Like.new(likeable: parent, user: current_user)
+
+    if like.save
+      render json: { count: parent.reload.likes_count, state: :active }
+    else
+      render json: { count: parent.reload.likes_count, message: 'fail', state: :inactive}
     end
   end
 
-  private
+  def destroy
+    like = Like.find_by(likeable: parent, user: current_user)
 
-  PAGE_SIZE = 15
-  helper_method :page, :order, :collection
-
-  def page
-    @page ||= (params[:page] || 1).to_i
-  end
-
-  def order
-    return({ params[:order] => :desc }) if Like.column_names.include?(params[:order])
-
-    { created_at: :desc }
-  end
-
-  def collection
-    @collection ||= begin
-      offset = (page - 1) * PAGE_SIZE
-
-      end_of_association_chain.where(likeable_type: 'Picture').includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
+    if like && like.destroy
+      render json: { count: parent.reload.likes_count, state: :inactive }
+    else
+      render json: { count: parent.reload.likes_count, message: 'fail', state: :active}
     end
   end
 end

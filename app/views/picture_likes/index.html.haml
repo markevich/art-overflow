@@ -1,0 +1,18 @@
+= cache parent do
+  #modal-options{data: { class: 'mini-users' } }
+  %div.mini-users-container
+    - if collection.present?
+      .target
+        - human_users = I18n.t('counters.liked_users', count: collection.count)
+        = "Изображение \"#{parent.name.truncate(50)}\" понравилось #{collection.count} #{human_users}:"
+      .content-mini-user
+        = render partial: 'like', collection: collection
+    - else
+      .container-empty
+        .images
+          = image_tag 'pulse.png', class: 'pulse'
+          = image_tag 'heart-large.png', class: 'heart'
+          = image_tag 'pulse.png', class: 'pulse'
+        .container-for-empty
+          %h2
+            Будь первым, кто оценит это изображение.

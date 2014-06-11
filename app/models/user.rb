@@ -70,18 +70,6 @@ class User < ActiveRecord::Base
     likes.exists?(likeable: likeable)
   end
 
-  def like(likeable)
-    return false if liked?(likeable)
-
-    likes.create(likeable: likeable)
-  end
-
-  def unlike(likeable)
-    return false unless liked?(likeable)
-
-    likes.find_by(likeable: likeable).destroy
-  end
-
   def become_admin!
     update_attribute(:role, :admin)
   end

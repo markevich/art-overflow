@@ -1,0 +1,16 @@
+= cache parent do
+  #modal-options{data: { class: 'mini-users' } }
+  %div.mini-users-container
+    - if collection.present?
+      .target
+        - human_users = I18n.t('counters.followers_users', count: collection.count)
+        = "На обновления #{parent.name.truncate(35)} #{human_users}:"
+      .content-mini-user
+        = render partial: 'follow', collection: collection
+    - else
+      .container-empty
+        .images
+          = image_tag 'no-follows.png', class: 'no-follows'
+        .container-for-empty
+          %h2
+            Никто не подписан на этого пользователя. Ты можешь быть первым.

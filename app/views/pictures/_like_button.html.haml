@@ -1,27 +1,30 @@
 - if user_signed_in?
   - voted = current_user.liked?(resource)
   .js-button-watch.button-toggler.like-button{ data: { voted: voted} }
-    = link_to(unlike_picture_path, method: :post, class: 'button-red js-remote-link js-deactivate-button',
-      data: { remote: true }) do
-      = I18n.t('unlike')
-      %span.active-count
+    .js-deactivate-button
+      = link_to([resource, :like], method: :delete, class: 'button-red js-remote-link',
+        data: { remote: true }) do
+        = I18n.t('unlike')
+      = link_to_modal([resource, :likes], class: 'counter-container', data: { remote: true }) do
         %span.counter
           = resource.likes_count
-        %span.spinner-icon{style: 'display:none'}
+        %span.spinner-icon.blue{style: 'display:none'}
 
-    = link_to(like_picture_path, method: :post, class: 'button-blue js-remote-link js-activate-button',
-      data: { remote: true }) do
-      = I18n.t('like')
-      %span.active-count
+    .js-activate-button
+      = link_to([resource, :like], method: :post, class: 'button-blue js-remote-link',
+        data: { remote: true }) do
+        = I18n.t('like')
+      = link_to_modal([resource, :likes], class: 'counter-container', data: { remote: true }) do
         %span.counter
           = resource.likes_count
-        %span.spinner-icon{style: 'display:none'}
+        %span.spinner-icon.red{style: 'display:none'}
 
 - else
   .js-button-watch.button-toggler.like-button
-    = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link js-activate-button') do
-      = I18n.t('like')
-      %span.active-count
+    .js-activate-button
+      = link_to(new_user_session_path, method: :post, class: 'button-blue js-remote-link') do
+        = I18n.t('like')
+      = link_to_modal([resource, :likes], class: 'counter-container', data: { remote: true }) do
         %span.counter
           = resource.likes_count
-        %span.spinner-icon{style: 'display:none'}
+        %span.spinner-icon.red{style: 'display:none'}

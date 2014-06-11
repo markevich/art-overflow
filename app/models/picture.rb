@@ -4,12 +4,12 @@ class Picture < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
 
   include Commentable
-  include Likeable
 
   acts_as_taggable
 
   belongs_to :user, counter_cache: true, touch: true
   belongs_to :album, counter_cache: true, touch: true
+  has_many :likes, as: :likeable, dependent: :destroy
 
   validates :name, :path, :user, presence: true
   validates :name, length: { minimum: 1, maximum: 250 }
