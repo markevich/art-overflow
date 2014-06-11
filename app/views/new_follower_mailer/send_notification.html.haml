@@ -159,7 +159,7 @@
       </style>
     :css
       * #madmimi_outer_wrapper q:before{content:'}* #madmimi_outer_wrapper q:after{content:'}
-  %body{bgcolor: "#494848", style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: #494848;"}
+  %body{bgcolor: "#acabab", style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: #494848;"}
     #mimi_background_color_wrapper{style: "min-width: 630px; background-color: #494848;"}
       %table{border: "0", cellpadding: "0", cellspacing: "0", height: "100%", width: "100%"}
         %tr
@@ -227,11 +227,11 @@
                                                   %td{style: "vertical-align: top; width:30px; \r\n                padding-top: 5px; padding-top: 0px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 10px;"}
                                                     %table{align: "left", cellpadding: "0", spacing: "0", style: "border-collapse: separate; border-spacing: 0; margin-top: 0; margin-right: auto; margin-bottom: 0; margin-left: auto; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none;"}
                                                       %tr
-                                                        %td{style: "vertical-align: middle; \r\n                    x; text-align:center; color: white;\r\n                    border-radius: 3px; font-weight: bold;\r\n                    font-family: Arial;\r\n                    font-size: 35px; \r\n                    padding-top: 5px; padding-top: 0px; margin-right: 0px; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 10px; padding-bottom: 0; padding-left: 0px"}
-                                                          %a{href: user_pictures_url(@follower), target: '_blank', style: "min-width:60px; vertical-align: middle;  height:60px; display:table-cell;  color: white; text-decoration: none; text-align:center; background-color: #26394d;  -webkit-border-radius: 3px; border-radius: 3px; -moz-border-radius: 3p"}
+                                                        %td{style: "padding-right: 5px; vertical-align: middle; font-weight: bold;\r\n font-family: Arial;\r\n                  font-size: 35px;\r\n                  padding-top: 5px; padding-top: 0px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-bottom: 0; padding-left: 0px"}
+                                                          %a{href: user_pictures_url(@follower), target: '_blank', style: "min-width:60px; vertical-align: middle; display:table-cell;  color: white; text-decoration: none; text-align:center; background-color: #26394d;  -webkit-border-radius: 3px; border-radius: 3px; -moz-border-radius: 3p; padding-top: 5px; padding-bottom: 5px;"}
                                                             = @follower.follows.count
                                                         %td{style: "vertical-align: middle; font-weight: bold;\r\n font-family: Arial;\r\n                  font-size: 35px;\r\n                  padding-top: 5px; padding-top: 0px; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0px"}
-                                                          %a{href: user_pictures_url(@follower), target: '_blank', style: "  -webkit-border-radius: 3px;\r\n                  -moz-border-radius: 3px; background-color: #26394d;\r\n                  border-radius: 3px;  min-width:60px; vertical-align: middle; height:60px; display:table-cell;  color: white; text-decoration: none; text-align:center;"}
+                                                          %a{href: user_pictures_url(@follower), target: '_blank', style: "  -webkit-border-radius: 3px;\r\n                  -moz-border-radius: 3px; background-color: #26394d;\r\n                  border-radius: 3px;  min-width:60px; vertical-align: middle; display:table-cell;  color: white; text-decoration: none; text-align:center; padding-top: 5px; padding-bottom: 5px;"}
                                                             = @follower.followers_count
                                                         %tr
                                                           %td{style: 'padding-top: 5px'}
@@ -241,22 +241,24 @@
                                                             %a{href: user_pictures_url(@follower), target: '_blank', style: "font-size: 10px;  margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-family: Arial; color: #6eb2ba; text-decoration: none; font-familly:arial; font-size:12px; margin-top: 7px;line-height: 16px;"}
                                                               = I18n.t('counters.followers', count: @follower.followers_count)
                                 %div{align: "center", style: "font-size: 9px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
-                                %table{align: "left", cellpadding: "0", spacing: "0", style: "border-collapse: separate; border-spacing: 0; margin-top: 10px; margin-right: auto; margin-bottom: 0; margin-left: auto; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none; border:1px solid #ccc; padding:10px;"}
-                                  %tr{style: "border:1px solid #ccc;"}
-                                    - @follower.pictures.popular_for_search.each do |pic|
-                                      %td{style: "padding-right:10px"}
-                                        = link_to(picture_url(pic)) do
-                                          = image_tag(pic.path.small_thumb, width: "155px")
-                                  %tr
-                                    %td
-                                    %td{style: "text-align:center; padding-top:10px;"}
-                                      %a{href: user_pictures_url(@follower), style: "font-size: 10px;  margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;\r\n        font-family: Arial; color: #6eb2ba; text-decoration: none; font-familly:arial;\r\n        font-size:12px; margin-top: 7px;\r\n        line-height: 16px; text-decoration: underline;"} Посмотреть все работы
-                                    %td
-                                .outlook-fixer{style: "clear: both; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
-                                  %table{style: "border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "100%"}
+                                - popular = @follower.pictures.popular_for_search
+                                - if popular.count == 3
+                                  %table{align: "left", cellpadding: "0", spacing: "0", style: "border-collapse: separate; border-spacing: 0; margin-top: 10px; margin-right: auto; margin-bottom: 0; margin-left: auto; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none; border:1px solid #ccc; padding:10px;"}
+                                    %tr{style: "border:1px solid #ccc;"}
+                                      - @follower.pictures.popular_for_search.each do |pic|
+                                        %td{style: "padding-right:10px"}
+                                          = link_to(picture_url(pic)) do
+                                            = image_tag(pic.path.small_thumb, width: "155px")
                                     %tr
-                                      %td{align: "left", height: "1", style: "font-size: 1px; line-height: 0; clear: both; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;", width: "530"}
-                                        %img{alt: "1px", height: "1", src: "https://go.madmimi.com/assets/outlook_fixer.gif", style: "border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "530"}/
+                                      %td
+                                      %td{style: "text-align:center; padding-top:10px;"}
+                                        %a{href: user_pictures_url(@follower), style: "font-size: 10px;  margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;\r\n        font-family: Arial; color: #6eb2ba; text-decoration: none; font-familly:arial;\r\n        font-size:12px; margin-top: 7px;\r\n        line-height: 16px; text-decoration: underline;"} Посмотреть все работы
+                                      %td
+                                  .outlook-fixer{style: "clear: both; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
+                                    %table{style: "border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "100%"}
+                                      %tr
+                                        %td{align: "left", height: "1", style: "font-size: 1px; line-height: 0; clear: both; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;", width: "530"}
+                                          %img{alt: "1px", height: "1", src: "https://go.madmimi.com/assets/outlook_fixer.gif", style: "border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "530"}/
                 %tr
                   %td{style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
                     %table#madmimi_footer.ui_light{border: "0", cellpadding: "0", cellspacing: "0", style: "border-collapse: collapse; border-spacing: 0; border-radius: 0 0 4px 4px; width: 100%; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none;"}
