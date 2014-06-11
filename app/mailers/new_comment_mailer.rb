@@ -1,5 +1,5 @@
 class NewCommentMailer < ActionMailer::Base
-  default from: "notifications@artoverflow.com"
+  default from: "Art Overflow <info@artoverflow.com>"
 
   def send_notification(comment_id)
     @comment = Comment.find(comment_id)

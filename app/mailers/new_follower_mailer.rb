@@ -1,5 +1,5 @@
 class NewFollowerMailer < ActionMailer::Base
-  default from: "notifications@artoverflow.com"
+  default from: "Art Overflow <info@artoverflow.com>"
 
   def send_notification(follow_id)
     @follow = Follow.find(follow_id)
