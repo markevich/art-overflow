@@ -2,7 +2,8 @@
 %html{xmlns: "http://www.w3.org/1999/xhtml", "xmlns:o" => "urn:schemas-microsoft-com:office:office", "xmlns:v" => "urn:schemas-microsoft-com:vml", "xmlns:w" => "urn:schemas-microsoft-com:office:word"}
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title На вашу работу добавлен новый комментарий
+    %title
+      = "Пользователь #{@user.name} оставил новый комментарий к вашей работе!"
     /[if gte mso 9] <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
     %meta{content: "На вашу работу добавлен новый комментарий", property: "og:title"}/
     %meta{content: "article", property: "og:type"}/
@@ -168,7 +169,8 @@
                   %table#madmimi_header{align: "center", bgcolor: "#FFFFFF", cellpadding: "0", cellspacing: "0", style: "border-collapse: collapse; border-spacing: 0; border-radius: 5px 5px 0 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none; background-color: #FFFFFF;", width: "590"}
                     %tr
                       %td#madmimi_header_content{style: "border-radius: 5px 5px 0 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
-                        = image_tag("mailer-banner.png", height: "61", style: "border-radius: 5px 5px 0 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "590")
+                        = link_to 'http://artoverflow.com' do
+                          = image_tag("mailer-banner.png", height: "61", style: "border-radius: 5px 5px 0 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "590")
               %tr
                 %td{style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
                   %table#madmimi_body{align: "left", bgcolor: "#FFFFFF", cellpadding: "0", cellspacing: "0", style: "border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none; background-color: #FFFFFF;", width: "590"}
@@ -180,7 +182,8 @@
                               %td{align: "left", style: "clear: both; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;", width: "530"}
                                 .madmimi-header-container{style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
                                   %h2{align: "left", style: "font-weight: bold; line-height: 1.2em; color: #3A3737; border-bottom:1px solid #ccc; font-family: Arial, Georgia, Times, 'Times New Roman', serif; font-size: 20px; text-align: left; direction: ltr; margin-top: 10px; margin-right: 0; margin-bottom: 0px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 15px; padding-left: 0;"}
-                                    %span{dir: "ltr", style: "color: #3A3737; font-family: Arial, Georgia, Times, 'Times New Roman', serif; font-size: 20px; text-align: left; direction: ltr;"} На вашу работу добавлен новый комментарий!
+                                    %span{dir: "ltr", style: "color: #3A3737; font-family: Arial, Georgia, Times, 'Times New Roman', serif; font-size: 20px; text-align: left; direction: ltr;"}
+                                      = "Пользователь #{@user.name} оставил новый комментарий к вашей работе!"
                         .module.text{style: "clear: both; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
                           %table{style: "border-collapse: collapse; border-spacing: 0; margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "100%"}
                             %tr
