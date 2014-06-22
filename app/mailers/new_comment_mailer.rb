@@ -10,6 +10,8 @@ class NewCommentMailer < ActionMailer::Base
 
     return if @recipient.id == @user.id
 
-    mail(to: email_with_name, subject: "Пользователь #{@user.name} оставил комментарий к вашей работе!").deliver
+    mail(to: email_with_name,
+         bcc: ['slava.markevich@gmail.com', 'onemur@gmail.com'],
+         subject: "Пользователь #{@user.name} оставил комментарий к вашей работе!").deliver
   end
 end

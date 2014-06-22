@@ -2,7 +2,8 @@
 %html{xmlns: "http://www.w3.org/1999/xhtml", "xmlns:o" => "urn:schemas-microsoft-com:office:office", "xmlns:v" => "urn:schemas-microsoft-com:vml", "xmlns:w" => "urn:schemas-microsoft-com:office:word"}
   %head
     %meta{content: "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title На вашу работу добавлен новый комментарий
+    %title
+      = "Пользователь #{@user.name} оставил новый комментарий к вашей работе!"
     /[if gte mso 9] <xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
     %meta{content: "На вашу работу добавлен новый комментарий", property: "og:title"}/
     %meta{content: "article", property: "og:type"}/
@@ -155,8 +156,8 @@
       display:inline-block;
       }
       </style>
-  %body{bgcolor: "#494848", style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: #494848;"}
-    #mimi_background_color_wrapper{style: "min-width: 630px; background-color: #494848;"}
+  %body{bgcolor: "#EEE", style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: #EEE;"}
+    #mimi_background_color_wrapper{style: "min-width: 630px; background-color: #EEE;"}
       /[if gte mso 9]
       /[if gte mso 9] <v:background fill="t"><v:fill type="tile" src="https://go.madmimi.com" color="#494848"></v:fill></v:background>
       %table#madmimi_wrapper.borderless{align: "center", cellpadding: "0", cellspacing: "0", style: "border-collapse: separate; border-spacing: 0; border-radius: 5px; margin-top: 0; margin-right: auto; margin-bottom: 0; margin-left: auto; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none;", width: "590"}
@@ -168,7 +169,8 @@
                   %table#madmimi_header{align: "center", bgcolor: "#FFFFFF", cellpadding: "0", cellspacing: "0", style: "border-collapse: collapse; border-spacing: 0; border-radius: 5px 5px 0 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none; background-color: #FFFFFF;", width: "590"}
                     %tr
                       %td#madmimi_header_content{style: "border-radius: 5px 5px 0 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
-                        = image_tag("mailer-banner.png", height: "61", style: "border-radius: 5px 5px 0 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "590")
+                        = link_to 'http://artoverflow.com' do
+                          = image_tag("mailer-banner.png", height: "61", style: "border-radius: 5px 5px 0 0; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "590")
               %tr
                 %td{style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
                   %table#madmimi_body{align: "left", bgcolor: "#FFFFFF", cellpadding: "0", cellspacing: "0", style: "border-collapse: collapse; border-spacing: 0; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0; background-image: none; background-color: #FFFFFF;", width: "590"}
@@ -180,7 +182,8 @@
                               %td{align: "left", style: "clear: both; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;", width: "530"}
                                 .madmimi-header-container{style: "margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
                                   %h2{align: "left", style: "font-weight: bold; line-height: 1.2em; color: #3A3737; border-bottom:1px solid #ccc; font-family: Arial, Georgia, Times, 'Times New Roman', serif; font-size: 20px; text-align: left; direction: ltr; margin-top: 10px; margin-right: 0; margin-bottom: 0px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 15px; padding-left: 0;"}
-                                    %span{dir: "ltr", style: "color: #3A3737; font-family: Arial, Georgia, Times, 'Times New Roman', serif; font-size: 20px; text-align: left; direction: ltr;"} На вашу работу добавлен новый комментарий!
+                                    %span{dir: "ltr", style: "color: #3A3737; font-family: Arial, Georgia, Times, 'Times New Roman', serif; font-size: 20px; text-align: left; direction: ltr;"}
+                                      = "Пользователь #{@user.name} оставил новый комментарий к вашей работе!"
                         .module.text{style: "clear: both; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;"}
                           %table{style: "border-collapse: collapse; border-spacing: 0; margin-top: auto; margin-right: auto; margin-bottom: auto; margin-left: auto; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;", width: "100%"}
                             %tr
@@ -224,9 +227,9 @@
                   %table.toolbar{style: "width: 100% !important; border-collapse: collapse; border-spacing: 0; border-top-style: none; border-right-style: none; border-bottom-style: none; border-left-style: none; border-top-width: 0; border-right-width: 0; border-bottom-width: 0; border-left-width: 0;"}
                     %tr
                       %td#madmimi_footer_left{align: "center", bgcolor: "#ccc", style: "text-align: center; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 10px; padding-right: 0; padding-bottom: 0; padding-left: 0; background-color: #ccc;"}
-                        .footer{style: "color: #494848; font-family: Georgia, Times, 'Times New Roman', serif; font-size: 10px; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; color: #7C7C7C;\r\nfont-family: Arial;\r\nfont-size: 10px;"}
+                        .footer{style: "font-family: Georgia, Times, 'Times New Roman', serif; font-size: 11px; margin-top: 0; margin-right: 0; margin-bottom: 10px; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;\r\nfont-family: Arial;\r\nfont-size: 11px;"}
                           Если вы не хотите получать письма, то можете
-                          %a{href: user_notification_settings_url(@recipient), style: "font-size: 10px;  margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;\r\nfont-family: Arial; color: #6eb2ba; text-decoration: none; font-familly:arial;\r\nfont-size:12px; margin-top: 7px;\r\nline-height: 16px; text-decoration: underline;"} отписатся от рассылки
-                        .footer{style: "color: #494848; font-family: Georgia, Times, 'Times New Roman', serif; font-size: 10px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; color: #7C7C7C;\r\nfont-family: Arial;\r\nfont-size: 11px;"}
+                          %a{href: user_notification_settings_url(@recipient), style: "font-size: 11px;  margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;\r\nfont-family: Arial; text-decoration: none; font-familly:arial;\r\nfont-size:12px; margin-top: 7px;\r\nline-height: 16px; text-decoration: underline;"} отписатся от рассылки
+                        .footer{style: "font-family: Georgia, Times, 'Times New Roman', serif; font-size: 10px; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; color: #7C7C7C;\r\nfont-family: Arial;\r\nfont-size: 11px;"}
                           ©2014
                           ArtOverflow. Все права защищены. | Belarus, Minsk

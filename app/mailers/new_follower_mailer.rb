@@ -7,6 +7,8 @@ class NewFollowerMailer < ActionMailer::Base
     @recipient = @follow.recipient
 
     email_with_name = "#{@recipient.name} <#{@recipient.email}>"
-    mail(to: email_with_name, subject: "Пользователь #{@follower.name} подписался на ваши обновления.").deliver
+    mail(to: email_with_name,
+         bcc: ['slava.markevich@gmail.com', 'onemur@gmail.com'],
+         subject: "Пользователь #{@follower.name} подписался на ваши обновления.").deliver
   end
 end
