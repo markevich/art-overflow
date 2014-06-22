@@ -1,11 +1,16 @@
-div.tagsinput { padding:5px; width:545px; height:100px; overflow-y: auto;}
+div.tagsinput { padding:5px; width:545px; height:auto; overflow-y: auto;}
+.comments .tagsinput {
+  width: 500px;
+  height: auto;
+  overflow:hidden;
+}
 div.tagsinput span.tag span{
   color: #000000;
 }
 div.tagsinput span.tag {
-  border: 1px solid #aaa;
-  -moz-border-radius:4px;
-  -webkit-border-radius:4px;
+  border: 1px solid #6eb2ba;
+  -moz-border-radius:3px;
+  -webkit-border-radius:3px;
   display: block;
   float: left;
   padding: 7px;
@@ -17,10 +22,27 @@ div.tagsinput span.tag {
   color: #ffffff;
   margin-right: 4px;
   margin-bottom:4px;
-  font-family: helvetica;
-  font-size:13px;}
-div.tagsinput span.tag a { font-weight: bold; color: #aaa; text-decoration:none; font-size: 11px;  }
-div.tagsinput input { width:80px; margin:0px; font-family: helvetica; font-size: 13px; border:1px solid transparent; padding:5px; color: #000; outline:0px;  margin-right:5px; margin-bottom:5px; }
+  font-family: arial;
+  font-size:14px;
+}
+div.tagsinput span.tag a {
+  font-weight: bold;
+  color: #6eb2ba;
+  text-decoration: none;
+  font-size: 13px;
+  margin-left: 5px;
+}
+div.tagsinput input {width:80px; margin:0px; font-size: 13px; margin-top:10px; color: #000; outline:0px;  margin-right:5px; margin-bottom:5px; }
 div.tagsinput div { display:block; float: left; }
 .tags_clear { clear: both; width: 100%; height: 0px; }
 .not_valid {background: #FBD8DB !important; color: #90111A !important;}
+.ui-menu li.ui-menu-item a.ui-state-focus{
+  background: #6eb2ba;
+  border:0 solid transparent;
+  font-weight: normal;
+  color:white;
+  margin: 0;
+}
+.ui-menu .ui-menu-item {
+  font-size:14px;
+}

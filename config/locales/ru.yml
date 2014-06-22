@@ -76,6 +76,7 @@ ru:
         description: Описание
         album: Альбом
         path: Изображение
+        tag_list: Тэги
       notification_settings:
         news: Новостях и обновлениях проекта
         subscribers: Новых подписчиках

@@ -427,22 +427,27 @@
     cursor: pointer;
   }
   > div{
-     color: #6eb2ba;
-      font-size: 14px;
-      line-height: 16px;
-      cursor: pointer;
-      width: 120px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      font-weight: bold;
+    color: #6eb2ba;
+    font-size: 14px;
+    line-height: 16px;
+    cursor: pointer;
+    width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-weight: bold;
   }
   &:hover > div{
     color: #e74c3c;
   }
 }
 
-
+#picture_tag_list_tag{
+  width: 560px !important;
+}
+#picture_tag_list_tagsinput{
+  height: auto;
+}
 
 $PICTURE_WIDTH: 335px;
 $MAX_COLUMNS: 7;

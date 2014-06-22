@@ -67,11 +67,12 @@
               %a{href: picture_path(pic)}
                 = image_tag pic.path.small_thumb
 
-      %div
-        %h3 Теги
-        %div.tagsinput
-          - resource.tag_list.each do |tag|
-            %a{href: "#{pictures_path(tags: tag)}"}
-              %span.tag
-                %span
-                  = tag
+      - if resource.tag_list.present?
+        %div
+          %h3 Теги
+          %div.tagsinput
+            - resource.tag_list.each do |tag|
+              %a{href: "#{pictures_path(tags: tag)}"}
+                %span.tag
+                  %span
+                    = tag
