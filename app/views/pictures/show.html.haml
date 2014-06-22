@@ -68,7 +68,7 @@
                 = image_tag pic.path.small_thumb
 
       - if resource.tag_list.present?
-        %div
+        %div.tagslist
           %h3 Теги
           %div.tagsinput
             - resource.tag_list.each do |tag|

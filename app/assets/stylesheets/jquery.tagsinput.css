@@ -46,3 +46,6 @@ div.tagsinput div { display:block; float: left; }
 .ui-menu .ui-menu-item {
   font-size:14px;
 }
+.tagslist{
+  clear:both;
+}
