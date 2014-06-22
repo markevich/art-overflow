@@ -43,6 +43,10 @@ class PicturesController < InheritedResources::Base
 
   private
 
+  def tags
+    params.fetch(:tags, '').split(',')
+  end
+
   def increase_view_count
     Picture.increment_counter(:view_count, resource.id)
   end
@@ -65,7 +69,9 @@ class PicturesController < InheritedResources::Base
     @collection ||= begin
       offset = (page - 1) * PAGE_SIZE
 
-      end_of_association_chain.includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
+      result = end_of_association_chain.includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
+      result = result.tagged_with(tags, any: true) if tags.any?
+      result
     end
   end
 end

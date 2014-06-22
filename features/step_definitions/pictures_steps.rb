@@ -85,7 +85,7 @@ Then(/^I change picture description$/) do
 end
 
 Then(/^I click save$/) do
-  click_button 'Сохранить изменения'
+  find_button('Сохранить изменения').trigger('click')
 end
 
 Then(/^I should see that my picture is edited$/) do

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :search, only: :index
+  resources :tags, only: :index
   resources :users, except: [:show, :destroy] do
     resource :follow, only: [:create, :destroy]
     resources :follows, only: [:index]

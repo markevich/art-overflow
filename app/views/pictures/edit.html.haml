@@ -11,5 +11,6 @@
       = simple_form_for([parent, resource]) do |f|
         = f.input :name
         = f.input :description
+        = f.input :tag_list
         = f.association :album, collection: current_user.albums
         = f.button :submit, value: 'Сохранить изменения',class: 'btn btn-green'
