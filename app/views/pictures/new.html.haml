@@ -45,5 +45,6 @@
     = f.input :name
     = f.input :description
     = f.input :tag_list
+    = f.input :category_list
     = f.association :album, collection: current_user.albums
     = f.button :submit, class: 'btn btn-green', value: 'Отправить', data: { disable_with: 'Загружаем' }

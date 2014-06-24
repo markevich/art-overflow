@@ -5,7 +5,25 @@ class Picture < ActiveRecord::Base
 
   include Commentable
 
+  CATEGORIES = [
+    "Анимация",
+    "Архитектура",
+    "Персонажи",
+    "Комиксы",
+    "Концепт-арт",
+    "Ландшафт",
+    "Фентези",
+    "Игры",
+    "Фантастика",
+    "Натюрморт",
+    "Рассказ",
+    "Сюрреализм",
+    "Средства передвижения",
+    "Мэт-пэйнтинг"
+  ].freeze
+
   acts_as_taggable_on :tags
+  acts_as_taggable_on :categories
 
   belongs_to :user, counter_cache: true, touch: true
   belongs_to :album, counter_cache: true, touch: true

@@ -8,9 +8,17 @@
       %br
         = link_to 'Удалить картинку', picture_path(resource), method: :delete, data: { confirm: 'Вы уверены?' }
     .form-edit-album.new-picture-description
-      = simple_form_for([parent, resource]) do |f|
+      = simple_form_for([parent, resource], html: { id: 'edit_picture_form' }) do |f|
         = f.input :name
         = f.input :description
         = f.input :tag_list
+
+        = f.input :category_list, as: :hidden
+        %h1 Категории
+        - Picture::CATEGORIES.each_with_index do |category, index|
+          %div
+            = check_box_tag "category#{index}", category, resource.category_list.include?(category), style: "width: 20px; float: left", class: "category_checkbox"
+            = label_tag "category#{index}", category, class: "boolean optional control-label checkbox", style: "padding-top: 0px;"
+
         = f.association :album, collection: current_user.albums
         = f.button :submit, value: 'Сохранить изменения',class: 'btn btn-green'

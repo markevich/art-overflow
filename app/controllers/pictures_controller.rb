@@ -34,17 +34,27 @@ class PicturesController < InheritedResources::Base
       :album_id,
       :path,
       :tag_list,
+      :category_list,
       :path_cache
     ]).tap do |whitelist|
       whitelist[:picture] ||= {}
       whitelist[:picture][:user_id] = current_user.id
+      whitelist[:picture][:category_list] = filter_categories
     end.permit!
   end
 
   private
 
+  def filter_categories
+    params[:picture].fetch(:category_list, "").split(',') & Picture::CATEGORIES if params[:picture]
+  end
+
   def tags
     params.fetch(:tags, '').split(',')
+  end
+
+  def categories
+    params.fetch(:categories, '').split(',')
   end
 
   def increase_view_count
@@ -70,7 +80,8 @@ class PicturesController < InheritedResources::Base
       offset = (page - 1) * PAGE_SIZE
 
       result = end_of_association_chain.includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
-      result = result.tagged_with(tags, any: true) if tags.any?
+      result = result.tagged_with(tags, :on => :tags, any: true) if tags.any?
+      result = result.tagged_with(categories, :on => :categories, any: true) if categories.any?
       result
     end
   end

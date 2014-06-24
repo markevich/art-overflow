@@ -1,6 +1,6 @@
 class TagsController < ApplicationController
   def index
-    @tags = ActsAsTaggableOn::Tag.where("tags.name LIKE ?", "%#{params[:term]}%").pluck(:name)
+    @tags = ActsAsTaggableOn::Tag.select(:name).joins(:taggings).where("tags.name LIKE ? AND taggings.context = 'tags'", "%#{params[:term]}%").pluck(:name)
     respond_to do |format|
       format.json { render json: @tags }
       format.html { redirect_to root_path }

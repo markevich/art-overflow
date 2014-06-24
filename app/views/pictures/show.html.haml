@@ -76,3 +76,12 @@
                 %span.tag
                   %span
                     = tag
+      - if resource.category_list.present?
+        %div.tagslist
+          %h3 Категории
+          %div.tagsinput
+            - resource.category_list.each do |category|
+              %a{href: "#{pictures_path(categories: category)}"}
+                %span.tag
+                  %span
+                    = category
