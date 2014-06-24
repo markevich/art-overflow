@@ -1,7 +1,6 @@
 class NotificationSettingsController < InheritedResources::Base
   before_action :authenticate_user!
   defaults :singleton => true, instance_name: 'notification_settings'
-  belongs_to :user
 
   def permitted_params
     params.permit(notification_settings:
@@ -18,6 +17,10 @@ class NotificationSettingsController < InheritedResources::Base
   private
 
   def smart_collection_url
-    user_notification_settings_path(resource.user)
+    notification_settings_path
+  end
+
+  def resource
+    current_user.notification_settings
   end
 end
