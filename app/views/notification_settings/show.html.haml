@@ -4,7 +4,7 @@
   .profil-form-container.user-notifications
     .title
       Уведомлять меня по почте о:
-    = simple_form_for(resource, url: user_notification_settings_path(resource.user), html: { class: 'edit_user' }) do |f|
+    = simple_form_for(resource, url: notification_settings_path, html: { class: 'edit_user' }) do |f|
       = f.input :news
       = f.input :comments
       = f.input :subscribers
