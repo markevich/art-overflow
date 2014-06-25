@@ -6,7 +6,7 @@ end
 
 Then(/^I should see link to my profile$/) do
   expect(page).to have_content(current_user.name)
-  expect(page).to have_link("", href: user_pictures_path(current_user))
+  expect(page).to have_link(current_user.name, href: user_pictures_path(current_user))
 end
 
 When(/^I click to follow counter link$/) do

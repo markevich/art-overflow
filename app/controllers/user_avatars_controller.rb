@@ -2,6 +2,7 @@ class UserAvatarsController < InheritedResources::Base
   before_action :authenticate_user!
 
   defaults resource_class: User, collection_name: 'users', instance_name: 'user'
+  resources_configuration[:self][:finder] = :friendly_find
   load_and_authorize_resource
 
   actions :update, :edit

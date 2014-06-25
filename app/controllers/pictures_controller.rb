@@ -9,6 +9,7 @@ class PicturesController < InheritedResources::Base
   load_and_authorize_resource :picture, through: :user
 
   belongs_to :user, optional: true
+  resources_configuration[:user][:finder] = :friendly_find
 
   def index
     respond_with do |format|

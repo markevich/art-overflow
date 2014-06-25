@@ -6,7 +6,11 @@ class UsersController < InheritedResources::Base
 
   def permitted_params
     params.permit(user:[
-      :name, :city, :vk
+      :name, :city, :vk, :slug
     ])
+  end
+
+  def method_for_find
+    :friendly_find
   end
 end

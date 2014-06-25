@@ -72,6 +72,8 @@ gem 'inherited_resources'
 gem 'responders'
 gem 'public_activity'
 
+gem 'friendly_id'
+
 group :development do
   gem 'capistrano', '2.15.5'
   gem 'capistrano-rbenv'
