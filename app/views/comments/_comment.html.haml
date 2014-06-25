@@ -9,7 +9,7 @@
         = time_passed_from_creation(comment)
       = render 'comments/like_button', comment: comment
       .txt-comment
-        = comment.text
+        = comment.text_html
       .reply-to-comment
         - if user_signed_in? && comment.user_id == current_user.id
           = link_to t('comment.destroy'), comment_path(comment), method: :delete, data: { confirm: t('comment.confirm_destroy') }

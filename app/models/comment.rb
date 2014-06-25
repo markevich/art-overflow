@@ -11,6 +11,12 @@ class Comment < ActiveRecord::Base
   delegate :avatar, to: :user, prefix: true
   alias_method :activity_owner, :user
 
+  auto_html_for :text do
+    html_escape
+    link :target => "_blank", :rel => "nofollow"
+    simple_format
+  end
+
   def recipient
     commentable.user
   end
