@@ -207,7 +207,7 @@
                                               %a{href: user_pictures_url(@user), style: "  margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; font-size: 12px;\r\nfont-family: Arial; color: #6eb2ba; text-decoration: none; font-weight: bold; Font-familly:arial;\r\nfont-size:12px"}
                                                 = @user.name
                                             %p{style: " margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0; color: #26394d;font-family: Arial;\r\nmargin: 0;\r\nmargin-top: 5px;\r\npadding:0;\r\nfont-size: 14px; font-family: Arial; line-height: 18px;"}
-                                              = @comment.text
+                                              = @comment.text_html
                                             %p{style: " margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 0; padding-right: 0; padding-bottom: 0; padding-left: 0;\r\nmargin-top: 4px;"}
                                               %span{style: "font-size: 12px; padding: 0;\r\nmargin: 0; color: #a9b1b8; font-family: Arial;"}
                                                 = I18n.l(@comment.created_at, format: :long)

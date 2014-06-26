@@ -1,5 +1,6 @@
 require "bundler/capistrano"
 require 'capistrano-rbenv'
+require 'auto_html/capistrano'
 
 load 'config/recipes/base'
 load 'config/recipes/nginx'

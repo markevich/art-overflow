@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140625091120) do
+ActiveRecord::Schema.define(version: 20140625131323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,6 +53,7 @@ ActiveRecord::Schema.define(version: 20140625091120) do
     t.integer  "likes_count",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "text_html"
   end
 
   create_table "follows", force: true do |t|
@@ -105,13 +106,14 @@ ActiveRecord::Schema.define(version: 20140625091120) do
     t.string   "path"
     t.integer  "user_id"
     t.integer  "gallery_id"
-    t.integer  "comments_count", default: 0
-    t.integer  "likes_count",    default: 0
+    t.integer  "comments_count",   default: 0
+    t.integer  "likes_count",      default: 0
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
     t.string   "album_id"
-    t.integer  "view_count",     default: 0
+    t.integer  "view_count",       default: 0
+    t.text     "description_html"
   end
 
   add_index "pictures", ["album_id"], name: "index_pictures_on_album_id", using: :btree
