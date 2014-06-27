@@ -12,6 +12,7 @@ gem 'uglifier'
 #
 gem 'nprogress-rails'
 gem 'petrovich'
+gem 'auto_html'
 
 gem 'exception_notification'
 

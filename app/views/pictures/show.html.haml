@@ -44,14 +44,13 @@
           .user-avatar
             = image_tag resource.user.avatar, class: "border-radius-circle user"
           .description-user
-            %a
-              = link_to resource.user_name, [resource.user, :pictures]
+            = link_to resource.user_name, [resource.user, :pictures], class: :name
             %span.star.grey
               *
             %span.grey
               = time_passed_from_creation(resource)
             %div
-              = resource.description
+              = resource.description_html
       = render 'comments/form', commentable: resource if user_signed_in?
       .user-comment
         = render resource.comments.includes(:user).order(:created_at), commentable: resource
