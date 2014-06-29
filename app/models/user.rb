@@ -5,9 +5,9 @@ class User < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   mount_uploader :avatar, AvatarUploader
 
-  # TODO: validate slug?
   extend FriendlyId
   friendly_id :name, use: :slugged
+  validates :slug, uniqueness: true, presence: true, length: { minimum: 3 }
 
   def self.friendly_find(id)
     friendly.find(id)
