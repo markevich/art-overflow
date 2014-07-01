@@ -76,6 +76,10 @@ GEM
       activerecord (>= 3, < 5)
       activesupport (>= 3, < 5)
     addressable (2.3.6)
+    angular-turbolinks (0.1.0)
+      coffee-rails
+      turbolinks
+    angularjs-rails (1.2.16)
     ansi (1.4.3)
     arel (5.0.0)
     auto_html (1.6.4)
@@ -408,6 +412,8 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   acts_as_follower!
+  angular-turbolinks
+  angularjs-rails
   auto_html
   better_errors
   binding_of_caller

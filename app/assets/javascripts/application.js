@@ -12,6 +12,13 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
+//= require angular-resource
+//= require angular-route
+//= require angular-turbolinks
+//= require ./angular/app
+//= require_tree ./angular/services
+//= require_tree ./angular/controllers
 //= require nprogress
 //= require nprogress-turbolinks
 //= require jquery.viewport

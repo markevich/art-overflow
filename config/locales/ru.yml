@@ -77,6 +77,7 @@ ru:
         album: Альбом
         path: Изображение
         tag_list: Тэги
+        category_list: Категории
       notification_settings:
         news: Новостях и обновлениях проекта
         subscribers: Новых подписчиках

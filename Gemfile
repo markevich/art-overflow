@@ -4,6 +4,7 @@ source 'http://rubygems.org'
 gem 'rails', '4.1.0'
 gem 'rails-observers'
 gem 'turbolinks'
+gem "angular-turbolinks"
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'coffee-rails'
@@ -13,6 +14,7 @@ gem 'uglifier'
 gem 'nprogress-rails'
 gem 'petrovich'
 gem 'auto_html'
+gem 'angularjs-rails'
 
 gem 'exception_notification'
 

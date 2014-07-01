@@ -441,11 +441,91 @@
     color: #e74c3c;
   }
 }
+.container-category{
+  width: 178px;
+  text-indent: 0.01px;
+  text-overflow: '';
+  background-image: url(image-path('select-arrow.png'));
+  background-repeat:no-repeat;
+  background-repeat: no-repeat;
+  background-position: 176px 16px;
+  background-color:white;
+  border: 1px solid #cccccc;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.75);
+  padding: 10px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
+  padding-bottom: 8px;
 
-#picture_tag_list_tag{
+}
+.category-selector{
+  overflow: hidden;
+  border: 1px solid #cccccc;
+  border-top:0 none transparent;
+  background:white;
+  margin-top: -5px;
+  padding: 15px;
+  width:400px;
+  -webkit-border-bottom-right-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+
+  .group{
+    float: left;
+    width: 50%;
+  }
+}
+.image-edit-album-category{
+  overflow: hidden;
+  margin-bottom:7px;
+}
+.edit-container .new-picture-description .image-edit-album-category{
+  label:first-child{
+    width: 21px;
+    height: 21px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    margin-right: 10px;
+    float: left;
+  }
+  label.checkbox{
+    padding:0;
+    margin:0;
+    padding-top:3px;
+  }
+  input{
+    height:auto;
+    padding:0;
+    margin:0;
+    width:auto!important;
+  }
+  input[type="checkbox"] + span {
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; top: 0;
+    margin:0;
+    padding:0;
+    height:auto;
+    width: 100%; height: 100%;
+    background: url(image-path('sprite-input.png')) no-repeat; /* Фоновый рисунок */
+    cursor: pointer; /* Курсор в виде руки */
+  }
+  input[type="checkbox"]:checked + span {
+    background-position: 0 -21px;
+  }
+}
+#picture_tag_list_tag, #picture_category_list_tag{
   width: 560px !important;
 }
-#picture_tag_list_tagsinput{
+#picture_tag_list_tagsinput, #picture_category_list_tagsinput{
   height: auto;
 }
 
@@ -462,4 +542,3 @@ $current_column: $MAX_COLUMNS;
   }
   $current_column: $current_column - 1
 }
-

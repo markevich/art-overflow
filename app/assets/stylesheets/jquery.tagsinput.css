@@ -49,4 +49,5 @@ div.tagsinput div { display:block; float: left; }
 .tagslist{
   float: right;
   width: 100%;
+  margin-bottom: 7px;
 }
