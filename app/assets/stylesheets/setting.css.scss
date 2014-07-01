@@ -9,6 +9,7 @@ $colorBlue: #70b2b8;
 $colorRed: #e74c3c;
 $colorDarkRed: #bf4032;
 $bgLightGrey: #fafafa;
+$helveticaNormal: HelveticaThin;
 /*functions*/
 @mixin border-radius($radius){
   -webkit-border-radius: $radius;
@@ -41,6 +42,10 @@ $bgLightGrey: #fafafa;
 @font-face{
   font-family: Gothic;/*задаем назв. шрифта*/
   src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/
+}
+@font-face{
+  font-family: HelveticaThin;/*задаем назв. шрифта*/
+  src: font-url('HelveticaNeueCyr-Thin.otf');/*подключаем сторон. шрифт*/
 }
 body{
   font-family: Arial;

@@ -156,7 +156,6 @@ ActiveRecord::Schema.define(version: 20140625131323) do
     t.string   "avatar"
     t.integer  "pictures_count",         default: 0
     t.integer  "albums_count",           default: 0
-    t.string   "sex"
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

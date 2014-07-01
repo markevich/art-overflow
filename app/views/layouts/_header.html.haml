@@ -3,47 +3,31 @@
     .container-left
       #logo
         %a{href: '/'}
-          %h1
-            ARTOVERFLOW
       %nav#menu
         %ul
-          = active_link_to "Обновления", activities_path
-          = active_link_to "Популярные", pictures_path(order: :likes_count)
-          = active_link_to "Новые", root_path
+          %li
+            %a
+              О нас
+          %li
+            %a
+              Сообщество
+          //= active_link_to "Обновления", activities_path
+          = active_link_to "Лучшие", pictures_path(order: :likes_count)
+          //= active_link_to "Новые", root_path
+          %li
+            %a
+              Бездна
     .container-right
-      #dowland
-
-        - if user_signed_in?
-          %span.ava
-            = image_tag current_user.avatar
-          .user-menu
-            = image_tag 'triangle.png'
-            %ul
-              %li
-                = link_to t('user.profile'), user_pictures_path(current_user)
-              %li
-                = link_to t('user.settings'), edit_user_path(current_user)
-              %li
-                = link_to t('user.logout'), destroy_user_session_path, method: :delete
-        - else
-          %a{class: 'sign-in'}
-            Вход
-        .login-user
-          = simple_form_for(User.new, url: new_user_session_path) do
-            = image_tag('triangle.png');
-            %input{name: "user[email]", type: "text", placeholder: "Еmail"}
-            %input{name: "user[password]", type: "password", placeholder: "Пароль"}
-            .action
-              %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue', value: 'Войти'}
-              = link_to "Забыли пароль?", '#', class: 'grey forgot-password'
-            .join-us.grey
-              Еще не с нами?
-              = link_to t('user.registration'), new_user_registration_path, class: 'grey'
-        #search
-          = form_tag search_index_path, method: :get do
-            = text_field_tag :query, params[:query], autocomplete: :off, placeholder: 'Поиск', class: ('active' if params[:query])
-        %a.btn-blue-double{ href: new_picture_path }
-          %span.icon
-          %span.text
-            Загрузить
-    .clear
+      .bell
+        %span
+          3
+      .ava
+        =image_tag 'ava.png'
+      .setting
+        %a
+.banner
+  .banner-container
+    %h1
+      Мы любим творчество
+    %p
+      Вступай в наше сообщество и делись своими работами!

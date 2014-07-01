@@ -2,47 +2,16 @@
 //----------------------------------------------стили для шапки--------------------------------------------------------
 
 header{
-  position: relative;
-  background-color: $darkBlue;
-  padding: 10px 20px 6px 20px;
-//стили для поиска профиля
-  #search ::-webkit-input-placeholder {
-    color: #70b2b8;
-  }
-  #search ::-moz-placeholder {
-    color: #70b2b8;
-  }
-  #search :-moz-placeholder {
-    color: #70b2b8;
-  }
-  #search :-ms-input-placeholder {
-    color: #70b2b8;
-  }
-  .clear{
-    clear: both;
-  }
-  #search  input:hover::-webkit-input-placeholder,#search input.active::-webkit-input-placeholder {
-    color: #e74c3c;
-  }
-  #search input:hover:-ms-input-placeholder,#search input.active:-ms-input-placeholder {
-    color: #e74c3c;
-  }
-  #search  input:hover::-moz-placeholder,#search input.active::-moz-placeholder {
-    color: #e74c3c;
-  }
-  #search  input:hover:-moz-placeholder,#search input.active:-moz-placeholder {
-    color: #e74c3c;
-  }
-  #menu ul{
-    margin-top: 2px;
-  }
+  overflow:hidden;
+  background-color: white;
+
   .alignment-header{
     position: relative;
     margin: auto;
-    max-width: 1660px;
+    max-width: 1200px;
+    padding-left:12px;
     .container-left{
       width: 60%;
-      padding-top: 6px;
       float: left;
       text-align: left;
     }
@@ -52,40 +21,115 @@ header{
       text-align: right;
     }
   }
-//общие стили для хэдера
-h1{
-  font-family: $font;
-  color: white;
-  font-size: 26px;
-  float: left;
-  padding-right: 26px;
-  letter-spacing: 0px;
+
+#logo {
+  float:left;
+  margin-top:10px;
+  a{
+    background-image: url("/assets/logo.png");
+    background-repeat: no-repeat;
+    width: 90px;
+    height: 40px;
+    display: block;
+  }
 }
 
-
-nav{
-   ul{
-     li{
-        margin-top: 0px;
-        float: left;
-       a{
-         font-size: 14px;
-         font-weight: bold;
-         font-family: Arial;
-         text-decoration: none;
-         margin: 0px 14px;
-         &:hover{
-           color: $colorRed;
-           text-decoration: none;
-         }
-         &.active {
-          color: $colorRed;
-
-         }
-       }
-     }
-   }
+#menu{
+  float:left;
+  margin-left:30px;
+  ul{
+    margin-top:0;
+    li:first-child{
+      border-top: 5px solid #243a4d;
+      a:hover{
+        background:#243a4d;
+      }
+      &+li{
+        border-top: 5px solid #db5652;
+        a:hover{
+          background:#db5652;
+        }
+        &+li{
+          border-top: 5px solid #edb169;
+          a:hover{
+            background:#edb169;
+          }
+          &+li{
+            border-top: 5px solid #48a593;
+            a:hover{
+              background:#48a593;
+            }
+          }
+        }
+      }
+    }
+    li{
+      display: block;
+      float:left;
+      margin-right:1px;
+      a{
+        font-family:$helveticaNormal;
+        font-size: 21px;
+        text-decoration: none;
+        color: #5b5b5b;
+        padding: 20px 15px;
+        display: block;
+        &:hover{
+          color:white;
+        }
+      }
+    }
+  }
 }
+.bell{
+  background-color:#f36a5a;
+  width:65px;
+  height:65px;
+  float:right;
+  cursor:pointer;
+  background-image: url("/assets/bell.png");
+  background-position:center;
+  position:relative;
+  background-repeat:no-repeat;
+  span{
+    color: #f36a5a;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background: white;
+    padding: 2px 4px 1px;
+    top: 16px;
+    position: absolute;
+    right: 15px;
+    border: 2px solid #f36a5a;
+    font-size: 12px;
+  }
+}
+.ava{
+  img{
+    width:65px;
+    height:65px;
+    float:right;
+    cursor:pointer;
+  }
+}
+.setting{
+  float:right;
+  a{
+    background-image: url("/assets/setting.png");
+    background-position:center;
+    position:relative;
+    background-repeat:no-repeat;
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    top: 25px;
+    right: 25px;
+
+  }
+}
+
   .login-user{
     float: right;
   }
@@ -107,44 +151,7 @@ a.sign-in{
     }
   }
 #dowland{
-  #search{
-    float: right;
-    display: inline-block;
-    position: relative;
-    width: 165px;
-    margin: 0 15px;
-    top: -2px;
-    input{
-      float: right;
-      width: 95px;
 
-      right: 0;
-      height: 30px;
-      @include border-radius(6px);
-      border: 0;
-      background-color: #26394d;
-      padding-left: 30px;
-      font: bold 14px Arial;
-      cursor: pointer;
-      background-position: 10px;
-      background-image: url(image-path("search.png"));
-      background-repeat: no-repeat;
-      @include transition(width 0.2s ease-out);
-      &.active{
-        background-image: url(image-path("red.png"));
-        background-color: #1f2f40;
-        @include border-radius(6px);;
-        color: #e74c3c;
-        width: 85%;
-      }
-      &:hover{
-        background-image: url(image-path("red.png"));
-        background-color: #1f2f40;
-        @include border-radius(6px);
-        color: #e74c3c;
-      }
-    }
-  }
 
 .ava{
   img{
@@ -298,7 +305,32 @@ a.sign-in{
   display: block;
   background: #969696;
 }
+.banner{
+  background: #01111b;
 
+}
+.banner-container{
+  max-width:1200px;
+  margin:0 auto;
+  background: url(image-path("pic.png")) top left;
+  max-height:275px;
+  background-repeat:no-repeat;
+  padding-left: 400px;
+  padding-top: 94px;
+  padding-bottom: 110px;
+
+  h1{
+    font-size:50px;
+    font-family:$helveticaNormal;
+    color:#fafafa;
+  }
+  p{
+    font-family:$helveticaNormal;
+    color:#fafafa;
+    font-size:22px;
+    padding-top:15px;
+  }
+}
 @-moz-document url-prefix(){
   header h1{
     // letter-spacing: -2px;
