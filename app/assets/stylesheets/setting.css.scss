@@ -47,6 +47,10 @@ $helveticaNormal: HelveticaThin;
   font-family: HelveticaThin;/*задаем назв. шрифта*/
   src: font-url('HelveticaNeueCyr-Thin.otf');/*подключаем сторон. шрифт*/
 }
+@font-face{
+  font-family: OpenSans;/*задаем назв. шрифта*/
+  src: font-url('OpenSans-Regular.ttf');/*подключаем сторон. шрифт*/
+}
 body{
   font-family: Arial;
   min-width: 980px;
