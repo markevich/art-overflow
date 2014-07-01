@@ -1,29 +1,32 @@
 = render current_user.to_header_path, resource: current_user
 = render partial: 'pictures/edit_navigation', locals: { resource: resource }
 
-.edit-container
+.edit-container(ng-controller='categoriesController')
   %div
     .image-edit-album
       = image_tag resource.path, class:"img-follow"
       %br
         = link_to 'Удалить картинку', picture_path(resource), method: :delete, data: { confirm: 'Вы уверены?' }
     .form-edit-album.new-picture-description
-      = simple_form_for([parent, resource], html: { id: 'edit_picture_form' }) do |f|
+      = simple_form_for([parent, resource], html: { id: 'edit_picture_form', 'ng-submit' => 'setCategories()'}) do |f|
         = f.input :name
         = f.input :description
         = f.input :tag_list
-
-        = f.input :category_list, as: :hidden
+        = f.input :category_list, as: :hidden, input_html: { 'ng-value' => 'value' }
         .setings
-        .container-category
+        .container-category.unselectable
           Категории
-        .category-params
-          - Picture::CATEGORIES.each_with_index do |category, index|
-            %div.image-edit-album-category
-              %label
-                = check_box_tag "category#{index}", category, resource.category_list.include?(category), style: "width: 20px; float: left", class: "category_checkbox"
-                %span
-              = label_tag "category#{index}", category, class: "boolean optional control-label checkbox"
+        .category-selector
+          - Picture::CATEGORIES.each_slice(7).with_index do |group, group_index|
+            .group
+              - group.each_with_index do |category, index|
+                - index = "#{group_index}#{index}"
+                %div.image-edit-album-category
+                  %label
+                    = check_box_tag "category#{index}", category, resource.category_list.include?(category), class: 'js-category-checkbox'
+                    %span
+                  = label_tag "category#{index}", category, class: "boolean optional control-label checkbox unselectable"
 
         = f.association :album, collection: current_user.albums
         = f.button :submit, value: 'Сохранить изменения',class: 'btn btn-green'
+

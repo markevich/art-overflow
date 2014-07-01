@@ -5,9 +5,3 @@ $(document).on 'ready page:load', ->
     'height' : '',
     'defaultText' : ''
   );
-
-  $("#edit_picture_form").on 'submit', ->
-    values = $('input:checkbox:checked.category_checkbox').map ->
-      return this.value;
-
-    $("#picture_category_list").val(values.get())

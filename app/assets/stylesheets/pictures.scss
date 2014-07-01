@@ -461,23 +461,29 @@
   padding-bottom: 8px;
 
 }
-.category-params{
+.category-selector{
+  overflow: hidden;
   border: 1px solid #cccccc;
   border-top:0 none transparent;
   background:white;
-  margin-top: -3px;
+  margin-top: -5px;
   padding: 15px;
   width:400px;
   -webkit-border-bottom-right-radius: 6px;
--webkit-border-bottom-left-radius: 6px;
--moz-border-radius-bottomright: 6px;
--moz-border-radius-bottomleft: 6px;
-border-bottom-right-radius: 6px;
-border-bottom-left-radius: 6px;
+  -webkit-border-bottom-left-radius: 6px;
+  -moz-border-radius-bottomright: 6px;
+  -moz-border-radius-bottomleft: 6px;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+
+  .group{
+    float: left;
+    width: 50%;
+  }
 }
 .image-edit-album-category{
-overflow: hidden;
-margin-bottom:7px;
+  overflow: hidden;
+  margin-bottom:7px;
 }
 .edit-container .new-picture-description .image-edit-album-category{
   label:first-child{
@@ -503,17 +509,17 @@ margin-bottom:7px;
     width:auto!important;
   }
   input[type="checkbox"] + span {
-   position: absolute; /* Абсолютное позиционирование */
-   left: 0; top: 0;
-   margin:0;
-   padding:0;
-   height:auto;
-   width: 100%; height: 100%;
-   background: url(image-path('sprite-input.png')) no-repeat; /* Фоновый рисунок */
-   cursor: pointer; /* Курсор в виде руки */
+    position: absolute; /* Абсолютное позиционирование */
+    left: 0; top: 0;
+    margin:0;
+    padding:0;
+    height:auto;
+    width: 100%; height: 100%;
+    background: url(image-path('sprite-input.png')) no-repeat; /* Фоновый рисунок */
+    cursor: pointer; /* Курсор в виде руки */
   }
   input[type="checkbox"]:checked + span {
-   background-position: 0 -21px;
+    background-position: 0 -21px;
   }
 }
 #picture_tag_list_tag, #picture_category_list_tag{
