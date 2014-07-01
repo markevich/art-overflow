@@ -17,7 +17,6 @@
 //= require angular-resource
 //= require angular-route
 //= require ./angular/app
-//= require_tree ./angular/services
 //= require_tree ./angular/controllers
 //= require nprogress
 //= require nprogress-turbolinks
