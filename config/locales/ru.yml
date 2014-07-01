@@ -67,6 +67,7 @@ ru:
         name: Имя
         avatar: Аватар
         city: Город
+        slug: Адрес профиля
       album:
         name: Имя
         description: Описание

@@ -7,7 +7,9 @@ class User < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :name, use: :slugged
-  validates :slug, uniqueness: true, presence: true, length: { minimum: 3 }
+  validates :slug, uniqueness: { case_sensitive: :false }, presence: true, length: { minimum: 4 }
+  validates :slug, format: { with: /\A[a-zA-Z0-9\-]+\z/,
+    message: "Вы должны использовать только латинские символы, цифры или '-'" }
 
   def self.friendly_find(id)
     friendly.find(id)

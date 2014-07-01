@@ -76,9 +76,6 @@ GEM
       activerecord (>= 3, < 5)
       activesupport (>= 3, < 5)
     addressable (2.3.6)
-    angular-turbolinks (0.1.0)
-      coffee-rails
-      turbolinks
     angularjs-rails (1.2.16)
     ansi (1.4.3)
     arel (5.0.0)
@@ -235,6 +232,7 @@ GEM
     net-ssh-gateway (1.2.0)
       net-ssh (>= 2.6.5)
     newrelic_rpm (3.7.3.204)
+    ng-rails-csrf (0.1.0)
     nokogiri (1.6.1)
       mini_portile (~> 0.5.0)
     nprogress-rails (0.1.2.3)
@@ -412,7 +410,6 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on
   acts_as_follower!
-  angular-turbolinks
   angularjs-rails
   auto_html
   better_errors
@@ -449,6 +446,7 @@ DEPENDENCIES
   meta_request
   mini_magick
   newrelic_rpm
+  ng-rails-csrf
   nprogress-rails
   nyan-cat-formatter
   petrovich

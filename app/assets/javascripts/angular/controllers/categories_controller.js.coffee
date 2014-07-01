@@ -3,7 +3,7 @@
     '$element'
     ($scope, $element) ->
       $scope.value = ''
-      
+
       $scope.setCategories = ->
         checkboxes = $element.find('.js-category-checkbox:checked')
         values = []

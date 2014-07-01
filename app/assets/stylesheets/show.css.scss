@@ -531,6 +531,13 @@ section{
     input{
       margin-bottom: 0;
     }
+    .hint{
+      display: block;
+      margin-bottom: 7px;
+      span{
+        color: #555;
+      }
+    }
     .btn.btn-blue{
       padding: 0.4em!important;
     }
