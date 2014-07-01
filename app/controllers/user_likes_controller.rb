@@ -3,6 +3,7 @@ class UserLikesController < InheritedResources::Base
 
   defaults resource_class: Like, collection_name: 'likes', instance_name: 'like'
   belongs_to :user
+  resources_configuration[:user][:finder] = :friendly_find
 
   def index
     respond_with do |format|

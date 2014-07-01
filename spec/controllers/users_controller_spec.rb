@@ -17,4 +17,14 @@ describe UsersController do
       end
     end
   end
+
+  it_should_behave_like 'update action' do
+    let(:valid_params) do
+      { id: user.id, user: {slug: "test"} }
+    end
+
+    let(:invalid_params) do
+      { id: user.id, user: {slug: ""} }
+    end
+  end
 end

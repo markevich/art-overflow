@@ -25,4 +25,12 @@
             vk.com/
           = f.input :vk, placeholder: 'wine', label: false
 
+      %div
+        %label
+          Ваш адрес на ArtOverflow
+        .collapse
+          %span.prefix
+            artoverflow.com/
+          = f.input :slug, placeholder: 'batman', label: false
+
       = f.submit "Сохранить", class: 'btn btn-green', data: { disable_with: 'Сохраняется' }

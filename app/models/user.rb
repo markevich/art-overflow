@@ -5,6 +5,14 @@ class User < ActiveRecord::Base
   attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
   mount_uploader :avatar, AvatarUploader
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  validates :slug, uniqueness: true, presence: true, length: { minimum: 3 }
+
+  def self.friendly_find(id)
+    friendly.find(id)
+  end
+
   before_create :set_password_confirmation
   after_create :create_notification_settings, unless: :skip_callbacks
 
