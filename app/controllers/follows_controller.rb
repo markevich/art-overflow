@@ -2,6 +2,7 @@ class FollowsController < InheritedResources::Base
   before_action :authenticate_user!, except: :index
 
   belongs_to :user
+  resources_configuration[:user][:finder] = :friendly_find
 
   def create
     if current_user.follow(parent)

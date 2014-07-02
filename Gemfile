@@ -13,6 +13,8 @@ gem 'uglifier'
 gem 'nprogress-rails'
 gem 'petrovich'
 gem 'auto_html'
+gem 'angularjs-rails'
+gem 'ng-rails-csrf'
 
 gem 'exception_notification'
 
@@ -72,6 +74,8 @@ gem 'cancan'
 gem 'inherited_resources'
 gem 'responders'
 gem 'public_activity'
+
+gem 'friendly_id'
 
 group :development do
   gem 'capistrano', '2.15.5'

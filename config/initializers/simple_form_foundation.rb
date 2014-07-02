@@ -7,12 +7,10 @@ SimpleForm.setup do |config|
     b.optional :pattern
     b.optional :min_max
     b.optional :readonly
-    b.use :label_input
+    b.use :label
+    b.use :hint,  wrap_with: { tag: :span, class: :hint }
+    b.use :input
     b.use :error, wrap_with: { tag: :small }
-
-    # Uncomment the following line to enable hints. The line is commented out by default since Foundation
-    # does't provide styles for hints. You will need to provide your own CSS styles for hints.
-    # b.use :hint,  wrap_with: { tag: :span, class: :hint }
   end
 
   # CSS class for buttons

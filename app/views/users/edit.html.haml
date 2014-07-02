@@ -16,6 +16,9 @@
               data: { remote: true }, class: 'btn btn-blue js-trigger-uploader'
 
       = f.input :city, placeholder: 'Минск'
+      = f.input :slug, placeholder: 'batman',
+        input_html: { 'ng-model' => 'slug', 'ng-init' => "slug='#{f.object.slug}'" },
+        hint: 'Ваш профиль будет доступен по адресу <span>http://artoverflow.com/users/{{slug}}</span>'.html_safe
 
       %div
         %label

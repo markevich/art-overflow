@@ -3,6 +3,7 @@ class UserFollowersController < InheritedResources::Base
 
   defaults resource_class: Follow, collection_name: 'followings', instance_name: 'like'
   belongs_to :user
+  resources_configuration[:user][:finder] = :friendly_find
 
   helper_method :collection
 
