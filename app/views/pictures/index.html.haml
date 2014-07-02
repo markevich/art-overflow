@@ -5,6 +5,40 @@
 - elsif parent && parent.is_a?(Album)
   = render partial: 'albums/navigation', locals: { resource: parent }
 
+
+.banner
+  .banner-container
+    %h1
+      Мы любим творчество
+    %p
+      Вступай в наше сообщество и делись своими работами!
+.filter-canister
+  .filter-canister-left
+    %ul
+      %li.active
+        %a
+          Популярные
+      %li
+        %a
+          Новые
+  .filter-canister-right
+    %ul
+      %li.active
+        %a
+          Категория
+          %i.fa.fa-chevron-down
+      %li
+        %a
+          Теги
+          %i.fa.fa-chevron-down
+      %li
+        %a
+          Тип графики:
+      %li
+        %a
+          2D
+          %i.fa.fa-chevron-down
+
 - if parent && parent.pictures_count == 0
   - if parent.is_a?(User)
     .container-for-empty{ data: { user_id: parent.id, hide_if_owner: true } }

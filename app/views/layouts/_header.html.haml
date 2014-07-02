@@ -5,18 +5,9 @@
         %a{href: '/'}
       %nav#menu
         %ul
-          %li
-            %a
-              О нас
-          %li
-            %a
-              Сообщество
-          //= active_link_to "Обновления", activities_path
-          = active_link_to "Лучшие", pictures_path(order: :likes_count)
-          //= active_link_to "Новые", root_path
-          %li
-            %a
-              Бездна
+          = active_link_to "Движуха", '#'
+          = active_link_to "Бездна", root_path
+          = active_link_to "О нас", '#'
     .container-right
       .bell
         %span
@@ -25,35 +16,3 @@
         =image_tag 'ava.png'
       .setting
         %a
-.banner
-  .banner-container
-    %h1
-      Мы любим творчество
-    %p
-      Вступай в наше сообщество и делись своими работами!
-.filter-canister
-  .filter-canister-left
-    %ul
-      %li.active
-        %a
-          Популярные
-      %li
-        %a
-          Новые
-  .filter-canister-right
-    %ul
-      %li.active
-        %a
-          Категория
-          %i.fa.fa-chevron-down
-      %li
-        %a
-          Теги
-          %i.fa.fa-chevron-down
-      %li
-        %a
-          Тип графики:
-      %li
-        %a
-          2D
-          %i.fa.fa-chevron-down

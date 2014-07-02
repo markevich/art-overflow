@@ -37,28 +37,29 @@ header{
 #menu{
   float:left;
   margin-left:30px;
+  height: 65px;
   ul{
     margin-top:0;
     li:first-child{
-      border-top: 5px solid #243a4d;
+      border-top: 5px solid #edb168;
+      a.active{
+        background: #edb169;
+      }
       a:hover{
-        background:#243a4d;
+        background: #edb169;
       }
       &+li{
-        border-top: 5px solid #db5652;
+        border-top: 5px solid #48a593;
+        a.active{
+          background: #48a593;
+        }
         a:hover{
-          background:#db5652;
+          background:#48a593;
         }
         &+li{
-          border-top: 5px solid #edb169;
+          border-top: 5px solid #243a4d;
           a:hover{
-            background:#edb169;
-          }
-          &+li{
-            border-top: 5px solid #48a593;
-            a:hover{
-              background:#48a593;
-            }
+            background:#243a4d;
           }
         }
       }
@@ -74,8 +75,11 @@ header{
         color: #5b5b5b;
         padding: 20px 15px;
         display: block;
+        &.active{
+          color: white;
+        }
         &:hover{
-          color:white;
+          color: white;
         }
       }
     }
@@ -121,12 +125,11 @@ header{
     position:relative;
     background-repeat:no-repeat;
     display: block;
-    width: 20px;
-    height: 20px;
+    width: 26px;
+    height: 26px;
     position: relative;
-    top: 25px;
+    top: 20px;
     right: 25px;
-
   }
 }
 
