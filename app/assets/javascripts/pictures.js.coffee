@@ -1,11 +1,11 @@
-$(document).on 'mouseover', '#pictures .picture', ->
-  img = $(@)
-  img.css('opacity', 0.10)
-  img.prev().show();
-.on 'mouseleave', '.picture', ->
-  img = $(@)
-  img.css('opacity', 1)
-  img.prev().hide();
+# $(document).on 'mouseover', '#pictures .picture', ->
+#   img = $(@)
+#   img.css('opacity', 0.10)
+#   img.prev().show();
+# .on 'mouseleave', '.picture', ->
+#   img = $(@)
+#   img.css('opacity', 1)
+#   img.prev().hide();
 
 toggle_watched_buttons = (xhr, watcher) ->
   if xhr.state == 'inactive'

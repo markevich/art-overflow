@@ -7,24 +7,38 @@
     color: #6eb2ba;
     font-size:0px;
     position: relative;
+    overflow:hidden;
+
     .info{
-      padding: 0 10px;
-      line-height: 20px;
       position: absolute;
-      display: none;
       color: black;
+      padding:10px 0;
+      height: 15px;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      top: auto;
+      bottom: 0;
+      opacity: 0;
+      transform: translateY(100%);
+      transition: transform 0.4s, opacity 0.1s 0.3s;
+
       h5{
-        font-size: 16px;
-        margin-left: 10px;
-        margin-top: 20px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-      p{
-        vertical-align: 2;
-        margin: 0 10px;
-        width: 255px;
         font-size: 14px;
+        font-weight: normal;
+        margin-bottom: 10px;
+        color:#48a593;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        height:15px;
+        white-space: nowrap; 
+        padding:0 10px;
+      }
+    }
+    &:hover{
+      .info{
+          opacity: 1;
+          transform: translateY(0px);
+          transition: transform 0.4s, opacity 0.1s;
       }
     }
     img.picture{
@@ -595,5 +609,6 @@ $current_column: $MAX_COLUMNS;
   #pictures .image-block img{
     width:100%;
     height:auto;
+    min-height:240px;
   }
 }
