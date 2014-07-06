@@ -21,3 +21,4 @@ rerun.txt
 *.js.js
 .powder
 .rspec
+*.DS_Store
