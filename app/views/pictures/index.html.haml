@@ -38,6 +38,25 @@
         %a
           2D
           %i.fa.fa-chevron-down
+  .popap-categories
+    .item
+      %label
+        %input{type:'checkbox' , name:'animate'}
+        %span
+      %label{for:'animate'}
+        Анимация
+    .item
+      %label
+        %input{type:'checkbox' , name:'animate'}
+        %span
+      %label{for:'animate'}
+        Анимация
+    .item
+      %label
+        %input{type:'checkbox' , name:'animate'}
+        %span
+      %label{for:'animate'}
+        Анимация
 
 - if parent && parent.pictures_count == 0
   - if parent.is_a?(User)
@@ -89,5 +108,3 @@
       = image_tag 'scroller-preloader.gif'
       %span
         Загрузка...
-
-
