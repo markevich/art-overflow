@@ -1,7 +1,7 @@
 = javascript_include_tag 'load-image.min', 'jquery.Jcrop', 'data-turbolinks-track' => true
 = stylesheet_link_tag 'jquery.Jcrop', 'data-turbolinks-track' => true
 
-= simple_form_for @picture do |f|
+= simple_form_for(@picture, html: { 'ng-controller' => 'categoriesController', 'ng-submit' => 'setCategories()'}) do |f|
   %h3.title-download
     Загрузка
   - unless @picture.path?
@@ -45,6 +45,18 @@
     = f.input :name
     = f.input :description
     = f.input :tag_list
-    = f.input :category_list
+    .container-category.unselectable
+      Категории
+    .category-selector
+      - Picture::CATEGORIES.each_slice(7).with_index do |group, group_index|
+        .group
+          - group.each_with_index do |category, index|
+            - index = "#{group_index}#{index}"
+            %div.image-edit-album-category
+              %label
+                = check_box_tag "category#{index}", category, resource.category_list.include?(category), class: 'js-category-checkbox'
+                %span
+              = label_tag "category#{index}", category, class: "boolean optional control-label checkbox unselectable"
+    = f.input :category_list, as: :hidden, input_html: { 'ng-value' => 'value' }
     = f.association :album, collection: current_user.albums
     = f.button :submit, class: 'btn btn-green', value: 'Отправить', data: { disable_with: 'Загружаем' }

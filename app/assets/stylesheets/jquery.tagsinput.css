@@ -1,4 +1,10 @@
-div.tagsinput { padding:5px; width:545px; height:auto; overflow-y: auto;}
+div.tagsinput {
+  padding-left: 0;
+  padding:5px;
+  width:545px;
+  height:auto;
+  overflow-y: auto;
+}
 .comments .tagsinput {
   width: 500px;
   height: auto;
