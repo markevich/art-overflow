@@ -5,8 +5,8 @@ class PictureUploader < CarrierWave::Uploader::Base
   LIMIT_HEIGHT = 2500
   CROP_AREA_WIDTH = 1200.freeze
   CROP_AREA_HEIGHT = 800.freeze
-  SMALL_THUMB_WIDTH = 315.freeze
-  SMALL_THUMB_HEIGHT = 210.freeze
+  SMALL_THUMB_WIDTH = 500.freeze
+  SMALL_THUMB_HEIGHT = 500.freeze
   THUMB_WIDTH = 495.freeze
   THUMB_HEIGHT = 330.freeze
   THUMB_ASPECT_RATIO = (THUMB_WIDTH.to_f / THUMB_HEIGHT).freeze

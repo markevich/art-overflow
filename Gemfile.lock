@@ -261,6 +261,9 @@ GEM
       railties (>= 3.0.0)
     quiet_assets (1.0.2)
       railties (>= 3.1, < 5.0)
+    rabl-rails (0.3.4)
+      activesupport (>= 3.1)
+      railties (>= 3.1)
     rack (1.5.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
@@ -455,6 +458,7 @@ DEPENDENCIES
   pry-rails
   public_activity
   quiet_assets
+  rabl-rails
   rails (= 4.1.0)
   rails-observers
   responders

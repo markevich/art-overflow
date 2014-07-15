@@ -12,11 +12,18 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require velocity.js
+//= require velocity.ui.js
+//= require image-loaded.min.js
 //= require angular
 //= require ng-rails-csrf
 //= require angular-resource
+//= require angular-sanitize
 //= require angular-route
 //= require ./angular/app
+//= require_tree ./angular/lib
+//= require_tree ./angular/directives
+//= require_tree ./angular/services
 //= require_tree ./angular/controllers
 //= require nprogress
 //= require nprogress-turbolinks

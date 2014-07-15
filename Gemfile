@@ -75,6 +75,8 @@ gem 'inherited_resources'
 gem 'responders'
 gem 'public_activity'
 
+gem 'rabl-rails'
+
 gem 'friendly_id'
 
 group :development do

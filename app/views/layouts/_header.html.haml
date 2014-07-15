@@ -5,9 +5,9 @@
         %a{href: '/'}
       %nav#menu
         %ul
-          = active_link_to "Движуха", '#'
-          = active_link_to "Бездна", root_path
-          = active_link_to "О нас", '#'
+          = active_link_to "Движуха", user_pictures_path(User.first)
+          = active_link_to "Бездна", abyss_index_path
+          = active_link_to "О нас", root_path
     .container-right
       .bell
         %span

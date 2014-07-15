@@ -1,0 +1,2 @@
+class AbyssController < ApplicationController
+end

@@ -1,0 +1,66 @@
+#abyss(ng-controller="AbyssController")
+  .banner
+    .banner-container
+      %h1
+        Мы любим творчество
+      %p
+        Вступай в наше сообщество и делись своими работами!
+  .filter-canister
+    .filter-canister-left
+      %ul
+        %li.active
+          %a(ng-click="setOrderFilter('popular')")
+            Популярные
+        %li
+          %a(ng-click="setOrderFilter('new')")
+            Новые
+    .filter-canister-right
+      %ul
+        %li.active
+          %a
+            Категория
+            %i.fa.fa-chevron-down
+        %li
+          %a
+            Теги
+            %i.fa.fa-chevron-down
+        %li
+          %a
+            Тип графики:
+        %li
+          %a
+            2D
+            %i.fa.fa-chevron-down
+    .popap-categories
+      .item
+        %label
+          %input{type:'checkbox' , name:'animate'}
+          %span
+        %label{for:'animate'}
+          Анимация
+      .item
+        %label
+          %input{type:'checkbox' , name:'animate'}
+          %span
+        %label{for:'animate'}
+          Анимация
+      .item
+        %label
+          %input{type:'checkbox' , name:'animate'}
+          %span
+        %label{for:'animate'}
+          Анимация
+  #pictures(resizable images-reseted infinite-scroll="loader.loadMore()")
+    .picture-container.hide#fake-for-js
+
+    .picture-container(ng-repeat="project in loader.projects")
+      .image-block
+        %a(ng-href="{{project.path}}")
+          %img.picture.loading(ng-src="{{project.thumb_path}}" image-loaded)
+          .info
+            %h5
+              {{project.name|truncate:40}}
+          .name
+            %a(ng-href="{{project.user_url}}")
+              {{project.user_name|truncate:35}}
+    #preview-resizer(ng-bind-html="options.fallbackImageStyleHack")

@@ -1,10 +1,4 @@
-@app = angular.module('Application', ['ngRoute', 'ng-rails-csrf'])
-
-@app.config([
-  '$locationProvider'
-  ($locationProvider) ->
-    $locationProvider.html5Mode(true)
-  ])
+@app = angular.module('Application', ['ngRoute', 'ng-rails-csrf', 'ngResource', 'ngSanitize', 'infinite-scroll'])
 
 $(document).on 'ready page:load', ->
   angular.bootstrap document.body, ['Application']

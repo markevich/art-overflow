@@ -13,6 +13,9 @@ module ArtOverflow
   class Application < Rails::Application
     config.autoload_paths += %W{#{config.root}/app #{config.root}/lib}
 
+    config.paths.add File.join('app', 'api'), glob: File.join('**', '*.rb')
+    config.autoload_paths += Dir[Rails.root.join('app', 'api', '*')]
+
     config.active_record.observers = begin
       observers_path = Rails.root.join('app/observers/').to_s
       Dir["#{observers_path}**/*.rb"].map do |f|

@@ -7,6 +7,8 @@
     color: #6eb2ba;
     font-size:0px;
     position: relative;
+    background-image: url(image-path('fallback/default_image.png'));
+    background-size: cover;
     overflow:hidden;
 
     .info{
@@ -42,11 +44,9 @@
       }
     }
     img.picture{
-      opacity: 1;
-      -webkit-transition: opacity 0.2s ease-out;
-      -moz-transition: opacity 0.2s ease-out;
-      -o-transition: opacity 0.2s ease-out;
-      transition: opacity 0.2s ease-out;
+      &.loading{
+        display: none;
+      }
     }
     h1{
       padding-bottom: 5px;
@@ -519,14 +519,14 @@
     width:auto!important;
   }
   input[type="checkbox"] + span {
-    position: absolute; /* Абсолютное позиционирование */
+    position: absolute;
     left: 0; top: 0;
     margin:0;
     padding:0;
     height:auto;
     width: 100%; height: 100%;
-    background: url(image-path('sprite-input.png')) no-repeat; /* Фоновый рисунок */
-    cursor: pointer; /* Курсор в виде руки */
+    background: url(image-path('sprite-input.png')) no-repeat;
+    cursor: pointer;
   }
   input[type="checkbox"]:checked + span {
     background-position: 0 -21px;
@@ -653,6 +653,10 @@ $current_column: $MAX_COLUMNS;
     width: 16.666667%;
     float:left;
   }
+  #pictures .image-block >a{
+    display: block;
+  }
+
   #pictures .image-block img{
     width:100%;
     height:auto;
