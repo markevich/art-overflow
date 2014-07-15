@@ -1,0 +1,17 @@
+.authorization
+  .container-authorization
+    .container-authorization-left
+      =image_tag("login.png")
+    .container-authorization-right
+      %h1
+        Забыли пароль?
+      .form-authorization
+        = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+          = f.input :email, label: false, placeholder: 'Email', :autofocus => true
+          .action
+            = f.button :submit, "Восстановить", class: 'button-registration'
+
+        .container-authorization-registration
+          .join-us.grey
+            Еще не с нами?
+            = link_to t('user.registration'), new_user_registration_path, class: 'grey'
