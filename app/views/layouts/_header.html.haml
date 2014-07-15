@@ -35,7 +35,7 @@
             %input{name: "user[password]", type: "password", placeholder: "Пароль"}
             .action
               %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue', value: 'Войти'}
-              = link_to "Забыли пароль?", '#', class: 'grey forgot-password'
+              = link_to "Забыли пароль?", new_user_password_path, class: 'grey forgot-password'
             .join-us.grey
               Еще не с нами?
               = link_to t('user.registration'), new_user_registration_path, class: 'grey'

@@ -1,0 +1,17 @@
+.authorization
+  .container-authorization
+    .container-authorization-left
+      =image_tag("login.png")
+    .container-authorization-right
+      %h1
+        Смените ваш пароль!
+      .form-authorization
+        = simple_form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f|
+
+          = f.input :reset_password_token, :as => :hidden
+          = f.full_error :reset_password_token
+
+          = f.input :password, label: false, placeholder: "Новый пароль", :required => true, :autofocus => true
+          = f.input :password_confirmation, label: false, placeholder: "Подтверждение пароля", :required => true
+          .action
+            = f.button :submit, "Сохранить", class: 'button-registration'
