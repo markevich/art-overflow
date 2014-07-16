@@ -17,7 +17,7 @@ module ApplicationHelper
         "var reformalOptions = {
             project_id: 730495,
             project_host: 'cgninja.reformal.ru',
-            tab_orientation: 'left',
+            tab_orientation: 'right',
             tab_indent: '50%',
             tab_bg_color: '#26394d',
             tab_border_color: '#FFFFFF',
