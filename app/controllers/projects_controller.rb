@@ -9,10 +9,16 @@ class ProjectsController < ActionController::Base
 
   private
 
+  def order
+    return({ params[:order] => :desc, id: :desc }) if Picture.column_names.include?(params[:order])
+
+    { created_at: :desc }
+  end
+
   def collection
     offset = page * PAGE_SIZE
 
-    Picture.includes(:user).limit(PAGE_SIZE).offset(offset).order(id: :desc)
+    Picture.includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
   end
 
   def page

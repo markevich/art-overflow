@@ -4,9 +4,7 @@
       @projects = []
       @busy = false
       @page = 0
-      @filters = {
-        order: 'popular'
-      }
+      @filters = {}
 
     reset: ->
       @busy = false
@@ -14,7 +12,6 @@
 
       @performRequest (new_projects) =>
         @projects = new_projects
-
 
     loadMore: ->
       @performRequest (new_projects) =>
@@ -26,7 +23,8 @@
       return if @busy
       @busy = true
 
-      new_projects = Project.query(page: @page).$promise.then (new_projects) =>
+      query_options = $.extend {}, { page: @page }, @filters
+      new_projects = Project.query(query_options).$promise.then (new_projects) =>
         callback(new_projects)
         @page = @page + 1
         @busy = false

@@ -7,13 +7,11 @@
         Вступай в наше сообщество и делись своими работами!
   .filter-canister
     .filter-canister-left
+      .hide(preload-resource="#{AbyssController::ORDER_FILTERS}" resource-key="order")
       %ul
-        %li.active
-          %a(ng-click="setOrderFilter('popular')")
-            Популярные
-        %li
-          %a(ng-click="setOrderFilter('new')")
-            Новые
+        %li.unselectable(ng-repeat="filter in filters.order" ng-class="{ active: filter.active }")
+          %a(ng-click="setOrderFilter(filter.key)")
+            {{ filter.name }}
     .filter-canister-right
       %ul
         %li.active
@@ -63,4 +61,4 @@
           .name
             %a(ng-href="{{project.user_url}}")
               {{project.user_name|truncate:35}}
-    #preview-resizer(ng-bind-html="options.fallbackImageStyleHack")
+    #preview-resizer(ng-bind-html="fallbackImageStyleHack")
