@@ -294,6 +294,7 @@ GEM
     redis (3.0.7)
     redis-namespace (1.4.1)
       redis (~> 3.0.4)
+    reformal_turbolinks (0.0.1)
     responders (1.0.0)
       railties (>= 3.2, < 5)
     rest-client (1.6.7)
@@ -461,6 +462,7 @@ DEPENDENCIES
   rabl-rails
   rails (= 4.1.0)
   rails-observers
+  reformal_turbolinks
   responders
   rspec-rails (~> 3.0.0.beta)
   ruby_gntp

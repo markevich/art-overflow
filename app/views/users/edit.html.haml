@@ -1,3 +1,4 @@
+- content_for :title, 'Редактирование профиля'
 = render partial: 'users/edit_navigation', locals: { resource: resource }
 
 .profil-form
@@ -18,7 +19,7 @@
       = f.input :city, placeholder: 'Минск'
       = f.input :slug, placeholder: 'batman',
         input_html: { 'ng-model' => 'slug', 'ng-init' => "slug='#{f.object.slug}'" },
-        hint: 'Ваш профиль будет доступен по адресу <span>http://artoverflow.com/users/{{slug}}</span>'.html_safe
+        hint: 'Ваш профиль будет доступен по адресу <span>http://artoverflow.com/users/{{slug}}/pictures</span>'.html_safe
 
       %div
         %label

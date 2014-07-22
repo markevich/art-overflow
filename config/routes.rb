@@ -2,7 +2,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
-  devise_for :users
+  devise_for :users, :controllers => { :passwords => "passwords" }
   resources :search, only: :index
   resources :tags, only: :index
   resources :users, except: [:show, :destroy] do

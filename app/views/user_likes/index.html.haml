@@ -1,3 +1,4 @@
+- content_for :title, "В избранном у #{parent.name}"
 = render parent.to_header_path, resource: parent
 = render partial: 'users/navigation', locals: { resource: parent } if parent
 

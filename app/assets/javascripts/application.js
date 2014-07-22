@@ -35,4 +35,5 @@
 //= require jquery.ui.all
 //= require jquery.modal
 //= require turbolinks
+//= require reformal_turbolinks
 //= require_tree .

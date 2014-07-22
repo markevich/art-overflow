@@ -16,6 +16,8 @@ gem 'auto_html'
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
 
+gem 'reformal_turbolinks'
+
 gem 'exception_notification'
 
 gem 'jquery-ui-rails'
