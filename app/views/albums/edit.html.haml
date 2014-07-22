@@ -1,3 +1,5 @@
+- content_for :title, 'Изменение альбома'
+
 = render current_user.to_header_path, resource: current_user
 = render partial: 'albums/edit_navigation', locals: { resource: resource }
 

@@ -1,3 +1,5 @@
+- content_for :title, 'Альбомы'
+
 = render parent.to_header_path, resource: parent
 = render partial: 'users/navigation', locals: { resource: parent } if parent
 
