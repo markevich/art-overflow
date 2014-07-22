@@ -18,6 +18,14 @@ module Uploaders
       def extension_white_list
         %w(jpg jpeg gif png)
       end
+
+      def interlace
+        manipulate! do |img, index, options|
+          img.interlace("plane")
+          img
+        end
+      end
+
     end
   end
 end

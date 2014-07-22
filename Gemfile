@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'https://rails-assets.org'
 
 #rails
 gem 'rails', '4.1.0'
@@ -15,6 +16,8 @@ gem 'petrovich'
 gem 'auto_html'
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
+
+gem 'ckeditor'
 
 gem 'reformal_turbolinks'
 

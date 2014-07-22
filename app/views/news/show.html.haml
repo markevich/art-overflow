@@ -1,0 +1,28 @@
+.pagehead
+  .container
+    %h1
+      = resource.title
+
+.news-form.show-news
+  .content.unselectable
+    %ul.news-meta
+      %li.meta-item
+        = I18n.l(resource.created_at, format: :short)
+      %li.meta-item
+        = image_tag User.first.avatar, class: 'author-avatar'
+        = link_to User.first.name, User.first
+    %ul.share-buttons
+      %li.twitter
+        - message = "#{resource.title} #{url_for(resource)} с помощью @ArtOverflow"
+        %a(href="http://twitter.com/home?status=#{message}" target="_blank")
+          = image_tag 'twitter-white.png', class: 'twitter-icon'
+          %span.text
+            Твиттер
+      %li.vk
+        %a(href="http://vk.com/share.php?url=#{url_for(resource)}" class="popup" target="_blank")
+          = image_tag 'vk-white.png', class: 'vk-icon'
+          %span.text
+            Вконтакте
+    .body
+      != resource.body
+  = render 'social'

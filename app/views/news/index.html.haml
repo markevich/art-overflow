@@ -1,0 +1,23 @@
+.pagehead
+  .container
+    %h1
+      Новости
+
+.show-news
+  .content.unselectable
+    - collection.each do |news|
+      %article
+        = link_to news, class: 'preview-img' do
+          = image_tag news.picture
+        .preview
+          %h2
+            = link_to news.title, news
+          %ul.news-meta
+            %li.meta-item
+              = I18n.l(news.created_at, format: :short)
+            %li.meta-item
+              = image_tag User.first.avatar, class: 'author-avatar'
+              = link_to User.first.name, User.first
+          .short-body
+            != news.short_body
+  = render 'social'

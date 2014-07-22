@@ -22,13 +22,6 @@ class PictureUploader < CarrierWave::Uploader::Base
   process resize_to_limit: [LIMIT_WIDTH, LIMIT_HEIGHT]
   process :interlace
 
-  def interlace
-    manipulate! do |img, index, options|
-      img.interlace("plane")
-      img
-    end
-  end
-
   version :thumb do
     process crop: [CROP_AREA_WIDTH, CROP_AREA_HEIGHT]
     process resize_to_fill: [THUMB_WIDTH, THUMB_HEIGHT]

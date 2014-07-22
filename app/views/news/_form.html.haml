@@ -1,0 +1,7 @@
+.news-form
+  = simple_form_for resource do |f|
+    = f.input :published
+    = f.input :title
+    = f.input :short_body
+    = f.input :picture, hint: '600x400'
+    = f.input :body, as: :ckeditor, input_html: { ckeditor: {toolbar: 'Full'} }

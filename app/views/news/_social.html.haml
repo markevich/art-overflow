@@ -1,0 +1,12 @@
+.social-content
+  .connect-with-us
+    Присоединяйся!
+  #vk
+    %script(type="text/javascript" src="//vk.com/js/api/openapi.js?115")
+    :javascript
+      VK.Widgets.Group("vk", {mode: 0, width: "295", height: "400", color1: 'FFFFFF', color2: '26394d', color3: '26394d'}, 54754596);
+  #twitter
+    %script(type="text/javascript" src="//platform.twitter.com/widgets.js")
+    %a(class="twitter-timeline" href="https://twitter.com/ArtOverflow" data-widget-id="491345668384903170" height='400')
+      Твиты @ArtOverflow
+    :javascript

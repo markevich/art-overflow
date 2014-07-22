@@ -16,6 +16,7 @@ class AvatarUploader < CarrierWave::Uploader::Base
   process :crop => [CROP_AREA_WIDTH, CROP_AREA_HEIGHT]
   process :optimize
   process :resize_to_fill => [THUMB_WIDTH, THUMB_HEIGHT]
+  process :interlace
 
   def filename
     "avatar.#{model.avatar.file.extension}" if original_filename.present?

@@ -2,6 +2,14 @@
   font-family: Gothic;/*задаем назв. шрифта*/
   src: font-url('gothic-bold.otf');/*подключаем сторон. шрифт*/
 }
+@font-face{
+  font-family: HelveticaNeueThin;/*задаем назв. шрифта*/
+  src: font-url('helvetica-neue-thin.otf');/*подключаем сторон. шрифт*/
+}
+@font-face{
+  font-family: OpenSans;/*задаем назв. шрифта*/
+  src: font-url('opensans-regular.ttf');/*подключаем сторон. шрифт*/
+}
 $font:Gothic;
 $colorGreen: #27ae60;
 $colorBlue: #70b2b8;
@@ -195,4 +203,8 @@ input[type="submit"]:disabled{
    */
   -ms-user-select: none;
   user-select: none;
+}
+
+.clearfix{
+  clear: both;
 }

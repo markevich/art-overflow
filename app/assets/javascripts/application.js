@@ -29,4 +29,6 @@
 //= require jquery.modal
 //= require turbolinks
 //= require reformal_turbolinks
+//= require ckeditor/init
+//= require_tree ./ckeditor/
 //= require_tree .
