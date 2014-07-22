@@ -1,4 +1,5 @@
 class NewsController < InheritedResources::Base
+  load_and_authorize_resource :news
 
   protected
 

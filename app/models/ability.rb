@@ -9,6 +9,8 @@ class Ability
     picture_rules
     album_rules
     comment_rules
+    news_rules
+    ckeditor_rules
   end
 
 
@@ -30,5 +32,29 @@ class Ability
   def comment_rules
     can [:read, :like, :unlike, :create], Comment
     can [:destroy], Comment, user_id: @user.id
+  end
+
+  def news_rules
+    can :read, News
+    can [:create, :update, :destroy], News do |news|
+      @user.admin?
+    end
+  end
+
+  def ckeditor_rules
+    # Always performed
+    # needed to access Ckeditor filebrowser
+    can :access, :ckeditor do |ckeditor|
+      @user.admin?
+    end
+
+    # Performed checks for actions:
+    can [:read, :create, :destroy], Ckeditor::Picture do |ckeditor|
+      @user.admin?
+    end
+
+    can [:read, :create, :destroy], Ckeditor::AttachmentFile do |ckeditor|
+      @user.admin?
+    end
   end
 end
