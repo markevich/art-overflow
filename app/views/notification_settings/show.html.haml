@@ -7,7 +7,7 @@
     .title
       Уведомлять меня по почте о:
     = simple_form_for(resource, url: notification_settings_path, html: { class: 'edit_user' }) do |f|
-      = f.input :news
-      = f.input :comments
-      = f.input :subscribers
+      = f.input :news, label: false, inline_label: NotificationSettings.human_attribute_name(:news)
+      = f.input :comments, label: false, inline_label: NotificationSettings.human_attribute_name(:comments)
+      = f.input :subscribers, label: false, inline_label: NotificationSettings.human_attribute_name(:subscribers)
       = f.submit "Сохранить", class: 'btn btn-green', data: { disable_with: 'Сохраняется' }
