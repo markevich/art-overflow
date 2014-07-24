@@ -681,11 +681,13 @@ section{
   max-width: 1660px;
   padding: 0 20px;
 }
-.new-picture-description{
+.picture-form-fields{
   position: relative;
   margin: auto;
+  margin-top: 20px;
   max-width: 1660px;
   padding: 0 20px;
+  display: inline-block;
   input, textarea,select{
     @include border-radius(6px);
     resize: none;
@@ -740,9 +742,6 @@ section{
       background-color: #e74c3c !important;
       border: 0 none transparent;
     }
-  }
-  .picture_name{
-    padding-top: 20px;
   }
 }
 

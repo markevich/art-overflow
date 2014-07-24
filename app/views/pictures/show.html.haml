@@ -75,12 +75,12 @@
                 %span.tag
                   %span
                     = tag
-      - if resource.category_list.present?
+      - if resource.categories.present?
         %div.tagslist
           %h3 Категории
           %div.tagsinput
-            - resource.category_list.each do |category|
-              %a{href: "#{pictures_path(categories: category)}"}
+            - resource.categories.each do |category|
+              %a{href: "#{pictures_path(category: category.id)}"}
                 %span.tag
                   %span
-                    = category
+                    = I18n.t("categories.#{category.name}")

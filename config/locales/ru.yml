@@ -119,3 +119,17 @@ ru:
 
   unauthorized:
     default: "У вас нет доступа к этой странице."
+
+  categories:
+    animation: Анимация
+    architecture: Архитектура
+    characters: Персонажи
+    comics: Комиксы
+    concept: Концепт-арт
+    environment: Ландшафт
+    fantasy: Фантастика
+    game: Игра
+    creatures: Существа
+    matte: Мэт-пэйнтинг
+    transport: Транспорт
+    industrial: Промышленность
