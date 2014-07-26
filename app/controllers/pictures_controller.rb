@@ -72,7 +72,7 @@ class PicturesController < InheritedResources::Base
       offset = (page - 1) * PAGE_SIZE
 
       result = end_of_association_chain.includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
-      result = result.includes(:categories).where(categories: { id: params[:category] }) if params[:category]
+      result = result.includes(:categories).where(categories: { name: params[:category] }) if params[:category]
       result = result.tagged_with(tags, :on => :tags, any: true) if tags.any?
       result
     end

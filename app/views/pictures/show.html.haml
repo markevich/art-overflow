@@ -80,7 +80,7 @@
           %h3 Категории
           %div.tagsinput
             - resource.categories.each do |category|
-              %a{href: "#{pictures_path(category: category.id)}"}
+              %a{href: "#{pictures_path(category: category.name)}"}
                 %span.tag
                   %span
                     = I18n.t("categories.#{category.name}")

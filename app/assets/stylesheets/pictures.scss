@@ -333,7 +333,8 @@
 }
 
 .picture_path{
-  display: none;
+  position: absolute;
+  top: -2000px;
 }
 
 .edit-picture{
