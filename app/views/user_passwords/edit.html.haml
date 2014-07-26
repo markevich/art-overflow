@@ -4,7 +4,7 @@
 .profil-form
   .profil-form-container
     = simple_form_for(resource, url: user_passwords_path) do |f|
-      = f.input :current_password, required: true
+      = f.input :current_password, required: true, label: false
       = f.input :password, required: true
       = f.input :password_confirmation, required: true
 
