@@ -2,10 +2,11 @@
 //----------------------------------------------стили для шапки--------------------------------------------------------
 
 header{
-  overflow:hidden;
-  background-color: white;
 
+  background-color: white;
+  overflow:hidden;
   .alignment-header{
+
     position: relative;
     margin: auto;
     min-width: 1200px;
@@ -19,6 +20,7 @@ header{
       width: 40%;
       float: right;
       text-align: right;
+      position:relative;
     }
   }
 
@@ -120,16 +122,20 @@ header{
 .setting{
   float:right;
   a{
-    background-image: url("/assets/setting.png");
+    background-image: url("/assets/dowland.png");
     background-position:center;
     position:relative;
     background-repeat:no-repeat;
     display: block;
-    width: 26px;
+    width: 30px;
     height: 26px;
     position: relative;
     top: 20px;
     right: 25px;
+    cursor:pointer;
+    &:hover{
+      background-image: url("/assets/dowland-hover.png");
+    }
   }
 }
 
@@ -334,8 +340,43 @@ a.sign-in{
     padding-top:15px;
   }
 }
-@-moz-document url-prefix(){
-  header h1{
-    // letter-spacing: -2px;
+.popap-header {
+  position: absolute;
+  right: 0;
+  background: white;
+  width: 130px;
+  z-index: 111111;
+  ul{
+    padding: 7px 0px;
+    li {
+      a{
+        padding:7px 0;
+        color: #5b5b5b;
+        font-size: 14px;
+        padding-left:30px;
+        cursor:pointer;
+        display: block;
+      }
+      &:first-child{
+        a{
+          background: url(image-path("user.png")) 10px center;
+          background-repeat:no-repeat;
+        }
+        &+ li{
+          a{
+            background: url(image-path("setting-menu.png")) 10px center;
+            background-repeat:no-repeat;
+          }
+          &+ li{
+            a{
+              border-top:1px solid #e2e2e2;
+              background: url(image-path("exit.png")) 10px center;
+              background-repeat:no-repeat;
+            }
+          }
+        }
+      }
+    }
   }
+
 }

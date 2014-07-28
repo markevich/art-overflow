@@ -1,18 +1,31 @@
-%header
-  .alignment-header
-    .container-left
-      #logo
-        %a{href: '/'}
-      %nav#menu
-        %ul
-          = active_link_to "Движуха", user_pictures_path(User.first)
-          = active_link_to "Бездна", abyss_index_path
-          = active_link_to "О нас", root_path
-    .container-right
-      .bell
-        %span
-          3
-      .ava
-        =image_tag 'ava.png'
-      .setting
+.header(ng-controller="HeaderController")
+  %header
+    .alignment-header
+      .container-left
+        #logo
+          %a{href: '/'}
+        %nav#menu
+          %ul
+            = active_link_to "Движуха", user_pictures_path(User.first)
+            = active_link_to "Бездна", abyss_index_path
+            = active_link_to "О нас", root_path
+      .container-right
+        .bell
+          %span
+            3
+        .ava{:"ng-click"=>"togglePopap()"}
+          =image_tag 'ava.png'
+        .setting
+          %a
+  .popap-header{:"ng-hide"=>"show"}
+    %ul
+      %li
         %a
+          Профиль
+      %li
+        %a
+          Настройки
+      %li.exit
+        %a
+          Выход
+
