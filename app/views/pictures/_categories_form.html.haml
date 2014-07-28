@@ -1,0 +1,13 @@
+.container-category.unselectable
+  Категории
+.category-selector
+  - Category.all.each_slice(6) do |group|
+    .group
+      - group.each do |category|
+        .image-category
+          %label
+            - checked = resource.categories.any? {|c| c.id == category.id }
+            = check_box_tag "picture[category_ids][]", category.id, checked
+            %span.box
+            .name
+              = I18n.t("categories.#{category.name}")

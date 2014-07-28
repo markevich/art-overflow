@@ -21,7 +21,7 @@ $colorBgDarkBlue: #26394d;
   transition: $arg;
 }
 .btn{
-  @include border-radius(6px);
+  @include border-radius(3px);
   color: #ffffff;
   display: inline-block;
   padding: .5em;

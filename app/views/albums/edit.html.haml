@@ -5,7 +5,7 @@
 
 .edit-container
   %div
-    .image-edit-album
+    .image-edit-preview
       = image_tag resource.avatar, class:"img-follow"
       = link_to_modal 'Изменить обложку', edit_album_avatar_path(resource), data: { remote: true }
       %br
@@ -16,7 +16,7 @@
           - message = "В альбоме #{count} #{I18n.t('counters.pictures', count: count)}. Удалить альбом вместе со всеми его картинками?"
           = link_to 'Удалить альбом', album_path(resource), method: :delete, data: { confirm: message }
 
-    .form-edit-album
+    .picture-form-fields
       = simple_form_for([parent, resource]) do |f|
         = f.input :name
         = f.input :description

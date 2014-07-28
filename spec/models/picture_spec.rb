@@ -5,6 +5,7 @@ describe Picture do
 
   it { should belong_to(:user) }
   it { should belong_to(:album) }
+  it { should have_and_belong_to_many :categories }
 
   it_should_behave_like 'commentable'
   it_should_behave_like 'likeable'
