@@ -2,6 +2,7 @@
   class Filters
     constructor: (preloadedResources) ->
       @order = preloadedResources['order']
+      @categories = preloadedResources['categories']
 
     setOrder: (key) ->
       for filter in @order
@@ -10,7 +11,12 @@
     normalize: ->
       normalized = {}
 
-      for filter in @order
-        normalized['order'] = filter.key if filter.active
+      for order in @order
+        normalized['order'] = order.key if order.active
+
+
+      for category in @categories
+        normalized['categories[]'] ||= []
+        normalized['categories[]'].push(category.key) if category.active
 
       normalized

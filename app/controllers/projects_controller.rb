@@ -15,10 +15,15 @@ class ProjectsController < ActionController::Base
     { created_at: :desc }
   end
 
+  def categories
+  end
+
   def collection
     offset = page * PAGE_SIZE
 
-    Picture.includes(:user).limit(PAGE_SIZE).offset(offset).order(order)
+    result = Picture.includes(:user)
+    result = result.includes(:categories).where(categories: { name: params[:categories] }) if params[:categories].present?
+    result.limit(PAGE_SIZE).offset(offset).order(order)
   end
 
   def page

@@ -1,26 +1,23 @@
 #abyss(ng-controller="AbyssController")
+  %div(preload-resource="#{orders_map}" resource-key="order")
+  %div(preload-resource="#{categories_map}" resource-key="categories")
   .banner
     .banner-container
       %h1
         Мы любим творчество
       %p
         Вступай в наше сообщество и делись своими работами!
-  .filter-canister
-    .filter-canister-left
-      .hide(preload-resource="#{AbyssController::ORDER_FILTERS}" resource-key="order")
+  .filters-container
+    .filters-container-left
       %ul
         %li.unselectable(ng-repeat="filter in filters.order" ng-class="{ active: filter.active }")
           %a(ng-click="setOrderFilter(filter.key)")
             {{ filter.name }}
-    .filter-canister-right
+    .filters-container-right
       %ul
         %li.active
           %a
             Категория
-            %i.fa.fa-chevron-down
-        %li
-          %a
-            Теги
             %i.fa.fa-chevron-down
         %li
           %a
@@ -29,28 +26,15 @@
           %a
             2D
             %i.fa.fa-chevron-down
-    .popap-categories
-      .item
+    .popup-categories
+      .item(ng-repeat="category in filters.categories" ng-class-odd="'odd'" ng-class-even="'even'")
         %label
-          %input{type:'checkbox' , name:'animate'}
+          %input(type='checkbox' name='{{category.key}}' ng-model='category.active' ng-change='applyFilters()')
           %span
-        %label{for:'animate'}
-          Анимация
-      .item
-        %label
-          %input{type:'checkbox' , name:'animate'}
-          %span
-        %label{for:'animate'}
-          Анимация
-      .item
-        %label
-          %input{type:'checkbox' , name:'animate'}
-          %span
-        %label{for:'animate'}
-          Анимация
+          .name
+            {{category.name}}
   #pictures(resizable images-reseted infinite-scroll="loader.loadMore()")
     .picture-container.hide#fake-for-js
-
     .picture-container(ng-repeat="project in loader.projects")
       .image-block
         %a(ng-href="{{project.path}}")

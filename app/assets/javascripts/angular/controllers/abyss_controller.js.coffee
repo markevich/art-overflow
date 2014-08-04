@@ -7,9 +7,9 @@
 
     $scope.setOrderFilter = (key) ->
       $scope.filters.setOrder(key)
-      applyFilters()
+      $scope.applyFilters()
 
-    applyFilters = ->
+    $scope.applyFilters = ->
       $scope.loader.filters = $scope.filters.normalize()
       $scope.loader.reset()
       $scope.$broadcast('reseted')

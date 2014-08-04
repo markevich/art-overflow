@@ -494,37 +494,45 @@
   }
 }
 
-.filter-canister{
+.filters-container{
   position:relative;
-  .popap-categories{
+  .popup-categories{
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    width: 340px;
     background: white;
     position: absolute;
     top: 57px;
     z-index: 1;
-    right: 315px;
-    padding: 15px;
+    right: 80px;
+    padding-left: 20px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-right: 10px;
     .item{
-      margin-bottom:10px;
-      label:first-child {
-        width: 16px;
+      display: inline-block;
+      width: 50%;
+      margin-top:10px;
+      label {
         height: 16px;
-        display: inline-block;
+        display: block;
         position: relative;
-        overflow: hidden;
         vertical-align: -3px;
         margin-right: 7px;
+
+       .name{
+         display: inline-block;
+         margin-left: 5px;
+       }
        input[type="checkbox"] + span {
-         position: absolute; /* Абсолютное позиционирование */
+         display: inline-block;
+         position: absolute;
          left: 0; top: 0;
          width: 100%; height: 100%;
-         background: url(image-path('sprite.png')) no-repeat; /* Фоновый рисунок */
-         cursor: pointer; /* Курсор в виде руки */
+         background: url(image-path('sprite.png')) no-repeat;
+         cursor: pointer;
         }
         input[type="checkbox"]:checked + span  	{
          background-position: 0 -16px;
-        }
-        input[type="checkbox"] + span:hover{
-          background-position: 0 -32px;
         }
       }
       label:first-child.active +label{
@@ -532,7 +540,6 @@
       }
       label{
         color:#5b5b5b;
-
       }
       &:last-child{
         margin-bottom:0;
@@ -540,7 +547,7 @@
     }
   }
 }
-.filter-canister-left{
+.filters-container-left{
   float:left;
   ul{
     li{
@@ -564,7 +571,7 @@
     }
   }
 }
-.filter-canister-right{
+.filters-container-right{
   float:right;
   ul{
     li{
