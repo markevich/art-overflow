@@ -1,4 +1,4 @@
-.header(ng-controller="HeaderController")
+.header
   %header
     .alignment-header
       .container-left
@@ -13,11 +13,11 @@
         .bell
           %span
             3
-        .ava{:"ng-click"=>"togglePopap()"}
+        .ava
           =image_tag 'ava.png'
         .setting
           %a
-  .popup-header{:"ng-hide"=>"show"}
+  .popup-header(popup)
     %ul
       %li
         %a
@@ -28,4 +28,3 @@
       %li.exit
         %a
           Выход
-
