@@ -1,8 +1,13 @@
 @app.controller 'HeaderController',
-  ['$scope',  ($scope) ->
-      $scope.show = true
+  ['$scope','$document',  ($scope,$document) ->
       $scope.togglePopap = ->
-        $scope.show = (if $scope.show is false then true else false)
-        return
-  ]
+        if $(".popup-header").is(":visible")
+          $(".popup-header").hide()
+        else
+          $(".popup-header").show()
 
+      $(document).click (event) ->
+        if(!$(event.target).parent().hasClass('ava'))
+          $(".popup-header").hide()
+
+  ]
