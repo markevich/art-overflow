@@ -496,6 +496,20 @@
 
 .filters-container{
   position:relative;
+  .filters-arrow{
+    position:absolute;
+    left:50%;
+    display:block;
+    background-repeat:no-repeat;
+    background-image: url(image-path('arrow-filters.png'));
+    left: 50%;
+    display: block;
+    width: 25px;
+    height: 25px;
+    margin-left: -12.5px;
+    margin-top: 16px;
+    cursor:pointer;
+  }
   &.fixed{
     position:fixed;
     top:0;

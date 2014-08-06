@@ -7,7 +7,8 @@
         Мы любим творчество
       %p
         Вступай в наше сообщество и делись своими работами!
-  .filters-container(fixed-on-top)
+  .filters-container(fixed-on-top data-arrow='js-arrow-to-top' data-name='arrow')
+    %a.filters-arrow.js-arrow-to-top
     .filters-container-left
       %ul
         %li.unselectable(ng-repeat="filter in filters.order" ng-class="{ active: filter.active }")
