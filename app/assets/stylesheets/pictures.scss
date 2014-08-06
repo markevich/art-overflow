@@ -496,6 +496,14 @@
 
 .filters-container{
   position:relative;
+  &.fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:111;
+    background:white;
+  }
   .popup-categories{
     display:none;
     box-shadow: 0 0 10px rgba(0,0,0,0.5);

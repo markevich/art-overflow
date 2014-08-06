@@ -1,10 +1,15 @@
 @app.directive 'popup', ->
   restrict: 'A'
   link: ($scope, $element, $attrs) ->
-    console.log($(".#{$attrs['trigger']}"))
-    $(".#{$attrs['trigger']}").on 'click', ->
+    trigger = $attrs['trigger']
+    name = $attrs['name']
+    $(".#{trigger}").on "click.#{name}", ->
       $element.toggle()
 
-    $(document).on 'click', (event) ->
-      if(!$(event.target).hasClass($attrs['trigger']))
+    $(document).on "click.#{name}", (event) ->
+      if(!$(event.target).hasClass(trigger))
         $element.hide()
+
+    $scope.$on '$destory', ->
+      $(".#{trigger}").off "click.#{name}",
+      $(document).off "click.#{name}"
