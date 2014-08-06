@@ -16,7 +16,7 @@
     .filters-container-right
       %ul
         %li.active
-          %a{:"ng-click"=>"togglePopap()"}
+          %a.popup-category
             Категория
             %i.fa.fa-chevron-down
         %li
@@ -26,7 +26,7 @@
           %a
             2D
             %i.fa.fa-chevron-down
-    .popup-categories
+    .popup-categories(popup data-trigger="popup-category")
       .item(ng-repeat="category in filters.categories" ng-class-odd="'odd'" ng-class-even="'even'")
         %label
           %input(type='checkbox' name='{{category.key}}' ng-model='category.active' ng-change='applyFilters()')

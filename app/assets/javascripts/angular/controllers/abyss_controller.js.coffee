@@ -14,16 +14,6 @@
       $scope.loader.reset()
       $scope.$broadcast('reseted')
 
-    $scope.togglePopap = ->
-      if $(".popup-categories").is(":visible")
-        $(".popup-categories").hide()
-      else
-        $(".popup-categories").show()
-
-    $(document).click (event) ->
-      if(!$(event.target).parent().hasClass('active'))
-        $(".popup-categories").hide()
-
     $timeout ->
       initialize()
   ]

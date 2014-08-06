@@ -1,11 +1,10 @@
 @app.directive 'popup', ->
   restrict: 'A'
-  link: ($scope, $element) ->
-    $element.parent().find('.ava').on 'click', ->
-      if $element.is(":visible")
-        $element.hide()
-      else
-        $element.show()
-    $(document).bind 'click', (event) ->
-      if(!$(event.target).parent().hasClass('ava'))
+  link: ($scope, $element, $attrs) ->
+    console.log($(".#{$attrs['trigger']}"))
+    $(".#{$attrs['trigger']}").on 'click', ->
+      $element.toggle()
+
+    $(document).on 'click', (event) ->
+      if(!$(event.target).hasClass($attrs['trigger']))
         $element.hide()
