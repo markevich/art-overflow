@@ -13,10 +13,11 @@
         $element.removeClass('fixed')
         $(".#{arrow}").hide()
 
-      $(".#{arrow}").on "click.#{name}", ->
-        $("html, body").animate
-          scrollTop: 0
-        , 300
+    $(".#{arrow}").on "click.#{name}", ->
+      $(".header").velocity 'scroll', 300
 
     $scope.$on '$destory', ->
       $(".#{arrow}").off "click.#{name}"
+
+    $scope.$on 'reseted', ->
+      $("html").velocity("scroll", { offset: "#{positionElement}px" })

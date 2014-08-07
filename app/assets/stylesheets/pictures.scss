@@ -496,14 +496,13 @@
 
 .filters-container{
   position:relative;
+  background-color: rgba(255,255,255,0.95);
   .filters-arrow{
+    display: none;
     position:absolute;
-    left:50%;
-    display:block;
     background-repeat:no-repeat;
     background-image: url(image-path('arrow-filters.png'));
     left: 50%;
-    display: block;
     width: 25px;
     height: 25px;
     margin-left: -12.5px;
@@ -516,7 +515,6 @@
     left:0;
     right:0;
     z-index:111;
-    background:white;
   }
   .popup-categories{
     display:none;
