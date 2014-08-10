@@ -14,7 +14,7 @@
         %li.unselectable(ng-repeat="filter in filters.order" ng-class="{ active: filter.active }")
           %a(ng-click="setOrderFilter(filter.key)")
             {{ filter.name }}
-    .filters-container-right
+    .filters-container-right.unselectable
       %ul
         %li.active
           %a.popup-category
@@ -27,11 +27,11 @@
           %a
             2D
             %i.fa.fa-chevron-down
-    .popup-categories(popup data-trigger="popup-category" data-name='popup-category')
+    .popup-categories.unselectable(popup data-exclude='["popup-category", "js-category", "popup-categories", "js-category-checkbox"]' data-trigger="popup-category" data-name='popup-category')
       .item(ng-repeat="category in filters.categories" ng-class-odd="'odd'" ng-class-even="'even'")
         %label
-          %input(type='checkbox' name='{{category.key}}' ng-model='category.active' ng-change='applyFilters()')
-          %span
+          %input.js-category-checkbox(type='checkbox' name='{{category.key}}' ng-model='category.active' ng-change='applyFilters()')
+          %span.js-category
           .name
             {{category.name}}
   #pictures(resizable images-reseted infinite-scroll="loader.loadMore()")

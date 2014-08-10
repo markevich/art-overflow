@@ -1,4 +1,4 @@
-.header
+.header.unselectable
   %header
     .alignment-header
       .container-left
@@ -17,14 +17,14 @@
           =image_tag 'ava.png',class:'ava-img'
         .setting
           %a
-  .popup-header(popup data-trigger="ava-img" data-name="popup-menu")
+  .popup-header(popup data-exclude='["js-link-header","popup-header","ava-img"]' data-trigger="ava-img" data-name="popup-menu" )
     %ul
       %li
-        %a
+        %a.js-link-header
           Профиль
       %li
-        %a
+        %a.js-link-header
           Настройки
       %li.exit
-        %a
+        %a.js-link-header
           Выход

@@ -4,9 +4,14 @@
     positionElement = $element.offset().top
     arrow = $attrs['arrow']
     name = $attrs['name']
-    $(window).scroll ->
+
+    isFixed = ->
       windowPosition = $(window).scrollTop()
-      if (positionElement < windowPosition)
+
+      positionElement < windowPosition
+
+    $(window).scroll =>
+      if isFixed()
         $element.addClass('fixed')
         $(".#{arrow}").show()
       else
@@ -20,4 +25,5 @@
       $(".#{arrow}").off "click.#{name}"
 
     $scope.$on 'reseted', ->
-      $("html").velocity("scroll", { offset: "#{positionElement}px" })
+      if isFixed()
+        $("html").velocity("scroll", { offset: "#{positionElement}px" })
