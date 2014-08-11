@@ -14,9 +14,6 @@ $(document).on 'mouseenter', '.user-menu', ->
 $(document).on 'mouseleave', '.user-menu ', ->
   $('.ava img').removeClass('user-menu-hover')
 
-$(document).on 'click', '.sign-in', ->
-  togglePanel('.login-user')
-
 $(document).on 'click', '.infinity-footer-button', ->
   togglePanel('.show-social')
 

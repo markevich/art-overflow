@@ -24,7 +24,7 @@
           %a
             Тип графики:
         %li
-          %a
+          %a.js-schedule
             2D
             %i.fa.fa-chevron-down
     .popup-categories.unselectable(popup data-exclude='["popup-category", "js-category", "popup-categories", "js-category-checkbox"]' data-trigger="popup-category" data-name='popup-category')
@@ -34,6 +34,21 @@
           %span.js-category
           .name
             {{category.name}}
+    .popup-schedule(popup data-exclude='["popup-schedule","js-schedule"]' data-trigger="js-schedule" data-name='popup-schedule')
+      .schedule
+        %input(type='radio' name='btn' id='all')
+        %label(for='all')
+          Все типы
+      .schedule
+        %input(type='radio' name='btn' id='two-schedule')
+        %label(for='two-schedule')
+          2D
+      .schedule
+        %input(type='radio' name='btn' id='three-schedule' )
+          %label(for='three-schedule')
+            3D
+
+
   #pictures(resizable images-reseted infinite-scroll="loader.loadMore()")
     .picture-container.hide#fake-for-js
     .picture-container(ng-repeat="project in loader.projects")

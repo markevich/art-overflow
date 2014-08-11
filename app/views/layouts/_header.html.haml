@@ -9,6 +9,7 @@
             = active_link_to "Движуха", user_pictures_path(User.first)
             = active_link_to "Бездна", abyss_index_path
             = active_link_to "О нас", root_path
+    - if user_signed_in?
       .container-right
         .bell
           %span
@@ -17,6 +18,20 @@
           =image_tag 'ava.png',class:'ava-img'
         .setting
           %a
+    - else
+      %a{class: 'sign-in'}
+        Вход
+      .login-user.js-popup-login(popup data-exclude='["js-popup-login","sign-in"]' data-trigger="sign-in" data-name="popup-login" )
+        = simple_form_for(User.new, url: new_user_session_path) do
+          %input{name: "user[email]", type: "text", placeholder: "Еmail"}
+          %input{name: "user[password]", type: "password", placeholder: "Пароль"}
+          .action
+            %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue', value: 'Войти'}
+            = link_to "Забыли пароль?", new_user_password_path, class: 'grey forgot-password'
+          .join-us.grey
+            Еще не с нами?
+            = link_to t('user.registration'), new_user_registration_path, class: 'grey'
+
   .popup-header(popup data-exclude='["js-link-header","popup-header","ava-img"]' data-trigger="ava-img" data-name="popup-menu" )
     %ul
       %li

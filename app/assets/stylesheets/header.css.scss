@@ -141,6 +141,7 @@ header{
 
   .login-user{
     float: right;
+    z-index: 343455;
   }
 a.sign-in{
     color: $blue;
@@ -153,7 +154,8 @@ a.sign-in{
     position: relative;
     float: right;
     display: block;
-    padding-top: 5px;
+    padding-top: 25px;
+    margin-right:25px;
     &:hover{
       color: $colorRed;
       border-bottom: 1px dashed $colorRed;
