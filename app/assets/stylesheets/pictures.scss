@@ -615,6 +615,25 @@
     }
   }
 }
+.popup-project-type{
+  position: absolute;
+  background: white;
+  padding: 10px;
+  z-index: 1111111;
+  right: 4px;
+  padding-bottom:0;
+  display:none;
+  top: 57px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  .project-type{
+    margin-bottom:10px;
+    label{
+      vertical-align: -1px;
+      font-size: 14px;
+      color: #5b5b5b;
+    }
+  }
+}
 /*$PICTURE_WIDTH: 335px;
 $MAX_COLUMNS: 7;
 

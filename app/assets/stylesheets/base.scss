@@ -38,10 +38,9 @@ $colorBgDarkBlue: #26394d;
 }
 
 .btn-blue{
-  background-color: $colorBlue;
-  &:hover{
-    background-color: $colorDarkBlue;
-  }
+  background-color: #48a593;
+  cursor:pointer;
+  z-index:22;
 }
 
 .btn-green{

@@ -281,18 +281,19 @@ section{
   }
 }
 
-
 .login-user{
   position: absolute;
   z-index: 1;
-  background-color: $darkBlue;
+  background-color: white;
   padding-bottom: 0;
+
   display: none;
   width: 235px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   padding: 15px;
   @include border-radius(6px);
-  top: 72px;
-  right: 10px;
+  top: 65px;
+  right: 0px;
   margin-top: 0;
   @include transition(all 0.2s ease-in-out);
 
@@ -312,41 +313,35 @@ section{
     font-size: 14px;
     border: 0 none transparent;
     padding: 8px;
-
+    border:1px solid #ccc;
+    border-radius:6px;
   }
   input[type='password'],.btn-blue{
     margin-top: 15px;
   }
   .btn-blue{
-    width: 105px;
-    padding: 5px 0;
-    padding-bottom: 4px;
+    width: 90px;
+    padding: 7px 0;
+    padding-bottom: 7px;
     font-size: 15px;
     float: left;
     font-family: Arial;
-    font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 17px;
   }
   .forgot-password{
     font-size: 12px;
     margin-top: 25px;
     float: right;
-    color: $blue;
-    &:hover{
-      color: $colorRed;
-    }
+    color: #5b5b5b;
   }
   .join-us{
-    border-top:1px solid #4c5b6c;
+    border-top:1px solid #ccc;
     font-size: 12px;
     padding-top: 12px;
     clear: both;
     a{
       float: right;
-      color: $blue;
-      &:hover{
-        color: $colorRed;
-      }
+      color: #5b5b5b;
     }
   }
 }
