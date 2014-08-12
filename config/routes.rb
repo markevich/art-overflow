@@ -1,6 +1,7 @@
 require 'sidekiq/web'
 Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
+  mount PgHero::Engine, at: "pghero"
 
   devise_for :users, :controllers => { :passwords => "passwords" }
   resources :search, only: :index

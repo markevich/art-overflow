@@ -15,6 +15,7 @@ gem 'petrovich'
 gem 'auto_html'
 gem 'angularjs-rails'
 gem 'ng-rails-csrf'
+gem 'pghero'
 
 gem 'reformal_turbolinks'
 
