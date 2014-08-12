@@ -18,28 +18,25 @@
           =image_tag 'ava.png',class:'ava-img'
         .setting
           %a
+      .popup-header(popup data-exclude='["js-link-header","popup-header","ava-img"]' data-trigger="ava-img" data-name="popup-menu" )
+        %ul
+          %li
+            = link_to t('user.profile'), user_pictures_path(current_user), class: 'js-link-header'
+          %li
+            = link_to t('user.settings'), edit_user_path(current_user), class: 'js-link-header'
+          %li.exit
+            = link_to t('user.logout'), destroy_user_session_path, method: :delete, class: 'js-link-header'
     - else
       %a{class: 'sign-in'}
         Вход
-      .login-user.js-popup-login(popup data-exclude='["js-popup-login","sign-in"]' data-trigger="sign-in" data-name="popup-login" )
-        = simple_form_for(User.new, url: new_user_session_path) do
-          %input{name: "user[email]", type: "text", placeholder: "Еmail"}
-          %input{name: "user[password]", type: "password", placeholder: "Пароль"}
+      .login-user.js-popup-login(popup data-exclude='["js-popup-login", "sign-in"]' data-trigger="sign-in" data-name="popup-login" )
+        = simple_form_for(User.new, url: new_user_session_path, html: { class: 'js-popup-login' }) do
+          %input.js-popup-login{name: "user[email]", type: "text", placeholder: "Еmail"}
+          %input.js-popup-login{name: "user[password]", type: "password", placeholder: "Пароль"}
           .action
-            %input{type: "submit", placeholder: "Отправить", class: 'btn btn-blue', value: 'Войти'}
-            = link_to "Забыли пароль?", new_user_password_path, class: 'grey forgot-password'
-          .join-us.grey
+            %input.js-popup-login{type: "submit", placeholder: "Отправить", class: 'btn btn-blue', value: 'Войти'}
+            = link_to "Забыли пароль?", new_user_password_path, class: 'grey forgot-password js-popup-login'
+          .join-us.grey.js-popup-login
             Еще не с нами?
-            = link_to t('user.registration'), new_user_registration_path, class: 'grey'
+            = link_to t('user.registration'), new_user_registration_path, class: 'grey js-popup-login'
 
-  .popup-header(popup data-exclude='["js-link-header","popup-header","ava-img"]' data-trigger="ava-img" data-name="popup-menu" )
-    %ul
-      %li
-        %a.js-link-header
-          Профиль
-      %li
-        %a.js-link-header
-          Настройки
-      %li.exit
-        %a.js-link-header
-          Выход
