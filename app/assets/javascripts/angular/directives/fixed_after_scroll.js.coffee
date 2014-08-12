@@ -26,4 +26,4 @@
 
     $scope.$on 'reseted', ->
       if isFixed()
-        $("html").velocity("scroll", { offset: "#{positionElement}px" })
+        window.scrollTo(0, positionElement);
