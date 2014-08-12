@@ -615,7 +615,7 @@
     }
   }
 }
-.popup-schedule{
+.popup-project-type{
   position: absolute;
   background: white;
   padding: 10px;
@@ -623,9 +623,9 @@
   right: 4px;
   padding-bottom:0;
   display:none;
-  top: 51px;
+  top: 57px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-  .schedule{
+  .project-type{
     margin-bottom:10px;
     label{
       vertical-align: -1px;
