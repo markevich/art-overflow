@@ -291,7 +291,6 @@ section{
   width: 235px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   padding: 15px;
-  @include border-radius(6px);
   top: 65px;
   right: 0px;
   margin-top: 0;
@@ -314,19 +313,14 @@ section{
     border: 0 none transparent;
     padding: 8px;
     border:1px solid #ccc;
-    border-radius:6px;
+    border-radius:3px;
   }
   input[type='password'],.btn-blue{
     margin-top: 15px;
   }
-  .btn-blue{
-    width: 90px;
-    padding: 7px 0;
-    padding-bottom: 7px;
-    font-size: 15px;
-    float: left;
-    font-family: Arial;
-    margin-bottom: 17px;
+  .btn{
+    width: 100px;
+    margin-bottom: 15px;
   }
   .forgot-password{
     font-size: 12px;
