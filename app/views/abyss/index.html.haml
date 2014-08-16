@@ -51,10 +51,10 @@
   #pictures(resizable images-reseted infinite-scroll="loader.loadMore()")
     .picture-container.hide#fake-for-js
     .picture-container(ng-repeat="project in loader.projects")
-      .image-block
+      .image-block(ng-mouseover="enableEdit()" ng-mouseleave="disableEdit()")
         %a(ng-href="{{project.path}}")
           %img.picture.loading(ng-src="{{project.thumb_path}}" image-loaded)
-          .info
+          .info(ng-show='displayEffect')
             %h5
               {{project.name|truncate:40}}
           .name

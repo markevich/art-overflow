@@ -14,6 +14,12 @@
       $scope.loader.reset()
       $scope.$broadcast('reseted')
 
+    $scope.disableEdit = ->
+      this.displayEffect = false;
+
+    $scope.enableEdit = ->
+      this.displayEffect = true;
+
     $timeout ->
       initialize()
   ]
