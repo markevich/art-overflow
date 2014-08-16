@@ -1,0 +1,18 @@
+.settings-navigation{
+  width: 200px;
+  position: absolute;
+  ul{
+    background-color: #383e49;
+    font-family: 'HelveticaThin';
+    color: white;
+    font-size: 20px;
+    li{
+      border: 1px solid #232831;
+      padding: 10px 5px;
+    }
+  }
+}
+.settings-container{
+  margin-left: 200px;
+
+}

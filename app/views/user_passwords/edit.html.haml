@@ -1,11 +1,12 @@
 - content_for :title, 'Изменение пароля'
-= render partial: 'users/edit_navigation', locals: { resource: resource }
+.settings-navigation
+  = render_navigation(context: 'profile_settings')
+.settings-container
+  .profil-form
+    .profil-form-container
+      = simple_form_for(resource, url: user_passwords_path) do |f|
+        = f.input :current_password, required: true, label: false
+        = f.input :password, required: true
+        = f.input :password_confirmation, required: true
 
-.profil-form
-  .profil-form-container
-    = simple_form_for(resource, url: user_passwords_path) do |f|
-      = f.input :current_password, required: true, label: false
-      = f.input :password, required: true
-      = f.input :password_confirmation, required: true
-
-      = f.submit "Изменить пароль", class: 'btn btn-green', data: { disable_with: 'Изменяется' }
+        = f.submit "Изменить пароль", class: 'btn btn-green', data: { disable_with: 'Изменяется' }

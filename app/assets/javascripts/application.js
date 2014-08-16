@@ -32,7 +32,7 @@
 //= require jquery.adaptive-backgrounds.min
 //= require jquery.tagsinput.min
 //= require cookie.min.js
-//= require jquery.ui.all
+//= require jquery-ui
 //= require jquery.modal
 //= require turbolinks
 //= require reformal_turbolinks

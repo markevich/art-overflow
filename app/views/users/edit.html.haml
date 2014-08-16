@@ -1,32 +1,33 @@
 - content_for :title, 'Редактирование профиля'
-= render partial: 'users/edit_navigation', locals: { resource: resource }
+.settings-navigation
+  = render_navigation(context: 'profile_settings')
+.settings-container
+  .profil-form
+    .profil-form-container
+      = simple_form_for(resource) do |f|
+        = f.input :name, placeholder: 'Johny'
+        .avatarka
+          %label
+            Аватар
+            %span
+              100*100 jpg. или .png
+          .image-profile
+            = image_tag(resource.avatar)
+            .change-avatar
+              = link_to_modal "Сменить аватар", edit_user_avatar_path(resource),
+                data: { remote: true }, class: 'btn btn-blue js-trigger-uploader'
 
-.profil-form
-  .profil-form-container
-    = simple_form_for(resource) do |f|
-      = f.input :name, placeholder: 'Johny'
-      .avatarka
-        %label
-          Аватар
-          %span
-            100*100 jpg. или .png
-        .image-profile
-          = image_tag(resource.avatar)
-          .change-avatar
-            = link_to_modal "Сменить аватар", edit_user_avatar_path(resource),
-              data: { remote: true }, class: 'btn btn-blue js-trigger-uploader'
+        = f.input :city, placeholder: 'Минск'
+        = f.input :slug, placeholder: 'batman',
+          input_html: { 'ng-model' => 'slug', 'ng-init' => "slug='#{f.object.slug}'" },
+          hint: 'Ваш профиль будет доступен по адресу <span>http://artoverflow.com/users/{{slug}}/pictures</span>'.html_safe
 
-      = f.input :city, placeholder: 'Минск'
-      = f.input :slug, placeholder: 'batman',
-        input_html: { 'ng-model' => 'slug', 'ng-init' => "slug='#{f.object.slug}'" },
-        hint: 'Ваш профиль будет доступен по адресу <span>http://artoverflow.com/users/{{slug}}/pictures</span>'.html_safe
+        %div
+          %label
+            Вконтакте
+          .collapse
+            %span.prefix
+              vk.com/
+            = f.input :vk, placeholder: 'wine', label: false
 
-      %div
-        %label
-          Вконтакте
-        .collapse
-          %span.prefix
-            vk.com/
-          = f.input :vk, placeholder: 'wine', label: false
-
-      = f.submit "Сохранить", class: 'btn btn-green', data: { disable_with: 'Сохраняется' }
+        = f.submit "Сохранить", class: 'btn btn-green', data: { disable_with: 'Сохраняется' }

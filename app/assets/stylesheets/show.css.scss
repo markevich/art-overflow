@@ -213,37 +213,6 @@ section{
     }
   }
 }
-.profil-menu{
-  background-color: $bgBlueMenu;
-
-  ul{
-    position: relative;
-    margin: auto;
-    max-width: 1660px;
-    padding: 10px 20px 9px 20px;
-    li{
-      width: auto;
-      margin: 5px;
-      display: inline-block;
-      &:first-child{
-        margin-right: 0;
-      }
-      img{
-        position: absolute;
-        bottom: -0.7em;
-        left: 1.3em;
-        position: absolute;
-      }
-      a{
-        color: #ffffff;
-        font-size: 14px;
-        text-decoration: none;
-        font-weight: bold;
-        font-family: Arial;
-      }
-    }
-  }
-}
 
 //edit usser
 .edit_profil{
@@ -686,11 +655,6 @@ section{
     right: 15px;
     top: 15px;
   }
-}
-.profil-menu ul li a.album-all{
-  background: url(image_path('album-arrow.png')) no-repeat;
-  background-position: center left;
-  padding-left: 17px;
 }
 .search-container-new{
   margin: auto;

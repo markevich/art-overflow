@@ -300,18 +300,6 @@ a.sign-in{
       display: inline-block;
     }
 }
-.profil-menu ul li.active{
-  background-image: url(image-path("arrow_active.png"));
-  background-position: bottom center;
-  background-repeat: no-repeat;
-  bottom: -23px;
-  position: relative;
-  z-index: 1;
-}
-.profil-menu ul li.active a{
-  position: relative;
-  top: -23px;
-}
 .close-modal{
   display: block;
   background: #969696;

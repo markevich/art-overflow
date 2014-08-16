@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require nprogress
- *= require jquery.ui.all
+ *= require jquery-ui
  *= require jquery.modal
  *= require jquery.tagsinput.css
  *= require_tree .
