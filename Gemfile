@@ -9,6 +9,7 @@ gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 #
+gem "autoprefixer-rails"
 #
 gem 'nprogress-rails'
 gem 'petrovich'

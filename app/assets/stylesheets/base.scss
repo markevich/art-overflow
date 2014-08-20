@@ -10,14 +10,9 @@ $colorDarkRed: #bf4032;
 $colorDarkBlue:#5f979d;
 $colorBgDarkBlue: #26394d;
 @mixin border-radius($radius){
-  -webkit-border-radius: $radius;
-  -moz-border-radius: $radius;
   border-radius: $radius;
 }
 @mixin transition($arg){
-  -webkit-transition: $arg;
-  -moz-transition: $arg;
-  -o-transition: $arg;
   transition: $arg;
 }
 .btn{
@@ -96,10 +91,6 @@ ul{
     width: 40px;
     float: left;
     background-color: $colorDarkBlue;
-    -webkit-border-top-left-radius: 3px;
-    -webkit-border-bottom-left-radius: 3px;
-    -moz-border-radius-topleft: 3px;
-    -moz-border-radius-bottomleft: 3px;
     border-top-left-radius: 3px;
     border-bottom-left-radius: 3px;
     background-repeat:no-repeat;
@@ -184,15 +175,6 @@ input[type="submit"]:disabled{
   display: none;
 }
 *.unselectable {
-  -moz-user-select: none;
-  -khtml-user-select: none;
-  -webkit-user-select: none;
-
-  /*
-  Introduced in IE 10.
-  See http://ie.microsoft.com/testdrive/HTML5/msUserSelect/
-   */
-  -ms-user-select: none;
   user-select: none;
 }
 .hide{

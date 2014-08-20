@@ -15,16 +15,11 @@ div.tagsinput span.tag span{
 }
 div.tagsinput span.tag {
   border: 1px solid #6eb2ba;
-  -moz-border-radius:3px;
-  -webkit-border-radius:3px;
   display: block;
   float: left;
   padding: 7px;
   text-decoration:none;
-  /*background: #cde69c;*/
-  /*background: #9cd0d5;*/
   background: #ffffff;
-  /*color: #638421;*/
   color: #ffffff;
   margin-right: 4px;
   margin-bottom:4px;

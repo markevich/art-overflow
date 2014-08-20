@@ -41,12 +41,10 @@
   select{
     border-radius: 0;
     width: 200px;
-    -moz-appearance: none;
     appearance: none;
-    -webkit-appearance: none;
     text-indent: 0.01px;
     text-overflow: '';
-    background-image: url(image-path("/assets/select-arrow.png"));
+    background-image: url(image-path("select-arrow.png"));
     background-repeat: no-repeat;
     background-position: 176px 16px;
   }

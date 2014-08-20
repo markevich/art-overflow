@@ -36,8 +36,6 @@ $copyRight:#5f979d;
       width: 130px;
       overflow: hidden;
       bottom: 18px;
-      -webkit-border-radius: 6px;
-      -moz-border-radius: 6px;
       border-radius: 6px;
       li{
         a{
@@ -45,12 +43,7 @@ $copyRight:#5f979d;
           display: block;
           padding: 10px 15px;
           text-align: left;
-          -webkit-border-radius: 6px;
-          -moz-border-radius: 6px;
           border-radius: 6px;
-          -webkit-transition: all 0 ease-in-out;
-          -moz-transition: all 0 ease-in-out;
-          -o-transition: all 0 ease-in-out;
           transition: all 0 ease-in-out;
           font-size: 14px;
 
@@ -78,9 +71,6 @@ $copyRight:#5f979d;
         position: relative;
         bottom: 8px;
         left: 59px;
-/*        transform: rotate(180deg);
-        -ms-transform: rotate(180deg);
-        -webkit-transform: rotate(180deg);*/
       }
       ul{
         li{
@@ -96,9 +86,6 @@ $copyRight:#5f979d;
       color: #70b2b8;
       font-size: 12px;
       cursor: pointer;
-      -webkit-transition: all 0s ease-in-out;
-      -moz-transition: all 0s ease-in-out;
-      -o-transition: all 0s ease-in-out;
       transition: all 0s ease-in-out;
       &:hover{
         color: $colorRed;

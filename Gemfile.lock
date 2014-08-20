@@ -80,6 +80,8 @@ GEM
     auto_html (1.6.4)
       redcarpet (~> 3.1)
       rinku (~> 1.5.0)
+    autoprefixer-rails (2.2.0.20140804)
+      execjs
     bcrypt (3.1.7)
     better_errors (1.1.0)
       coderay (>= 1.0.0)
@@ -414,6 +416,7 @@ DEPENDENCIES
   acts_as_follower!
   angularjs-rails
   auto_html
+  autoprefixer-rails
   better_errors
   binding_of_caller
   bullet

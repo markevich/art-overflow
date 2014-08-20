@@ -186,8 +186,6 @@
   display: inline-block;
   text-decoration: none;
   clear: both;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
   border-radius: 5px;
   text-align: center;
   color: #ffffff;
@@ -219,14 +217,11 @@
     padding-top: 10px;
   }
   textarea{
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
     border-radius: 6px;
     resize: none;
     height: 100px;
     resize:none;
     border: 1px solid #cccccc;
-    -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
     box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
     color: rgba(0,0,0,0.75);
     display: block;
@@ -364,8 +359,6 @@
 .mini-users{
   width: 770px;
   padding: 0px 0px;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
   border-radius: 3px;
   .mini-users-container{
     max-height: 500px;
@@ -422,8 +415,6 @@
   img{
     width: 90px;
     height: 90px;
-    -webkit-border-radius: 6px;
-    -moz-border-radius: 6px;
     border-radius: 6px;
     overflow: hidden;
     cursor: pointer;
@@ -456,7 +447,6 @@
   background-position: 176px 16px;
   background-color:white;
   border: 1px solid #cccccc;
-  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
   color: rgba(0, 0, 0, 0.75);
   padding: 10px;
@@ -472,10 +462,6 @@
   margin-top: -1px;
   padding: 15px;
   width:400px;
-  -webkit-border-bottom-right-radius: 6px;
-  -webkit-border-bottom-left-radius: 6px;
-  -moz-border-radius-bottomright: 6px;
-  -moz-border-radius-bottomleft: 6px;
   border-bottom-right-radius: 6px;
   border-bottom-left-radius: 6px;
 
