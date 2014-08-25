@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :passwords => "passwords" }
 
   namespace :api do
-    resources :projects, only: :index
+    resources :projects, only: [:index, :show]
   end
 
   resources :search, only: :index

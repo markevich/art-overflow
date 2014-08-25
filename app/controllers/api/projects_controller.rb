@@ -8,6 +8,10 @@ module Api
       respond_with @projects
     end
 
+    def show
+      @project = Picture.includes(:user, :categories, :tags).find(params[:id])
+    end
+
     private
 
     def order

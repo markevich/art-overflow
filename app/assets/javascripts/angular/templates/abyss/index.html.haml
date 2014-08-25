@@ -52,8 +52,8 @@
     .picture-container.hide#fake-for-js
     .picture-container(ng-repeat="project in loader.projects")
       .image-block(ng-mouseover="project.showInfo = true" ng-mouseleave="project.showInfo =false")
-        %a(ng-href="#!/projects/{{project.id}}")
-          %img.picture.loading(ng-src="{{project.thumb_path}}" image-loaded)
+        %a(ng-href="{{project.url}}")
+          %img.picture.loading(ng-src="{{project.thumb_url}}" image-loaded)
           .info(ng-show='project.showInfo')
             %h5
               {{project.name|truncate:40}}

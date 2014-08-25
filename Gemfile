@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 #rails
-gem 'rails', '4.1.0'
+gem 'rails', '4.1.5'
 gem 'rails-observers'
 gem 'jquery-rails'
 gem 'sass-rails'
@@ -77,7 +77,7 @@ gem 'inherited_resources'
 gem 'responders'
 gem 'public_activity'
 
-gem 'rabl-rails'
+gem 'jbuilder'
 
 gem 'friendly_id'
 
@@ -161,4 +161,4 @@ group :development, :test do
   gem 'capybara', github: 'jnicklas/capybara'
   gem 'factory_girl_rails'
 end
-gem 'sprockets-rails', github: 'rails/sprockets-rails'
+gem 'sprockets-rails'

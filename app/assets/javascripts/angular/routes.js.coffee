@@ -5,6 +5,6 @@
   $routeProvider
     .when '/abyss',
       templateUrl: 'abyss/index.html'
-    .when 'projects/:id',
+    .when '/projects/:id',
       templateUrl: 'projects/show.html'
 ]
