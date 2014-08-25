@@ -4,5 +4,5 @@
 
   $routeProvider
     .when '/abyss',
-      templateUrl: 'abyss.html'
+      templateUrl: 'abyss/index.html'
 ]
