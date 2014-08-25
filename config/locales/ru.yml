@@ -79,6 +79,7 @@ ru:
         path: Изображение
         tag_list: Тэги
         category_list: Категории
+        graphics_type: Тип графики
       notification_settings:
         news: Новостях и обновлениях проекта
         subscribers: Новых подписчиках

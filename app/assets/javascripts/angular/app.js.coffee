@@ -1,7 +1,4 @@
-@app = angular.module('Application', ['ngRoute', 'ng-rails-csrf', 'ngResource', 'ngSanitize', 'infinite-scroll'])
+@app = angular.module('Application', ['ngRoute', 'ng-rails-csrf', 'ngResource', 'ngSanitize', 'infinite-scroll', 'templates'])
 
-$(document).on 'ready page:load', ->
+$(document).on 'ready', ->
   angular.bootstrap document.body, ['Application']
-
-$(document).on 'page:before-change', ->
-  angular.element('body').scope().$broadcast("$destroy")

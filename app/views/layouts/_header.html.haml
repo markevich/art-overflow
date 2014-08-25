@@ -7,7 +7,7 @@
         %nav#menu
           %ul
             = active_link_to "Движуха", user_pictures_path(User.first)
-            = active_link_to "Бездна", abyss_index_path
+            = active_link_to "Бездна", single_page_path(anchor: "!/abyss")
             = active_link_to "О нас", root_path
     - if user_signed_in?
       .container-right

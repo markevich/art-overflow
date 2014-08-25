@@ -9,5 +9,5 @@ checkUserContent = ->
     checkable = $(checkable)
     checkable.show() if checkable.data('user-id') == current_user_id
 
-$(document).on 'ready page:load', ->
+$(document).on 'ready', ->
   checkUserContent()

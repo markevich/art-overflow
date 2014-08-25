@@ -3,6 +3,11 @@ Rails.application.routes.draw do
   mount Sidekiq::Web => '/sidekiq'
 
   devise_for :users, :controllers => { :passwords => "passwords" }
+
+  namespace :api do
+    resources :projects, only: :index
+  end
+
   resources :search, only: :index
   resources :tags, only: :index
   resources :users, except: [:show, :destroy] do
@@ -21,8 +26,7 @@ Rails.application.routes.draw do
   resources :user_avatars, only: [:edit, :update]
   resources :album_avatars, only: [:edit, :update]
 
-  resources :abyss, only: :index
-  resources :projects, only: :index
+  get :sp, to: 'sp#index', as: :single_page
 
   resources :albums, except: :show do
     resources :pictures

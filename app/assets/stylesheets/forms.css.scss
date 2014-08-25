@@ -28,7 +28,7 @@
   max-width: 1660px;
   padding: 0 20px;
   display: inline-block;
-  input, textarea,select{
+  input[type=text], input#picture_tag_list_tag, textarea{
     resize: none;
     margin-bottom: 10px;
     border: 1px solid #cccccc;
@@ -39,20 +39,26 @@
     display: inline-block;
   }
   select{
+    padding: 8px;
     border-radius: 0;
     width: 200px;
+    -moz-appearance: none;
+    -webkit-appearance: none;
     appearance: none;
     text-indent: 0.01px;
     text-overflow: '';
     background-image: url(image-path("select-arrow.png"));
     background-repeat: no-repeat;
-    background-position: 176px 16px;
+    background-position: 176px 12px;
   }
   select:focus,select:active{
     outline: none;
   }
   textarea{
     height: 100px;
+  }
+  input[type=radio]{
+    margin-right: 5px;
   }
   small{
     margin-left: 5px;
@@ -64,6 +70,10 @@
   label{
     display: block;
     margin: 10px 0;
+    &.radio{
+      display: inline-block;
+      margin-right: 10px;
+    }
   }
   .btn{
     margin-top: 10px;

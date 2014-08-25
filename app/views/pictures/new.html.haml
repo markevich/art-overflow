@@ -1,7 +1,7 @@
 - content_for :title, 'Новая работа'
 
-= javascript_include_tag 'load-image.min', 'jquery.Jcrop', 'data-turbolinks-track' => true
-= stylesheet_link_tag 'jquery.Jcrop', 'data-turbolinks-track' => true
+= javascript_include_tag 'load-image.min', 'jquery.Jcrop'
+= stylesheet_link_tag 'jquery.Jcrop'
 
 = simple_form_for(@picture) do |f|
   %h3.title-download
@@ -46,6 +46,7 @@
 
     = f.input :name
     = f.input :description
+    = f.input :graphics_type, as: :radio_buttons
     = f.input :tag_list
     = render 'categories_form'
     = f.association :album, collection: current_user.albums

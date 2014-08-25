@@ -1,4 +1,4 @@
-$(document).on 'ready page:load page:restore', ->
+$(document).on 'ready', ->
   InfinityScrollerManager.initialize()
 
 class InfinityScrollerManager

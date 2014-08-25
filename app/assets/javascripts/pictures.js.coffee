@@ -29,7 +29,7 @@ $(document).on 'ajax:success', '.js-button-watch .js-remote-link', (evt, xhr, se
 $(document).on 'click', '.reply-to-comment', ->
   $(@).parents('.message-comment:first').find('.reply-to-comment-container:first').toggle()
 
-$(document).on 'ready page:load', ->
+$(document).on 'ready', ->
   $.adaptiveBackground.run()
 
   if $('.js-button-watch').length

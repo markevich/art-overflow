@@ -20,13 +20,13 @@
 //= require angular-resource
 //= require angular-sanitize
 //= require angular-route
+//= require angular-rails-templates
 //= require ./angular/app
 //= require_tree ./angular/lib
 //= require_tree ./angular/directives
 //= require_tree ./angular/services
 //= require_tree ./angular/controllers
-//= require nprogress
-//= require nprogress-turbolinks
+//= require_tree ./angular/templates
 //= require jquery.viewport
 //= require jquery.parsequery.min.js
 //= require jquery.adaptive-backgrounds.min
@@ -34,6 +34,4 @@
 //= require cookie.min.js
 //= require jquery-ui
 //= require jquery.modal
-//= require turbolinks
-//= require reformal_turbolinks
 //= require_tree .

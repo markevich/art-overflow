@@ -1,2 +1,2 @@
 @app.factory 'Project', ($resource) ->
-  $resource('/projects')
+  $resource('/api/projects')

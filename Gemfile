@@ -3,23 +3,21 @@ source 'http://rubygems.org'
 #rails
 gem 'rails', '4.1.0'
 gem 'rails-observers'
-gem 'turbolinks'
 gem 'jquery-rails'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
 #
 gem "autoprefixer-rails"
+gem 'enumerize'
 #
-gem 'nprogress-rails'
 gem 'petrovich'
 gem 'auto_html'
 gem 'angularjs-rails'
+gem 'angular-rails-templates'
 gem 'ng-rails-csrf'
 
 gem 'simple-navigation'
-
-gem 'reformal_turbolinks'
 
 gem 'exception_notification'
 
@@ -33,7 +31,6 @@ gem 'haml-rails'
 
 gem 'jcrop-rails-v2'
 gem 'tire'
-gem 'google-analytics-turbolinks'
 
 #authentication processing
 gem 'devise'

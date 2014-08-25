@@ -36,6 +36,7 @@ class PicturesController < InheritedResources::Base
       :path,
       :tag_list,
       :path_cache,
+      :graphics_type,
       category_ids: []
     ]).tap do |whitelist|
       whitelist[:picture] ||= {}

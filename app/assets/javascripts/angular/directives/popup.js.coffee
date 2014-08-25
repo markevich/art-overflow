@@ -12,7 +12,6 @@
     $(document).on "click.#{name}", (event) ->
       $target = $(event.target)
 
-      console.debug $target
       needHide = true
 
       angular.forEach excludeItems, (item) =>
