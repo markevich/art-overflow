@@ -10,6 +10,7 @@ module Api
 
     def show
       @project = Picture.includes(:user, :categories, :tags).find(params[:id])
+      @more_projects_by_user = @project.user.pictures.where.not(id: @project.id).order(likes_count: :desc).limit(3)
     end
 
     private

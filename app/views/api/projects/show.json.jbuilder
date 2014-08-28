@@ -17,4 +17,9 @@ json.cache! @project do
   end
 
   json.user @project.user, :id, :name, :followers_count
+
+  json.more_projects_by_user @more_projects_by_user do |project|
+    json.asset_url project.path.url
+    json.name project.name
+  end
 end
