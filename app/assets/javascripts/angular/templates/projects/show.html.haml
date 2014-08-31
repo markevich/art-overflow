@@ -6,29 +6,29 @@
       .ava
         %img(ng-src='{{project.user.avatar_url}}')
       .table-information-current-user
-        .name
+        %a.name
           {{project.user.name}}
         .position
           developer
-        .folow-user
-          %a
-            Следить
-            %span
-              5
+        %a.folow-user.active
+          Подписаны
+          %span
+            5
     .line-container.description
       %h2
         {{project.name}}
-      {{project.description}}
-      %a
+      %span.content
+        {{project.description}}
+      %a(ng-if='$scope.project.description.length')
         Далее
       .date
         {{project.created_at}}
       .actions-user
-        %a
+        %a.view
           {{project.view_count}}
-        %a
+        %a.like
           {{project.likes_count}}
-        %a
+        %a.comment
           {{project.comments_count}}
     .line-container.emotions
       <canvas width="335" height="220" id="real">
