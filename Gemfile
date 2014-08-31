@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'http://rails-assets.org'
 
 #rails
 gem 'rails', '4.1.5'
@@ -24,6 +25,7 @@ gem 'exception_notification'
 gem 'jquery-ui-rails'
 gem 'jquery-modal-rails', github: 'dei79/jquery-modal-rails'
 
+gem 'rails-assets-paper'
 #template rendering
 gem 'simple_form'
 gem 'haml-rails'

@@ -21,6 +21,8 @@ Rails.application.routes.draw do
 
   resource :notification_settings, only: [:show, :update]
 
+  resources :emotions
+
   resource :user_passwords, only: [:edit, :update]
 
   resources :user_avatars, only: [:edit, :update]
@@ -47,5 +49,5 @@ Rails.application.routes.draw do
 
   resources :ping, only: :index
 
-  root to: 'pictures#index'
+  root to: 'sp#index'
 end

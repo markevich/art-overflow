@@ -1,0 +1,111 @@
+<style>
+  canvas{
+    background-color: #1f282d;
+  }
+</style>
+<%= image_tag 'emotions/rapture.png', id: 'rapture' %>
+<%= image_tag 'emotions/cute.png', id: 'cute' %>
+<%= image_tag 'emotions/inspiration.png', id: 'inspiration' %>
+<%= image_tag 'emotions/wtf.png', id: 'wtf' %>
+<%= image_tag 'emotions/facepalm.png', id: 'facepalm' %>
+<script type="text/javascript">
+window.onload = function(){
+  var c = document.getElementById('real');
+  paper.setup(c);
+
+  function Emotion(name, position, rotation, scale, vectors) {
+    this.name = name;
+    this.position = position;
+    this.vectors = vectors;
+    this.rotation = rotation;
+    this.scale = scale;
+    this.raster = new paper.Raster(name);
+    this.raster.scale(scale);
+    this.radius = this.raster.bounds.height / 2;
+    this.updateShape();
+  }
+
+  Emotion.prototype = {
+    updateShape: function(){
+      this.raster.position = this.position;
+      this.raster.rotation = this.rotation;
+    },
+
+    iterate: function(delta){
+      var positionVector = this.vectors.position;
+      var rotation = this.vectors.rotation;
+
+      this.position = this.position.add(positionVector.multiply(delta));
+      this.rotation = this.rotation + rotation * delta;
+      this.updateShape();
+      this.checkBounds();
+    },
+
+    checkBounds: function(){
+      var view = paper.view.size;
+      var bounds = this.getBoundingBox();
+
+      if(bounds.bottom > view.height){
+        this.position.y = view.height - bounds.radius;
+        this.vectors.position.y = -this.vectors.position.y;
+      }
+
+      if(bounds.top < 0){
+        this.position.y = 0 + bounds.radius;
+        this.vectors.position.y = -this.vectors.position.y;
+      }
+
+      if(bounds.left < 0){
+        this.position.x = 0 + bounds.radius;
+        this.vectors.position.x = -this.vectors.position.x;
+      }
+
+      if(bounds.right > view.width){
+        this.position.x = view.width - bounds.radius;
+        this.vectors.position.x = -this.vectors.position.x;
+      }
+    },
+
+    getBoundingBox: function(){
+      var bounds = this.raster.bounds;
+      var center = bounds.center;
+      return {
+        radius: this.radius,
+        top: center.y - this.radius,
+        right: center.x + this.radius,
+        bottom: center.y + this.radius,
+        left: center.x - this.radius
+      }
+    }
+  }
+
+  with(paper){
+    var viewSize = view.size;
+    var count = 50;
+    var emotions = [];
+    var names = ['rapture', 'cute', 'inspiration', 'wtf', 'facepalm'];
+
+    for(i = 0; i < count; i ++){
+      var position = new Point(320, 220).multiply(Point.random());
+      var vectors = {
+        position: new Point(100, 100).multiply(Point.random()).add(50),
+        rotation: 100 * Math.random() + 20
+      }
+      var rotation = 360 * Math.random();
+      var scale = 0.5 * Math.random() + 0.2;
+      var name = names[Math.floor(Math.random() * 4)];
+      emotions.push(new Emotion(name, position, rotation, scale, vectors));
+    }
+
+    view.draw();
+
+    view.onFrame = function(event) {
+      for(i = 0; i < count; i ++){
+        emotions[i].iterate(event.delta);
+      }
+    }
+  }
+}
+</script>
+<canvas width="320" height="220" id="real">
+</canvas>
