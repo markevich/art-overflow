@@ -27,6 +27,4 @@ json.cache! @project do
     json.asset_url project.path.url
     json.name project.name
   end
-
-  end
 end
