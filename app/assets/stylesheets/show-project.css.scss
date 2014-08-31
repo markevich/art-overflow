@@ -63,4 +63,79 @@ html, body, #main-content {
     height:100%;
 
   }
+
+  $emotionXOffset: 86px;
+  $emotionYOffset: 81px;
+  $shadowSize: 10px;
+  .emotions{
+    position: relative;
+  }
+  .emotion-button{
+    width: 66px;
+    height: 68px;
+    position: absolute;
+    &:hover{
+      width: 66px + $shadowSize * 2;
+      height: 68px + $shadowSize * 2;
+    }
+  }
+  .cute{
+    background: url(image-path('emotions/sprite.png')) -1 * $emotionXOffset * 0 - 10 0;
+    top: 28px;
+    left: 22px;
+    &:hover{
+      top: 28px - $shadowSize;
+      left: 22px - $shadowSize;
+      background-position-x: -1 * $emotionXOffset * 0 - 10 + $shadowSize;
+      background-position-y: -1 * $emotionYOffset + $shadowSize;
+    }
+  }
+  .facepalm{
+    background: url(image-path('emotions/sprite.png'));
+    background-position-x: -1 * $emotionXOffset * 1 - 10;
+    top: 28px;
+    right: 22px;
+    &:hover{
+      top: 28px - $shadowSize;
+      right: 22px - $shadowSize;
+      background-position-x: -1 * $emotionXOffset * 1 - 10 + $shadowSize;
+      background-position-y: -1 * $emotionYOffset + $shadowSize;
+    }
+  }
+  .rapture{
+    background: url(image-path('emotions/sprite.png'));
+    background-position-x: -1 * $emotionXOffset * 2 - 10;
+    top: 85px;
+    left: 132px;
+    &:hover{
+      top: 85px - $shadowSize;
+      left: 132px - $shadowSize;
+      background-position-x: -1 * $emotionXOffset * 2 - 10 + $shadowSize;
+      background-position-y: -1 * $emotionYOffset + $shadowSize;
+    }
+  }
+  .wtf{
+    background: url(image-path('emotions/sprite.png'));
+    background-position-x: -1 * $emotionXOffset * 3 - 10;
+    bottom: 28px;
+    left: 22px;
+    &:hover{
+      bottom: 28px - $shadowSize;
+      left: 22px - $shadowSize;
+      background-position-y: -1 * $emotionYOffset + $shadowSize;
+      background-position-x: -1 * $emotionXOffset * 3 - 10 + $shadowSize;
+    }
+  }
+  .inspiration{
+    background: url(image-path('emotions/sprite.png'));
+    background-position-x: -1 * $emotionXOffset * 4 - 10;
+    bottom: 28px;
+    right: 22px;
+    &:hover{
+      bottom: 28px - $shadowSize;
+      right: 22px - $shadowSize;
+      background-position-y: -1 * $emotionYOffset + $shadowSize;
+      background-position-x: -1 * $emotionXOffset * 4 - 10 + $shadowSize;
+    }
+  }
 }
