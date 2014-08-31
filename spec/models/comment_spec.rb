@@ -1,4 +1,5 @@
-require 'spec_helper'
+require 'rails_helper'
+
 describe Comment do
   it_should_behave_like 'trackable', :comment
 

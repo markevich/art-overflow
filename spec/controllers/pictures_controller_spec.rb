@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe PicturesController do
   let(:user) { create(:user) }

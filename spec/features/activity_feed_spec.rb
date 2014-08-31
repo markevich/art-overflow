@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 feature 'Activity feed', public_activity: true, js: true, callbacks: true do
   feature do

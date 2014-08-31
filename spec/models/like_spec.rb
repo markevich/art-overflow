@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Like do
   it_should_behave_like 'trackable', :like

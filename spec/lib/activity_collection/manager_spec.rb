@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe ActivityCollection::Manager do
   let(:activity1) { create(:activity, trackable: create(:like), key: 'like.create') }

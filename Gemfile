@@ -32,7 +32,6 @@ gem 'haml-rails'
 #
 
 gem 'jcrop-rails-v2'
-gem 'tire'
 
 #authentication processing
 gem 'devise'

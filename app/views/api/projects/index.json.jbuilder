@@ -1,9 +1,4 @@
-# collection :@projects
-# attributes :id, :name
-# node(:path) { |project| picture_path(project) }
-# node(:thumb_path) { |project| project.path.small_thumb.url }
-
-json.cache! @projects, expires_in: 1.hour do
+json.cache! @projects, expires_in: 1.day do
   json.array! @projects do |project|
     json.id project.id
     json.name project.name
