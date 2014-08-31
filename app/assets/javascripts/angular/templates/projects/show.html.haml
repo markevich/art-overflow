@@ -1,2 +1,55 @@
-.say.hello(ng-controller="projectsController")
-  hello
+.gallery-single(ng-controller="showProjectController")
+  .image-container
+    %a.prev
+    .image-current-user
+      %img(ng-src='{{project.asset_url}}')
+    %a.next
+  .information
+    %a.close
+    .line-container.information-current-user
+      .ava
+        %img(ng-src='{{project.user.avatar_url}}')
+      .information-current-user
+        .name
+          {{project.user.name}}
+        .position
+          developer
+        .folow-user
+          %a
+            Следить
+            %span
+              5
+    .line-container.description
+      %h2
+        {{project.name}}
+      {{project.description}}
+      %a
+        Далее
+      .date
+        {{project.created_at}}
+      .actions-user
+        %a
+          {{project.view_count}}
+        %a
+          {{project.likes_count}}
+        %a
+          {{project.comments_count}}
+    .line-container.emotions
+    .line-container.share
+      %h2
+        Поделиться
+      %a.vk
+        Мне нравится
+      %a.twitter
+        Твитнуть
+    .line-container.categories
+      %a(ng-repeat='{{categories}}')
+    .line-container.tags
+      %a(ng-repeat='{{tags}}')
+    .line-container.other-job
+      %img(ng-src='{{}}')
+      %img(ng-src='{{}}')
+      %img(ng-src='{{}}')
+    .line-container.complaint
+      %a
+        Пожаловатся на работу

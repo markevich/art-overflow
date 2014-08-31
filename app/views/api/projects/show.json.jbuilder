@@ -16,5 +16,10 @@ json.cache! @project do
     json.link "/#{tag.name}"
   end
 
-  json.user @project.user, :id, :name, :followers_count
+  json.user do
+    json.id @project.user.id
+    json.name @project.user.name
+    json.followers_count @project.user.followers_count
+    json.avatar_url @project.user.avatar.url
+  end
 end
