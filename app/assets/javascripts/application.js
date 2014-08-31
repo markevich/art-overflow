@@ -34,4 +34,5 @@
 //= require cookie.min.js
 //= require jquery-ui
 //= require jquery.modal
+//= require paper
 //= require_tree .

@@ -22,4 +22,11 @@ json.cache! @project do
     json.followers_count @project.user.followers_count
     json.avatar_url @project.user.avatar.url
   end
+
+  json.more_projects_by_user @more_projects_by_user do |project|
+    json.asset_url project.path.url
+    json.name project.name
+  end
+
+  end
 end
