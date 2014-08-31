@@ -45,13 +45,13 @@
       %a.twitter
         Твитнуть
     .line-container.categories
-      %a(ng-repeat='{{categories}}')
+      %a(ng-repeat='category in categories')
+        {{category}}
     .line-container.tags
-      %a(ng-repeat='{{tags}}')
+      %a(ng-repeat='tag in tags')
+        {{tag}}
     .line-container.other-job
-      %img(ng-src='{{}}')
-      %img(ng-src='{{}}')
-      %img(ng-src='{{}}')
+      %img(ng-repeat='other_project in more_projects_by_user' ng-src='{{other_project.asset_url}}' alt='other_project.name')
     .line-container.complaint
       %a
         Пожаловатся на работу
