@@ -1,10 +1,11 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe Picture do
   it_should_behave_like 'trackable', :picture
 
   it { should belong_to(:user) }
   it { should belong_to(:album) }
+  it { should have_many(:emotions).dependent(:destroy) }
   it { should have_and_belong_to_many :categories }
 
   it_should_behave_like 'commentable'

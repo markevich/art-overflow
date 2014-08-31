@@ -1,4 +1,4 @@
-require "spec_helper"
+require "rails_helper"
 
 describe UserPasswordsController do
   let(:user) { create(:user, password: 'old_password', password_confirmation: 'old_password') }

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe CommentObserver do
   include_context 'with enabled observers', CommentObserver

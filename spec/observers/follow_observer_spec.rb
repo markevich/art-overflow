@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe FollowObserver do
   include_context 'with enabled observers', FollowObserver

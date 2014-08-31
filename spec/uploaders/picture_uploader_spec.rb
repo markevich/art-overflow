@@ -1,4 +1,4 @@
-require 'spec_helper'
+require 'rails_helper'
 
 describe PictureUploader do
   it { expect(PictureUploader::LIMIT_WIDTH).to eq(2500) }

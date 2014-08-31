@@ -34,9 +34,13 @@
           {{project.likes_count}}
         %a
           {{project.comments_count}}
-    .line-container.emotions
-      <canvas width="310" height="220" id="real">
-      </canvas>
+    .line-container.emotions(ng-controller="projectEmotionsController")
+      .rapture
+      .cute
+      .inspiration
+      .wtf
+      .facepalm
+      %canvas(width="310" height="220" id="real")
     .line-container.share
       %h2
         Поделиться
