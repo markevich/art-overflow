@@ -1,15 +1,11 @@
 .gallery-single(ng-controller="showProjectController")
-  .image-container
-    %a.prev
-    .image-current-user
-      %img(ng-src='{{project.asset_url}}')
-    %a.next
   .information
-    %a.close
+    .close-container
+      %a.close
     .line-container.information-current-user
       .ava
         %img(ng-src='{{project.user.avatar_url}}')
-      .information-current-user
+      .table-information-current-user
         .name
           {{project.user.name}}
         .position
@@ -40,7 +36,8 @@
       .inspiration
       .wtf
       .facepalm
-      %canvas(width="310" height="220" id="real")
+      <canvas width="335" height="220" id="real">
+      </canvas>
     .line-container.share
       %h2
         Поделиться
@@ -59,3 +56,8 @@
     .line-container.complaint
       %a
         Пожаловатся на работу
+  .image-container
+    %a.prev
+    .image-current-user
+      %img(ng-src='{{project.asset_url}}')
+    %a.next

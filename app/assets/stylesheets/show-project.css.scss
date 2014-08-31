@@ -1,0 +1,66 @@
+html, body, #main-content {
+  height: 100%;
+  min-height:100%;
+}
+.gallery-single{
+   height: 100%;
+   overflow:hidden;
+  .image-container{
+    margin-right: 335px;
+    overflow-y:auto;
+    img{
+      max-width:100%;
+      height:auto;
+    }
+  }
+  .line-container {
+    padding:10px 0;
+    border-bottom: 1px dashed #575e61;
+    overflow:hidden
+  }
+  .information{
+    padding:10px;
+    float: right;
+    width: 335px;
+     height: 100%;
+    background: #1f282d;
+    overflow-y:auto;
+    .close{
+      background-image: url(image-path('close.png'));
+      height:21px;
+      background-repeat: no-repeat;
+      background-position:center;
+      display: block;
+      float:right;
+      width:28px;
+      background-color:#161f24;
+      cursor: pointer;
+    }
+    .close-container{
+      text-align: right;
+      overflow: hidden;
+    }
+    .ava{
+      float: left;
+      padding-right: 10px;
+      img{
+        width:55px;
+        height:55px;
+      }
+    }
+    .information-current-user{
+      width:100%;
+    }
+    .table-information-current-user{
+      display: table-cell;
+      .name {
+        color: #f2f2f2;
+        font-size: 14px;
+      }
+    }
+  }
+  .image-container{
+    height:100%;
+
+  }
+}
