@@ -24,6 +24,7 @@ class EmotionsHandler
     clearInterval(@interval)
 
   fadeInEmotions: ->
+    return unless @emotions.length
     index = -1
     @interval = setInterval =>
       index += 1
