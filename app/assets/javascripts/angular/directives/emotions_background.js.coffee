@@ -9,63 +9,14 @@
       $scope.emotionHandler = new EmotionsHandler($scope.emotionGroups, $scope.emotionsFactory)
       $scope.emotionHandler.startLoop()
 
-class EmotionsFactory
-  constructor: ->
-    @extractSpriteParts()
-
-  create: (type, size) ->
-    position = randomPosition()
-    vectors = randomVectors()
-    rotation = 360 * Math.random()
-    scale = 0.5;
-    originCanvas = @spriteParts['firstLayer'][type]
-
-    new Emotion(originCanvas, position, rotation, scale, vectors)
-
-  randomSign = ->
-    if Math.random() < 0.5 then -1 else 1
-
-  randomPosition = ->
-    new paper.Point(paper.view.size.width, paper.view.size.height).multiply(paper.Point.random())
-
-  randomVectors = ->
-    position: new paper.Point(50, 50).multiply(paper.Point.random()).add(20).multiply(new paper.Point(randomSign(), randomSign()))
-    rotation: (100 * Math.random() + 20) * randomSign()
-
-  extractSpriteParts: ->
-    firstLayerOffsetX = (number) -> 12 + 86 * number
-    firstLayerOffsetY = 163
-    firstLayerWidth = firstLayerHeight = 62
-
-    secondLayerOffsetX = (number) -> 10 + 86 * number
-    secondLayerOffsetY = 161 + 75
-    secondLayerWidth = secondLayerHeight = 68
-
-    @spriteRaster = new paper.Raster('emotions-sprite', new paper.Point(-1000, -1000))
-    @spriteRaster.visible = false
-    @spriteParts =
-     firstLayer:
-       Cute: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(0), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-       Facepalm: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(1), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-       Rapture: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(2), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-       Wtf: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(3), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-       Inspiration: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(4), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-     secondLayer:
-       Cute: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(0), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-       Facepalm: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(1), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-       Rapture: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(2), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-       Wtf: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(3), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-       Inspiration: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(4), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-
-    @spriteRaster.remove()
-
-class EmotionsHandler
+class @EmotionsHandler
   constructor: (@emotionGroups, @factory) ->
     @interval = null
     @emotions = []
 
   startLoop: ->
     @createEmotions()
+    @sortEmotions()
     @startFrameLoop()
     @fadeInEmotions()
 
@@ -81,17 +32,51 @@ class EmotionsHandler
       @emotions[index].show()
     , 70
 
+  sortEmotions: ->
+    compare = (a,b) ->
+      if (a.blured && b.blured) || (!a.blured && !b.blured)
+        return 1 if a.scale < b.scale
+        return -1 if a.scale > b.scale
+        return 0
+
+      return -1 if a.blured && !b.blured
+      return 1 if b.blured && !a.blured
+
+    @emotions.sort(compare)
+    emotion.raster.bringToFront() for emotion in @emotions
+
+
   startFrameLoop: ->
     paper.view.onFrame = (event) =>
       emotion.iterate(event.delta) for emotion in @emotions
 
   createEmotions: ->
     angular.forEach @emotionGroups, (emotions, type) =>
-      for emotion, i in emotions
-        @emotions.push(@factory.create(type))
+      sizeGroups = @numberToEmotionsGroups(emotions.length)
+      for emotionSize in sizeGroups
+        emotion = @factory.create(type, emotionSize)
+        @emotions.push(emotion)
+
+  numberToEmotionsGroups: (count) ->
+    acc = { groups: [], rest: count }
+    loop
+      acc = @injectRestGroups(acc)
+      break unless acc.rest
+    acc.groups
+
+  injectRestGroups: (acc) ->
+    return acc unless acc.rest
+    sizing = {xxl: 100, xl: 50, l: 20, m: 6, s: 1}
+    for own key, size of sizing
+      continue if acc.rest < size
+      times = acc.rest / size >> 0
+      acc.rest = acc.rest % size
+      acc.groups.push(key) for [1..times]
+      return acc
+
 
 class Emotion
-  constructor: (@originCanvas, @position, @rotation, @scale, @vectors) ->
+  constructor: (@originCanvas, @position, @rotation, @scale, @vectors, @blured) ->
     @raster = new paper.Raster(@originCanvas)
     @hide()
     @raster.scale(@scale)
@@ -131,7 +116,7 @@ class Emotion
       @vectors.position.y = -@vectors.position.y
 
     if bounds.left < 0
-      @position.x = 0 + bounds.radius;
+      @position.x = 0 + bounds.radius
       @vectors.position.x = -@vectors.position.x
 
     if bounds.right > view.width
@@ -139,8 +124,8 @@ class Emotion
       @vectors.position.x = -@vectors.position.x
 
   getBoundingBox: ->
-    bounds = @raster.bounds;
-    center = bounds.center;
+    bounds = @raster.bounds
+    center = bounds.center
 
     radius: this.radius,
     top: center.y - this.radius,
@@ -148,4 +133,80 @@ class Emotion
     bottom: center.y + this.radius,
     left: center.x - this.radius
 
+class EmotionsFactory
+  constructor: ->
+    @extractSpriteParts()
 
+  create: (type, size) ->
+    properties = sizeProperties()[size]
+    position = randomPosition()
+    rotation = 360 * Math.random()
+    scale = properties.scale
+    blured = if Math.random() < properties.blurChance then true else false
+    spriteLayer = if blured then 'secondLayer' else 'firstLayer'
+    originCanvas = @spriteParts[spriteLayer][type]
+
+    velocityMultiplier = properties.velocityMultiplier
+    velocityMultiplier = velocityMultiplier / 3 if blured
+    vectors = randomVectors(velocityMultiplier)
+
+    new Emotion(originCanvas, position, rotation, scale, vectors, blured)
+
+  sizeProperties = ->
+    xxl:
+      scale: 0.8
+      velocityMultiplier: 0.3
+      blurChance: 0.8
+    xl:
+      scale: 0.6
+      velocityMultiplier: 0.5
+      blurChance: 0.6
+    l:
+      scale: 0.5
+      velocityMultiplier: 0.6
+      blurChance: 0.4
+    m:
+      scale: 0.4
+      velocityMultiplier: 0.8
+      blurChance: 0.3
+    s:
+      scale: 0.3
+      velocityMultiplier: 0.9
+      blurChance: 0.2
+
+  randomSign = ->
+    if Math.random() < 0.5 then -1 else 1
+
+  randomPosition = ->
+    new paper.Point(paper.view.size.width, paper.view.size.height).multiply(paper.Point.random())
+
+  randomVectors = (multiplier)->
+    position: new paper.Point(50, 50).multiply(paper.Point.random()).add(20).multiply(new paper.Point(randomSign(), randomSign())).multiply(new paper.Point(multiplier, multiplier))
+    rotation: (100 * Math.random() + 20) * randomSign() * multiplier
+
+  extractSpriteParts: ->
+    firstLayerOffsetX = (number) -> 12 + 86 * number
+    firstLayerOffsetY = 163
+    firstLayerWidth = firstLayerHeight = 62
+
+    secondLayerOffsetX = (number) -> 10 + 86 * number
+    secondLayerOffsetY = 161 + 75
+    secondLayerWidth = secondLayerHeight = 68
+
+    @spriteRaster = new paper.Raster('emotions-sprite', new paper.Point(-1000, -1000))
+    @spriteRaster.visible = false
+    @spriteParts =
+     firstLayer:
+       Cute: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(0), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+       Facepalm: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(1), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+       Rapture: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(2), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+       Wtf: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(3), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+       Inspiration: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(4), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+     secondLayer:
+       Cute: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(0), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+       Facepalm: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(1), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+       Rapture: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(2), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+       Wtf: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(3), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+       Inspiration: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(4), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+
+    @spriteRaster.remove()
