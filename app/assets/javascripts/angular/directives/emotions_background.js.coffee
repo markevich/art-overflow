@@ -66,7 +66,7 @@ class @EmotionsHandler
 
   injectRestGroups: (acc) ->
     return acc unless acc.rest
-    sizing = {xxl: 100, xl: 50, l: 20, m: 6, s: 1}
+    sizing = {xxl: 80, xl: 40, l: 20, m: 6, s: 1}
     for own key, size of sizing
       continue if acc.rest < size
       times = acc.rest / size >> 0
