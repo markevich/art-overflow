@@ -3,17 +3,66 @@
   link: ($scope, $element, $attrs) ->
     paper.setup($element[0])
     $scope.$on 'emotionsUpdated', ->
+      $scope.emotionsFactory ||= new EmotionsFactory()
       paper.project.clear() if paper.project
       $scope.emotionHandler.destroy() if $scope.emotionHandler
-      $scope.emotionHandler = new EmotionsHandler($scope.emotionGroups)
+      $scope.emotionHandler = new EmotionsHandler($scope.emotionGroups, $scope.emotionsFactory)
       $scope.emotionHandler.startLoop()
 
+class EmotionsFactory
+  constructor: ->
+    @extractSpriteParts()
+
+  create: (type, size) ->
+    position = randomPosition()
+    vectors = randomVectors()
+    rotation = 360 * Math.random()
+    scale = 0.5;
+    originCanvas = @spriteParts['firstLayer'][type]
+
+    new Emotion(originCanvas, position, rotation, scale, vectors)
+
+  randomSign = ->
+    if Math.random() < 0.5 then -1 else 1
+
+  randomPosition = ->
+    new paper.Point(paper.view.size.width, paper.view.size.height).multiply(paper.Point.random())
+
+  randomVectors = ->
+    position: new paper.Point(50, 50).multiply(paper.Point.random()).add(20).multiply(new paper.Point(randomSign(), randomSign()))
+    rotation: (100 * Math.random() + 20) * randomSign()
+
+  extractSpriteParts: ->
+    firstLayerOffsetX = (number) -> 12 + 86 * number
+    firstLayerOffsetY = 163
+    firstLayerWidth = firstLayerHeight = 62
+
+    secondLayerOffsetX = (number) -> 10 + 86 * number
+    secondLayerOffsetY = 161 + 75
+    secondLayerWidth = secondLayerHeight = 68
+
+    @spriteRaster = new paper.Raster('emotions-sprite', new paper.Point(-1000, -1000))
+    @spriteRaster.visible = false
+    @spriteParts =
+     firstLayer:
+       Cute: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(0), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+       Facepalm: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(1), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+       Rapture: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(2), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+       Wtf: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(3), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+       Inspiration: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(4), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
+     secondLayer:
+       Cute: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(0), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+       Facepalm: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(1), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+       Rapture: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(2), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+       Wtf: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(3), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+       Inspiration: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(4), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
+
+    @spriteRaster.remove()
+
 class EmotionsHandler
-  constructor: (@emotionGroups) ->
-    window.a = true
+  constructor: (@emotionGroups, @factory) ->
     @interval = null
     @emotions = []
-    @extractSpriteParts()
 
   startLoop: ->
     @createEmotions()
@@ -32,7 +81,6 @@ class EmotionsHandler
       @emotions[index].show()
     , 70
 
-
   startFrameLoop: ->
     paper.view.onFrame = (event) =>
       emotion.iterate(event.delta) for emotion in @emotions
@@ -40,47 +88,7 @@ class EmotionsHandler
   createEmotions: ->
     angular.forEach @emotionGroups, (emotions, type) =>
       for emotion, i in emotions
-        @createEmotion(type)
-
-  createEmotion: (type) ->
-    plusOrMinus = -> if Math.random() < 0.5 then -1 else 1
-    viewSize = paper.view.size
-    position = new paper.Point(viewSize.width, viewSize.height).multiply(paper.Point.random())
-    vectors =
-      position: new paper.Point(50, 50).multiply(paper.Point.random()).add(20).multiply(new paper.Point(plusOrMinus(), plusOrMinus()))
-      rotation: (100 * Math.random() + 20) * plusOrMinus()
-    rotation = 360 * Math.random()
-    scale = 0.5;
-    layer = if window.a then 'secondLayer' else 'firstLayer'
-    window.a = !window.a
-    originCanvas = @spriteParts[layer][type]
-    @emotions.push(new Emotion(originCanvas, position, rotation, scale, vectors))
-
-  extractSpriteParts: ->
-    firstLayerOffsetX = (number) -> 12 + 86 * number
-    firstLayerOffsetY = 163
-    firstLayerWidth = firstLayerHeight = 62
-
-    secondLayerOffsetX = (number) -> 10 + 86 * number
-    secondLayerOffsetY = 161 + 75
-    secondLayerWidth = secondLayerHeight = 68
-
-    @spriteRaster = new paper.Raster('emotions-sprite')
-    @spriteParts =
-     firstLayer:
-       Cute: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(0), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-       Facepalm: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(1), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-       Rapture: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(2), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-       Wtf: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(3), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-       Inspiration: @spriteRaster.getSubCanvas(new paper.Rectangle(firstLayerOffsetX(4), firstLayerOffsetY, firstLayerWidth, firstLayerHeight))
-     secondLayer:
-       Cute: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(0), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-       Facepalm: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(1), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-       Rapture: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(2), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-       Wtf: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(3), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-       Inspiration: @spriteRaster.getSubCanvas(new paper.Rectangle(secondLayerOffsetX(4), secondLayerOffsetY, secondLayerWidth, secondLayerHeight))
-
-    @spriteRaster.remove()
+        @emotions.push(@factory.create(type))
 
 class Emotion
   constructor: (@originCanvas, @position, @rotation, @scale, @vectors) ->
