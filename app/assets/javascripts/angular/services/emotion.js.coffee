@@ -1,2 +1,2 @@
 @app.factory 'Emotion', ($resource) ->
-  $resource('/api/projects/:projectId/emotions/:id')
+  $resource('/api/projects/:project_id/emotions/:id', {project_id: '@project_id'})

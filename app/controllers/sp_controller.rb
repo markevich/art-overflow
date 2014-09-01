@@ -1,3 +1,0 @@
-class SpController < ApplicationController
-
-end

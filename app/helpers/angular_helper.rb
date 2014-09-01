@@ -11,4 +11,12 @@ module AngularHelper
       { key: 'created_at', active: false, name: 'Новые' }
     ].to_json
   end
+
+  def emotion_types
+    Emotion::TYPES
+  end
+
+  def current_user_data
+    current_user.to_json if current_user
+  end
 end

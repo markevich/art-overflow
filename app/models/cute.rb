@@ -1,0 +1,2 @@
+class Cute < Emotion
+end

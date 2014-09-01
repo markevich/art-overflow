@@ -1,0 +1,2 @@
+class Facepalm < Emotion
+end

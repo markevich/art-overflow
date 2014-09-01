@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     resources :projects, only: [:index, :show] do
-      resources :emotions, only: [:index], controller: 'project_emotions'
+      resources :emotions, only: [:index, :create], controller: 'project_emotions'
     end
   end
 
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   resources :user_avatars, only: [:edit, :update]
   resources :album_avatars, only: [:edit, :update]
 
-  get :sp, to: 'sp#index', as: :single_page
+  get :sp, to: 'single_page#index', as: :single_page
 
   resources :albums, except: :show do
     resources :pictures
@@ -51,5 +51,5 @@ Rails.application.routes.draw do
 
   resources :ping, only: :index
 
-  root to: 'sp#index'
+  root to: redirect('/sp#!/abyss')
 end

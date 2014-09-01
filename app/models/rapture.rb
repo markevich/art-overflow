@@ -1,0 +1,2 @@
+class Rapture < Emotion
+end

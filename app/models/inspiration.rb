@@ -1,0 +1,2 @@
+class Inspiration < Emotion
+end

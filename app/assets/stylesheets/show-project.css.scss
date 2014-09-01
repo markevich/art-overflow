@@ -148,9 +148,22 @@ html, body, #main-content {
     width: 66px;
     height: 68px;
     position: absolute;
+    .counter{
+      position: absolute;
+      right: 3px;
+      top: 4px;
+      font-size: 11px;
+      width: 15px;
+      text-align: center;
+    }
     &:hover{
       width: 66px + $shadowSize * 2;
       height: 68px + $shadowSize * 2;
+      cursor: pointer;
+      .counter{
+        top: 4px + $shadowSize;
+        right: 3px + $shadowSize;
+      }
     }
   }
   .cute{
@@ -180,10 +193,10 @@ html, body, #main-content {
     background: url(image-path('emotions/sprite.png'));
     background-position-x: -1 * $emotionXOffset * 2 - 10;
     top: 85px;
-    left: 132px;
+    left: 115px;
     &:hover{
       top: 85px - $shadowSize;
-      left: 132px - $shadowSize;
+      left: 115px - $shadowSize;
       background-position-x: -1 * $emotionXOffset * 2 - 10 + $shadowSize;
       background-position-y: -1 * $emotionYOffset + $shadowSize;
     }

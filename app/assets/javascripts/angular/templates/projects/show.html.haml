@@ -31,13 +31,16 @@
         %a.comment
           {{project.comments_count}}
     .line-container.emotions(ng-controller="projectEmotionsController")
-      .emotion-button.cute
-      .emotion-button.rapture
-      .emotion-button.wtf
-      .emotion-button.inspiration
-      .emotion-button.facepalm
-      %canvas(width="335" height="220" id="emotions-canvas")
-    .line-container.share
+      %img(src="assets/emotions/sprite.png" id="emotions-sprite" style="display:none")
+      %div(preload-resource="#{emotion_types}" resource-key="emotionTypes")
+      .emotion-button(ng-repeat="type in preloadedResources.emotionTypes"
+                      ng-class="type | lowercase"
+                      ng-click="addEmotion(type)"
+                      )
+        .counter.unselectable
+          {{emotionGroups[type].length}}
+      %canvas(width="300" height="220" id="emotions-canvas" emotions-background)
+    .line-container.share.unselectable
       %h2
         Поделиться
       %a.vk
