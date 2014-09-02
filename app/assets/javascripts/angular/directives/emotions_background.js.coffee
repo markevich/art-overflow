@@ -58,7 +58,15 @@ class @EmotionsHandler
         @emotions.push(emotion)
 
   numberToEmotionsGroups: (count) ->
-    acc = { groups: [], rest: count }
+    initialGroups = []
+    return initialGroups unless count
+
+    count = count - 15
+    fixedSmalls = if count < 0 then 15 + count else 15
+    initialGroups.push('s') for [1..fixedSmalls]
+    count = 0 if count < 0
+
+    acc = { groups: initialGroups, rest: count, sizing: {xxl: 100, xl: 30, l: 15, m: 3, s: 1} }
     loop
       acc = @injectRestGroups(acc)
       break unless acc.rest
@@ -66,10 +74,9 @@ class @EmotionsHandler
 
   injectRestGroups: (acc) ->
     return acc unless acc.rest
-    sizing = {xxl: 80, xl: 40, l: 20, m: 6, s: 1}
-    for own key, size of sizing
+    for own key, size of acc.sizing
       continue if acc.rest < size
-      times = acc.rest / size >> 0
+      times = Math.floor(acc.rest / size)
       acc.rest = acc.rest % size
       acc.groups.push(key) for [1..times]
       return acc
