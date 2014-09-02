@@ -47,19 +47,33 @@
         Мне нравится
       %a.twitter
         Твитнуть
+    .line-container.video
+      %p
+        %span
+          Видео making of:
+        %a
+          http://bit.ly/1fHqazG
     .line-container.categories
-      %a(ng-repeat='category in categories')
-        {{category}}
+      %h2
+        Категории
+      %a(ng-repeat='category in project.categories' class='tag' ng-href='category.link')
+        {{category.name}}
     .line-container.tags
-      %a(ng-repeat='tag in tags')
-        {{tag}}
+      %h2
+        Теги
+      %a(ng-repeat='tag in project.tags' class='tag' )
+        {{category.tag}}
+      %a.more.tag
+        eще
     .line-container.other-job
-      %img(ng-repeat='other_project in more_projects_by_user' ng-src='{{other_project.asset_url}}' alt='other_project.name')
+      %h2
+        Другие работы автора
+      %img(ng-repeat='other_project in project.more_projects_by_user' ng-src='{{other_project.asset_url}}' alt='other_project.name')
     .line-container.complaint
       %a
         Пожаловатся на работу
   .image-container
     %a.prev
-    .image-current-user
+    .image-current-user(class='bg-grey imgWrap picture-show text-align')
       %img(ng-src='{{project.asset_url}}')
     %a.next
