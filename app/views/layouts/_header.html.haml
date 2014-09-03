@@ -3,12 +3,17 @@
     .alignment-header
       .container-left
         #logo
-          %a{href: '/'}
+          = link_to '', single_page_path(anchor: '!/abyss')
         %nav#menu
           %ul
-            = active_link_to "Движуха", user_pictures_path(User.first)
-            = active_link_to "Бездна", single_page_path(anchor: "!/abyss")
-            = active_link_to "О нас", root_path
+            %li
+              %a(href="#{single_page_path(anchor: '!/abysss')}" active-link)
+                О нас
+            %li
+              %a(href="#{single_page_path(anchor: '!/abyss')}" active-link)
+                Бездна
+            %li
+              = link_to "Новости", user_pictures_path(User.first)
     - if user_signed_in?
       .container-right
         .bell

@@ -188,7 +188,7 @@ class EmotionsFactory
     new paper.Point(paper.view.size.width, paper.view.size.height).multiply(paper.Point.random())
 
   randomVectors = (multiplier)->
-    position: new paper.Point(50, 50).multiply(paper.Point.random()).add(20).multiply(new paper.Point(randomSign(), randomSign())).multiply(new paper.Point(multiplier, multiplier))
+    position: new paper.Point(25, 25).multiply(paper.Point.random()).add(15).multiply(new paper.Point(randomSign(), randomSign())).multiply(new paper.Point(multiplier, multiplier))
     rotation: (100 * Math.random() + 20) * randomSign() * multiplier
 
   extractSpriteParts: ->
