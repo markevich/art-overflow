@@ -12,7 +12,7 @@ html, body, #main-content {
     color: #f2f2f2;
     font-family: OpenSans;
     margin-bottom:18px;
-    font-size: 18px;
+    font-size: 14px;
   }
   .image-container{
     margin-right: 335px;
@@ -79,6 +79,44 @@ html, body, #main-content {
     padding:15px 0;
     border-bottom: 1px dashed #575e61;
     overflow:hidden
+  }
+  .other-job{
+    img{
+      width:89px;
+      height:85px;
+      margin-right:8px;
+      margin-bottom:8px;
+      &:nth-child(4n){
+        margin-right:0;
+      }
+    }
+
+  }
+  .complaint{
+    a{
+      color:#adadad;
+      font-size:12px;
+      display:inline-block;
+      background-image: url(image-path('warning.png'));
+      background-repeat: no-repeat;
+      padding-left: 17px;
+      padding-bottom: 30px;
+      background-position: 0px 1px;
+      cursor:pointer;
+    }
+  }
+  .video{
+    p{
+      background-image: url(image-path('video.png'));
+      background-repeat: no-repeat;
+      padding-left: 30px;
+      font-size: 13px;
+      font-family: OpenSans;
+      span {
+        display: inline-block;
+        margin-right: 5px;
+      }
+    }
   }
   .information{
     padding:15px;
@@ -261,4 +299,27 @@ html, body, #main-content {
     text-decoration:none;
   }
 
+}
+.image-current-user{
+  text-align:center;
+}
+html .tag{
+  background: #48a593;
+  font-size: 13px;
+  color: #ffffff;
+  text-decoration: none;
+  display:inline-block;
+  padding:10px;
+  margin-right:10px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  cursor:pointer;
+  &:hover{
+    color:white;
+    text-decoration: none;
+  }
+}
+html .tag.more{
+  background:#a3a3a3;
 }
