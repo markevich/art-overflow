@@ -20,6 +20,8 @@ html, body, #main-content {
     img{
       max-width:100%;
       height:auto;
+      max-height:100%;
+      vertical-align: middle;
     }
   }
   .content {
@@ -153,12 +155,31 @@ html, body, #main-content {
     }
     .table-information-current-user{
       display: table-cell;
+      position:relative;
       .name {
         color: #f2f2f2;
         font-size: 14px;
         margin-bottom: 5px;
-        display: block;
+        display: inline-block;
         cursor:pointer;
+        max-width: 170px;
+        &:hover{
+          text-decoration:none;
+        }
+      }
+      .type{
+        background-image: url(image-path('flag.png'));
+        vertical-align: top;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: inline-block;
+        width: 35px;
+        color: white;
+        height: 16px;
+        cursor: pointer;
+        font-size: 12px;
+        padding-top: 7px;
+        padding-left: 15px;
         &:hover{
           text-decoration:none;
         }

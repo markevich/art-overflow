@@ -8,12 +8,15 @@
       .table-information-current-user
         %a.name
           {{project.user.name}}
+        %a.type
+          {{project.graphics_type | uppercase }}
         .position
           developer
         %a.folow-user.active
           Подписаны
           %span
             5
+
     .line-container.description
       %h2
         {{project.name}}
@@ -22,7 +25,7 @@
       %a(ng-if='$scope.project.description.length')
         Далее
       .date
-        {{project.created_at}}
+        {{project.created_at | date:'dd.MM.yyyy'}}
       .actions-user
         %a.view
           {{project.view_count}}
@@ -53,19 +56,19 @@
           Видео making of:
         %a
           http://bit.ly/1fHqazG
-    .line-container.categories
+    .line-container.categories(ng-if='project.categories.length !== 0')
       %h2
         Категории
       %a(ng-repeat='category in project.categories' class='tag' ng-href='category.link')
         {{category.name}}
-    .line-container.tags
+    .line-container.tags(ng-if='project.tags.length !== 0')
       %h2
         Теги
       %a(ng-repeat='tag in project.tags' class='tag' )
         {{category.tag}}
       %a.more.tag
         eще
-    .line-container.other-job
+    .line-container.other-job(ng-if='project.more_projects_by_user.length !== 0')
       %h2
         Другие работы автора
       %img(ng-repeat='other_project in project.more_projects_by_user' ng-src='{{other_project.asset_url}}' alt='other_project.name')
